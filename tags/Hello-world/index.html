@@ -5,9 +5,7 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
+      <meta name="robots" content="noindex,follow">
     
   
   <!-- 渲染优化 -->
@@ -20,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>小H的博客</title>
+  <title>Tag: Hello world - 小H的博客</title>
   
 
   
@@ -318,7 +316,7 @@
   
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量--> 
@@ -337,16 +335,16 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("docs" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover')[0].style.display = "none"; 
     document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("docs" == "blog") { // 半屏 
+    if ("none" == "blog") { // 半屏 
       document.getElementsByClassName('cover')[0].classList.remove("full"); 
       document.getElementsByClassName('cover')[0].classList.add("half"); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("docs" == "docs") { // 全屏 
+    } else if ("none" == "docs") { // 全屏 
       document.getElementsByClassName('cover')[0].classList.remove("half"); 
       document.getElementsByClassName('cover')[0].classList.add("full"); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
@@ -360,18 +358,14 @@
       
       
 
+
 <div class='l_main'>
   
+    
+      
   <section class="post-list ">
     
       
-        
-          
-        
-          
-        
-          
-        
         
           
         
@@ -506,6 +500,8 @@
   
 
 
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -590,7 +586,6 @@
 
 
 </aside>
-
 
 
     </div>
