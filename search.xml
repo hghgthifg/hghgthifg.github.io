@@ -1,64 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>CSP2020游记</title>
-      <link href="/2020/10/24/CSP2020/"/>
-      <url>/2020/10/24/CSP2020/</url>
-      
-        <content type="html"><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记</p><a id="more"></a><h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p><p>第一题大概是个加解密，因为表列错了搞了好久……</p><p>第二题是个模拟k进制运算。</p><p>第三题给我看懵了，于是瞎写了几个选项。</p><p>完善程序简单多了，第一题还是做错了一个空，我也不知道我怎么会选了<code>if(n%i==0)</code>。（后悔中）</p><p>最终弄到了76分，勉强踩线过了初赛</p><h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><h5 id="出发前"><a href="#出发前" class="headerlink" title="出发前"></a>出发前</h5><p>为什么别人去老师都给减作业，我一点没减（大悲）</p><p>拿上作业，准备在等初三的大佬参加提高组的时候做</p><h5 id="出发喽"><a href="#出发喽" class="headerlink" title="出发喽"></a>出发喽</h5><p>高铁是真的快（时速300多千米），一个小时就到了南航</p><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" alt="路上的风景"></p><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" alt="路上的风景"></p><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG3.jpg" alt="路上的风景"></p><p>晚上又在洛谷做了几题，11点就睡了</p><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP2020/IMG_20201106_215718.jpg" alt="晚上"></p><h5 id="比赛前"><a href="#比赛前" class="headerlink" title="比赛前"></a>比赛前</h5><p>早上一出门吓了一跳，OIer都在附近233</p><p>大学真的是“大”学（还被高速公路穿过）</p><p>赛场在高速公路另一边，走得累死我了QAQ</p><h5 id="比赛时"><a href="#比赛时" class="headerlink" title="比赛时"></a>比赛时</h5><p>先开的第一题，一看这什么玩意儿啊，看不懂，于是就放那了</p><p>然后看了第四题，想到似乎做过类似的题，打了个暴力DFS，结果写炸了233</p><p>继续看第一题，我恍然大悟（差点没做出来233）</p><p>再看第四题，改了改，暴力是打出来了，但第三个样例输进去动都不动</p><p>开了第二题，想了亿会，用了个600n的桶</p><p><del>还是看第四题</del>，觉得是dp，于是想了半天状态转移方程，太菜了找不出来，于是打了个记忆化，样例总算是过了</p><p>第三题给我看懵了，做了半天样例都过不了，自闭了QAQ<del>（于是直接输出1）</del></p><h5 id="比赛后"><a href="#比赛后" class="headerlink" title="比赛后"></a>比赛后</h5><p>问了问大佬，感觉慌的一批</p><p>回到家后测了民间数据，前两题都对，第三题0分<del>（能对就怪了）</del>，第四题错了几个，超时一堆QAQ</p><p>第二天测了洛谷的数据，第四题只对了3个点（大悲）</p><p>不知道200多1=有没有希望QAQ</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> OI </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《Minecraft》联机教程</title>
-      <link href="/2020/10/04/Minecraft-Server/"/>
-      <url>/2020/10/04/Minecraft-Server/</url>
-      
-        <content type="html"><![CDATA[<p>非常简单易懂的联机教程</p><a id="more"></a><h4 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h4><ul><li>文件的解压缩</li><li>搜索引擎的使用</li><li><del>学会开机</del></li></ul><h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><ul><li>内网穿透</li><li>服务器</li></ul><h2 id="一、内网穿透"><a href="#一、内网穿透" class="headerlink" title="一、内网穿透"></a>一、内网穿透</h2><h4 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h4><ul><li>windows系统，推荐win10 64位（相信用Linux的童鞋可以自己解决QAQ）</li><li>java环境</li><li>Minecraft客户端</li></ul><p>内网穿透的软件有很多，有花生壳、Sakura Frp等</p><p>本教程使用了Sakura Frp，理由是免费而且速度快</p><p>首先打开<a href="https://www.natfrp.com/">官网</a></p><p><img src="https://s1.ax1x.com/2020/10/07/0do07q.png"></p><p>注册登录后来到管理面板，下载启动器</p><p><img src="https://s1.ax1x.com/2020/10/07/0dT3r9.png"><img src="https://s1.ax1x.com/2020/10/07/0dT1KJ.png"></p><p>获取访问密钥</p><p><a href="https://imgchr.com/i/0dTORU"><img src="https://s1.ax1x.com/2020/10/07/0dTORU.png"></a></p><p>下载解压后打开，找到设置，粘贴访问密钥</p><p><img src="https://s1.ax1x.com/2020/10/07/0d7AzD.png"></p><p><a href="https://imgchr.com/i/0d7lJf"><img src="https://s1.ax1x.com/2020/10/07/0d7lJf.png"></a></p><p>创建一条隧道，服务器选个近一点的</p><p><a href="https://imgchr.com/i/0d74fK"><img src="https://s1.ax1x.com/2020/10/07/0d74fK.png"></a></p><p>开启隧道（要记住给的地址，一会要用）</p><p><img src="https://s1.ax1x.com/2020/10/07/0d7q0A.png"></p><p>接下来需要下载服务端（请自行搜索，注意版本对应），我使用的是paper端，完成后把elua.txt中的elua改成true</p><p>新建start.bat，方便以后使用</p><p>写入以下命令（Xmx是最大内存，Xms是最小内存，根据自己电脑的配置设置）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -server -Xmx1536M -Xms1024M -jar 服务端名</span><br></pre></td></tr></table></figure><p>然后输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，cmd窗口也不能关）</p><p><img src="https://s1.ax1x.com/2020/10/07/0dbYan.png"></p><h1 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h1><p>未完成……</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Minecraft </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello-World</title>
-      <link href="/2020/08/17/Hello-World/"/>
-      <url>/2020/08/17/Hello-World/</url>
-      
-        <content type="html"><![CDATA[<p>不同语言的Hello world</p><a id="more"></a><h2 id="c"><a href="#c" class="headerlink" title="c"></a>c</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Python3"><a href="#Python3" class="headerlink" title="Python3"></a>Python3</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;Hello world&quot;</span>)</span><br></pre></td></tr></table></figure><h2 id="Python2"><a href="#Python2" class="headerlink" title="Python2"></a>Python2</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure><h2 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">HelloWorld</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">HelloWorld</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            System.Console.WriteLine(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello world</span><br></pre></td></tr></table></figure><h2 id="BrainFuck"><a href="#BrainFuck" class="headerlink" title="BrainFuck"></a>BrainFuck</h2><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++<span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++&gt;++<span class="literal">+</span>&gt;++<span class="literal">+</span>&gt;<span class="literal">+</span>&lt;&lt;&lt;&lt;<span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+</span>&gt;<span class="literal">+</span>&gt;<span class="literal">-</span>&gt;&gt;<span class="literal">+</span><span class="title">[</span>&lt;<span class="title">]</span>&lt;<span class="literal">-</span><span class="title">]</span>&gt;&gt;<span class="string">.</span>&gt;--<span class="literal">-</span><span class="string">.</span>++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="string">.</span><span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>&gt;&gt;<span class="string">.</span>&lt;<span class="literal">-</span><span class="string">.</span>&lt;<span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>&gt;&gt;<span class="literal">+</span><span class="string">.</span>&gt;++<span class="string">.</span></span><br></pre></td></tr></table></figure><h2 id="文言"><a href="#文言" class="headerlink" title="文言"></a>文言</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">吾有一言。曰「「Hello World」」。書之。</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Hello world </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>CSP2020游记</title>
+    <url>/2020/10/24/CSP2020/</url>
+    <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记</p>
+<a id="more"></a>
+
+<h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
+<p>第一题大概是个加解密，因为表列错了搞了好久……</p>
+<p>第二题是个模拟k进制运算。</p>
+<p>第三题给我看懵了，于是瞎写了几个选项。</p>
+<p>完善程序简单多了，第一题还是做错了一个空，我也不知道我怎么会选了<code>if(n%i==0)</code>。（后悔中）</p>
+<p>最终弄到了76分，勉强踩线过了初赛</p>
+<h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><h5 id="出发前"><a href="#出发前" class="headerlink" title="出发前"></a>出发前</h5><p>为什么别人去老师都给减作业，我一点没减（大悲）</p>
+<p>拿上作业，准备在等初三的大佬参加提高组的时候做</p>
+<h5 id="出发喽"><a href="#出发喽" class="headerlink" title="出发喽"></a>出发喽</h5><p>高铁是真的快（时速300多千米），一个小时就到了南航</p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" alt="路上的风景"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" alt="路上的风景"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG3.jpg" alt="路上的风景"></p>
+<p>晚上又在洛谷做了几题，11点就睡了</p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP2020/IMG_20201106_215718.jpg" alt="晚上"></p>
+<h5 id="比赛前"><a href="#比赛前" class="headerlink" title="比赛前"></a>比赛前</h5><p>早上一出门吓了一跳，OIer都在附近233</p>
+<p>大学真的是“大”学（还被高速公路穿过）</p>
+<p>赛场在高速公路另一边，走得累死我了QAQ</p>
+<h5 id="比赛时"><a href="#比赛时" class="headerlink" title="比赛时"></a>比赛时</h5><p>先开的第一题，一看这什么玩意儿啊，看不懂，于是就放那了</p>
+<p>然后看了第四题，想到似乎做过类似的题，打了个暴力DFS，结果写炸了233</p>
+<p>继续看第一题，我恍然大悟（差点没做出来233）</p>
+<p>再看第四题，改了改，暴力是打出来了，但第三个样例输进去动都不动</p>
+<p>开了第二题，想了亿会，用了个600n的桶</p>
+<p><del>还是看第四题</del>，觉得是dp，于是想了半天状态转移方程，太菜了找不出来，于是打了个记忆化，样例总算是过了</p>
+<p>第三题给我看懵了，做了半天样例都过不了，自闭了QAQ<del>（于是直接输出1）</del></p>
+<h5 id="比赛后"><a href="#比赛后" class="headerlink" title="比赛后"></a>比赛后</h5><p>问了问大佬，感觉慌的一批</p>
+<p>回到家后测了民间数据，前两题都对，第三题0分<del>（能对就怪了）</del>，第四题错了几个，超时一堆QAQ</p>
+<p>第二天测了洛谷的数据，第四题只对了3个点（大悲）</p>
+<p>不知道200多1=有没有希望QAQ</p>
+]]></content>
+      <tags>
+        <tag>OI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello-World</title>
+    <url>/2020/08/17/Hello-World/</url>
+    <content><![CDATA[<p>不同语言的Hello world</p>
+<a id="more"></a>
+<h2 id="c"><a href="#c" class="headerlink" title="c"></a>c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python3"><a href="#Python3" class="headerlink" title="Python3"></a>Python3</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;Hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python2"><a href="#Python2" class="headerlink" title="Python2"></a>Python2</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">HelloWorld</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">HelloWorld</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            System.Console.WriteLine(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Hello world</span><br></pre></td></tr></table></figure>
+
+<h2 id="BrainFuck"><a href="#BrainFuck" class="headerlink" title="BrainFuck"></a>BrainFuck</h2><figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line">++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++<span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++&gt;++<span class="literal">+</span>&gt;++<span class="literal">+</span>&gt;<span class="literal">+</span>&lt;&lt;&lt;&lt;<span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+</span>&gt;<span class="literal">+</span>&gt;<span class="literal">-</span>&gt;&gt;<span class="literal">+</span><span class="title">[</span>&lt;<span class="title">]</span>&lt;<span class="literal">-</span><span class="title">]</span>&gt;&gt;<span class="string">.</span>&gt;--<span class="literal">-</span><span class="string">.</span>++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="string">.</span><span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>&gt;&gt;<span class="string">.</span>&lt;<span class="literal">-</span><span class="string">.</span>&lt;<span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>&gt;&gt;<span class="literal">+</span><span class="string">.</span>&gt;++<span class="string">.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文言"><a href="#文言" class="headerlink" title="文言"></a>文言</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">吾有一言。曰「「Hello World」」。書之。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Hello world</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Minecraft》联机教程</title>
+    <url>/2020/10/04/Minecraft-Server/</url>
+    <content><![CDATA[<p>非常简单易懂的联机教程</p>
+<a id="more"></a>
+
+<h4 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h4><ul>
+<li>文件的解压缩</li>
+<li>搜索引擎的使用</li>
+<li><del>学会开机</del></li>
+</ul>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><ul>
+<li>内网穿透</li>
+<li>服务器</li>
+</ul>
+<h2 id="一、内网穿透"><a href="#一、内网穿透" class="headerlink" title="一、内网穿透"></a>一、内网穿透</h2><h4 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h4><ul>
+<li>windows系统，推荐win10 64位（相信用Linux的童鞋可以自己解决QAQ）</li>
+<li>java环境</li>
+<li>Minecraft客户端</li>
+</ul>
+<p>内网穿透的软件有很多，有花生壳、Sakura Frp等</p>
+<p>本教程使用了Sakura Frp，理由是免费而且速度快</p>
+<p>首先打开<a href="https://www.natfrp.com/">官网</a></p>
+<p><img src="https://s1.ax1x.com/2020/10/07/0do07q.png"></p>
+<p>注册登录后来到管理面板，下载启动器</p>
+<p><img src="https://s1.ax1x.com/2020/10/07/0dT3r9.png"><img src="https://s1.ax1x.com/2020/10/07/0dT1KJ.png"></p>
+<p>获取访问密钥</p>
+<p><a href="https://imgchr.com/i/0dTORU"><img src="https://s1.ax1x.com/2020/10/07/0dTORU.png"></a></p>
+<p>下载解压后打开，找到设置，粘贴访问密钥</p>
+<p><img src="https://s1.ax1x.com/2020/10/07/0d7AzD.png"></p>
+<p><a href="https://imgchr.com/i/0d7lJf"><img src="https://s1.ax1x.com/2020/10/07/0d7lJf.png"></a></p>
+<p>创建一条隧道，服务器选个近一点的</p>
+<p><a href="https://imgchr.com/i/0d74fK"><img src="https://s1.ax1x.com/2020/10/07/0d74fK.png"></a></p>
+<p>开启隧道（要记住给的地址，一会要用）</p>
+<p><img src="https://s1.ax1x.com/2020/10/07/0d7q0A.png"></p>
+<p>接下来需要下载服务端（请自行搜索，注意版本对应），我使用的是paper端，完成后把elua.txt中的elua改成true</p>
+<p>新建start.bat，方便以后使用</p>
+<p>写入以下命令（Xmx是最大内存，Xms是最小内存，根据自己电脑的配置设置）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -server -Xmx1536M -Xms1024M -jar 服务端名</span><br></pre></td></tr></table></figure>
+
+<p>然后输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，cmd窗口也不能关）</p>
+<p><img src="https://s1.ax1x.com/2020/10/07/0dbYan.png"></p>
+<h1 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h1><p>未完成……</p>
+]]></content>
+      <tags>
+        <tag>Minecraft</tag>
+      </tags>
+  </entry>
 </search>
