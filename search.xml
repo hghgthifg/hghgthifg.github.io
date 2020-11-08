@@ -93,25 +93,25 @@
 <p>内网穿透的软件有很多，有花生壳、Sakura Frp等</p>
 <p>本教程使用了Sakura Frp，理由是免费而且速度快</p>
 <p>首先打开<a href="https://www.natfrp.com/">官网</a></p>
-<p><img src="https://s1.ax1x.com/2020/10/07/0do07q.png"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0do07q.png"></p>
 <p>注册登录后来到管理面板，下载启动器</p>
-<p><img src="https://s1.ax1x.com/2020/10/07/0dT3r9.png"><img src="https://s1.ax1x.com/2020/10/07/0dT1KJ.png"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dT3r9.png"><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dT1KJ.png"></p>
 <p>获取访问密钥</p>
-<p><a href="https://imgchr.com/i/0dTORU"><img src="https://s1.ax1x.com/2020/10/07/0dTORU.png"></a></p>
+<p><a href="https://imgchr.com/i/0dTORU"><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dTORU.png"></a></p>
 <p>下载解压后打开，找到设置，粘贴访问密钥</p>
-<p><img src="https://s1.ax1x.com/2020/10/07/0d7AzD.png"></p>
-<p><a href="https://imgchr.com/i/0d7lJf"><img src="https://s1.ax1x.com/2020/10/07/0d7lJf.png"></a></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7AzD.md.png"></p>
+<p><a href="https://imgchr.com/i/0d7lJf"><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7lJf.md.png"></a></p>
 <p>创建一条隧道，服务器选个近一点的</p>
-<p><a href="https://imgchr.com/i/0d74fK"><img src="https://s1.ax1x.com/2020/10/07/0d74fK.png"></a></p>
+<p><a href="https://imgchr.com/i/0d74fK"><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d74fK.png"></a></p>
 <p>开启隧道（要记住给的地址，一会要用）</p>
-<p><img src="https://s1.ax1x.com/2020/10/07/0d7q0A.png"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7q0A.png"></p>
 <p>接下来需要下载服务端（请自行搜索，注意版本对应），我使用的是paper端，完成后把elua.txt中的elua改成true</p>
 <p>新建start.bat，方便以后使用</p>
 <p>写入以下命令（Xmx是最大内存，Xms是最小内存，根据自己电脑的配置设置）</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -server -Xmx1536M -Xms1024M -jar 服务端名</span><br></pre></td></tr></table></figure>
 
-<p>然后输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，cmd窗口也不能关）</p>
-<p><img src="https://s1.ax1x.com/2020/10/07/0dbYan.png"></p>
+<p>然后输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，命令窗口也不能关）</p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dbYan.png"></p>
 <h1 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h1><p>未完成……</p>
 ]]></content>
       <tags>
