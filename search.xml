@@ -112,7 +112,11 @@
 <p>写入以下命令（Xmx是最大内存，Xms是最小内存，根据自己电脑的配置设置）</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -server -Xmx1536M -Xms1024M -jar 服务端名</span><br></pre></td></tr></table></figure>
 
-<p>然后输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，命令窗口也不能关）</p>
+<p>接下来会突然停止</p>
+<p>别慌</p>
+<p>打开elua.txt</p>
+<p>将false改成true，然后再次启动即可</p>
+<p>输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，命令窗口也不能关）</p>
 <p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dbYan.png"></p>
 <h1 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h1><p>未完成……</p>
 ]]></content>
