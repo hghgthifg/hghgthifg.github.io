@@ -22,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>关于 - 小H的博客</title>
+  <title>P2027 - 小H的博客</title>
+  
+    <meta name="keywords" content="OI,Luogu,题解,模拟">
   
 
+  
+    <meta name="description" content="P2027 bf">
   
 
   <!-- feed -->
@@ -111,6 +115,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -321,7 +327,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper docs dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -359,8 +365,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-<div class='l_main no_sidebar'>
-  <article class="article post white-box reveal md shadow article-type-docs" id="docs" itemscope itemprop="blogPost">
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -369,19 +375,116 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
     
+      <h1 class="title">
+        P2027
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/%E5%A4%B4%E5%83%8F.jpg">
+    <p>小H</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Feb 14, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="P2027" data-path="/2021/02/14/P2027/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
   </div>
 
 
   
   
-  <p>……</p>
+  <p>P2027 bf</p>
+<a id="more"></a>
 
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>编写 brainfuck 语言的解释器。</p>
+<p>输入：</p>
+<ul>
+<li>给出一个字符串。</li>
+<li>字符串包含注释，代码和缓冲区。</li>
+<li>程序不会越界。</li>
+<li>程序不会死循环。</li>
+<li>循环有嵌套。</li>
+</ul>
+<p>输出</p>
+<ul>
+<li>代码执行结果。</li>
+</ul>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>代码分为两部分。</p>
+<p>一、输入</p>
+<p>首先读入代码部分，注意要过滤注释，读到 ＄ 就停止，过滤空格后读取缓冲区部分，最后过滤缓冲区后面的空格和 ＄</p>
+<p>二、解释</p>
+<p>定义 runcode 函数用来执行每个字符，返回值为 int 类型，表示下一个要执行的字符的下标。</p>
+<p>首先解决没有循环的情况，这时将代码扫描一遍，将每个字符单独执行即可。</p>
+<p>接下来解决循环，遇到字符 [ 时，判断是否结束循环，结束就跳转到对应的 ] 的下一个字符处执行，没结束就继续执行下一个字符。</p>
+<p>遇到字符 ] 时，判断是否结束循环，结束就执行下一个字符，没结束就跳转到对应的 [ 处执行。</p>
+<p>当然，直接寻找对应的中括号肯定会超时，所以需要预处理对应中括号的位置，这样就能直接跳转。</p>
+<p>在输入的时候就可以预处理，用栈记录字符 [ 的位置，如果遇到字符 ] 就记录要跳转到的位置，然后弹出栈顶元素。</p>
+<p>详情请见代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">233333</span>;</span><br><span class="line"><span class="keyword">char</span> code[MAXN]; <span class="comment">//储存代码</span></span><br><span class="line"><span class="keyword">char</span> tmp[MAXN];  <span class="comment">//储存缓冲区内容</span></span><br><span class="line"><span class="keyword">char</span> mem[MAXN];  <span class="comment">//模拟内存槽</span></span><br><span class="line"><span class="keyword">char</span> ch;         <span class="comment">//辅助读入字符</span></span><br><span class="line"><span class="keyword">int</span> s[MAXN];     <span class="comment">//用来预处理循环跳转的栈</span></span><br><span class="line"><span class="keyword">int</span> l[MAXN];     <span class="comment">// ］向左跳到的位置</span></span><br><span class="line"><span class="keyword">int</span> r[MAXN];     <span class="comment">// ［向右跳到的位置</span></span><br><span class="line"><span class="keyword">int</span> clen;        <span class="comment">//代码长度，用于输入</span></span><br><span class="line"><span class="keyword">int</span> tlen;        <span class="comment">//缓冲区长度，用于输入</span></span><br><span class="line"><span class="keyword">int</span> tp;          <span class="comment">//缓冲区指针，表示现在用到了哪</span></span><br><span class="line"><span class="keyword">int</span> sp;          <span class="comment">//栈ｓ栈顶指针，用于预处理循环跳转</span></span><br><span class="line"><span class="keyword">int</span> p = <span class="number">1</span>;       <span class="comment">//内存槽指针</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">runcode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;cp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (code[cp])</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        mem[p]++;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//将指针指向的数值加一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        mem[p]--;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//将指针指向的数值减一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;&lt;&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        p--;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//指针指向的地址减一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;&gt;&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        p++;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//指针指向的地址加一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(mem[p]);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//输出指针指向的数值</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;,&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (tp &gt; tlen) <span class="comment">//缓冲区为空送入-1</span></span><br><span class="line">            mem[p] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//送入一个字符</span></span><br><span class="line">            mem[p] = tmp[++tp];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//替换指针指向的数值</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;[&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (mem[p] == <span class="number">0</span>) <span class="comment">//为０就向右跳转，跳出循环</span></span><br><span class="line">            <span class="keyword">return</span> r[cp] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;]&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (mem[p] != <span class="number">0</span>)  <span class="comment">//指针指向的值不为０，重复执行</span></span><br><span class="line">            <span class="keyword">return</span> l[cp]; <span class="comment">//跳到循环左侧重新开始循环</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cp + <span class="number">1</span>; <span class="comment">//执行下一个字符的代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;$&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ch = getchar();</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;.&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;,&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;&lt;&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;&gt;&#x27;</span> <span class="keyword">or</span></span><br><span class="line">            ch == <span class="string">&#x27;+&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;-&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;[&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            code[++clen] = ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="comment">//过滤注释</span></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[++sp] = clen;</span><br><span class="line">        &#125; <span class="comment">//如果是［就入栈并记录下标</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            r[s[sp]] = clen; <span class="comment">//记录向右跳到的位置</span></span><br><span class="line">            l[clen] = s[sp]; <span class="comment">//记录向左跳到的位置</span></span><br><span class="line">            sp--;            <span class="comment">//弹出栈顶元素</span></span><br><span class="line">        &#125;                    <span class="comment">//匹配对应的中括号</span></span><br><span class="line">    &#125;                        <span class="comment">//读入代码</span></span><br><span class="line">    ch = getchar();          <span class="comment">//过滤第一个＄后面的空格</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;$&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ch = getchar();</span><br><span class="line">        tmp[++tlen] = ch;</span><br><span class="line">    &#125;                <span class="comment">//读入缓冲区</span></span><br><span class="line">    tmp[tlen--] = <span class="number">0</span>; <span class="comment">//过滤缓冲区后的＄</span></span><br><span class="line">    tmp[tlen--] = <span class="number">0</span>; <span class="comment">//过滤缓冲区后的空格</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= clen; i = runcode(i)); <span class="comment">//运行代码直到完成</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
   
     
     <div class='footer'>
       
       
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://hghgthifg.tk/2021/02/14/P2027/>http://hghgthifg.tk/2021/02/14/P2027/</a></p>
+              
+            
+          </blockquote>
+        </div>
       
       
     </div>
@@ -393,6 +496,76 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='article-meta' id="bottom">
     <div class='new-meta-box'>
       
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-14T19:33:44+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Feb 14, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/OI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>OI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Luogu/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Luogu</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A2%98%E8%A7%A3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>题解</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>模拟</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hghgthifg.tk/2021/02/14/P2027/&title=P2027 - 小H的博客&summary=P2027 bf"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://hghgthifg.tk/2021/02/14/P2027/&title=P2027 - 小H的博客&summary=P2027 bf"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://hghgthifg.tk/2021/02/14/P2027/&title=P2027 - 小H的博客&summary=P2027 bf"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </div>
 
@@ -401,7 +574,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
   
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/10/24/CSP2020/'>
+          <p class='title'>CSP2020游记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>蒟蒻第一次参加CSP-J写的游记
+
+
+初赛选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。
+第一题大概是个加解密，因为表列错了搞了好久……
+第二题是个模拟k进制运算。
+第三题给我看懵了，于...</p>
+        </a>
+      
+    </div>
+  
 </article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="gitalk-container"></div>
+
+  </article>
+
 
 
 
@@ -410,6 +610,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%E7%AE%80%E8%BF%B0"><span class="toc-text">题意简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-text">题目分析</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
 
 </aside>
 
@@ -421,8 +644,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="P2027";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

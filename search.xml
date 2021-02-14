@@ -15,13 +15,12 @@
 <h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><h5 id="出发前"><a href="#出发前" class="headerlink" title="出发前"></a>出发前</h5><p>为什么别人去老师都给减作业，我一点没减（大悲）</p>
 <p>拿上作业，准备在等初三的大佬参加提高组的时候做</p>
 <h5 id="出发喽"><a href="#出发喽" class="headerlink" title="出发喽"></a>出发喽</h5><p>高铁是真的快（时速300多千米），一个小时就到了南航</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" alt="路上的风景"></p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" alt="路上的风景"></p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG3.jpg" alt="路上的风景"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="路上的风景"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="路上的风景"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG3.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="路上的风景"></p>
 <p>晚上又在洛谷做了几题，11点就睡了</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP2020/IMG_20201106_215718.jpg" alt="晚上"></p>
-<h5 id="比赛前"><a href="#比赛前" class="headerlink" title="比赛前"></a>比赛前</h5><p>早上一出门吓了一跳，OIer都在附近233</p>
-<p>大学真的是“大”学（还被高速公路穿过）</p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP2020/IMG_20201106_215718.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP2020/IMG_20201106_215718.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="晚上"></p>
+<h5 id="比赛前"><a href="#比赛前" class="headerlink" title="比赛前"></a>比赛前</h5><p>大学真的是“大”学（还被高速公路穿过）</p>
 <p>赛场在高速公路另一边，走得累死我了QAQ</p>
 <h5 id="比赛时"><a href="#比赛时" class="headerlink" title="比赛时"></a>比赛时</h5><p>先开的第一题，一看这什么玩意儿啊，看不懂，于是就放那了</p>
 <p>然后看了第四题，想到似乎做过类似的题，打了个暴力DFS，结果写炸了233</p>
@@ -35,93 +34,53 @@
 <p>第二天测了洛谷的数据，第四题只对了3个点（大悲）</p>
 <p>不知道200多1=有没有希望QAQ</p>
 ]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
       <tags>
         <tag>OI</tag>
         <tag>CSP</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello-World</title>
-    <url>/2020/08/17/Hello-World/</url>
-    <content><![CDATA[<p>不同语言的Hello world</p>
-<a id="more"></a>
-<h2 id="c"><a href="#c" class="headerlink" title="c"></a>c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Python3"><a href="#Python3" class="headerlink" title="Python3"></a>Python3</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;Hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Python2"><a href="#Python2" class="headerlink" title="Python2"></a>Python2</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">HelloWorld</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">HelloWorld</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            System.Console.WriteLine(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Hello world</span><br></pre></td></tr></table></figure>
-
-<h2 id="BrainFuck"><a href="#BrainFuck" class="headerlink" title="BrainFuck"></a>BrainFuck</h2><figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line">++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++<span class="literal">+</span><span class="literal">+</span><span class="title">[</span>&gt;++&gt;++<span class="literal">+</span>&gt;++<span class="literal">+</span>&gt;<span class="literal">+</span>&lt;&lt;&lt;&lt;<span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+</span>&gt;<span class="literal">+</span>&gt;<span class="literal">-</span>&gt;&gt;<span class="literal">+</span><span class="title">[</span>&lt;<span class="title">]</span>&lt;<span class="literal">-</span><span class="title">]</span>&gt;&gt;<span class="string">.</span>&gt;--<span class="literal">-</span><span class="string">.</span>++<span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="literal">+</span><span class="string">.</span><span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>&gt;&gt;<span class="string">.</span>&lt;<span class="literal">-</span><span class="string">.</span>&lt;<span class="string">.</span>++<span class="literal">+</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>--<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="string">.</span>&gt;&gt;<span class="literal">+</span><span class="string">.</span>&gt;++<span class="string">.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Rust"><a href="#Rust" class="headerlink" title="Rust"></a>Rust</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="文言"><a href="#文言" class="headerlink" title="文言"></a>文言</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">吾有一言。曰「「Hello World」」。書之。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Hello world</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《Minecraft》联机教程</title>
-    <url>/2020/10/04/Minecraft-Server/</url>
-    <content><![CDATA[<p>非常简单易懂的联机教程</p>
+    <title>P2027</title>
+    <url>/2021/02/14/P2027/</url>
+    <content><![CDATA[<p>P2027 bf</p>
 <a id="more"></a>
 
-<h4 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h4><ul>
-<li>文件的解压缩</li>
-<li>搜索引擎的使用</li>
-<li><del>学会开机</del></li>
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>编写 brainfuck 语言的解释器。</p>
+<p>输入：</p>
+<ul>
+<li>给出一个字符串。</li>
+<li>字符串包含注释，代码和缓冲区。</li>
+<li>程序不会越界。</li>
+<li>程序不会死循环。</li>
+<li>循环有嵌套。</li>
 </ul>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><ul>
-<li>内网穿透</li>
-<li>服务器</li>
+<p>输出</p>
+<ul>
+<li>代码执行结果。</li>
 </ul>
-<h2 id="一、内网穿透"><a href="#一、内网穿透" class="headerlink" title="一、内网穿透"></a>一、内网穿透</h2><h4 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h4><ul>
-<li>windows系统，推荐win10 64位（相信用Linux的童鞋可以自己解决QAQ）</li>
-<li>java环境</li>
-<li>Minecraft客户端</li>
-</ul>
-<p>内网穿透的软件有很多，有花生壳、Sakura Frp等</p>
-<p>本教程使用了Sakura Frp，理由是免费而且速度快</p>
-<p>首先打开<a href="https://www.natfrp.com/">官网</a></p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0do07q.png"></p>
-<p>注册登录后来到管理面板，下载启动器</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dT3r9.png"><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dT1KJ.png"></p>
-<p>获取访问密钥</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dTORU.png"></p>
-<p>下载解压后打开，找到设置，粘贴访问密钥</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7AzD.md.png"></p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7lJf.md.png"></p>
-<p>创建一条隧道，服务器选个近一点的</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d74fK.png"></p>
-<p>开启隧道（要记住给的地址，一会要用）</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0d7q0A.png"></p>
-<p>接下来需要下载服务端（请自行搜索，注意版本对应），我使用的是paper端，完成后把elua.txt中的elua改成true</p>
-<p>新建start.bat，方便以后使用</p>
-<p>写入以下命令（Xmx是最大内存，Xms是最小内存，根据自己电脑的配置设置）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -server -Xmx1536M -Xms1024M -jar 服务端名</span><br></pre></td></tr></table></figure>
-
-<p>接下来会突然停止</p>
-<p>别慌</p>
-<p>打开elua.txt</p>
-<p>将false改成true，然后再次启动即可</p>
-<p>输入刚才的地址，点击完成，即可愉快的游玩（服务端不能关，命令窗口也不能关）</p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/blog-MinecraftServer/0dbYan.png"></p>
-<h1 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h1><p>未完成……</p>
-]]></content>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>代码分为两部分。</p>
+<p>一、输入</p>
+<p>首先读入代码部分，注意要过滤注释，读到 ＄ 就停止，过滤空格后读取缓冲区部分，最后过滤缓冲区后面的空格和 ＄</p>
+<p>二、解释</p>
+<p>定义 runcode 函数用来执行每个字符，返回值为 int 类型，表示下一个要执行的字符的下标。</p>
+<p>首先解决没有循环的情况，这时将代码扫描一遍，将每个字符单独执行即可。</p>
+<p>接下来解决循环，遇到字符 [ 时，判断是否结束循环，结束就跳转到对应的 ] 的下一个字符处执行，没结束就继续执行下一个字符。</p>
+<p>遇到字符 ] 时，判断是否结束循环，结束就执行下一个字符，没结束就跳转到对应的 [ 处执行。</p>
+<p>当然，直接寻找对应的中括号肯定会超时，所以需要预处理对应中括号的位置，这样就能直接跳转。</p>
+<p>在输入的时候就可以预处理，用栈记录字符 [ 的位置，如果遇到字符 ] 就记录要跳转到的位置，然后弹出栈顶元素。</p>
+<p>详情请见代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">233333</span>;</span><br><span class="line"><span class="keyword">char</span> code[MAXN]; <span class="comment">//储存代码</span></span><br><span class="line"><span class="keyword">char</span> tmp[MAXN];  <span class="comment">//储存缓冲区内容</span></span><br><span class="line"><span class="keyword">char</span> mem[MAXN];  <span class="comment">//模拟内存槽</span></span><br><span class="line"><span class="keyword">char</span> ch;         <span class="comment">//辅助读入字符</span></span><br><span class="line"><span class="keyword">int</span> s[MAXN];     <span class="comment">//用来预处理循环跳转的栈</span></span><br><span class="line"><span class="keyword">int</span> l[MAXN];     <span class="comment">// ］向左跳到的位置</span></span><br><span class="line"><span class="keyword">int</span> r[MAXN];     <span class="comment">// ［向右跳到的位置</span></span><br><span class="line"><span class="keyword">int</span> clen;        <span class="comment">//代码长度，用于输入</span></span><br><span class="line"><span class="keyword">int</span> tlen;        <span class="comment">//缓冲区长度，用于输入</span></span><br><span class="line"><span class="keyword">int</span> tp;          <span class="comment">//缓冲区指针，表示现在用到了哪</span></span><br><span class="line"><span class="keyword">int</span> sp;          <span class="comment">//栈ｓ栈顶指针，用于预处理循环跳转</span></span><br><span class="line"><span class="keyword">int</span> p = <span class="number">1</span>;       <span class="comment">//内存槽指针</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">runcode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;cp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (code[cp])</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        mem[p]++;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//将指针指向的数值加一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        mem[p]--;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//将指针指向的数值减一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;&lt;&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        p--;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//指针指向的地址减一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;&gt;&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        p++;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//指针指向的地址加一</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(mem[p]);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//输出指针指向的数值</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;,&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (tp &gt; tlen) <span class="comment">//缓冲区为空送入-1</span></span><br><span class="line">            mem[p] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//送入一个字符</span></span><br><span class="line">            mem[p] = tmp[++tp];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">//替换指针指向的数值</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;[&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (mem[p] == <span class="number">0</span>) <span class="comment">//为０就向右跳转，跳出循环</span></span><br><span class="line">            <span class="keyword">return</span> r[cp] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;]&#x27;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (mem[p] != <span class="number">0</span>)  <span class="comment">//指针指向的值不为０，重复执行</span></span><br><span class="line">            <span class="keyword">return</span> l[cp]; <span class="comment">//跳到循环左侧重新开始循环</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cp + <span class="number">1</span>; <span class="comment">//执行下一个字符的代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;$&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ch = getchar();</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;.&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;,&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;&lt;&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;&gt;&#x27;</span> <span class="keyword">or</span></span><br><span class="line">            ch == <span class="string">&#x27;+&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;-&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;[&#x27;</span> <span class="keyword">or</span> ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            code[++clen] = ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="comment">//过滤注释</span></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[++sp] = clen;</span><br><span class="line">        &#125; <span class="comment">//如果是［就入栈并记录下标</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            r[s[sp]] = clen; <span class="comment">//记录向右跳到的位置</span></span><br><span class="line">            l[clen] = s[sp]; <span class="comment">//记录向左跳到的位置</span></span><br><span class="line">            sp--;            <span class="comment">//弹出栈顶元素</span></span><br><span class="line">        &#125;                    <span class="comment">//匹配对应的中括号</span></span><br><span class="line">    &#125;                        <span class="comment">//读入代码</span></span><br><span class="line">    ch = getchar();          <span class="comment">//过滤第一个＄后面的空格</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;$&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ch = getchar();</span><br><span class="line">        tmp[++tlen] = ch;</span><br><span class="line">    &#125;                <span class="comment">//读入缓冲区</span></span><br><span class="line">    tmp[tlen--] = <span class="number">0</span>; <span class="comment">//过滤缓冲区后的＄</span></span><br><span class="line">    tmp[tlen--] = <span class="number">0</span>; <span class="comment">//过滤缓冲区后的空格</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= clen; i = runcode(i)); <span class="comment">//运行代码直到完成</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
       <tags>
-        <tag>Minecraft</tag>
+        <tag>OI</tag>
+        <tag>Luogu</tag>
+        <tag>题解</tag>
+        <tag>模拟</tag>
       </tags>
   </entry>
 </search>
