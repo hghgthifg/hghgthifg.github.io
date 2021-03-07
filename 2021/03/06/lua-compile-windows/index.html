@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: Luogu - 小H的博客</title>
+  <title>Window下使用MinGW64配置lua - 小H的博客</title>
+  
+    <meta name="keywords" content="C++,lua,CMake">
   
 
+  
+    <meta name="description" content="Window下使用MinGW64配置lua">
   
 
   <!-- feed -->
@@ -325,7 +327,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -370,74 +372,278 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        Window下使用MinGW64配置lua
+      </h1>
+      <div class='new-meta-box'>
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/02/14/P2027/">
-        P2027
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P2027 bf</p>
-    
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-02-14</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 6, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Window下使用MinGW64配置lua" data-path="/2021/03/06/lua-compile-windows/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>Window下使用MinGW64配置lua</p>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前配置lua的时候在网上找了半天教程，结果找到的要么是用msvc的要么就是过时的，<br>摸索了半天终于明白了如何配置，于是写下这篇文章分享自己的经验。</p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Windows 10</li>
+<li>Git Bash 2.30.0</li>
+<li>MinGW64 7.3.0</li>
+<li>Lua 5.4.2</li>
+<li>CMake 3.19.4</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>首先下载Lua源代码，官网如果无法访问可以点击<a target="_blank" rel="noopener" href="https://xiao-h.lanzous.com/iVy0wmmqhda">这里</a>下载。</p>
+<p>解压后如下：<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>如果只是想要使用lua解释器或dll，那么执行<code>make mingw</code>即可。（我把mingw32-make.exe复制了一份并改名为make.exe了）</p>
+<p>然后就可以看到src目录下的lua.exe、luac.exe、lua54.dll以及一堆.o文件了。</p>
+<p>虽然用来学习lua已经足够了，但显然不适合嵌入项目里。</p>
+<p>打开doc下的readme.html，看到可以用<code>make local</code>生成，于是快乐地打开cmd，快乐地执行<code>make mingw local</code>，然后快乐地报错。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>（其实执行<code>make clean</code>也会报错）</p>
+<p>报错原因则是Makefile里的命令不是Windows的……</p>
+<p>解决方法也很简单——</p>
+<p><del>手动改</del></p>
+<p>改是不可能的，太麻烦了，有没有更方便的解决方法呢？</p>
+<p>有！</p>
+<p>那就是GitBash！</p>
+<p><img src="https://git-scm.com/images/logo@2x.png" class="lazyload" data-srcset="https://git-scm.com/images/logo@2x.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>打开GitBash，执行<code>make mingw local</code>，然后即可看到install目录下有这些文件了。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">├─bin</span><br><span class="line">│      lua.exe</span><br><span class="line">│      luac.exe</span><br><span class="line">│</span><br><span class="line">├─include</span><br><span class="line">│      lauxlib.h</span><br><span class="line">│      lua.h</span><br><span class="line">│      lua.hpp</span><br><span class="line">│      luaconf.h</span><br><span class="line">│      lualib.h</span><br><span class="line">│</span><br><span class="line">├─lib</span><br><span class="line">│  │  liblua.a</span><br><span class="line">│  │</span><br><span class="line">│  └─lua</span><br><span class="line">│      └─5.4</span><br><span class="line">├─man</span><br><span class="line">│  └─man1</span><br><span class="line">│          lua.1</span><br><span class="line">│          luac.1</span><br><span class="line">│</span><br><span class="line">└─share</span><br><span class="line">    └─lua</span><br><span class="line">        └─5.4</span><br></pre></td></tr></table></figure>
+
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>来写个简单的Hello World吧！</p>
+<p>打开lua.exe<br>输入</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>即可看到Hello World了。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>如果想要与C++一起使用，可以按照下面的步骤</p>
+<p>首先新建一个文件夹，目录树如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">│  CMakeLists.txt</span><br><span class="line">│</span><br><span class="line">├─build</span><br><span class="line">├─lib</span><br><span class="line">└─src</span><br></pre></td></tr></table></figure>
+<p>在lib下新建lua目录，并将之前编译好的install目录里的复制进来。</p>
+<p>接下来在src目录新建main.cpp，写入以下内容</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;lua.hpp&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lua_State *L = luaL_newstate();</span><br><span class="line">    lua_pushstring(L, <span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; lua_tostring(L, <span class="number">1</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在CMakeLists.txt中写下这些</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(SRCROOT <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/src)</span><br><span class="line"><span class="keyword">set</span>(SOURCE_FILES main.cpp)</span><br><span class="line"><span class="keyword">set</span>(FILES_SRC</span><br><span class="line">    <span class="variable">$&#123;SRCROOT&#125;</span>/main.cpp</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_NAME <span class="string">&quot;Hello_World&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(Hello_World)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">link_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(Hello_World <span class="variable">$&#123;FILES_SRC&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(Hello_World lua)</span><br></pre></td></tr></table></figure>
+
+<p>进入build目录，执行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">Hello_World.exe</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>完成啦！！！</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/02/14/P2027/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://hghgthifg.tk/2021/03/06/lua-compile-windows/>http://hghgthifg.tk/2021/03/06/lua-compile-windows/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-07T17:01:57+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Mar 7, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/lua/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>lua</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CMake/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CMake</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hghgthifg.tk/2021/03/06/lua-compile-windows/&title=Window下使用MinGW64配置lua - 小H的博客&summary=Window下使用MinGW64配置lua"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://hghgthifg.tk/2021/03/06/lua-compile-windows/&title=Window下使用MinGW64配置lua - 小H的博客&summary=Window下使用MinGW64配置lua"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://hghgthifg.tk/2021/03/06/lua-compile-windows/&title=Window下使用MinGW64配置lua - 小H的博客&summary=Window下使用MinGW64配置lua"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>605 words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>2 min</p>
+    </a>
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/02/14/P2027/'>
+          <p class='title'>P2027<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>洛谷P2027 bf
+
+
+题意简述编写 brainfuck 语言的解释器。
+输入：
+
+给出一个字符串。
+字符串包含注释，代码和缓冲区。
+程序不会越界。
+程序不会死循环。
+循环有嵌套。
+
+输出
+
+...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -445,118 +651,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://image-1301503852.cos.ap-nanjing.myqcloud.com/%E5%A4%B4%E5%83%8F.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">小H的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="mailto:3354437830@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/hghgthifg/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
         
-          <li><a class="flat-box"
-            title="/categories/%E6%95%99%E7%A8%8B/" href="/categories/%E6%95%99%E7%A8%8B/"
-            id="categoriesE69599E7A88B"
-            ><div class='name'>教程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B8%B8%E8%AE%B0/" href="/categories/%E6%B8%B8%E8%AE%B0/"
-            id="categoriesE6B8B8E8AEB0"
-            ><div class='name'>游记</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%A2%98%E8%A7%A3/" href="/categories/%E9%A2%98%E8%A7%A3/"
-            id="categoriesE9A298E8A7A3"
-            ><div class='name'>题解</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/CMake/" style="font-size: 14px; color: #999">CMake</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Luogu/" style="font-size: 14px; color: #999">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -565,8 +681,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Window下使用MinGW64配置lua";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

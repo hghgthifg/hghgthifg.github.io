@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: 题解 - 小H的博客</title>
+  <title>Archive: 2021/3 - 小H的博客</title>
   
 
   
@@ -106,7 +106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -325,7 +325,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="half" class='cover-wrapper  dock' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -370,11 +370,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
@@ -394,29 +392,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2021/02/14/P2027/">
-        P2027
+      <a href="/2021/03/06/lua-compile-windows/">
+        Window下使用MinGW64配置lua
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>洛谷P2027 bf</p>
+      <p>Window下使用MinGW64配置lua</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2021-02-14</time>
+        <time>2021-03-06</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+          <a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2021/02/14/P2027/'>
+          <a class='readmore' href='/2021/03/06/lua-compile-windows/'>
             Read More
           </a>
         </div>
@@ -436,8 +434,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -510,6 +507,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <ul class="entry navigation">
         
           <li><a class="flat-box"
+            title="/categories/%E6%95%99%E7%A8%8B/" href="/categories/%E6%95%99%E7%A8%8B/"
+            id="categoriesE69599E7A88B"
+            ><div class='name'>教程</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/%E6%B8%B8%E8%AE%B0/" href="/categories/%E6%B8%B8%E8%AE%B0/"
             id="categoriesE6B8B8E8AEB0"
             ><div class='name'>游记</div><div class='badge'>(1)</div></a></li>
@@ -541,7 +543,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/C/" style="font-size: 14px; color: #999">C++</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Luogu/" style="font-size: 14px; color: #999">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 14px; color: #999">题解</a>
+      <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/CMake/" style="font-size: 14px; color: #999">CMake</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Luogu/" style="font-size: 14px; color: #999">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a>
     </div>
   </section>
 
@@ -567,14 +569,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
