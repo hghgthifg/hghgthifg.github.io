@@ -3,7 +3,7 @@
   <entry>
     <title>CSP2020游记</title>
     <url>/2020/10/24/CSP2020/</url>
-    <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记<br><a id="more"></a></p>
+    <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记<br><span id="more"></span></p>
 <h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
 <p>第一题大概是个加解密，因为表列错了搞了好久……</p>
 <p>第二题是个模拟k进制运算。</p>
@@ -47,7 +47,7 @@
   <entry>
     <title>P2027</title>
     <url>/2021/02/14/P2027/</url>
-    <content><![CDATA[<p>洛谷P2027 bf<br><a id="more"></a></p>
+    <content><![CDATA[<p>洛谷P2027 bf<br><span id="more"></span></p>
 <h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>编写 brainfuck 语言的解释器。</p>
 <p>输入：</p>
 <ul>
@@ -86,7 +86,7 @@
   <entry>
     <title>Window下使用MinGW64配置lua</title>
     <url>/2021/03/06/lua-compile-windows/</url>
-    <content><![CDATA[<p>Window下使用MinGW64配置lua<br><a id="more"></a></p>
+    <content><![CDATA[<p>Window下使用MinGW64配置lua<br><span id="more"></span></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前配置lua的时候在网上找了半天教程，结果找到的要么是用msvc的要么就是过时的，<br>摸索了半天终于明白了如何配置，于是写下这篇文章分享自己的经验。</p>
 <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
 <li>Windows 10</li>
@@ -135,7 +135,7 @@
   <entry>
     <title>P2571</title>
     <url>/2021/03/14/P2571/</url>
-    <content><![CDATA[<p>洛谷P2571 传送带<br><a id="more"></a></p>
+    <content><![CDATA[<p>洛谷P2571 传送带<br><span id="more"></span></p>
 <h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>求从A点到D点的最短时间。</p>
 <p>输入：</p>
 <ul>
@@ -153,7 +153,7 @@
 <p>假如 E 是定点，那么要找最优的 F 点，很容易就能想到三分。</p>
 <p>而现在 E 点也是动点，所以我们对点 E 也使用三分，即三分套三分，这样即可找到最优解。</p>
 <p>那么该如何进行三分呢？</p>
-<p>首先三分需要 $midl$ 和 $midr$ ，这里使用的 $midl$、$midr$ 有些特别。为了便于计算距离和对区间进行三等分，需要记录点的坐标，当 $midl$ 与 $midr$ 横纵坐标都相同时才停止三分。为了避免 B 在 A 的左边这样的问题，在做减法的时候需要使用<code>fabs</code>。</p>
+<p>首先三分需要 $midl$ 和 $midr$ ，这里使用的 $midl$、$midr$ 有些特别。为了便于计算距离以及对区间进行三等分，需要记录点的坐标，当 $midl$ 与 $midr$ 横纵坐标都相同时才停止三分。为了避免 B 在 A 的左边这样的问题，在做减法的时候需要使用<code>fabs</code>。</p>
 <p>在寻找点 E 的时候，缩小范围时判断 $midl$ 与 $midr$ 哪个能找到更优的 F，而在寻找点 F 时，缩小范围则要判断哪个所用的时间最少。</p>
 <p>详情请见代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">double</span> ax, ay, bx, by, cx, cy, dx, dy;                           <span class="comment">//A、B、C、D点的坐标</span></span><br><span class="line"><span class="keyword">double</span> P, Q, R;                                                  <span class="comment">//速度</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">getDis</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> <span class="comment">//用于获取两点距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">getTime</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> <span class="comment">//获取所需的时间</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a = getDis(x1, y1, ax, ay); <span class="comment">//E点到A点的距离</span></span><br><span class="line">    <span class="keyword">double</span> b = getDis(x2, y2, dx, dy); <span class="comment">//F点到D点的距离</span></span><br><span class="line">    <span class="keyword">double</span> c = getDis(x1, y1, x2, y2); <span class="comment">//E点到F点的距离</span></span><br><span class="line">    <span class="keyword">return</span> a / P + b / Q + c / R;      <span class="comment">//计算时间</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">searchCD</span><span class="params">(<span class="keyword">double</span> xx, <span class="keyword">double</span> yy)</span> <span class="comment">//枚举CD上的点F</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lx, rx, ly, ry;                                 <span class="comment">//当前左右端点的横纵坐标</span></span><br><span class="line">    <span class="keyword">double</span> midlx, midrx, midly, midry;                     <span class="comment">//即midl和midr的横纵坐标</span></span><br><span class="line">    lx = cx, rx = dx, ly = cy, ry = dy;                    <span class="comment">//左边界设置为C的坐标，右边界设置为D的坐标</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fabs</span>(rx - lx) &gt; <span class="number">1e-10</span> <span class="keyword">or</span> <span class="built_in">fabs</span>(ry - ly) &gt; <span class="number">1e-10</span>) <span class="comment">//横纵坐标都相同才停止</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*三等分横纵坐标*/</span></span><br><span class="line">        midlx = lx + (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midrx = rx - (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midly = ly + (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line">        midry = ry - (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (getTime(xx, yy, midlx, midly) &lt; getTime(xx, yy, midrx, midry)) <span class="comment">//左边的的更优就向左</span></span><br><span class="line">        &#123;</span><br><span class="line">            rx = midrx;</span><br><span class="line">            ry = midry;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//否则向右</span></span><br><span class="line">        &#123;</span><br><span class="line">            lx = midlx;</span><br><span class="line">            ly = midly;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getTime(xx, yy, midlx, midry); <span class="comment">//返回当前的最优解</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">searchAB</span><span class="params">()</span> <span class="comment">//枚举AB上的点E</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lx, rx, ly, ry;                                 <span class="comment">//当前左右端点的横纵坐标</span></span><br><span class="line">    <span class="keyword">double</span> midlx, midrx, midly, midry;                     <span class="comment">//即midl和midr的横纵坐标</span></span><br><span class="line">    lx = ax, rx = bx, ly = ay, ry = by;                    <span class="comment">//左边界设置为A的坐标，右边界设置为B的坐标</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fabs</span>(rx - lx) &gt; <span class="number">1e-10</span> <span class="keyword">or</span> <span class="built_in">fabs</span>(ry - ly) &gt; <span class="number">1e-10</span>) <span class="comment">//横纵坐标都相同才停止</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*三等分横纵坐标*/</span></span><br><span class="line">        midlx = lx + (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midrx = rx - (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midly = ly + (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line">        midry = ry - (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (searchCD(midlx, midly) &lt; searchCD(midrx, midry)) <span class="comment">//左边的的更优就向左</span></span><br><span class="line">        &#123;</span><br><span class="line">            rx = midrx;</span><br><span class="line">            ry = midry;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//否则向右</span></span><br><span class="line">        &#123;</span><br><span class="line">            lx = midlx;</span><br><span class="line">            ly = midly;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> searchCD(lx, ly); <span class="comment">//返回得到的结果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*输入*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; ax &gt;&gt; ay &gt;&gt; bx &gt;&gt; by &gt;&gt; cx &gt;&gt; cy &gt;&gt; dx &gt;&gt; dy;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; P &gt;&gt; Q &gt;&gt; R;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*输出*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, searchAB());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -164,7 +164,8 @@
       <tags>
         <tag>OI</tag>
         <tag>Luogu</tag>
-        <tag>C++ - 三分法</tag>
+        <tag>C++</tag>
+        <tag>三分法</tag>
       </tags>
   </entry>
 </search>
