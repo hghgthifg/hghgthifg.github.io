@@ -4,13 +4,13 @@
     <title>CSP2020游记</title>
     <url>/2020/10/24/CSP2020/</url>
     <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记<br><span id="more"></span></p>
-<h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
+<h2 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h2><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
 <p>第一题大概是个加解密，因为表列错了搞了好久……</p>
 <p>第二题是个模拟k进制运算。</p>
 <p>第三题给我看懵了，于是瞎写了几个选项。</p>
 <p>完善程序简单多了，第一题还是做错了一个空，我也不知道我怎么会选了<code>if(n%i==0)</code>。（后悔中）</p>
 <p>最终弄到了76分，勉强踩线过了初赛</p>
-<h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><p>出发喽！！！</p>
+<h2 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h2><p>出发喽！！！</p>
 <p>高铁是真的快（时速300多千米），一个小时就到了南航</p>
 <p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="路上的风景"></p>
 <p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/CSP-2020%E8%B7%AF%E4%B8%8A/IMG2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="路上的风景"></p>
@@ -84,55 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Window下使用MinGW64配置lua</title>
-    <url>/2021/03/06/lua-compile-windows/</url>
-    <content><![CDATA[<p>Window下使用MinGW64配置lua<br><span id="more"></span></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前配置lua的时候在网上找了半天教程，结果找到的要么是用msvc的要么就是过时的，<br>摸索了半天终于明白了如何配置，于是写下这篇文章分享自己的经验。</p>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>Windows 10</li>
-<li>Git Bash 2.30.0</li>
-<li>MinGW64 7.3.0</li>
-<li>Lua 5.4.2</li>
-<li>CMake 3.19.4</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>首先下载Lua源代码，官网如果无法访问可以点击<a href="https://xiao-h.lanzous.com/iVy0wmmqhda">这里</a>下载。</p>
-<p>解压后如下：<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<p>如果只是想要使用lua解释器或dll，那么执行<code>make mingw</code>即可。（我把mingw32-make.exe复制了一份并改名为make.exe了）</p>
-<p>然后就可以看到src目录下的lua.exe、luac.exe、lua54.dll以及一堆.o文件了。</p>
-<p>虽然用来学习lua已经足够了，但显然不适合嵌入项目里。</p>
-<p>打开doc下的readme.html，看到可以用<code>make local</code>生成，于是快乐地打开cmd，快乐地执行<code>make mingw local</code>，然后快乐地报错。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<p>（其实执行<code>make clean</code>也会报错）</p>
-<p>报错原因则是Makefile里的命令不是Windows的……</p>
-<p>解决方法也很简单——</p>
-<p><del>手动改</del></p>
-<p>改是不可能的，太麻烦了，有没有更方便的解决方法呢？</p>
-<p>有！</p>
-<p>那就是GitBash！</p>
-<p><img src="https://git-scm.com/images/logo@2x.png" class="lazyload" data-srcset="https://git-scm.com/images/logo@2x.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<p>打开GitBash，执行<code>make mingw local</code>，然后即可看到install目录下有这些文件了。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">├─bin</span><br><span class="line">│      lua.exe</span><br><span class="line">│      luac.exe</span><br><span class="line">│</span><br><span class="line">├─include</span><br><span class="line">│      lauxlib.h</span><br><span class="line">│      lua.h</span><br><span class="line">│      lua.hpp</span><br><span class="line">│      luaconf.h</span><br><span class="line">│      lualib.h</span><br><span class="line">│</span><br><span class="line">├─lib</span><br><span class="line">│  │  liblua.a</span><br><span class="line">│  │</span><br><span class="line">│  └─lua</span><br><span class="line">│      └─5.4</span><br><span class="line">├─man</span><br><span class="line">│  └─man1</span><br><span class="line">│          lua.1</span><br><span class="line">│          luac.1</span><br><span class="line">│</span><br><span class="line">└─share</span><br><span class="line">    └─lua</span><br><span class="line">        └─5.4</span><br></pre></td></tr></table></figure>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>来写个简单的Hello World吧！</p>
-<p>打开lua.exe<br>输入<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure><br>即可看到Hello World了。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<p>如果想要与C++一起使用，可以按照下面的步骤</p>
-<p>首先新建一个文件夹，目录树如下<br><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">│  CMakeLists.txt</span><br><span class="line">│</span><br><span class="line">├─build</span><br><span class="line">├─lib</span><br><span class="line">└─src</span><br></pre></td></tr></table></figure><br>在lib下新建lua目录，并将之前编译好的install目录里的复制进来。</p>
-<p>接下来在src目录新建main.cpp，写入以下内容</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;lua.hpp&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lua_State *L = luaL_newstate();</span><br><span class="line">    lua_pushstring(L, <span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; lua_tostring(L, <span class="number">1</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在CMakeLists.txt中写下这些</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(SRCROOT <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/src)</span><br><span class="line"><span class="keyword">set</span>(SOURCE_FILES main.cpp)</span><br><span class="line"><span class="keyword">set</span>(FILES_SRC</span><br><span class="line">    <span class="variable">$&#123;SRCROOT&#125;</span>/main.cpp</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_NAME <span class="string">&quot;Hello_World&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(Hello_World)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">link_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(Hello_World <span class="variable">$&#123;FILES_SRC&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(Hello_World lua)</span><br></pre></td></tr></table></figure>
-<p>进入build目录，执行<br><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">Hello_World.exe</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<p>完成啦！！！</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>lua</tag>
-        <tag>CMake</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>P2571</title>
     <url>/2021/03/14/P2571/</url>
     <content><![CDATA[<p>洛谷P2571 传送带<br><span id="more"></span></p>
@@ -166,6 +117,61 @@
         <tag>Luogu</tag>
         <tag>C++</tag>
         <tag>三分法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Window下使用MinGW64配置lua</title>
+    <url>/2021/03/06/lua-compile-windows/</url>
+    <content><![CDATA[<p>Window下使用MinGW64配置lua<br><span id="more"></span></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前配置lua的时候在网上找了半天教程，结果找到的要么是用msvc的要么就是过时的，<br>摸索了半天终于明白了如何配置，于是写下这篇文章分享自己的经验。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>Windows 10</li>
+<li>Git Bash 2.30.0</li>
+<li>MinGW64 7.3.0</li>
+<li>Lua 5.4.2</li>
+<li>CMake 3.19.4</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>首先下载Lua源代码，官网如果无法访问可以点击<a href="https://xiao-h.lanzous.com/iVy0wmmqhda">这里</a>下载。</p>
+<p>解压后如下：</p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=" "></p>
+<p>如果只是想要使用lua解释器或dll，那么执行<code>make mingw</code>即可。（我把mingw32-make.exe复制了一份并改名为make.exe了）</p>
+<p>然后就可以看到src目录下的lua.exe、luac.exe、lua54.dll以及一堆.o文件了。</p>
+<p>虽然用来学习lua已经足够了，但显然不适合嵌入项目里。</p>
+<p>打开doc下的readme.html，看到可以用<code>make local</code>生成，于是快乐地打开cmd，快乐地执行<code>make mingw local</code>，然后快乐地报错。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=" "></p>
+<p>（其实执行<code>make clean</code>也会报错）</p>
+<p>报错原因则是Makefile里的命令不是Windows的……</p>
+<p>解决方法也很简单——</p>
+<p><del>手动改</del></p>
+<p>改是不可能的，太麻烦了，有没有更方便的解决方法呢？</p>
+<p>有！</p>
+<p>那就是GitBash！</p>
+<p><img src="https://git-scm.com/images/logo@2x.png" class="lazyload" data-srcset="https://git-scm.com/images/logo@2x.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=" "></p>
+<p>打开GitBash，执行<code>make mingw local</code>，然后即可看到install目录下有这些文件了。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">├─bin</span><br><span class="line">│      lua.exe</span><br><span class="line">│      luac.exe</span><br><span class="line">│</span><br><span class="line">├─include</span><br><span class="line">│      lauxlib.h</span><br><span class="line">│      lua.h</span><br><span class="line">│      lua.hpp</span><br><span class="line">│      luaconf.h</span><br><span class="line">│      lualib.h</span><br><span class="line">│</span><br><span class="line">├─lib</span><br><span class="line">│  │  liblua.a</span><br><span class="line">│  │</span><br><span class="line">│  └─lua</span><br><span class="line">│      └─5.4</span><br><span class="line">├─man</span><br><span class="line">│  └─man1</span><br><span class="line">│          lua.1</span><br><span class="line">│          luac.1</span><br><span class="line">│</span><br><span class="line">└─share</span><br><span class="line">    └─lua</span><br><span class="line">        └─5.4</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>来写个简单的Hello World吧！</p>
+<p>打开lua.exe<br>输入</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>即可看到Hello World了。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=" "></p>
+<p>如果想要与C++一起使用，可以按照下面的步骤</p>
+<p>首先新建一个文件夹，目录树如下</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">│  CMakeLists.txt</span><br><span class="line">│</span><br><span class="line">├─build</span><br><span class="line">├─lib</span><br><span class="line">└─src</span><br></pre></td></tr></table></figure>
+<p>在lib下新建lua目录，并将之前编译好的install目录里的复制进来。</p>
+<p>接下来在src目录新建main.cpp，写入以下内容</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;lua.hpp&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lua_State *L = luaL_newstate();</span><br><span class="line">    lua_pushstring(L, <span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; lua_tostring(L, <span class="number">1</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在CMakeLists.txt中写下这些</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(SRCROOT <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/src)</span><br><span class="line"><span class="keyword">set</span>(SOURCE_FILES main.cpp)</span><br><span class="line"><span class="keyword">set</span>(FILES_SRC</span><br><span class="line">    <span class="variable">$&#123;SRCROOT&#125;</span>/main.cpp</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_NAME <span class="string">&quot;Hello_World&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(Hello_World)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">link_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(Hello_World <span class="variable">$&#123;FILES_SRC&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(Hello_World lua)</span><br></pre></td></tr></table></figure>
+<p>进入build目录，执行</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">Hello_World.exe</span><br></pre></td></tr></table></figure>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=" "></p>
+<p>完成啦！！！</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>lua</tag>
+        <tag>CMake</tag>
       </tags>
   </entry>
 </search>
