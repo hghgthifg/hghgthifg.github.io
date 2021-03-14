@@ -3,9 +3,7 @@
   <entry>
     <title>CSP2020游记</title>
     <url>/2020/10/24/CSP2020/</url>
-    <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记</p>
-<a id="more"></a>
-
+    <content><![CDATA[<p>蒟蒻第一次参加CSP-J写的游记<br><a id="more"></a></p>
 <h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
 <p>第一题大概是个加解密，因为表列错了搞了好久……</p>
 <p>第二题是个模拟k进制运算。</p>
@@ -49,9 +47,7 @@
   <entry>
     <title>P2027</title>
     <url>/2021/02/14/P2027/</url>
-    <content><![CDATA[<p>洛谷P2027 bf</p>
-<a id="more"></a>
-
+    <content><![CDATA[<p>洛谷P2027 bf<br><a id="more"></a></p>
 <h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>编写 brainfuck 语言的解释器。</p>
 <p>输入：</p>
 <ul>
@@ -90,9 +86,7 @@
   <entry>
     <title>Window下使用MinGW64配置lua</title>
     <url>/2021/03/06/lua-compile-windows/</url>
-    <content><![CDATA[<p>Window下使用MinGW64配置lua</p>
-<a id="more"></a>
-
+    <content><![CDATA[<p>Window下使用MinGW64配置lua<br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前配置lua的时候在网上找了半天教程，结果找到的要么是用msvc的要么就是过时的，<br>摸索了半天终于明白了如何配置，于是写下这篇文章分享自己的经验。</p>
 <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
 <li>Windows 10</li>
@@ -102,11 +96,11 @@
 <li>CMake 3.19.4</li>
 </ul>
 <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>首先下载Lua源代码，官网如果无法访问可以点击<a href="https://xiao-h.lanzous.com/iVy0wmmqhda">这里</a>下载。</p>
-<p>解压后如下：<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>解压后如下：<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>如果只是想要使用lua解释器或dll，那么执行<code>make mingw</code>即可。（我把mingw32-make.exe复制了一份并改名为make.exe了）</p>
 <p>然后就可以看到src目录下的lua.exe、luac.exe、lua54.dll以及一堆.o文件了。</p>
 <p>虽然用来学习lua已经足够了，但显然不适合嵌入项目里。</p>
-<p>打开doc下的readme.html，看到可以用<code>make local</code>生成，于是快乐地打开cmd，快乐地执行<code>make mingw local</code>，然后快乐地报错。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>打开doc下的readme.html，看到可以用<code>make local</code>生成，于是快乐地打开cmd，快乐地执行<code>make mingw local</code>，然后快乐地报错。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>（其实执行<code>make clean</code>也会报错）</p>
 <p>报错原因则是Makefile里的命令不是Windows的……</p>
 <p>解决方法也很简单——</p>
@@ -114,28 +108,19 @@
 <p>改是不可能的，太麻烦了，有没有更方便的解决方法呢？</p>
 <p>有！</p>
 <p>那就是GitBash！</p>
-<p><img src="https://git-scm.com/images/logo@2x.png" class="lazyload" data-srcset="https://git-scm.com/images/logo@2x.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://git-scm.com/images/logo@2x.png" class="lazyload" data-srcset="https://git-scm.com/images/logo@2x.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>打开GitBash，执行<code>make mingw local</code>，然后即可看到install目录下有这些文件了。</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">├─bin</span><br><span class="line">│      lua.exe</span><br><span class="line">│      luac.exe</span><br><span class="line">│</span><br><span class="line">├─include</span><br><span class="line">│      lauxlib.h</span><br><span class="line">│      lua.h</span><br><span class="line">│      lua.hpp</span><br><span class="line">│      luaconf.h</span><br><span class="line">│      lualib.h</span><br><span class="line">│</span><br><span class="line">├─lib</span><br><span class="line">│  │  liblua.a</span><br><span class="line">│  │</span><br><span class="line">│  └─lua</span><br><span class="line">│      └─5.4</span><br><span class="line">├─man</span><br><span class="line">│  └─man1</span><br><span class="line">│          lua.1</span><br><span class="line">│          luac.1</span><br><span class="line">│</span><br><span class="line">└─share</span><br><span class="line">    └─lua</span><br><span class="line">        └─5.4</span><br></pre></td></tr></table></figure>
-
 <h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>来写个简单的Hello World吧！</p>
-<p>打开lua.exe<br>输入</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>即可看到Hello World了。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>打开lua.exe<br>输入<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure><br>即可看到Hello World了。<br><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>如果想要与C++一起使用，可以按照下面的步骤</p>
-<p>首先新建一个文件夹，目录树如下</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">│  CMakeLists.txt</span><br><span class="line">│</span><br><span class="line">├─build</span><br><span class="line">├─lib</span><br><span class="line">└─src</span><br></pre></td></tr></table></figure>
-<p>在lib下新建lua目录，并将之前编译好的install目录里的复制进来。</p>
+<p>首先新建一个文件夹，目录树如下<br><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">│  CMakeLists.txt</span><br><span class="line">│</span><br><span class="line">├─build</span><br><span class="line">├─lib</span><br><span class="line">└─src</span><br></pre></td></tr></table></figure><br>在lib下新建lua目录，并将之前编译好的install目录里的复制进来。</p>
 <p>接下来在src目录新建main.cpp，写入以下内容</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;lua.hpp&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lua_State *L = luaL_newstate();</span><br><span class="line">    lua_pushstring(L, <span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; lua_tostring(L, <span class="number">1</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>在CMakeLists.txt中写下这些</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(SRCROOT <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/src)</span><br><span class="line"><span class="keyword">set</span>(SOURCE_FILES main.cpp)</span><br><span class="line"><span class="keyword">set</span>(FILES_SRC</span><br><span class="line">    <span class="variable">$&#123;SRCROOT&#125;</span>/main.cpp</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_NAME <span class="string">&quot;Hello_World&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(Hello_World)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">link_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib/lua/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(Hello_World <span class="variable">$&#123;FILES_SRC&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(Hello_World lua)</span><br></pre></td></tr></table></figure>
-
-<p>进入build目录，执行</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">Hello_World.exe</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>进入build目录，执行<br><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">Hello_World.exe</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/lua-compile-windows/4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>完成啦！！！</p>
 ]]></content>
       <categories>
@@ -145,6 +130,41 @@
         <tag>C++</tag>
         <tag>lua</tag>
         <tag>CMake</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P2571</title>
+    <url>/2021/03/14/P2571/</url>
+    <content><![CDATA[<p>洛谷P2571 传送带<br><a id="more"></a></p>
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>求从A点到D点的最短时间。</p>
+<p>输入：</p>
+<ul>
+<li>A、B、C、D这4个点的坐标。</li>
+<li>在AB上的速度 $P$、在CD上的速度 $Q$、在平面的移动速度 $R$。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>输出最短时间。</li>
+<li>保留两位小数。</li>
+</ul>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先来看看样例。</p>
+<p>点 E 为线段 AB 上的任意一点，点 F 为线段 CD 上的任意一点，从 A 到 D 所用时间最短的路线显然就是 $\frac{AE}{P}+\frac{DF}{Q}+\frac{EF}{R}$ 的最小值。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/2x8jgdyo.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/2x8jgdyo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="草图"></p>
+<p>假如 E 是定点，那么要找最优的 F 点，很容易就能想到三分。</p>
+<p>而现在 E 点也是动点，所以我们对点 E 也使用三分，即三分套三分，这样即可找到最优解。</p>
+<p>那么该如何进行三分呢？</p>
+<p>首先三分需要 $midl$ 和 $midr$ ，这里使用的 $midl$、$midr$ 有些特别。为了便于计算距离和对区间进行三等分，需要记录点的坐标，当 $midl$ 与 $midr$ 横纵坐标都相同时才停止三分。为了避免 B 在 A 的左边这样的问题，在做减法的时候需要使用<code>fabs</code>。</p>
+<p>在寻找点 E 的时候，缩小范围时判断 $midl$ 与 $midr$ 哪个能找到更优的 F，而在寻找点 F 时，缩小范围则要判断哪个所用的时间最少。</p>
+<p>详情请见代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">double</span> ax, ay, bx, by, cx, cy, dx, dy;                           <span class="comment">//A、B、C、D点的坐标</span></span><br><span class="line"><span class="keyword">double</span> P, Q, R;                                                  <span class="comment">//速度</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">getDis</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> <span class="comment">//用于获取两点距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">getTime</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> <span class="comment">//获取所需的时间</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a = getDis(x1, y1, ax, ay); <span class="comment">//E点到A点的距离</span></span><br><span class="line">    <span class="keyword">double</span> b = getDis(x2, y2, dx, dy); <span class="comment">//F点到D点的距离</span></span><br><span class="line">    <span class="keyword">double</span> c = getDis(x1, y1, x2, y2); <span class="comment">//E点到F点的距离</span></span><br><span class="line">    <span class="keyword">return</span> a / P + b / Q + c / R;      <span class="comment">//计算时间</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">searchCD</span><span class="params">(<span class="keyword">double</span> xx, <span class="keyword">double</span> yy)</span> <span class="comment">//枚举CD上的点F</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lx, rx, ly, ry;                                 <span class="comment">//当前左右端点的横纵坐标</span></span><br><span class="line">    <span class="keyword">double</span> midlx, midrx, midly, midry;                     <span class="comment">//即midl和midr的横纵坐标</span></span><br><span class="line">    lx = cx, rx = dx, ly = cy, ry = dy;                    <span class="comment">//左边界设置为C的坐标，右边界设置为D的坐标</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fabs</span>(rx - lx) &gt; <span class="number">1e-10</span> <span class="keyword">or</span> <span class="built_in">fabs</span>(ry - ly) &gt; <span class="number">1e-10</span>) <span class="comment">//横纵坐标都相同才停止</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*三等分横纵坐标*/</span></span><br><span class="line">        midlx = lx + (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midrx = rx - (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midly = ly + (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line">        midry = ry - (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (getTime(xx, yy, midlx, midly) &lt; getTime(xx, yy, midrx, midry)) <span class="comment">//左边的的更优就向左</span></span><br><span class="line">        &#123;</span><br><span class="line">            rx = midrx;</span><br><span class="line">            ry = midry;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//否则向右</span></span><br><span class="line">        &#123;</span><br><span class="line">            lx = midlx;</span><br><span class="line">            ly = midly;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getTime(xx, yy, midlx, midry); <span class="comment">//返回当前的最优解</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">searchAB</span><span class="params">()</span> <span class="comment">//枚举AB上的点E</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lx, rx, ly, ry;                                 <span class="comment">//当前左右端点的横纵坐标</span></span><br><span class="line">    <span class="keyword">double</span> midlx, midrx, midly, midry;                     <span class="comment">//即midl和midr的横纵坐标</span></span><br><span class="line">    lx = ax, rx = bx, ly = ay, ry = by;                    <span class="comment">//左边界设置为A的坐标，右边界设置为B的坐标</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fabs</span>(rx - lx) &gt; <span class="number">1e-10</span> <span class="keyword">or</span> <span class="built_in">fabs</span>(ry - ly) &gt; <span class="number">1e-10</span>) <span class="comment">//横纵坐标都相同才停止</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*三等分横纵坐标*/</span></span><br><span class="line">        midlx = lx + (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midrx = rx - (rx - lx) / <span class="number">3.f</span>;</span><br><span class="line">        midly = ly + (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line">        midry = ry - (ry - ly) / <span class="number">3.f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (searchCD(midlx, midly) &lt; searchCD(midrx, midry)) <span class="comment">//左边的的更优就向左</span></span><br><span class="line">        &#123;</span><br><span class="line">            rx = midrx;</span><br><span class="line">            ry = midry;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//否则向右</span></span><br><span class="line">        &#123;</span><br><span class="line">            lx = midlx;</span><br><span class="line">            ly = midly;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> searchCD(lx, ly); <span class="comment">//返回得到的结果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*输入*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; ax &gt;&gt; ay &gt;&gt; bx &gt;&gt; by &gt;&gt; cx &gt;&gt; cy &gt;&gt; dx &gt;&gt; dy;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; P &gt;&gt; Q &gt;&gt; R;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*输出*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, searchAB());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>OI</tag>
+        <tag>Luogu</tag>
+        <tag>C++ - 三分法</tag>
       </tags>
   </entry>
 </search>

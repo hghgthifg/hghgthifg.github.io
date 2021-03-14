@@ -432,9 +432,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>蒟蒻第一次参加CSP-J写的游记</p>
-<a id="more"></a>
-
+  <p>蒟蒻第一次参加CSP-J写的游记<br><a id="more"></a></p>
 <h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><p>选择题难度和往年差别不大，做到阅读程序的时候当场爆炸。</p>
 <p>第一题大概是个加解密，因为表列错了搞了好久……</p>
 <p>第二题是个模拟k进制运算。</p>
@@ -600,8 +598,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class='prev' href='/2021/02/14/P2027/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>P2027</p>
           <p class='content'>洛谷P2027 bf
-
-
 题意简述编写 brainfuck 语言的解释器。
 输入：
 
@@ -613,7 +609,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 输出
 
-...</p>
+代码...</p>
         </a>
       
       
@@ -708,7 +704,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次&lt;/span&gt; <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人&lt;/span&gt;</p>
 </div>
         
       
@@ -1815,5 +1811,20 @@ document.addEventListener("pjax:success", listennSidebarTOC);
  
 	  
     </div>
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

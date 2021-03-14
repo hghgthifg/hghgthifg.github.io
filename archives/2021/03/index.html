@@ -379,9 +379,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/03/14/P2571/">
+        P2571
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>洛谷P2571 传送带<br>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-03-14</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/03/14/P2571/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -399,7 +445,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      <p>Window下使用MinGW64配置lua</p>
+      <p>Window下使用MinGW64配置lua<br>
     
   </div>
   
@@ -519,7 +565,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E9%A2%98%E8%A7%A3/" href="/categories/%E9%A2%98%E8%A7%A3/"
             id="categoriesE9A298E8A7A3"
-            ><div class='name'>题解</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>题解</div><div class='badge'>(2)</div></a></li>
         
       </ul>
     </div>
@@ -543,7 +589,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/CMake/" style="font-size: 14px; color: #999">CMake</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Luogu/" style="font-size: 14px; color: #999">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a>
+      <a href="/tags/C/" style="font-size: 19px; color: #777">C++</a> <a href="/tags/C-%E4%B8%89%E5%88%86%E6%B3%95/" style="font-size: 14px; color: #999">C++ - 三分法</a> <a href="/tags/CMake/" style="font-size: 14px; color: #999">CMake</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Luogu/" style="font-size: 19px; color: #777">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a>
     </div>
   </section>
 
@@ -602,7 +648,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次&lt;/span&gt; <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人&lt;/span&gt;</p>
 </div>
         
       
@@ -1709,5 +1755,20 @@ document.addEventListener("pjax:success", listennSidebarTOC);
  
 	  
     </div>
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
