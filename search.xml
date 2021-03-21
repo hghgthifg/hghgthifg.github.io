@@ -209,4 +209,37 @@
         <tag>CMake</tag>
       </tags>
   </entry>
+  <entry>
+    <title>P2074</title>
+    <url>/2021/03/21/P2074/</url>
+    <content><![CDATA[<p>洛谷P2074 危险区域<br><span id="more"></span></p>
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>一个矩阵上有一些点，每个点影响范围为 $T$，输出影响力最大的点能影响的范围。</p>
+<p>输入：</p>
+<ul>
+<li>矩阵的尺寸 $N$，$M$，点的个数 $K$ 与影响范围 $T$。（$N,M&lt;=100000$）</li>
+<li>每个点的坐标。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>最大的范围。</li>
+</ul>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/7l9a0dkk.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/7l9a0dkk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="样例"></p>
+<p>首先暴力的解法并不难想，枚举矩阵中的每个坐标并判断与点的坐标是否小于等于 $T$ ，然后记录数量输出最小值即可。</p>
+<p>但因为 $N$ 和 $M$ 的范围很大，一个个枚举肯定会超时，所以我们要想办法缩小枚举范围。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/jexz17d1.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/jexz17d1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="分析"></p>
+<p>经过观察我们发现，只有紫色区域是需要进行枚举的，而紫色区域的范围即圆所在的正方形和矩形的公共部分。</p>
+<p>还有一个小优化，如果圆所在的正方形完全被包括在了矩形内，因为它没有任何地方被浪费，那么它肯定是最优解，直接输出这个解即可。</p>
+<p>详情请见代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> N, M;         <span class="comment">//矩阵的大小</span></span><br><span class="line"><span class="keyword">int</span> K;            <span class="comment">//点的个数</span></span><br><span class="line"><span class="keyword">int</span> T;            <span class="comment">//影响范围</span></span><br><span class="line"><span class="keyword">int</span> a, b;         <span class="comment">//每个点的坐标</span></span><br><span class="line"><span class="keyword">int</span> num;          <span class="comment">//当前的解</span></span><br><span class="line"><span class="keyword">int</span> ans;          <span class="comment">//最终的解</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">inc</span><span class="params">()</span> <span class="comment">//判断是否完全被包括</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a - T &gt;= <span class="number">0</span>) <span class="keyword">and</span> (a + T &lt;= N) <span class="keyword">and</span> (b - T &gt;= <span class="number">0</span>) <span class="keyword">and</span> (b + T &lt;= M);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">dis</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;x1, <span class="keyword">const</span> <span class="keyword">int</span> &amp;x2, <span class="keyword">const</span> <span class="keyword">int</span> &amp;y1, <span class="keyword">const</span> <span class="keyword">int</span> &amp;y2)</span> <span class="comment">//计算两点距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; K &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (K--)</span><br><span class="line">    &#123;</span><br><span class="line">        num = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*缩小范围后的枚举*/</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * a-T为正方形的左边</span></span><br><span class="line"><span class="comment">         * a+T为正方形的右边</span></span><br><span class="line"><span class="comment">         * b-T为正方形的上边</span></span><br><span class="line"><span class="comment">         * b+T为正方形的下边</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = max(<span class="number">1</span>, a - T); i &lt;= min(N, a + T); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = max(<span class="number">1</span>, b - T); j &lt;= min(M, b + T); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (dis(i, a, j, b) &lt;= T) <span class="comment">//满足条件的统计</span></span><br><span class="line">                &#123;</span><br><span class="line">                    num++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (inc())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; num; <span class="comment">//如果必定是最优解那么直接输出</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ans = max(ans, num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>OI</tag>
+        <tag>题解</tag>
+        <tag>C++</tag>
+        <tag>Luogu</tag>
+      </tags>
+  </entry>
 </search>
