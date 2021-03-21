@@ -60,7 +60,7 @@
 <li>需要的时间。</li>
 <li>经过的点。（按升序输出）</li>
 </ul>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tj94sqv8.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/tj94sqv8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="样例"></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P1476/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P1476/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="样例"></p>
 <p>由于要求的是“完成整个游戏<strong>至少</strong>需要多少时间”，所以需要求最长路。</p>
 <p>因为数据范围较小，所以直接使用 Floyd 即可。</p>
 <p>注意 $n$ 是指<strong>结束点的个数</strong>不是<strong>结点的个数</strong>，结点的个数要加上开始的点，所以要<strong>加一</strong>。</p>
@@ -96,7 +96,7 @@
 </ul>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先来看看样例。</p>
 <p>点 E 为线段 AB 上的任意一点，点 F 为线段 CD 上的任意一点，从 A 到 D 所用时间最短的路线显然就是 $\frac{AE}{P}+\frac{DF}{Q}+\frac{EF}{R}$ 的最小值。</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/2x8jgdyo.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/2x8jgdyo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="草图"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2571/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2571/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="草图"></p>
 <p>假如 E 是定点，那么要找最优的 F 点，很容易就能想到三分。</p>
 <p>而现在 E 点也是动点，所以我们对点 E 也使用三分，即三分套三分，这样即可找到最优解。</p>
 <p>那么该如何进行三分呢？</p>
@@ -223,10 +223,10 @@
 <ul>
 <li>最大的范围。</li>
 </ul>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/7l9a0dkk.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/7l9a0dkk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="样例"></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2074/1.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2074/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="样例"></p>
 <p>首先暴力的解法并不难想，枚举矩阵中的每个坐标并判断与点的坐标是否小于等于 $T$ ，然后记录数量输出最小值即可。</p>
 <p>但因为 $N$ 和 $M$ 的范围很大，一个个枚举肯定会超时，所以我们要想办法缩小枚举范围。</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/jexz17d1.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/jexz17d1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="分析"></p>
+<p><img src="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2074/2.png" class="lazyload" data-srcset="https://image-1301503852.cos.ap-nanjing.myqcloud.com/P2074/2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="分析"></p>
 <p>经过观察我们发现，只有紫色区域是需要进行枚举的，而紫色区域的范围即圆所在的正方形和矩形的公共部分。</p>
 <p>还有一个小优化，如果圆所在的正方形完全被包括在了矩形内，因为它没有任何地方被浪费，那么它肯定是最优解，直接输出这个解即可。</p>
 <p>详情请见代码：</p>
