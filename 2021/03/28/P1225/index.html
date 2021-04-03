@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: 题解 - 小H的博客</title>
+  <title>P1225 - 小H的博客</title>
+  
+    <meta name="keywords" content="OI,题解,bfs,位运算,C++,Luogu">
   
 
+  
+    <meta name="description" content="洛谷P1225 黑白棋游戏">
   
 
   <!-- feed -->
@@ -325,7 +327,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -370,304 +372,250 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2021/03/28/P1225/">
+      <h1 class="title">
         P1225
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P1225 黑白棋游戏<br>
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-03-28</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 28, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="P1225" data-path="/2021/03/28/P1225/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>洛谷P1225 黑白棋游戏<br><span id="more"></span></p>
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>求从一个 $4\times4$ 的方阵变成另一个 $4\times4$ 的方阵最少需要的步数以及步骤。<br><strong>（棋子只能与相邻的棋子交换）</strong></p>
+<p>输入：</p>
+<ul>
+<li>两个 $4\times4$ 的方阵，只包含8个0和8个1。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>最少需要的步数。</li>
+<li>操作的每一步，格式 $abcd$，表示将棋子从 $(a,b)$ 移动到 $(c,d)$。</li>
+</ul>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题使用bfs。</p>
+<p>搜索时注意交换 $(a,b)$ 和 $(a+1,b)$ 与 交换 $(a+1,b)$ 和 $(a,b)$ 是一样的效果，当枚举到 $(a+1,b)$ 时再去与 $(a,b)$ 交换就没有意义了，因为先枚举 $(a,b)$，如果能交换已经交换过了。$(a,b)$ 与 $(a,b+1)$ 也是同样的道理，所以我们可以得出结论，对于每个 $(a,b)$ ，我们搜索时仅需与右边的和下面的进行交换。交换两个相同的数也没有意义，所以可以进行判断来省略。</p>
+<p>因为棋盘只包含0和1，且只有16位，所以可以压缩成二进制方便储存。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/yql12qcj.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/yql12qcj.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="&quot;样例&quot;"><br>比如说样例，将输入的两个方阵记为 $a$ 和 $b$，则 $a$ 可以压缩成 $1111000011100010$ 即 $61666$。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/q5auaj6u.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/q5auaj6u.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="&quot;样例-二进制&quot;"></p>
+<p>我们可以通过 <code>a &amp; (1&lt;&lt;i)</code> 来取得从左往右第 $i$ 位的值，则它右边的值为 <code>a &amp; (1&lt;&lt;(i-1))</code>，下面的值为 <code>a &amp; (1&lt;&lt;(i-4))</code>。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/5wjm99cg.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/5wjm99cg.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="&quot;&quot;"><br><img src="https://cdn.luogu.com.cn/upload/image_hosting/c8dxbkuj.png" class="lazyload" data-srcset="https://cdn.luogu.com.cn/upload/image_hosting/c8dxbkuj.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="&quot;&quot;"></p>
+<p>为了记录操作，我们还需要知道第 $i$ 位在原本的方阵中对应的坐标，它的纵坐标就是 $\lfloor i\div4 \rfloor$，横坐标即为 $i\mod4$。</p>
+<p>由于要被交换的两位必定是一个0一个1，所以交换两位可以将这两位异或1</p>
+<script type="math/tex; mode=display">
+0\oplus1=1</script><script type="math/tex; mode=display">
+1\oplus1=0</script><p>详情请见代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">record</span> //用于记录步骤</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x1;</span><br><span class="line">    <span class="keyword">int</span> y1;</span><br><span class="line">    <span class="keyword">int</span> x2;</span><br><span class="line">    <span class="keyword">int</span> y2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">status</span> //每一个状态</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> num;            <span class="comment">//方阵的二进制形式</span></span><br><span class="line">    <span class="keyword">int</span> t;              <span class="comment">//需要的次数</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;record&gt; rec; <span class="comment">//记录步骤</span></span><br><span class="line">&#125;;</span><br><span class="line">status a, b;     <span class="comment">//初始状态和目标状态</span></span><br><span class="line"><span class="built_in">queue</span>&lt;status&gt; q; <span class="comment">//用于bfs</span></span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">66666</span>]; <span class="comment">//记录某个方阵是否被搜过</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    q.push(a);</span><br><span class="line">    <span class="keyword">while</span> (!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        status tmp = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">if</span> (vis[tmp.num]) <span class="comment">//如果搜到过那么就肯定不是最优解</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        vis[tmp.num] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (tmp.num == b.num) <span class="comment">//如果与目标相同就输出</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; tmp.t &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;record&gt;::iterator it = tmp.rec.begin(); it != tmp.rec.end(); ++it)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; (it-&gt;x1) &lt;&lt; (it-&gt;y1) &lt;&lt; (it-&gt;x2) &lt;&lt; (it-&gt;y2) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">15</span>; i &gt;= <span class="number">0</span>; --i) <span class="comment">//枚举方阵每一位</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 15-i表示现在是方阵二进制的哪一位（从左到右）</span></span><br><span class="line"><span class="comment">             * (15-i) / 4 即 (15-i) &gt;&gt; 2 表示相当于原来的第几行</span></span><br><span class="line"><span class="comment">             * (15-i) % 4 即 (15-i) - (y &lt;&lt; 2) 表示相当于原来的第几列</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="keyword">int</span> y = (<span class="number">15</span> - i) &gt;&gt; <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> x = (<span class="number">15</span> - i) - (y &lt;&lt; <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*tmp.num &amp; (1&lt;&lt;i) 表示当前方阵第i位，这里用aaa储存方便使用*/</span></span><br><span class="line">            <span class="keyword">int</span> aaa = <span class="number">1</span> &lt;&lt; i;</span><br><span class="line"></span><br><span class="line">            status bbb; <span class="comment">//临时储存下一个状态</span></span><br><span class="line">            bbb.t = tmp.t + <span class="number">1</span>;</span><br><span class="line">            bbb.rec = tmp.rec;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 左右交换</span></span><br><span class="line"><span class="comment">             * 限制 x&lt;3 防止出界</span></span><br><span class="line"><span class="comment">             * 如果第i位与第i+1位相等就不用交换了</span></span><br><span class="line"><span class="comment">             * 第i+1位在10进制里对应的值就是第i位的值的一半</span></span><br><span class="line"><span class="comment">             * 因为这里的x和y是从0开始的，所以记录时要加一</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            bbb.num = tmp.num ^ aaa ^ (aaa &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (x &lt; <span class="number">3</span> <span class="keyword">and</span> (tmp.num &amp; aaa) ^ (tmp.num &amp; (aaa &gt;&gt; <span class="number">1</span>)))</span><br><span class="line">            &#123;</span><br><span class="line">                bbb.rec.push_back((record)&#123;y + <span class="number">1</span>, x + <span class="number">1</span>, y + <span class="number">1</span>, x + <span class="number">2</span>&#125;);</span><br><span class="line">                q.push(bbb);</span><br><span class="line">                bbb.rec.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 上下交换</span></span><br><span class="line"><span class="comment">             * 同上，不过这次是与下面的交换，需要右移一行即4位</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            bbb.num = tmp.num ^ aaa ^ (aaa &gt;&gt; <span class="number">4</span>);</span><br><span class="line">            <span class="keyword">if</span> (y &lt; <span class="number">3</span> <span class="keyword">and</span> (tmp.num &amp; aaa) ^ (tmp.num &amp; (aaa &gt;&gt; <span class="number">4</span>)))</span><br><span class="line">            &#123;</span><br><span class="line">                bbb.rec.push_back((record)&#123;y + <span class="number">1</span>, x + <span class="number">1</span>, y + <span class="number">2</span>, x + <span class="number">1</span>&#125;);</span><br><span class="line">                q.push(bbb);</span><br><span class="line">                bbb.rec.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*将读入的方阵变成二进制的形式并用int保存*/</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">15</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; ch;</span><br><span class="line">        a.num += (ch - <span class="string">&#x27;0&#x27;</span>) * (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">15</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; ch;</span><br><span class="line">        b.num += (ch - <span class="string">&#x27;0&#x27;</span>) * (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*特判，如果一开始就相同那就不需要搜索了*/</span></span><br><span class="line">    <span class="keyword">if</span> (a.num == b.num)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bfs();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/03/28/P1225/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://hghgthifg.tk/2021/03/28/P1225/>http://hghgthifg.tk/2021/03/28/P1225/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-03T15:50:27+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 3, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/OI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>OI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A2%98%E8%A7%A3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>题解</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/bfs/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>bfs</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>位运算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Luogu/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Luogu</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2021/03/27/P1705/">
-        P1705
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hghgthifg.tk/2021/03/28/P1225/&title=P1225 - 小H的博客&summary=洛谷P1225 黑白棋游戏"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
     
-      <p>洛谷P1705 爱与愁过火<br>
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://hghgthifg.tk/2021/03/28/P1225/&title=P1225 - 小H的博客&summary=洛谷P1225 黑白棋游戏"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://hghgthifg.tk/2021/03/28/P1225/&title=P1225 - 小H的博客&summary=洛谷P1225 黑白棋游戏"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2021-03-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2021/03/27/P1705/'>
-            Read More
-          </a>
-        </div>
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>1.1k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>4 min</p>
+    </a>
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/03/27/P1705/'>
+          <p class='title'>P1705<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>洛谷P1705 爱与愁过火
+题意简述求出从 $m$ 个数中选 $r$ 个并使和大于 $r$ 的方案数。
+输入：
+
+$m$，$r$，$n$。
+$m$ 个数字。
+$m\le30$。
+
+输出：
+
+方案...</p>
+        </a>
       
     </div>
   
+</article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/03/21/P2074/">
-        P2074
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P2074 危险区域<br>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-03-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/03/21/P2074/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
   
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/03/20/P1476/">
-        P1476
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P1476 休息中的小呆<br>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-03-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/03/20/P1476/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/03/14/P2571/">
-        P2571
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P2571 传送带<br>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-03-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/03/14/P2571/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/02/14/P2027/">
-        P2027
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>洛谷P2027 bf<br>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-02-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/02/14/P2027/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -675,118 +623,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://image-1301503852.cos.ap-nanjing.myqcloud.com/%E5%A4%B4%E5%83%8F.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">小H的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="mailto:3354437830@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/hghgthifg/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%99%E7%A8%8B/" href="/categories/%E6%95%99%E7%A8%8B/"
-            id="categoriesE69599E7A88B"
-            ><div class='name'>教程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B8%B8%E8%AE%B0/" href="/categories/%E6%B8%B8%E8%AE%B0/"
-            id="categoriesE6B8B8E8AEB0"
-            ><div class='name'>游记</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%A2%98%E8%A7%A3/" href="/categories/%E9%A2%98%E8%A7%A3/"
-            id="categoriesE9A298E8A7A3"
-            ><div class='name'>题解</div><div class='badge'>(6)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%E7%AE%80%E8%BF%B0"><span class="toc-text">题意简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-text">题目分析</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/CMake/" style="font-size: 14px; color: #999">CMake</a> <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/Floyd/" style="font-size: 14px; color: #999">Floyd</a> <a href="/tags/Luogu/" style="font-size: 20.67px; color: #6c6c6c">Luogu</a> <a href="/tags/OI/" style="font-size: 24px; color: #555">OI</a> <a href="/tags/bfs/" style="font-size: 14px; color: #999">bfs</a> <a href="/tags/dfs/" style="font-size: 14px; color: #999">dfs</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/%E4%B8%89%E5%88%86%E6%B3%95/" style="font-size: 14px; color: #999">三分法</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 14px; color: #999">位运算</a> <a href="/tags/%E5%89%AA%E6%9E%9D/" style="font-size: 14px; color: #999">剪枝</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px; color: #999">模拟</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 17.33px; color: #828282">题解</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -795,8 +653,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="P1225";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
