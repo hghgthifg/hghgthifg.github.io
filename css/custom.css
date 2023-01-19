@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">@import url(https://cdn.jsdelivr.net/gh/satouriko/LxgwWenKai_Webfonts@v1.101/dist/LXGWWenKaiMono-Regular.css);
+
+@font-face {
+    font-family: "Fira Code";
+    src: url(https://cdn.jsdelivr.net/gh/beichensky/Font/FiraCode/ttf/FiraCode-Regular.ttf);
+}
+
+#navbar{
+    text-shadow: none;
+    box-shadow: none;
+    font-family: "LxgwWenKai";
+}
+
+.hljs.bash{
+    font-family: "Fira Code";
+}
+
+.markdown-body .hljs{
+    font-family: "Fira Code";
+}
