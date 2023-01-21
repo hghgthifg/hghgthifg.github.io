@@ -22,11 +22,11 @@
       
       <tag>deepin</tag>
       
-      <tag>clang</tag>
+      <tag>nodejs</tag>
       
       <tag>llvm</tag>
       
-      <tag>nodejs</tag>
+      <tag>clang</tag>
       
     </tags>
     
@@ -39,7 +39,7 @@
     <link href="/2023/01/19/deepin-vscode-dev/"/>
     <url>/2023/01/19/deepin-vscode-dev/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>个人偏爱使用 <code>clang + xmake</code>，以下内容均针对这一配置</p><p>首先配置 clang 环境，deepin 20 源里 clang 版本过低的解决方案见<a href="https://hghgthifg.github.io/2023/01/19/deepin-devenv/">这里</a></p><p>接下来安装插件：</p><ul><li>clangd（提供代码补全，格式化等功能）</li><li>CodeLLDB（调试）</li><li>Project Manager（管理项目）</li><li>XMake (xmake 的 vscode 插件)</li></ul><p><a href="https://xmake.io/">xmake</a> 是一个很好用的构建工具，用 lua 描述配置，语法简单，功能强大，帮你远离 <code>cmake</code> 的折磨。</p><p>官网提供的安装方式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash &lt;(wget https://xmake.io/shget.text -O -)<br></code></pre></td></tr></table></figure><p>最后把 vscode 的插件配置一下就行了。<br />在设置中搜索：</p><p><code>Xmake: Debug Config Type</code> 改为 <code>codelldb</code><br /><code>Clangd: Path</code> 改为 <code>clangd-15</code></p><p>在 vscode 的 <code>settings.json</code> 中添加</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;clangd.arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-string">&quot;--background-index&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--compile-commands-dir=.&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;-j=12&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--query-driver=/usr/bin/clang++-15&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy-checks=performance-*,bugprone-*&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--all-scopes-completion&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--completion-style=detailed&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--header-insertion=iwyu&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--pch-storage=disk&quot;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure><p>具体参数请见<a href="https://clangd.llvm.org/config">官网</a></p><p>可使用 <code>xmake create &lt;project-name&gt;</code> 创建项目，然后用 vscode 打开。效果如下：</p><p><img src="https://bu.dusays.com/2023/01/19/63c8e55f82b16.png" alt="主题：ayu" /></p><p>完结撒花~</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>个人偏爱使用 <code>clang + xmake</code>，以下内容均针对这一配置</p><p>首先配置 <code>clang</code> 环境，<code>deepin 20</code> 源里 <code>clang</code> 版本过低的解决方案见<a href="https://hghgthifg.github.io/2023/01/19/deepin-devenv/">这里</a></p><p>接下来安装插件：</p><ul><li><code>clangd</code>（提供代码补全，格式化等功能）</li><li><code>CodeLLDB</code>（调试）</li><li><code>Project Manager</code>（管理项目）</li><li><code>XMake</code> (xmake 的 vscode 插件)</li></ul><p><a href="https://xmake.io/">xmake</a> 是一个很好用的构建工具，用 lua 描述配置，语法简单，功能强大，帮你远离 <code>cmake</code> 的折磨。</p><p>官网提供的安装方式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash &lt;(wget https://xmake.io/shget.text -O -)<br></code></pre></td></tr></table></figure><p>最后把 <code>vscode</code> 的插件配置一下就行了。<br />在设置中搜索：</p><p><code>Xmake: Debug Config Type</code> 改为 <code>codelldb</code><br /><code>Clangd: Path</code> 改为 <code>clangd-15</code></p><p>在 <code>vscode</code> 的 <code>settings.json</code> 中添加</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;clangd.arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-string">&quot;--background-index&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--compile-commands-dir=.&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;-j=12&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--query-driver=/usr/bin/clang++-15&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy-checks=performance-*,bugprone-*&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--all-scopes-completion&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--completion-style=detailed&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--header-insertion=iwyu&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--pch-storage=disk&quot;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure><p>具体参数请见<a href="https://clangd.llvm.org/config">官网</a></p><p>可使用 <code>xmake create &lt;project-name&gt;</code> 创建项目，然后用 <code>vscode</code> 打开。效果如下：</p><p><img src="https://bu.dusays.com/2023/01/19/63c8e55f82b16.png" alt="主题：ayu" /></p><p>完结撒花~</p>]]></content>
     
     
     <categories>
@@ -53,13 +53,13 @@
       
       <tag>deepin</tag>
       
-      <tag>linux</tag>
-      
-      <tag>vscode</tag>
+      <tag>llvm</tag>
       
       <tag>clang</tag>
       
-      <tag>llvm</tag>
+      <tag>linux</tag>
+      
+      <tag>vscode</tag>
       
       <tag>xmake</tag>
       
