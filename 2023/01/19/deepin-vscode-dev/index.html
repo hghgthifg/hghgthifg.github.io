@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2023/01/19/63c8e55f82b16.png">
 <meta property="article:published_time" content="2023-01-19T07:43:58.000Z">
-<meta property="article:modified_time" content="2023-01-31T14:33:53.934Z">
+<meta property="article:modified_time" content="2023-03-04T14:59:22.337Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="deepin">
 <meta property="article:tag" content="llvm">
@@ -282,7 +282,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          830 字
+          878 字
         
       </span>
     
@@ -294,7 +294,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          8 分钟
         
       </span>
     
@@ -362,7 +362,7 @@
 <p><code>Xmake: Debug Config Type</code> 改为 <code>codelldb</code><br />
 <code>Clangd: Path</code> 改为 <code>clangd-15</code></p>
 <p>在 vscode 的 <code>settings.json</code> 中添加</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;clangd.arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-string">&quot;--background-index&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--compile-commands-dir=.&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;-j=12&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--query-driver=/usr/bin/clang++-15&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy-checks=performance-*,bugprone-*&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--all-scopes-completion&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--completion-style=detailed&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--header-insertion=iwyu&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--pch-storage=disk&quot;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;clangd.arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-string">&quot;--background-index&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--compile-commands-dir=.&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;-j=12&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--query-driver=/usr/bin/clang++-15&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--clang-tidy-checks=performance-*,bugprone-*&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--all-scopes-completion&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--completion-style=detailed&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--header-insertion=iwyu&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;--pch-storage=disk&quot;</span><br><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;clangd.path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;clangd-15&quot;</span><br></code></pre></td></tr></table></figure>
 <p>具体参数请见<a target="_blank" rel="noopener" href="https://clangd.llvm.org/config">官网</a></p>
 <p>可使用 <code>xmake create &lt;project-name&gt;</code> 创建项目，然后用 vscode 打开。效果如下：</p>
 <p><img src="https://bu.dusays.com/2023/01/19/63c8e55f82b16.png" srcset="/img/loading.gif" lazyload alt="主题：ayu" /></p>
