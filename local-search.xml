@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>HPRT-driver-linux</title>
+    <title>汉印 MT810 没有 Linux 驱动的解决方案</title>
     <link href="/2023/07/07/HPRT-driver-linux/"/>
     <url>/2023/07/07/HPRT-driver-linux/</url>
     
@@ -20,13 +20,13 @@
     
     <tags>
       
-      <tag>deepin</tag>
-      
-      <tag>linux</tag>
-      
       <tag>打印</tag>
       
       <tag>驱动</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>deepin</tag>
       
     </tags>
     
@@ -82,13 +82,13 @@
     
     <tags>
       
+      <tag>linux</tag>
+      
       <tag>deepin</tag>
       
       <tag>llvm</tag>
       
       <tag>clang</tag>
-      
-      <tag>linux</tag>
       
       <tag>vscode</tag>
       
