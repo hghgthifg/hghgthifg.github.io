@@ -16,27 +16,30 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="deepin 20 基于 Debian 10，软件源实在是太古老了，许多环境需要我们自己去配置。">
+    <meta name="description" content="汉印 MT810 没有 Linux 驱动的解决方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="deepin 20.8 开发环境配置">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/01/19/deepin-devenv/index.html">
+<meta property="og:title" content="HPRT-driver-linux">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="deepin 20 基于 Debian 10，软件源实在是太古老了，许多环境需要我们自己去配置。">
+<meta property="og:description" content="汉印 MT810 没有 Linux 驱动的解决方案">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-19T07:46:52.000Z">
-<meta property="article:modified_time" content="2023-02-25T07:00:44.006Z">
+<meta property="og:image" content="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/07/07/64a7bf99853da.png">
+<meta property="article:published_time" content="2023-07-07T06:39:33.000Z">
+<meta property="article:modified_time" content="2023-07-07T07:32:56.753Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="deepin">
-<meta property="article:tag" content="nodejs">
-<meta property="article:tag" content="llvm">
-<meta property="article:tag" content="clang">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="打印">
+<meta property="article:tag" content="驱动">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>deepin 20.8 开发环境配置 - 小H的博客</title>
+  <title>HPRT-driver-linux - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -248,7 +251,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="deepin 20.8 开发环境配置"></span>
+            <span id="subtitle" data-typed-text="HPRT-driver-linux"></span>
           
         </div>
 
@@ -264,8 +267,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-19 15:46" pubdate>
-          2023年1月19日 下午
+        <time datetime="2023-07-07 14:39" pubdate>
+          2023年7月7日 下午
         </time>
       </span>
     
@@ -277,7 +280,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.5k 字
+          528 字
         
       </span>
     
@@ -289,7 +292,7 @@
         
         
           <!-- compatible with older versions-->
-          13 分钟
+          5 分钟
         
       </span>
     
@@ -335,43 +338,30 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">deepin 20.8 开发环境配置</h1>
+            <h1 style="display: none">HPRT-driver-linux</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-nodejs"><a class="markdownIt-Anchor" href="#1-nodejs"></a> 1、nodejs</h2>
-<p>系统自带的没啥用，卸掉就行。</p>
-<p>官网下载，然后放在适当的位置，进行软链接即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/node /usr/local/bin<br>sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/npm /usr/local/bin<br>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org<br>sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/cnpm /usr/local/bin<br></code></pre></td></tr></table></figure>
-<h2 id="2-llvm"><a class="markdownIt-Anchor" href="#2-llvm"></a> 2、llvm</h2>
-<p>有时候我们需要用到较高版本的 clang（比如 vscode 的 clangd 插件要求 &gt;=14），那么我们就需要自己去装。</p>
-<p>由于 deepin 20 基于 Debian 10，所以我们添加 llvm 给 Debian 10 的源比较合适。</p>
-<p>打开 <code>/etc/apt/sources.list</code>，末尾加入以下内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">deb http://apt.llvm.org/buster/ llvm-toolchain-buster main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster main<br><span class="hljs-comment"># 14 </span><br>deb http://apt.llvm.org/buster/ llvm-toolchain-buster-14 main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-14 main<br><span class="hljs-comment"># 15 </span><br>deb http://apt.llvm.org/buster/ llvm-toolchain-buster-15 main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-15 main<br></code></pre></td></tr></table></figure>
-<p>然后添加公钥</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -<br>sudo apt update<br></code></pre></td></tr></table></figure>
-<p>接着就可以装 llvm15 了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install llvm-15 clang-15 clang-tools-15 clangd-15 clang-tidy-15 clang-format-15 lldb-15 lld-15<br></code></pre></td></tr></table></figure>
-<h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
-<div class="admonition caution"><p class="admonition-title">caution</p><p>注意不要动系统自带的 Python，不然可能会导致桌面环境崩溃</p>
-</div>
-<p>deepin 20 自带 Python 版本为 3.7.3，我安装的是 3.10.9</p>
-<p>先下载<a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz">源码</a></p>
-<p>在解压后的目录执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ./configure prefix=/opt/Python-3.10.9 --with-openssl=/usr --enable-optmizations<br></code></pre></td></tr></table></figure>
-<p>参数根据自己需要来调</p>
-<p>然后就是熟悉的步骤了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo make<br>sudo make install<br>sudo <span class="hljs-built_in">ln</span> -s /opt/Python-3.10.9/bin/python3.10 /usr/local/bin<br>sudo <span class="hljs-built_in">ln</span> -s /opt/Python-3.10.9/bin/pip3.10 /usr/local/bin<br></code></pre></td></tr></table></figure>
-<h2 id="manim"><a class="markdownIt-Anchor" href="#manim"></a> Manim</h2>
-<p>先进入虚拟环境，然后 <code>pip install manim</code> 即可</p>
-<div class="admonition note"><p class="admonition-title">note</p><p>如果是用上面的方法编译安装的 Python，可能会报缺少 _bz2，原因是 bzip2 是 Python 编译的可选依赖，编译时没有带上</p>
-</div>
-<p>如果缺少 <code>_bz2</code>，执行 <code>sudo apt install libbz2-dev</code> 然后重新编译安装 Python</p>
-<h2 id="lua54"><a class="markdownIt-Anchor" href="#lua54"></a> lua5.4</h2>
-<p>deepin 20 源里面没有 lua5.4，想要使用需要手动编译</p>
-<p>首先下载 lua 5.4 <a target="_blank" rel="noopener" href="http://www.lua.org/download.html">源代码</a>，解压之后 cd 到解压目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">make all <span class="hljs-built_in">test</span><br>sudo make install<br></code></pre></td></tr></table></figure>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="问题背景"><a class="markdownIt-Anchor" href="#问题背景"></a> 问题背景</h2>
+<p>新买了一台汉印 MT810 打印机来打印题目，这台打印机可以用 USB 连接，但是需要装驱动。然而，MT810 没有 Linux 驱动，只有 Windows 和 MacOS 的。</p>
+<h2 id="处理思路"><a class="markdownIt-Anchor" href="#处理思路"></a> 处理思路</h2>
+<p>官网有 MT800 的 Linux 驱动，猜测 800 系列的驱动应该差不多，尝试把 MT800 的 Linux 驱动和 MT810 的 MacOS 驱动“结合”一下。</p>
+<h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h2>
+<h3 id="step-1"><a class="markdownIt-Anchor" href="#step-1"></a> Step 1</h3>
+<p>下载 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1076">MT800 的 Linux 驱动</a> 和 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1277">MT810 的 MacOS 驱动</a></p>
+<h3 id="step-2"><a class="markdownIt-Anchor" href="#step-2"></a> Step 2</h3>
+<p>直接安装 MT800 驱动<br />
+<img src="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png" srcset="/img/loading.gif" lazyload alt="我这里已经装过了" /></p>
+<h3 id="step-3"><a class="markdownIt-Anchor" href="#step-3"></a> Step 3</h3>
+<p>解压缩 MT810 驱动，得到 <code>hprt-mt810-printer-mac-driver-v1.0.0.pkg</code>，解包得到 <code>usr</code> 和 <code>Library</code> 目录（我用的 easy7zip，用 wine 运行），在 <code>Library</code> 目录下找到 <code>MT810.ppd.gz</code>，解压缩，得到 <code>MT810.ppd</code>，这就是我们要的了。</p>
+<h3 id="step-4"><a class="markdownIt-Anchor" href="#step-4"></a> Step 4</h3>
+<p>执行如下命令（<code>&lt;&gt;</code> 里的自行替换）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">cp</span> &lt;path to MT810.ppd&gt; /usr/share/cups/model/label<br>sudo <span class="hljs-built_in">cp</span> /usr/lib/cups/filter/raster-esc /usr/lib/cups/filter/raster-MT810<br></code></pre></td></tr></table></figure>
+<h3 id="step-5"><a class="markdownIt-Anchor" href="#step-5"></a> Step 5</h3>
+<p>添加打印机即可。</p>
+<p><img src="https://bu.dusays.com/2023/07/07/64a7bf99853da.png" srcset="/img/loading.gif" lazyload alt="结果图" /></p>
+
                 
               </div>
             
@@ -389,7 +379,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  <a href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="category-chain-item">问题记录</a>
   
   
 
@@ -406,11 +396,11 @@
       
         <a href="/tags/deepin/">#deepin</a>
       
-        <a href="/tags/nodejs/">#nodejs</a>
+        <a href="/tags/linux/">#linux</a>
       
-        <a href="/tags/llvm/">#llvm</a>
+        <a href="/tags/%E6%89%93%E5%8D%B0/">#打印</a>
       
-        <a href="/tags/clang/">#clang</a>
+        <a href="/tags/%E9%A9%B1%E5%8A%A8/">#驱动</a>
       
     </div>
   
@@ -422,8 +412,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>deepin 20.8 开发环境配置</div>
-      <div>http://hghgthifg.github.io/2023/01/19/deepin-devenv/</div>
+      <div>HPRT-driver-linux</div>
+      <div>http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/</div>
     </div>
     <div class="license-meta">
       
@@ -435,7 +425,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月19日</div>
+          <div>2023年7月7日</div>
         </div>
       
       
@@ -479,18 +469,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/07/HPRT-driver-linux/" title="HPRT-driver-linux">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HPRT-driver-linux</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/19/deepin-vscode-dev/" title="deepin 下 vscode c++ 环境配置">
-                        <span class="hidden-mobile">deepin 下 vscode c++ 环境配置</span>
+                      <a href="/2023/01/19/deepin-devenv/" title="deepin 20.8 开发环境配置">
+                        <span class="hidden-mobile">deepin 20.8 开发环境配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
