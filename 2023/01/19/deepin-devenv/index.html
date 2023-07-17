@@ -24,7 +24,7 @@
 <meta property="og:description" content="deepin 20 基于 Debian 10，软件源实在是太古老了，许多环境需要我们自己去配置。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-19T07:46:52.000Z">
-<meta property="article:modified_time" content="2023-02-25T07:00:44.006Z">
+<meta property="article:modified_time" content="2023-07-17T15:42:59.732Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="deepin">
 <meta property="article:tag" content="nodejs">
@@ -265,7 +265,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.5k 字
+          1.8k 字
         
       </span>
     
@@ -277,7 +277,7 @@
         
         
           <!-- compatible with older versions-->
-          13 分钟
+          15 分钟
         
       </span>
     
@@ -344,13 +344,14 @@
 <h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
 <div class="admonition caution"><p class="admonition-title">caution</p><p>注意不要动系统自带的 Python，不然可能会导致桌面环境崩溃</p>
 </div>
-<p>deepin 20 自带 Python 版本为 3.7.3，我安装的是 3.10.9</p>
-<p>先下载<a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz">源码</a></p>
-<p>在解压后的目录执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ./configure prefix=/opt/Python-3.10.9 --with-openssl=/usr --enable-optmizations<br></code></pre></td></tr></table></figure>
+<p>deepin 20 自带 Python 版本为 3.7.3，我安装的是 Python 3.10.12</p>
+<p>先下载<a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz">源码</a></p>
+<p>结合上一步，我使用了 clang-15 来编译 Python。</p>
+<p>在解压后的目录执行以下内容( &lt;path-to-openssl&gt; 需自行填写)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/opt/Python-3.10.12 --enable-optimizations --with-openssl=&lt;path-to-openssl&gt; CC=/usr/bin/clang-15 CXX=/usr/bin/clang++-15 LLVM_PROFDATA=/usr/bin/llvm-profdata-15 CFLAGS=<span class="hljs-string">&quot;-Wno-unused-value -Wno-empty-body -Qunused-arguments -I/usr/local/include&quot;</span> LDFLAGS=<span class="hljs-string">&quot;-L/usr/local/lib&quot;</span> --enable-loadable-sqlite-extensions<br></code></pre></td></tr></table></figure>
 <p>参数根据自己需要来调</p>
 <p>然后就是熟悉的步骤了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo make<br>sudo make install<br>sudo <span class="hljs-built_in">ln</span> -s /opt/Python-3.10.9/bin/python3.10 /usr/local/bin<br>sudo <span class="hljs-built_in">ln</span> -s /opt/Python-3.10.9/bin/pip3.10 /usr/local/bin<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo make<br>sudo make install<br></code></pre></td></tr></table></figure>
 <h2 id="manim"><a class="markdownIt-Anchor" href="#manim"></a> Manim</h2>
 <p>先进入虚拟环境，然后 <code>pip install manim</code> 即可</p>
 <div class="admonition note"><p class="admonition-title">note</p><p>如果是用上面的方法编译安装的 Python，可能会报缺少 _bz2，原因是 bzip2 是 Python 编译的可选依赖，编译时没有带上</p>
@@ -360,6 +361,7 @@
 <p>deepin 20 源里面没有 lua5.4，想要使用需要手动编译</p>
 <p>首先下载 lua 5.4 <a target="_blank" rel="noopener" href="http://www.lua.org/download.html">源代码</a>，解压之后 cd 到解压目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">make all <span class="hljs-built_in">test</span><br>sudo make install<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
