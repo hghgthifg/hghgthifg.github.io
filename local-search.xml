@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>os.rename() 问题记录</title>
+    <link href="/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <url>/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Python 版本 3.10.12</p><p><img src="https://bu.dusays.com/2023/07/18/64b696e86b9d9.png" alt="官方文档" /></p><div class="admonition caution"><p class="admonition-title">caution</p><p>当 dst 是文件时，该文件前面的路径必须存在。</p></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>踩坑</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>踩坑</tag>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>汉印 MT810 没有 Linux 驱动的解决方案</title>
     <link href="/2023/07/07/HPRT-driver-linux/"/>
     <url>/2023/07/07/HPRT-driver-linux/</url>
@@ -13,7 +40,7 @@
     
     <categories>
       
-      <category>问题记录</category>
+      <category>踩坑</category>
       
     </categories>
     
