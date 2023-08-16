@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>[NOI2015]荷马史诗</title>
+    <link href="/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/"/>
+    <url>/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>TODO</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    ll w;<br>    ll depth;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Node&amp; x) <span class="hljs-type">const</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (w != x.w) <span class="hljs-keyword">return</span> w &gt; x.w;<br>        <span class="hljs-keyword">return</span> depth &gt; x.depth;<br>    &#125;<br>&#125;;<br><br>priority_queue&lt;Node&gt; q;<br><span class="hljs-type">int</span> n, k;<br>ll sum, ans, len;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        ll ipt;<br>        cin &gt;&gt; ipt;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;ipt, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br>    <span class="hljs-keyword">while</span> ((q.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) % (k - <span class="hljs-number">1</span>) != <span class="hljs-number">0</span>) &#123;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        ll sum = <span class="hljs-number">0</span>, maxd = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i++) &#123;<br>            maxd = <span class="hljs-built_in">max</span>(maxd, q.<span class="hljs-built_in">top</span>().depth);<br>            sum += q.<span class="hljs-built_in">top</span>().w;<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        ans += sum;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;sum, maxd + <span class="hljs-number">1</span>&#125;);<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>    cout &lt;&lt; q.<span class="hljs-built_in">top</span>().depth &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>哈夫曼编码</tag>
+      
+      <tag>OI</tag>
+      
+      <tag>题解</tag>
+      
+      <tag>NOI</tag>
+      
+      <tag>贪心</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>os.rename() 问题记录</title>
     <link href="/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <url>/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
