@@ -16,15 +16,15 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NOI2015荷马史诗题解">
+    <meta name="description" content="NOI2015 荷马史诗题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[NOI2015]荷马史诗">
+<meta property="og:title" content="[NOI2015] 荷马史诗">
 <meta property="og:url" content="http://hghgthifg.github.io/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="NOI2015荷马史诗题解">
+<meta property="og:description" content="NOI2015 荷马史诗题解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-16T15:20:23.000Z">
-<meta property="article:modified_time" content="2023-08-16T15:29:45.719Z">
+<meta property="article:modified_time" content="2023-08-17T10:48:41.891Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="哈夫曼编码">
 <meta property="article:tag" content="OI">
@@ -37,7 +37,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>[NOI2015]荷马史诗 - 小H的博客</title>
+  <title>[NOI2015] 荷马史诗 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -48,6 +48,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
 
 
 
@@ -80,7 +82,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"hghgthifg.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["-slim",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"wCCdt3NO8PFchd3oT0XgCkLS-MdYXbMMI","app_key":"gV6fvbxjwzrmPVsfo557wCjG","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"hghgthifg.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["-slim",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"wCCdt3NO8PFchd3oT0XgCkLS-MdYXbMMI","app_key":"gV6fvbxjwzrmPVsfo557wCjG","server_url":null,"path":"window.location.pathname","ignore_local":true},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -102,15 +104,13 @@
   
 
   
-
-  
     
   
 
 
 
   
-<meta name="generator" content="Hexo 5.4.1"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[NOI2015]荷马史诗"></span>
+            <span id="subtitle" data-typed-text="[NOI2015] 荷马史诗"></span>
           
         </div>
 
@@ -266,7 +266,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          801 字
+          1k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          9 分钟
         
       </span>
     
@@ -323,14 +323,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">[NOI2015]荷马史诗</h1>
+            <h1 id="seo-header">[NOI2015] 荷马史诗</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>TODO</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    ll w;<br>    ll depth;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Node&amp; x) <span class="hljs-type">const</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (w != x.w) <span class="hljs-keyword">return</span> w &gt; x.w;<br>        <span class="hljs-keyword">return</span> depth &gt; x.depth;<br>    &#125;<br>&#125;;<br><br>priority_queue&lt;Node&gt; q;<br><span class="hljs-type">int</span> n, k;<br>ll sum, ans, len;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        ll ipt;<br>        cin &gt;&gt; ipt;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;ipt, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br>    <span class="hljs-keyword">while</span> ((q.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) % (k - <span class="hljs-number">1</span>) != <span class="hljs-number">0</span>) &#123;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        ll sum = <span class="hljs-number">0</span>, maxd = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i++) &#123;<br>            maxd = <span class="hljs-built_in">max</span>(maxd, q.<span class="hljs-built_in">top</span>().depth);<br>            sum += q.<span class="hljs-built_in">top</span>().w;<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        ans += sum;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;sum, maxd + <span class="hljs-number">1</span>&#125;);<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>    cout &lt;&lt; q.<span class="hljs-built_in">top</span>().depth &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2168">洛谷</a><br>
+<a target="_blank" rel="noopener" href="https://loj.ac/p/2132">LOJ</a></p>
+<h2 id="题目分析">题目分析</h2>
+<p>哈夫曼编码模板题。<br>
+使用 k 进制，即编码时将 k 个点合并为一个。</p>
+<p>最后要求的就是哈夫曼编码的长度，以及哈夫曼树最深的节点的深度。</p>
+<p>注意最后合并的时候可能会出现不满一层的情况，所以要在刚开始补成能恰好合并的哈夫曼树。<br>
+最后剩下一个节点，即需要合并掉 n-1 个点，而每次合并减少 k-1 个点，所以要想恰好合并，需要满足</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(n-1) \bmod (k-1) = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></p>
+<p>我们可以在合并之前就把权重为 0 的点加上凑数</p>
+<h2 id="代码实现">代码实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    ll w;<br>    ll depth;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Node&amp; x) <span class="hljs-type">const</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (w != x.w) <span class="hljs-keyword">return</span> w &gt; x.w;<br>        <span class="hljs-keyword">return</span> depth &gt; x.depth;<br>    &#125;<br>&#125;;<br><br>priority_queue&lt;Node&gt; q;<br><span class="hljs-type">int</span> n, k;<br>ll sum, ans, len;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        ll ipt;<br>        cin &gt;&gt; ipt;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;ipt, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> ((q.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) % (k - <span class="hljs-number">1</span>) != <span class="hljs-number">0</span>) &#123; <br>        q.<span class="hljs-built_in">push</span>(Node&#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        ll sum = <span class="hljs-number">0</span>, maxd = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i++) &#123;<br>            maxd = <span class="hljs-built_in">max</span>(maxd, q.<span class="hljs-built_in">top</span>().depth);<br>            sum += q.<span class="hljs-built_in">top</span>().w;<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        ans += sum;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;sum, maxd + <span class="hljs-number">1</span>&#125;);<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>    cout &lt;&lt; q.<span class="hljs-built_in">top</span>().depth &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -364,15 +375,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/">#哈夫曼编码</a>
+        <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/" class="print-no-link">#哈夫曼编码</a>
       
-        <a href="/tags/OI/">#OI</a>
+        <a href="/tags/OI/" class="print-no-link">#OI</a>
       
-        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
       
-        <a href="/tags/NOI/">#NOI</a>
+        <a href="/tags/NOI/" class="print-no-link">#NOI</a>
       
-        <a href="/tags/%E8%B4%AA%E5%BF%83/">#贪心</a>
+        <a href="/tags/%E8%B4%AA%E5%BF%83/" class="print-no-link">#贪心</a>
       
     </div>
   
@@ -384,7 +395,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[NOI2015]荷马史诗</div>
+      <div>[NOI2015] 荷马史诗</div>
       <div>http://hghgthifg.github.io/2023/08/16/NOI2015-荷马史诗/</div>
     </div>
     <div class="license-meta">
@@ -408,19 +419,19 @@
             
               
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
                     <i class="iconfont icon-nc"></i>
                   </span>
                 </a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
                     <i class="iconfont icon-sa"></i>
                   </span>
@@ -503,6 +514,11 @@
 
 
   
+
+
+  
+  
+
 
 
 
