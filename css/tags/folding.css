@@ -1,0 +1,167 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">details {
+  display: block;
+  padding: 16px;
+  margin: 1em 0;
+  border-radius: 4px;
+  border: 1px solid var(--board-bg-color);
+  background: var(--board-bg-color);
+  font-size: 0.9375rem;
+  border: 1px solid var(--board-bg-color);
+}
+details summary {
+  cursor: pointer;
+  padding: 16px;
+  margin: -16px;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: bold;
+  position: relative;
+  line-height: normal;
+}
+details summary > p,
+details summary > h1,
+details summary > h2,
+details summary > h3,
+details summary > h4,
+details summary > h5,
+details summary > h6 {
+  display: inline;
+  border-bottom: none !important;
+}
+details summary:hover {
+  color: var(--text-color);
+}
+details summary:hover:after {
+  position: absolute;
+  content: '+';
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+}
+details >summary {
+  background: var(--board-bg-color);
+}
+details[blue] {
+  padding: 16px;
+  border-color: #e8f4fd;
+}
+details[blue] >summary {
+  background: #e8f4fd;
+}
+details[cyan] {
+  padding: 16px;
+  border-color: #e8fafe;
+}
+details[cyan] >summary {
+  background: #e8fafe;
+}
+details[green] {
+  padding: 16px;
+  border-color: #ebf9ed;
+}
+details[green] >summary {
+  background: #ebf9ed;
+}
+details[yellow] {
+  padding: 16px;
+  border-color: #fff8e9;
+}
+details[yellow] >summary {
+  background: #fff8e9;
+}
+details[red] {
+  padding: 16px;
+  border-color: #feefee;
+}
+details[red] >summary {
+  background: #feefee;
+}
+details[open] {
+  display: block;
+  padding: 16px;
+  margin: 1em 0;
+  border-radius: 4px;
+  border: 1px solid var(--board-bg-color);
+  background: #fff;
+  font-size: 0.9375rem;
+}
+details[open] >summary {
+  cursor: pointer;
+  padding: 16px;
+  margin: -16px;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: bold;
+  position: relative;
+  line-height: normal;
+  border-bottom: 1px solid var(--text-color);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+details[open][blue] {
+  border-color: rgba(33,150,243,0.3);
+}
+details[open][blue] >summary {
+  border-bottom-color: rgba(33,150,243,0.3);
+}
+details[open][cyan] {
+  border-color: rgba(27,205,252,0.3);
+}
+details[open][cyan] >summary {
+  border-bottom-color: rgba(27,205,252,0.3);
+}
+details[open][green] {
+  border-color: rgba(61,197,80,0.3);
+}
+details[open][green] >summary {
+  border-bottom-color: rgba(61,197,80,0.3);
+}
+details[open][yellow] {
+  border-color: rgba(255,189,43,0.3);
+}
+details[open][yellow] >summary {
+  border-bottom-color: rgba(255,189,43,0.3);
+}
+details[open][red] {
+  border-color: rgba(254,95,88,0.3);
+}
+details[open][red] >summary {
+  border-bottom-color: rgba(254,95,88,0.3);
+}
+details[open] >summary {
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+details[open] >summary:hover:after {
+  content: '-';
+}
+details[open] >div.content {
+  background: var(--board-bg-color);
+  padding: 16px;
+  margin: -16px;
+  margin-top: 0;
+}
+details[open] >div.content p>a:hover {
+  text-decoration: underline;
+}
+details[open] >div.content > p:first-child,
+details[open] >div.content > .tabs:first-child,
+details[open] >div.content > ul:first-child,
+details[open] >div.content > ol:first-child,
+details[open] >div.content > .highlight:first-child,
+details[open] >div.content > .note:first-child,
+details[open] >div.content > details:first-child {
+  margin-top: 0;
+}
+details[open] >div.content > p:last-child,
+details[open] >div.content > .tabs:last-child,
+details[open] >div.content > ul:last-child,
+details[open] >div.content > ol:last-child,
+details[open] >div.content > .highlight:last-child,
+details[open] >div.content > .note:last-child,
+details[open] >div.content > details:last-child {
+  margin-bottom: 0;
+}
