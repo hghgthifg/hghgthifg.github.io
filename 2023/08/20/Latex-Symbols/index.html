@@ -16,28 +16,24 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NOI2015 荷马史诗题解">
+    <meta name="description" content="一些常用的 Latex 符号，方便查询，图片来源于网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[NOI2015] 荷马史诗">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/index.html">
+<meta property="og:title" content="Latex符号整理">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/08/20/Latex-Symbols/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="NOI2015 荷马史诗题解">
+<meta property="og:description" content="一些常用的 Latex 符号，方便查询，图片来源于网络">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-16T15:20:23.000Z">
-<meta property="article:modified_time" content="2023-08-20T13:04:04.066Z">
+<meta property="article:published_time" content="2023-08-20T14:08:22.000Z">
+<meta property="article:modified_time" content="2023-08-20T14:15:19.736Z">
 <meta property="article:author" content="小H">
-<meta property="article:tag" content="OI">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="哈夫曼编码">
-<meta property="article:tag" content="NOI">
-<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="Latex">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>[NOI2015] 荷马史诗 - 小H的博客</title>
+  <title>Latex符号整理 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -236,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[NOI2015] 荷马史诗"></span>
+            <span id="subtitle" data-typed-text="Latex符号整理"></span>
           
         </div>
 
@@ -252,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-16 23:20" pubdate>
-          2023年8月16日 晚上
+        <time datetime="2023-08-20 22:08" pubdate>
+          2023年8月20日 晚上
         </time>
       </span>
     
@@ -265,7 +261,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1k 字
+          0 字
         
       </span>
     
@@ -277,7 +273,7 @@
         
         
           <!-- compatible with older versions-->
-          9 分钟
+          1 分钟
         
       </span>
     
@@ -322,20 +318,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">[NOI2015] 荷马史诗</h1>
+            <h1 id="seo-header">Latex符号整理</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2168">洛谷</a></p>
-<p><a target="_blank" rel="noopener" href="https://loj.ac/p/2132">LOJ</a></p>
-<h2 id="题目分析">题目分析</h2>
-<p>哈夫曼编码模板题。 使用 k 进制，即编码时将 k 个点合并为一个。</p>
-<p>最后要求的就是哈夫曼编码的长度，以及哈夫曼树最深的节点的深度。</p>
-<p>注意最后合并的时候可能会出现不满一层的情况，所以要在刚开始补成能恰好合并的哈夫曼树。 最后剩下一个节点，即需要合并掉 <span class="math inline">\(n-1\)</span> 个点，而每次合并减少 <span class="math inline">\(k-1\)</span> 个点，所以要想恰好合并，需要满足 <span class="math display">\[(n-1) \bmod (k-1) = 0\]</span> 我们可以在合并之前就把权重为 0 的点加上凑数</p>
-<h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    ll w;<br>    ll depth;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Node&amp; x) <span class="hljs-type">const</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (w != x.w) <span class="hljs-keyword">return</span> w &gt; x.w;<br>        <span class="hljs-keyword">return</span> depth &gt; x.depth;<br>    &#125;<br>&#125;;<br><br>priority_queue&lt;Node&gt; q;<br><span class="hljs-type">int</span> n, k;<br>ll sum, ans, len;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        ll ipt;<br>        cin &gt;&gt; ipt;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;ipt, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> ((q.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) % (k - <span class="hljs-number">1</span>) != <span class="hljs-number">0</span>) &#123; <br>        q.<span class="hljs-built_in">push</span>(Node&#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        ll sum = <span class="hljs-number">0</span>, maxd = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i++) &#123;<br>            maxd = <span class="hljs-built_in">max</span>(maxd, q.<span class="hljs-built_in">top</span>().depth);<br>            sum += q.<span class="hljs-built_in">top</span>().w;<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        ans += sum;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;sum, maxd + <span class="hljs-number">1</span>&#125;);<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>    cout &lt;&lt; q.<span class="hljs-built_in">top</span>().depth &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
 
                 
               </div>
@@ -354,7 +342,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  <a href="/categories/%E6%95%B4%E7%90%86/" class="category-chain-item">整理</a>
   
   
 
@@ -369,15 +357,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OI/" class="print-no-link">#OI</a>
-      
-        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
-      
-        <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/" class="print-no-link">#哈夫曼编码</a>
-      
-        <a href="/tags/NOI/" class="print-no-link">#NOI</a>
-      
-        <a href="/tags/%E8%B4%AA%E5%BF%83/" class="print-no-link">#贪心</a>
+        <a href="/tags/Latex/" class="print-no-link">#Latex</a>
       
     </div>
   
@@ -389,8 +369,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[NOI2015] 荷马史诗</div>
-      <div>http://hghgthifg.github.io/2023/08/16/NOI2015-荷马史诗/</div>
+      <div>Latex符号整理</div>
+      <div>http://hghgthifg.github.io/2023/08/20/Latex-Symbols/</div>
     </div>
     <div class="license-meta">
       
@@ -402,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月16日</div>
+          <div>2023年8月20日</div>
         </div>
       
       
@@ -446,18 +426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/" title="[JSOI2008] 球形空间产生器">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[JSOI2008] 球形空间产生器</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/18/python-os-rename-error/" title="Python os.rename() 出错的可能原因">
-                        <span class="hidden-mobile">Python os.rename() 出错的可能原因</span>
+                      <a href="/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/" title="[JSOI2008] 球形空间产生器">
+                        <span class="hidden-mobile">[JSOI2008] 球形空间产生器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -514,12 +488,6 @@
 
 
   
-
-
-  
-  
-
-
 
 
 
@@ -737,49 +705,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

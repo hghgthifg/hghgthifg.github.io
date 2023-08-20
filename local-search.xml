@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Latex符号整理</title>
+    <link href="/2023/08/20/Latex-Symbols/"/>
+    <url>/2023/08/20/Latex-Symbols/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    
+    
+    <categories>
+      
+      <category>整理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Latex</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[JSOI2008] 球形空间产生器</title>
     <link href="/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/"/>
     <url>/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/</url>
@@ -70,9 +95,9 @@
   
   
   <entry>
-    <title>os.rename() 问题记录</title>
-    <link href="/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <url>/2023/07/18/os-rename%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <title>Python os.rename() 出错的可能原因</title>
+    <link href="/2023/07/18/python-os-rename-error/"/>
+    <url>/2023/07/18/python-os-rename-error/</url>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Python 版本 3.10.12</p><figure><img src="https://bu.dusays.com/2023/07/18/64b696e86b9d9.png" alt="官方文档" /><figcaption>官方文档</figcaption></figure><div class="admonition caution"><p class="admonition-title">caution</p><p>当 dst 是文件时，该文件前面的路径必须存在。</p></div>]]></content>
     
@@ -205,7 +230,7 @@
     
     <categories>
       
-      <category>诗词</category>
+      <category>整理</category>
       
     </categories>
     
@@ -230,7 +255,7 @@
     
     <categories>
       
-      <category>诗词</category>
+      <category>整理</category>
       
     </categories>
     
