@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png">
 <meta property="og:image" content="https://bu.dusays.com/2023/07/07/64a7bf99853da.png">
 <meta property="article:published_time" content="2023-07-07T06:39:33.000Z">
-<meta property="article:modified_time" content="2023-08-20T15:16:38.544Z">
+<meta property="article:modified_time" content="2023-08-20T15:17:19.128Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="打印">
 <meta property="article:tag" content="驱动">
@@ -267,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          534 字
+          539 字
         
       </span>
     
@@ -339,7 +339,7 @@
 <h3 id="step-2">Step 2</h3>
 <p>直接安装 MT800 驱动 <img src="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png" srcset="/img/loading.gif" lazyload alt="我这里已经装过了" /></p>
 <h3 id="step-3">Step 3</h3>
-<p>解压缩 MT810 驱动，得到 <code>hprt-mt810-printer-mac-driver-v1.0.0.pkg</code>，解包得到 <code>usr</code> 和 <code>Library</code> 目录（我用的 easy7zip，用 wine 运行），在 <code>Library</code> 目录下找到 <code>MT810.ppd.gz</code>，解压缩，得到 <code>MT810.ppd</code>，这就是我们要的了。</p>
+<p>解压缩 MT810 MacOS 驱动，得到 <code>hprt-mt810-printer-mac-driver-v1.0.0.pkg</code>，解包得到 <code>usr</code> 和 <code>Library</code> 目录（我用的 easy7zip，用 wine 运行），在 <code>Library</code> 目录下找到 <code>MT810.ppd.gz</code>，解压缩，得到 <code>MT810.ppd</code>，这就是我们要的了。</p>
 <h3 id="step-4">Step 4</h3>
 <p>执行如下命令（<code>&lt;&gt;</code> 里的自行替换）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">cp</span> &lt;/path/to/MT810.ppd&gt; /usr/share/cups/model/label<br>sudo <span class="hljs-built_in">cp</span> /usr/lib/cups/filter/raster-esc /usr/lib/cups/filter/raster-MT810<br></code></pre></td></tr></table></figure>
