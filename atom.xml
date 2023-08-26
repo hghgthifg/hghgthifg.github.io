@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小H的博客</title>
+  <icon>http://hghgthifg.github.io/icon.png</icon>
+  
+  <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://hghgthifg.github.io/"/>
+  <updated>2023-08-25T06:14:10.892Z</updated>
+  <id>http://hghgthifg.github.io/</id>
+  
+  <author>
+    <name>小H</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[SCOI2015] 国旗计划</title>
+    <link href="http://hghgthifg.github.io/2023/08/25/SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/"/>
+    <id>http://hghgthifg.github.io/2023/08/25/SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/</id>
+    <published>2023-08-25T05:51:20.000Z</published>
+    <updated>2023-08-25T06:14:10.892Z</updated>
+    
+    
+    <summary type="html">SCOI2015 国旗计划题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="倍增" scheme="http://hghgthifg.github.io/tags/%E5%80%8D%E5%A2%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AHOI2012] 铁盘整理</title>
+    <link href="http://hghgthifg.github.io/2023/08/24/AHOI2012-%E9%93%81%E7%9B%98%E6%95%B4%E7%90%86/"/>
+    <id>http://hghgthifg.github.io/2023/08/24/AHOI2012-%E9%93%81%E7%9B%98%E6%95%B4%E7%90%86/</id>
+    <published>2023-08-24T14:58:33.000Z</published>
+    <updated>2023-08-24T15:29:21.175Z</updated>
+    
+    
+    <summary type="html">AHOI2012 铁盘整理题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="搜索" scheme="http://hghgthifg.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="迭代加深搜索" scheme="http://hghgthifg.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%8A%A0%E6%B7%B1%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="IDA*" scheme="http://hghgthifg.github.io/tags/IDA/"/>
+    
+    <category term="估价函数" scheme="http://hghgthifg.github.io/tags/%E4%BC%B0%E4%BB%B7%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex符号整理</title>
+    <link href="http://hghgthifg.github.io/2023/08/20/Latex-Symbols/"/>
+    <id>http://hghgthifg.github.io/2023/08/20/Latex-Symbols/</id>
+    <published>2023-08-20T14:08:22.000Z</published>
+    <updated>2023-08-20T14:54:19.669Z</updated>
+    
+    
+    <summary type="html">一些常用的 Latex 符号，方便查询，图片来源于网络</summary>
+    
+    
+    
+    <category term="整理" scheme="http://hghgthifg.github.io/categories/%E6%95%B4%E7%90%86/"/>
+    
+    
+    <category term="Latex" scheme="http://hghgthifg.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[JSOI2008] 球形空间产生器</title>
+    <link href="http://hghgthifg.github.io/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/"/>
+    <id>http://hghgthifg.github.io/2023/08/20/JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8/</id>
+    <published>2023-08-20T12:32:18.000Z</published>
+    <updated>2023-08-21T14:08:31.771Z</updated>
+    
+    
+    <summary type="html">JSOI2008 球形空间产生器题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="模拟退火" scheme="http://hghgthifg.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
+    
+    <category term="高斯消元" scheme="http://hghgthifg.github.io/tags/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/"/>
+    
+    <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NOI2015] 荷马史诗</title>
+    <link href="http://hghgthifg.github.io/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/"/>
+    <id>http://hghgthifg.github.io/2023/08/16/NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/</id>
+    <published>2023-08-16T15:20:23.000Z</published>
+    <updated>2023-08-24T15:28:59.575Z</updated>
+    
+    
+    <summary type="html">NOI2015 荷马史诗题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="哈夫曼编码" scheme="http://hghgthifg.github.io/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="NOI" scheme="http://hghgthifg.github.io/tags/NOI/"/>
+    
+    <category term="贪心" scheme="http://hghgthifg.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python os.rename() 出错的可能原因</title>
+    <link href="http://hghgthifg.github.io/2023/07/18/python-os-rename-error/"/>
+    <id>http://hghgthifg.github.io/2023/07/18/python-os-rename-error/</id>
+    <published>2023-07-18T13:39:55.000Z</published>
+    <updated>2023-08-20T14:46:30.570Z</updated>
+    
+    
+    <summary type="html">os.rename 一直显示 &quot;No such file or directory&quot; 的可能原因</summary>
+    
+    
+    
+    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+    <category term="踩坑" scheme="http://hghgthifg.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+    <category term="Python" scheme="http://hghgthifg.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>汉印 MT810 没有 Linux 驱动的解决方案</title>
+    <link href="http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/"/>
+    <id>http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/</id>
+    <published>2023-07-07T06:39:33.000Z</published>
+    <updated>2023-08-20T15:17:19.128Z</updated>
+    
+    
+    <summary type="html">新买了一台汉印 MT810 打印机来打印题目，这台打印机可以用 USB 连接，但是需要装驱动。然而，MT810 没有 Linux 驱动，只有 Windows 和 MacOS 的。</summary>
+    
+    
+    
+    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+    <category term="打印" scheme="http://hghgthifg.github.io/tags/%E6%89%93%E5%8D%B0/"/>
+    
+    <category term="驱动" scheme="http://hghgthifg.github.io/tags/%E9%A9%B1%E5%8A%A8/"/>
+    
+    <category term="linux" scheme="http://hghgthifg.github.io/tags/linux/"/>
+    
+    <category term="deepin" scheme="http://hghgthifg.github.io/tags/deepin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>deepin 20.8 开发环境配置</title>
+    <link href="http://hghgthifg.github.io/2023/01/19/deepin-devenv/"/>
+    <id>http://hghgthifg.github.io/2023/01/19/deepin-devenv/</id>
+    <published>2023-01-19T07:46:52.000Z</published>
+    <updated>2023-08-20T15:11:51.688Z</updated>
+    
+    
+    <summary type="html">deepin 20 基于 Debian 10，软件源实在是太古老了，许多环境需要我们自己去配置。</summary>
+    
+    
+    
+    <category term="教程" scheme="http://hghgthifg.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="deepin" scheme="http://hghgthifg.github.io/tags/deepin/"/>
+    
+    <category term="nodejs" scheme="http://hghgthifg.github.io/tags/nodejs/"/>
+    
+    <category term="llvm" scheme="http://hghgthifg.github.io/tags/llvm/"/>
+    
+    <category term="clang" scheme="http://hghgthifg.github.io/tags/clang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>deepin 下 vscode c++ 环境配置</title>
+    <link href="http://hghgthifg.github.io/2023/01/19/deepin-vscode-dev/"/>
+    <id>http://hghgthifg.github.io/2023/01/19/deepin-vscode-dev/</id>
+    <published>2023-01-19T07:43:58.000Z</published>
+    <updated>2023-08-20T15:02:19.224Z</updated>
+    
+    
+    <summary type="html">deepin + vscode + clang + xmake 环境配置</summary>
+    
+    
+    
+    <category term="教程" scheme="http://hghgthifg.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="linux" scheme="http://hghgthifg.github.io/tags/linux/"/>
+    
+    <category term="deepin" scheme="http://hghgthifg.github.io/tags/deepin/"/>
+    
+    <category term="llvm" scheme="http://hghgthifg.github.io/tags/llvm/"/>
+    
+    <category term="clang" scheme="http://hghgthifg.github.io/tags/clang/"/>
+    
+    <category term="vscode" scheme="http://hghgthifg.github.io/tags/vscode/"/>
+    
+    <category term="xmake" scheme="http://hghgthifg.github.io/tags/xmake/"/>
+    
+    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>带风字的诗词</title>
+    <link href="http://hghgthifg.github.io/2022/07/10/%E5%B8%A6%E9%A3%8E%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/"/>
+    <id>http://hghgthifg.github.io/2022/07/10/%E5%B8%A6%E9%A3%8E%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/</id>
+    <published>2022-07-10T03:47:29.000Z</published>
+    <updated>2023-08-20T14:07:44.260Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整理了一些带『风』字的诗词句&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="整理" scheme="http://hghgthifg.github.io/categories/%E6%95%B4%E7%90%86/"/>
+    
+    
+    <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>带花字的诗</title>
+    <link href="http://hghgthifg.github.io/2022/06/26/%E5%B8%A6%E8%8A%B1%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/"/>
+    <id>http://hghgthifg.github.io/2022/06/26/%E5%B8%A6%E8%8A%B1%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/</id>
+    <published>2022-06-26T11:08:16.000Z</published>
+    <updated>2023-08-20T14:07:47.056Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整理了一些带『花』字的诗词句&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="整理" scheme="http://hghgthifg.github.io/categories/%E6%95%B4%E7%90%86/"/>
+    
+    
+    <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
+  
+</feed>
