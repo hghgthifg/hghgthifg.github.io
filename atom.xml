@@ -96,11 +96,11 @@
   </entry>
   
   <entry>
-    <title>Latex符号整理</title>
+    <title>Latex 符号整理</title>
     <link href="http://hghgthifg.github.io/2023/08/20/Latex-Symbols/"/>
     <id>http://hghgthifg.github.io/2023/08/20/Latex-Symbols/</id>
     <published>2023-08-20T14:08:22.000Z</published>
-    <updated>2023-08-20T14:54:19.669Z</updated>
+    <updated>2023-08-28T00:00:22.748Z</updated>
     
     
     <summary type="html">一些常用的 Latex 符号，方便查询，图片来源于网络</summary>
@@ -305,6 +305,71 @@
     
     
     <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSP2021 游记</title>
+    <link href="http://hghgthifg.github.io/2021/10/23/CSP2021/"/>
+    <id>http://hghgthifg.github.io/2021/10/23/CSP2021/</id>
+    <published>2021-10-23T06:09:28.000Z</published>
+    <updated>2023-08-29T13:22:06.639Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CSP第二年摸鱼记</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于c_str()</title>
+    <link href="http://hghgthifg.github.io/2021/07/20/about-c-str/"/>
+    <id>http://hghgthifg.github.io/2021/07/20/about-c-str/</id>
+    <published>2021-07-20T13:37:03.000Z</published>
+    <updated>2023-08-29T13:19:25.988Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于c_str()的用法</summary>
+    
+    
+    
+    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
+    
+    <category term="STL" scheme="http://hghgthifg.github.io/tags/STL/"/>
+    
+    <category term="string" scheme="http://hghgthifg.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSP2020 游记</title>
+    <link href="http://hghgthifg.github.io/2020/10/24/CSP2020/"/>
+    <id>http://hghgthifg.github.io/2020/10/24/CSP2020/</id>
+    <published>2020-10-24T13:55:46.000Z</published>
+    <updated>2023-08-29T13:20:24.291Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;蒟蒻第一次参加CSP-J写的游记</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
     
   </entry>
   
