@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-08-27T23:57:56.278Z</updated>
+  <updated>2023-09-03T13:20:09.355Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023 化学国初游记</title>
+    <link href="http://hghgthifg.github.io/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://hghgthifg.github.io/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/</id>
+    <published>2023-09-03T12:21:07.000Z</published>
+    <updated>2023-09-03T13:20:09.355Z</updated>
+    
+    
+    <summary type="html">不愉快的经历</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="化学" scheme="http://hghgthifg.github.io/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写给自己</title>
+    <link href="http://hghgthifg.github.io/2023/08/29/TOMYSELF/"/>
+    <id>http://hghgthifg.github.io/2023/08/29/TOMYSELF/</id>
+    <published>2023-08-29T13:41:55.000Z</published>
+    <updated>2023-08-29T13:57:44.371Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>[SCOI2010] 序列操作</title>
@@ -31,9 +65,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
@@ -56,9 +90,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
@@ -81,9 +115,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="搜索" scheme="http://hghgthifg.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
     
@@ -129,13 +163,13 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
+    
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="模拟退火" scheme="http://hghgthifg.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
     
     <category term="高斯消元" scheme="http://hghgthifg.github.io/tags/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/"/>
-    
-    <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
     
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
@@ -258,6 +292,8 @@
     
     <category term="deepin" scheme="http://hghgthifg.github.io/tags/deepin/"/>
     
+    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
+    
     <category term="llvm" scheme="http://hghgthifg.github.io/tags/llvm/"/>
     
     <category term="clang" scheme="http://hghgthifg.github.io/tags/clang/"/>
@@ -265,8 +301,6 @@
     <category term="vscode" scheme="http://hghgthifg.github.io/tags/vscode/"/>
     
     <category term="xmake" scheme="http://hghgthifg.github.io/tags/xmake/"/>
-    
-    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
     
   </entry>
   
