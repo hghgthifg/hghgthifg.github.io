@@ -16,32 +16,29 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="不愉快的经历">
+    <meta name="description" content="NOIP2013提高组 公路运输题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2023 化学国初游记">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/index.html">
+<meta property="og:title" content="NOIP2013-货车运输">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="不愉快的经历">
+<meta property="og:description" content="NOIP2013提高组 公路运输题解">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f47e6af08b5.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f47e6b59111.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f47e4c27dd7.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f4808faf49b.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f47e694f499.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f47e4997446.jpg">
-<meta property="og:image" content="https://bu.dusays.com/2023/09/03/64f4869e2eab3.jpg">
-<meta property="article:published_time" content="2023-09-03T12:21:07.000Z">
-<meta property="article:modified_time" content="2023-09-03T13:20:09.355Z">
+<meta property="article:published_time" content="2023-09-10T00:22:45.000Z">
+<meta property="article:modified_time" content="2023-09-10T00:37:06.260Z">
 <meta property="article:author" content="小H">
-<meta property="article:tag" content="化学">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="NOIP">
+<meta property="article:tag" content="LCA">
+<meta property="article:tag" content="Prim">
+<meta property="article:tag" content="最小生成树">
+<meta property="article:tag" content="最近公共祖先">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/09/03/64f47e6af08b5.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>2023 化学国初游记 - 小H的博客</title>
+  <title>NOIP2013-货车运输 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -241,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2023 化学国初游记"></span>
+            <span id="subtitle" data-typed-text="NOIP2013-货车运输"></span>
           
         </div>
 
@@ -257,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 20:21" pubdate>
-          2023年9月3日 晚上
+        <time datetime="2023-09-10 08:22" pubdate>
+          2023年9月10日 早上
         </time>
       </span>
     
@@ -270,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.2k 字
+          2.9k 字
         
       </span>
     
@@ -282,7 +279,7 @@
         
         
           <!-- compatible with older versions-->
-          10 分钟
+          24 分钟
         
       </span>
     
@@ -327,73 +324,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2023 化学国初游记</h1>
+            <h1 id="seo-header">NOIP2013-货车运输</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>时间：2023 年 9 月 3 日</p>
-<p>地点：南师大仙林校区</p>
-<h2 id="出发前">出发前</h2>
-<p>被迫坐了一上午物理预赛的牢，啥都没学过就去考，当分母喽。</p>
-<p>中午食堂的饭菜估计有问题，肚子吃得难受。</p>
-<h2 id="出发前往南师大">出发，前往南师大</h2>
-<p>学校包的 20 多个座的车，真的颠得慌，去的路上胃就难受，还拉肚子(⊙︿⊙)</p>
-<p>好不容易才撑到了南师大门口，不巧的是南师大新生报到，不让进去看考场，饭也没法去南师大食堂吃了。</p>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f47e6af08b5.jpg" srcset="/img/loading.gif" lazyload alt="南师大仙林校区门口" /><figcaption>南师大仙林校区门口</figcaption>
-</figure>
-<p>不得不说南师大真的偏，附近一公里都没啥吃的地方，只能去某个看上去就很阴间的地方吃了一顿。</p>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f47e6b59111.jpg" srcset="/img/loading.gif" lazyload alt="去那边厕所的路上，一看就很阴间" /><figcaption>去那边厕所的路上，一看就很阴间</figcaption>
-</figure>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f47e4c27dd7.jpg" srcset="/img/loading.gif" lazyload alt="第一天晚上的饭" /><figcaption>第一天晚上的饭</figcaption>
-</figure>
-<p>晚上住的汉庭，灯光很暗，只能摸鱼了（逃</p>
-<h2 id="早早地起来迎接一天的折腾">早早地起来，迎接一天的折腾</h2>
-<p>6点整，闹钟一响就能起来，说明昨晚睡得不错 (〃'▽'〃)</p>
-<p>早餐很不错，很丰富，也蛮好吃的。 <del>吃了好多鸡米花</del></p>
-<p>虽然不困，但还是喝了杯咖啡。 <del>第一次喝，味道好冲</del></p>
-<p>好了，该<del>上路</del>出发啦！</p>
-<p>又回到了<del>偏僻的</del>南师大，有学校来的更早，还对着我们拍照 <del>不能输，所以我拍了回去</del></p>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f4808faf49b.jpg" srcset="/img/loading.gif" lazyload alt="对面学校" /><figcaption>对面学校</figcaption>
-</figure>
-<h2 id="迎战国初卷">迎战国初卷</h2>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f47e694f499.jpg" srcset="/img/loading.gif" lazyload alt="横幅" /><figcaption>横幅</figcaption>
-</figure>
-<p>先去踩了个考场 <del>后来被赶出来了</del></p>
-<p>前面坐了个看上去很成熟的姐姐QAQ</p>
-<p>我这样一个没学过几天化学竞赛的蒟蒻，只是来当分母的罢了 ╮(╯▽╰)╭</p>
-<p>没想到第一题不是化学方程式了，直接给我干蒙了，想了半天写不出来，先看第二题了。</p>
-<p>结果第二题还是不会，半天算不出来，算了，继续往下</p>
-<p>第三题起码能写一写，但是第四题就写不出来了，凑了半天没凑出来。</p>
-<p>第五题竟然有 32 分，题目背景也蛮有意思的：</p>
-<blockquote><p>同为常见小分子，NO 星光熠熠，H2S 却臭名昭著</p>
-</blockquote>
-<p><del>硫化氢：我招谁惹谁了</del></p>
-<p>接下来的晶体结构我就没学明白过，不过也认认真真蒙了一下。</p>
-<p>学了这么久生物，至今不知道为什么离子透不过磷脂双分子层 <del>白学了</del></p>
-<p>计算题，算出来脂质体半径 $ 10^5 m $, 标准摩尔焓变写了个 0，感觉写得好离谱。</p>
-<p>做到有机的时候还剩 15 分钟 <del>反正也没学过有机</del></p>
-<p>第一题很友好，能让我这种啥都不会的乱蒙<del>看运气了</del>，问我构型我直接 $ SSR $，貌似对了两个？反正有机尽量瞎涂了涂，问我机理我也不会，只能用白卷表达我的无奈了。</p>
-<h2 id="悲剧的结束新噩梦的开始">悲剧的结束，新噩梦的开始</h2>
-<p>虽然内心是抗拒的，但还是到了昨天的餐馆吃饭TAT。</p>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f47e4997446.jpg" srcset="/img/loading.gif" lazyload alt="第二天中午的饭" /><figcaption>第二天中午的饭</figcaption>
-</figure>
-<p>坐上车胃里就翻江倒海，撑了好久到了服务区。想着终于能好一点了，不过一下车就撑不住了，只感觉天旋地转，眼冒金星，低下头吐了个稀里哗啦。<del>上面那张图里的全被我吐了出来</del></p>
-<p>路上还堵车，一直到快 7 点才到学校。回去拿作业<del>回归礼包</del></p>
-<figure>
-<img src="https://bu.dusays.com/2023/09/03/64f4869e2eab3.jpg" srcset="/img/loading.gif" lazyload alt="回归礼包" /><figcaption>回归礼包</figcaption>
-</figure>
-<h2 id="后记">后记</h2>
-<p>虽然我菜，但我仍然想写游记，留下一份回忆嘛。<del>作业都不写就来写游记</del></p>
-<p>以前删掉的 CSP 游记之前又被我放回来了，想想也是，有什么理由要删掉呢。虽然现在留下了不少悔恨，但也不能就因为这个否定当时的美好回忆啊。</p>
-<p>文化课落下了不少，CSP-S 初赛又近在眼前了，矛盾很多，压力很大，我能做的就是认真走好每一步，不留下遗憾就很好了。</p>
-<p>化学答案还没对，不过毕竟不在乎这些，等出成绩再更新吧，就这样，写作业去了。</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1967">洛谷</a></p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/p/2610">LOJ</a></p>
+<h2 id="题目分析">题目分析</h2>
+<p>如果两座城市之间有多条路径可以相互到达，我们会选择路径中最小值最大的，其他较次的方案会被抛弃，最后得到的就是这张图的最大生成树。</p>
+<p>得到最大生成树之后，对于任意一次查询，我们找一个点让这两个点都能到达，路径上的最小值即为答案。不难想到可以用 LCA 来实现，本题似乎不用倍增也能跑得很快，但我还是用的倍增。</p>
+<p>对于求最大生成树，我用了 Prim 来实现。本题城市群之间可能不联通，在求 LCA 之前的 dfs 可以先进行染色，如果询问中的两座城市颜色不一样那就不联通。</p>
+<h2 id="代码实现">代码实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">1000010</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> id, dis, from;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br>    <span class="hljs-type">int</span> nxt;<br>    <span class="hljs-type">int</span> to;<br>    <span class="hljs-type">int</span> w;<br>    <span class="hljs-type">bool</span> vis;<br>&#125; edge[MAXN * <span class="hljs-number">2</span>];<br>priority_queue&lt;Node&gt; q;<br><span class="hljs-type">int</span> head[MAXN], cnt;<br><span class="hljs-type">int</span> N, M, Q;<br><span class="hljs-type">int</span> minn[MAXN][<span class="hljs-number">21</span>];<span class="hljs-comment">//minn[i][j]记录从i往上跳2^j个点的最大限重</span><br><span class="hljs-type">int</span> fa[MAXN][<span class="hljs-number">21</span>], dep[MAXN];<br><br><span class="hljs-keyword">namespace</span> Prim<br>&#123;<br>    <span class="hljs-type">int</span> vis[MAXN];<br>&#125;<span class="hljs-comment">// namespace Prim</span><br><br><span class="hljs-keyword">namespace</span> LCA<br>&#123;<br>    <span class="hljs-type">int</span> col[MAXN];<br>    <span class="hljs-type">int</span> cnt;<br>&#125;<span class="hljs-comment">// namespace LCA</span><br><br><span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Node&amp; a, <span class="hljs-type">const</span> Node&amp; b)<br>&#123;<br>    <span class="hljs-keyword">return</span> a.dis &lt; b.dis;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">link</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span><br><span class="hljs-function"></span>&#123;<br>    edge[++cnt].nxt = head[u];<br>    edge[cnt].to = v;<br>    edge[cnt].w = w;<br>    head[u] = cnt;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">prim</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i++) &#123;<br>        <span class="hljs-keyword">if</span> (Prim::vis[i]) <span class="hljs-keyword">continue</span>;<br>        q.<span class="hljs-built_in">push</span>(Node&#123;i, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;);<br>        <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>            Node u = q.<span class="hljs-built_in">top</span>();<br>            q.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">if</span> (Prim::vis[u.id]) <span class="hljs-keyword">continue</span>;<br>            Prim::vis[u.id] = <span class="hljs-number">1</span>;<br><br>            edge[u.from].vis = <span class="hljs-number">1</span>;                    <span class="hljs-comment">//记录该边属于最大生成树</span><br>            <span class="hljs-keyword">if</span> (u.from &amp; <span class="hljs-number">1</span>) edge[u.from + <span class="hljs-number">1</span>].vis = <span class="hljs-number">1</span>;<span class="hljs-comment">//双向边</span><br><br>            <span class="hljs-keyword">else</span><br>                edge[u.from - <span class="hljs-number">1</span>].vis = <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[u.id]; i; i = edge[i].nxt) &#123;<br>                <span class="hljs-type">int</span> to = edge[i].to;<br>                <span class="hljs-type">int</span> w = edge[i].w;<br>                <span class="hljs-type">int</span> from = i;<br>                <span class="hljs-keyword">if</span> (Prim::vis[to]) <span class="hljs-keyword">continue</span>;<br>                q.<span class="hljs-built_in">push</span>(Node&#123;to, w, from&#125;);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> father, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> col)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (LCA::col[x]) <span class="hljs-keyword">return</span>;<br>    LCA::col[x] = col;<span class="hljs-comment">//染色</span><br>    fa[x][<span class="hljs-number">0</span>] = father;<br>    minn[x][<span class="hljs-number">0</span>] = w;<span class="hljs-comment">//到父节点的minn就是到父节点的边的长度</span><br>    dep[x] = dep[father] + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; (<span class="hljs-number">1</span> &lt;&lt; i) &lt;= dep[x]; i++) &#123;<br>        fa[x][i] = fa[fa[x][i - <span class="hljs-number">1</span>]][i - <span class="hljs-number">1</span>];<br>        minn[x][i] = <span class="hljs-built_in">min</span>(minn[x][i - <span class="hljs-number">1</span>], minn[fa[x][i - <span class="hljs-number">1</span>]][i - <span class="hljs-number">1</span>]);<span class="hljs-comment">//倍增求最小边长</span><br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = edge[i].nxt) &#123;<br>        <span class="hljs-type">int</span> to = edge[i].to;<br>        <span class="hljs-type">int</span> cw = edge[i].w;<br>        <span class="hljs-keyword">if</span> (to == father) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-keyword">if</span> (!edge[i].vis) <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//必须是最大生成树上有的边</span><br>        <span class="hljs-built_in">dfs</span>(to, x, cw, col);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getlca</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (LCA::col[a] != LCA::col[b]) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">0x7fffffff</span>;<br>    <span class="hljs-keyword">if</span> (dep[a] &lt; dep[b]) <span class="hljs-built_in">swap</span>(a, b);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">20</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>        <span class="hljs-keyword">if</span> (dep[a] - (<span class="hljs-number">1</span> &lt;&lt; i) &gt;= dep[b]) &#123;<br>            ans = <span class="hljs-built_in">min</span>(ans, minn[a][i]);<br>            a = fa[a][i];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a == b) <span class="hljs-keyword">return</span> ans;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">20</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>        <span class="hljs-keyword">if</span> (fa[a][i] == fa[b][i]) <span class="hljs-keyword">continue</span>;<br><br>        ans = <span class="hljs-built_in">min</span>(ans, <span class="hljs-built_in">min</span>(minn[a][i], minn[b][i]));<br>        a = fa[a][i], b = fa[b][i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(ans, <span class="hljs-built_in">min</span>(minn[a][<span class="hljs-number">0</span>], minn[b][<span class="hljs-number">0</span>]));<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; N &gt;&gt; M;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= M; i++) &#123;<br>        <span class="hljs-type">int</span> u, v, w;<br>        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;<br>        <span class="hljs-built_in">link</span>(u, v, w);<br>        <span class="hljs-built_in">link</span>(v, u, w);<br>    &#125;<br>    <span class="hljs-comment">//使用prim求最大生成树</span><br>    <span class="hljs-built_in">prim</span>();<br><br>    cin &gt;&gt; Q;<br>    <span class="hljs-comment">//倍增LCA</span><br>    <span class="hljs-built_in">memset</span>(minn, <span class="hljs-number">0x3f</span>, <span class="hljs-built_in">sizeof</span>(minn));<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i++) &#123;<br>        <span class="hljs-built_in">dfs</span>(i, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, ++LCA::cnt);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= Q; i++) &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        cin &gt;&gt; a &gt;&gt; b;<br>        cout &lt;&lt; <span class="hljs-built_in">getlca</span>(a, b) &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -412,7 +356,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
@@ -427,7 +371,17 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8C%96%E5%AD%A6/" class="print-no-link">#化学</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+      
+        <a href="/tags/NOIP/" class="print-no-link">#NOIP</a>
+      
+        <a href="/tags/LCA/" class="print-no-link">#LCA</a>
+      
+        <a href="/tags/Prim/" class="print-no-link">#Prim</a>
+      
+        <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="print-no-link">#最小生成树</a>
+      
+        <a href="/tags/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="print-no-link">#最近公共祖先</a>
       
     </div>
   
@@ -439,8 +393,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2023 化学国初游记</div>
-      <div>http://hghgthifg.github.io/2023/09/03/2023化学国初游记/</div>
+      <div>NOIP2013-货车运输</div>
+      <div>http://hghgthifg.github.io/2023/09/10/NOIP2013-货车运输/</div>
     </div>
     <div class="license-meta">
       
@@ -452,7 +406,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月10日</div>
         </div>
       
       
@@ -496,18 +450,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/" title="NOIP2013-货车运输">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">NOIP2013-货车运输</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/29/TOMYSELF/" title="写给自己">
-                        <span class="hidden-mobile">写给自己</span>
+                      <a href="/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/" title="2023 化学国初游记">
+                        <span class="hidden-mobile">2023 化学国初游记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

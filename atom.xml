@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-09-03T13:20:09.355Z</updated>
+  <updated>2023-09-10T00:37:06.260Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NOIP2013-货车运输</title>
+    <link href="http://hghgthifg.github.io/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/"/>
+    <id>http://hghgthifg.github.io/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/</id>
+    <published>2023-09-10T00:22:45.000Z</published>
+    <updated>2023-09-10T00:37:06.260Z</updated>
+    
+    
+    <summary type="html">NOIP2013提高组 公路运输题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="NOIP" scheme="http://hghgthifg.github.io/tags/NOIP/"/>
+    
+    <category term="LCA" scheme="http://hghgthifg.github.io/tags/LCA/"/>
+    
+    <category term="Prim" scheme="http://hghgthifg.github.io/tags/Prim/"/>
+    
+    <category term="最小生成树" scheme="http://hghgthifg.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+    <category term="最近公共祖先" scheme="http://hghgthifg.github.io/tags/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"/>
+    
+  </entry>
   
   <entry>
     <title>2023 化学国初游记</title>
