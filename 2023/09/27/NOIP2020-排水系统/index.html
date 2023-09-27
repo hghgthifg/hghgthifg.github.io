@@ -16,23 +16,26 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+    <meta name="description" content="NOIP2020 排水系统题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写给自己">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/08/29/TOMYSELF/index.html">
+<meta property="og:title" content="NOIP2020-排水系统">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="NOIP2020 排水系统题解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-29T13:41:55.000Z">
-<meta property="article:modified_time" content="2023-09-27T14:27:57.409Z">
+<meta property="article:published_time" content="2023-09-27T14:28:21.000Z">
+<meta property="article:modified_time" content="2023-09-27T14:40:07.426Z">
 <meta property="article:author" content="小H">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="NOIP">
+<meta property="article:tag" content="拓扑排序">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>写给自己 - 小H的博客</title>
+  <title>NOIP2020-排水系统 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -232,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="写给自己"></span>
+            <span id="subtitle" data-typed-text="NOIP2020-排水系统"></span>
           
         </div>
 
@@ -248,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-29 21:41" pubdate>
-          2023年8月29日 晚上
+        <time datetime="2023-09-27 22:28" pubdate>
+          2023年9月27日 晚上
         </time>
       </span>
     
@@ -261,7 +264,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3k 字
+          1.7k 字
         
       </span>
     
@@ -273,7 +276,7 @@
         
         
           <!-- compatible with older versions-->
-          26 分钟
+          14 分钟
         
       </span>
     
@@ -318,30 +321,58 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">写给自己</h1>
+            <h1 id="seo-header">NOIP2020-排水系统</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="e0ed5a01cf131a5497c1fbf5dba4efe11f62f7d92aba6013c5acb1299a279d49">a1b52bef3c6b1cdf83b789db8d9a990f3e2d809d1ae34e3bcac340bd000bd2d6f34e16cf15f832cf75322349c34ac1c4a2cc4d0f8f350aa659d908bccbd41aef997c12376edf83bba0e1ea3616f0f77acefaa4f72d5e00bc285dd8c6d87423ff2282c14276db4dfb2593427575ea0beca1ebb1520a71cc1be875ef9b1a1882f4fea31a2511122c757b07ecda1f024d65068269d6f3099249f67207359c359174b350554d32a6a06480af58e7043d0c8ce0be929477a18afbcb5320b59de89e8d7c064fcbce040ee2de2e0e8a6246d02cf19f858775a2113dc3b33b1dc92c11fc5951613d6732e85d554016e37d74fbfba73ea04b48344e1a7d1d27460eca5e7e6203560aefa8833dd4894e9d4ad03fd160b02fab55fb07b7f0c3444d55caffaece7ca19b262c366d1bb4b87286f478c2278c1b34c7f7b40f443b48ecbbe8b7cffbab7222d68829107f3f120690f5fbde8067f70ce76d941cd547811829c74ed407e33945095d6d0fe0c957ad8fd11bf58fe645d341927c4312951469a1a61171f5512a52f0b4bcdc8b642820df078ef3f4ef9d7e5594e0702c9d88923daedde225fc535937cb6a0e673eca85df1b0e75e073eb6b955a677641bdd88d29508da645e94457f5bf88a8c87c6d1448f676ef658437c5041c11ff769051f6f9669535516ef829c474843f1b29afbbcf36256c67e2a873fdfac5d66180a942bd664040cbd23ecf8b9cf8e26602703d65fb6c263f80458fa014dd992f3246bb54ea4ea5c0cc094faf28d5c4520a7f67eca949c93c352317e0f80298eab4b281ee29e2406c3ab59814c3248e26d5d3cb3d0975d4b12fb7c3e73f0b6800fafc949cc58e04a25dca9b7368f4bde043d20b06fe859cf3aa4d638a8421d2a02c60f01b6c5c53180be2f5476480a9a7718ce732885665109759327b06146932791b665644caab470aad493b2aca2c18a6c44d5fa80e8f063c6945426654bfac2e0455c8fe6236cab93949a4ff29488fa19273ed7ebe5c3747ae6e170bc038e56d702d762790fb349479d249192b7250838054d0bd17c6aba6e0ee3c0f0a6472d249ad8ca899bb5ec5fedfeaf01ba95332e85fb3d5df166aef6875b95d5f1cebfc80a503db10b6c66438fb2b6e6b87715461f3b78ea167d9f4d11a43b00f2686c9fedfc9865e54502f47c862c8d9394b37dc41f1b490b7bf0e449dbe25892714152884a310bbda345af4a0a32381549f93cf5d6ab252980cd85470a6966ea224162d3f57fe731fed0a38a084ea0ce76f1c673363fe24ec2c3ff2de73e7d7cb9d8049d80bdba096b028885bc679dad86eccce569732002869357c00581ff22a5626eaaf7e77609ab3fc12f4e8e53d3369a2e9ca401338a4c62e2f563d993d5b012a6bc33d88ea55059ff0328d42179f152688088fae158413439e3c528795f07664227b6087e424e6aaa6eb434257fc13d5cf49426308f82bb6fb6eaa6c7c1199f5eea9ea589a1798de309d3ab2f4dd916269a349587ad82d2e517793a3b1fc76546cc5432ec3d1891a4b3cb71ede1304934d390b5d19b7cb97d272eff2ac341cbcd5d3ae89aaa49e88a3317850006a6bc0d160e5030c1e3d56539bb20211a90b1a63048dcdeb8a169793f662900b2ed39a7f83bae79562bddafa7c727b6ae197a94efcaef5edeab2a43e7bfa25ff32d23f908a0cafa65c39d3ff5d4ff9491199140dd64832720327f315b3421dcdf349902202116bc1b9c545d2fe2d62c707475268eed44cabf14242e40216be7e4b46d8b9e571db0668001f927421928a3c23c5010d97bd7df09f68ae7f42a9070685504b345e7b786aa44aa2cfbef09033e642ba8647003980ef3eed58e618eecc1691f34db9fe8259a17287f6fb73fed30c42c1ebee2e07ddda133c74f603fbb4b158df38d39fea7ac6a323f86d2091cbbd17a426fa6c8594d919f9a71f9a7b30cbbc54ff76188d3558ccb41d62e907dfa9a598223a090da62554863ec923261d797ffc8abaebf620ea191f04026df4db31aee9e37dd369a555692dec0e3cce2848e771d196d1cfc05a5b213d7e7c450b271f24ccdb76eb062294c2be8bffa6510cffa4570d2375424a1ae65c061d65b93aea6292edddde80</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是写给我自己看的哦~</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7113">洛谷</a> <a target="_blank" rel="noopener" href="https://loj.ac/p/3386">LOJ</a></p>
+<h2 id="题目分析">题目分析</h2>
+<p>注意到，『污水接收口』实际上就是入度为 0 的点，『最终排水口』实际上就是出度为 0 的点。污水先从『污水接收口』流出，然后就与『污水接收口』无关了，而流入某个点的先后顺序与结果无关，所以可以使用拓扑排序。</p>
+<p>本题的另一个要点是分数的处理，注意在分数相加的时候数字太大会超出 <code>long long</code> 甚至 <code>unsigned long long</code> 的范围，我们需要使用高精度或 <code>__int128</code>， 由于高精度较为复杂，下面的代码实现使用了 <code>__int128</code>。</p>
+<h2 id="代码实现">代码实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> __int128 bint;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Number</span> &#123;<br>    bint p, q;<br><br>    <span class="hljs-comment">/* 约分 */</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">simplify</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (p == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>        bint g = __gcd(p, q);<br>        p /= g;<br>        q /= g;<br>    &#125;<br><br>    <span class="hljs-built_in">Number</span>()<br>    &#123;<br>        p = <span class="hljs-number">0</span>, q = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-type">int</span> n, m;<br><span class="hljs-type">int</span> cnt[MAXN];<br><span class="hljs-type">int</span> deg[MAXN];<br>Number w[MAXN];<br>vector&lt;<span class="hljs-type">int</span>&gt; G[MAXN];<br><br><span class="hljs-comment">/* 分数相加 */</span><br><span class="hljs-type">const</span> Number <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Number a, <span class="hljs-type">const</span> Number b)<br>&#123;<br>    Number tmp;<br>    bint g = __gcd(a.q, b.q);<br>    tmp.q = a.q / g * b.q;<br>    tmp.p = tmp.q / a.q * a.p + tmp.q / b.q * b.p;<br>    tmp.<span class="hljs-built_in">simplify</span>();<br>    <span class="hljs-keyword">return</span> tmp;<br>&#125;<br><br><span class="hljs-comment">/* 用于输出 __int128 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">write</span><span class="hljs-params">(bint x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) <span class="hljs-built_in">write</span>(x / <span class="hljs-number">10</span>);<br>    <span class="hljs-built_in">putchar</span>(x % <span class="hljs-number">10</span> + <span class="hljs-string">&#x27;0&#x27;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; cnt[i];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= cnt[i]; j++) &#123;<br>            <span class="hljs-type">int</span> to;<br>            cin &gt;&gt; to;<br>            G[i].<span class="hljs-built_in">push_back</span>(to);<br>            deg[to]++;<br>        &#125;<br>    &#125;<br><br>    queue&lt;<span class="hljs-type">int</span>&gt; q;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-comment">//对于每个污水接收口，初始化污水为 1 吨</span><br>        w[i].p = w[i].q = <span class="hljs-number">1</span>;<br>        q.<span class="hljs-built_in">push</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">front</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        <span class="hljs-comment">// 得到每根管道分得的污水量</span><br>        Number now = w[x];<br>        bint g = __gcd(<span class="hljs-built_in">bint</span>(cnt[x]), now.p);<br>        now.p /= g;<br>        now.q *= cnt[x] / g;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> to : G[x]) &#123;<br>            deg[to]--;<br>            <span class="hljs-keyword">if</span> (deg[to] == <span class="hljs-number">0</span>) &#123;<br>                q.<span class="hljs-built_in">push</span>(to);<br>            &#125;<br><br>            <span class="hljs-comment">// 排出污水，进行累加</span><br>            w[to] = now + w[to];<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (cnt[i] == <span class="hljs-number">0</span>) &#123;<br>            w[i].<span class="hljs-built_in">simplify</span>();<br>            <span class="hljs-built_in">write</span>(w[i].p);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27; &#x27;</span>);<br>            <span class="hljs-built_in">write</span>(w[i].q);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\n&#x27;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-              
+                
+              </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/OI/" class="print-no-link">#OI</a>
+      
+        <a href="/tags/NOIP/" class="print-no-link">#NOIP</a>
+      
+        <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="print-no-link">#拓扑排序</a>
+      
+    </div>
   
 </div>
 
@@ -351,8 +382,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>写给自己</div>
-      <div>http://hghgthifg.github.io/2023/08/29/TOMYSELF/</div>
+      <div>NOIP2020-排水系统</div>
+      <div>http://hghgthifg.github.io/2023/09/27/NOIP2020-排水系统/</div>
     </div>
     <div class="license-meta">
       
@@ -364,7 +395,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月29日</div>
+          <div>2023年9月27日</div>
         </div>
       
       
@@ -408,18 +439,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/" title="2023 化学国初游记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2023 化学国初游记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/27/SCOI2010-%E5%BA%8F%E5%88%97%E6%93%8D%E4%BD%9C/" title="[SCOI2010] 序列操作">
-                        <span class="hidden-mobile">[SCOI2010] 序列操作</span>
+                      <a href="/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/" title="[NOIP2013] 货车运输">
+                        <span class="hidden-mobile">[NOIP2013] 货车运输</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -599,23 +624,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refresh) {
-            Fluid.boot.refresh();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   
