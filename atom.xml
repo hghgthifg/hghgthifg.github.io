@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-09-27T14:45:08.921Z</updated>
+  <updated>2023-10-04T02:48:01.212Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[NOIP2022] 种花</title>
+    <link href="http://hghgthifg.github.io/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/"/>
+    <id>http://hghgthifg.github.io/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/</id>
+    <published>2023-10-04T01:54:28.000Z</published>
+    <updated>2023-10-04T02:48:01.212Z</updated>
+    
+    
+    <summary type="html">NOIP2022 种花题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://hghgthifg.github.io/tags/NOIP/"/>
+    
+    <category term="前缀和" scheme="http://hghgthifg.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>[NOIP2020] 排水系统</title>
@@ -94,7 +117,7 @@
     <link href="http://hghgthifg.github.io/2023/08/29/TOMYSELF/"/>
     <id>http://hghgthifg.github.io/2023/08/29/TOMYSELF/</id>
     <published>2023-08-29T13:41:55.000Z</published>
-    <updated>2023-09-27T14:27:57.409Z</updated>
+    <updated>2023-10-01T12:39:50.554Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -188,7 +211,7 @@
     <link href="http://hghgthifg.github.io/2023/08/20/Latex-Symbols/"/>
     <id>http://hghgthifg.github.io/2023/08/20/Latex-Symbols/</id>
     <published>2023-08-20T14:08:22.000Z</published>
-    <updated>2023-08-28T00:00:22.748Z</updated>
+    <updated>2023-10-04T02:30:16.006Z</updated>
     
     
     <summary type="html">一些常用的 Latex 符号，方便查询，图片来源于网络</summary>

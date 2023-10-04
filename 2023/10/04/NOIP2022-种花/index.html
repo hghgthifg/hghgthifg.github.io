@@ -16,26 +16,26 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NOIP2020 排水系统题解">
+    <meta name="description" content="NOIP2022 种花题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[NOIP2020] 排水系统">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="[NOIP2022] 种花">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="NOIP2020 排水系统题解">
+<meta property="og:description" content="NOIP2022 种花题解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-27T14:28:21.000Z">
-<meta property="article:modified_time" content="2023-09-27T14:45:08.921Z">
+<meta property="article:published_time" content="2023-10-04T01:54:28.000Z">
+<meta property="article:modified_time" content="2023-10-04T02:48:01.212Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="OI">
 <meta property="article:tag" content="NOIP">
-<meta property="article:tag" content="拓扑排序">
+<meta property="article:tag" content="前缀和">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>[NOIP2020] 排水系统 - 小H的博客</title>
+  <title>[NOIP2022] 种花 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -235,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[NOIP2020] 排水系统"></span>
+            <span id="subtitle" data-typed-text="[NOIP2022] 种花"></span>
           
         </div>
 
@@ -251,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-27 22:28" pubdate>
-          2023年9月27日 晚上
+        <time datetime="2023-10-04 09:54" pubdate>
+          2023年10月4日 上午
         </time>
       </span>
     
@@ -264,7 +264,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.7k 字
+          3.2k 字
         
       </span>
     
@@ -276,7 +276,7 @@
         
         
           <!-- compatible with older versions-->
-          14 分钟
+          27 分钟
         
       </span>
     
@@ -321,19 +321,47 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">[NOIP2020] 排水系统</h1>
+            <h1 id="seo-header">[NOIP2022] 种花</h1>
             
             
               <div class="markdown-body">
                 
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7113">洛谷</a></p>
-<p><a target="_blank" rel="noopener" href="https://loj.ac/p/3386">LOJ</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8865">洛谷</a></p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/p/3896">LOJ</a></p>
 <h2 id="题目分析">题目分析</h2>
-<p>注意到，『污水接收口』实际上就是入度为 0 的点，『最终排水口』实际上就是出度为 0 的点。污水先从『污水接收口』流出，然后就与『污水接收口』无关了，而流入某个点的先后顺序与结果无关，并且数据保证为有向无环图，所以可以使用拓扑排序。</p>
-<p>本题的另一个要点是分数的处理，注意在分数相加的时候数字太大会超出 <code>long long</code> 甚至 <code>unsigned long long</code> 的范围，我们需要使用高精度或 <code>__int128</code>， 由于高精度较为复杂，下面的代码实现使用了 <code>__int128</code>。</p>
+<h3 id="方法一">方法一</h3>
+<p>以<strong>C-形</strong>为例，想要种出一个<strong>C-形</strong>花需要确定 4 个点，5 个参数，可以使用 5 次循环来讨论这 5 个参数，时间复杂度 $ O(n^5) $， 实际上由于判断了不合法情况，是跑不满的，大约能过 $ n \le 30 $，期望得分 32.</p>
+<h3 id="方法二">方法二</h3>
+<p>在 $ y1 $、 $ y2 $ 向右移动的时候我们发现，我们只关注在某个位置后面有多少连续的 0，这样我们就可以使用后缀和进行预处理，直接得到<strong>C-形</strong>的两横最长能得到的长度，然后依据乘法原理得到方案数，由此节省了两重循环，时间复杂度降至 $ O(n^3) $，可以得到 80 pts. 这种方案对于随机数据由于排除了大量无效点，所以 $ O(n^3) $ 实际上是跑不满的，但遇到大部分为 0 的数据会被卡成 $ O(n^3) $.</p>
+<h3 id="方法三">方法三</h3>
+<p>还是先考虑<strong>C-形</strong>，对于每一个 $ (x1, y0) $ 我们发现，在这个点的方案数等于在 $ x1 $ 下方每一个合法的 $ x2 $ 所能提供的方案数之和。所以可以对每个位置作为 $ x2 $ 时可以提供的总方案数进行后缀和处理，对于方案数 $ sum_c $ 有以下递推式：</p>
+<p><span class="math display">\[
+\begin{equation}
+sum_c[i][j] =\left\{
+    \begin{aligned}
+    sum_c[i + 1][j] + suf[i][j] - 1 \quad a[i][j] = 1 \\
+    0 \quad a[i][j] = 0
+    \end{aligned}
+    \right.
+\end{equation}
+\]</span></p>
+<p>其中 $ suf[i][j] $ 在 $ (i, j) $ 后有多少个连续的 0，由于 $ x1 + 1 &lt; x2 $，所以统计的时候不包括本身，要减去 1.</p>
+<p>接下来考虑<strong>F-形</strong>，与<strong>C-形</strong>类似，但多了个尾巴，这个尾巴先进行后缀和处理，得到每个点下方连续 0 的个数 $ down[i][j] $.</p>
+<p>此时每个 $ (x2, y0) $ 的方案数不仅包括向右那一横提供的，还包括尾巴提供的，两者相乘才为这个点实际提供的方案数。$ sum_f $ 的递推式：</p>
+<p><span class="math display">\[
+\begin{equation}
+sum_f[i][j] =\left\{
+    \begin{aligned}
+    sum_f[i + 1][j] + (suf[i][j] - 1) * (down[i][j] - 1) \quad a[i][j] = 1 \\
+    0 \quad a[i][j] = 0
+    \end{aligned}
+    \right.
+\end{equation}
+\]</span></p>
+<p>这样对于每一个 $ (x1, y0) $，可以在 $ O(1) $ 的时间复杂度下得到该点为左上顶点时的方案数。而讨论每一个位置为左上顶点的时间复杂度为 $ O(n^2) $，前缀和预处理的时间复杂度为 $ O(n^2) $, 所以总时间复杂度为 $ O(n^2) $，可以通过 $ n \le 1000 $，得分 100 pts.</p>
 <h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> __int128 bint;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Number</span> &#123;<br>    bint p, q;<br><br>    <span class="hljs-comment">/* 约分 */</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">simplify</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (p == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>        bint g = __gcd(p, q);<br>        p /= g;<br>        q /= g;<br>    &#125;<br><br>    <span class="hljs-built_in">Number</span>()<br>    &#123;<br>        p = <span class="hljs-number">0</span>, q = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-type">int</span> n, m;<br><span class="hljs-type">int</span> cnt[MAXN];<br><span class="hljs-type">int</span> deg[MAXN];<br>Number w[MAXN];<br>vector&lt;<span class="hljs-type">int</span>&gt; G[MAXN];<br><br><span class="hljs-comment">/* 分数相加 */</span><br><span class="hljs-type">const</span> Number <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Number a, <span class="hljs-type">const</span> Number b)<br>&#123;<br>    Number tmp;<br>    bint g = __gcd(a.q, b.q);<br>    tmp.q = a.q / g * b.q;<br>    tmp.p = tmp.q / a.q * a.p + tmp.q / b.q * b.p;<br>    tmp.<span class="hljs-built_in">simplify</span>();<br>    <span class="hljs-keyword">return</span> tmp;<br>&#125;<br><br><span class="hljs-comment">/* 用于输出 __int128 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">write</span><span class="hljs-params">(bint x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) <span class="hljs-built_in">write</span>(x / <span class="hljs-number">10</span>);<br>    <span class="hljs-built_in">putchar</span>(x % <span class="hljs-number">10</span> + <span class="hljs-string">&#x27;0&#x27;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; cnt[i];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= cnt[i]; j++) &#123;<br>            <span class="hljs-type">int</span> to;<br>            cin &gt;&gt; to;<br>            G[i].<span class="hljs-built_in">push_back</span>(to);<br>            deg[to]++;<br>        &#125;<br>    &#125;<br><br>    queue&lt;<span class="hljs-type">int</span>&gt; q;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-comment">//对于每个污水接收口，初始化污水为 1 吨</span><br>        w[i].p = w[i].q = <span class="hljs-number">1</span>;<br>        q.<span class="hljs-built_in">push</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">front</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        <span class="hljs-comment">// 得到每根管道分得的污水量</span><br>        Number now = w[x];<br>        bint g = __gcd(<span class="hljs-built_in">bint</span>(cnt[x]), now.p);<br>        now.p /= g;<br>        now.q *= cnt[x] / g;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> to : G[x]) &#123;<br>            deg[to]--;<br>            <span class="hljs-keyword">if</span> (deg[to] == <span class="hljs-number">0</span>) &#123;<br>                q.<span class="hljs-built_in">push</span>(to);<br>            &#125;<br><br>            <span class="hljs-comment">// 排出污水，进行累加</span><br>            w[to] = now + w[to];<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (cnt[i] == <span class="hljs-number">0</span>) &#123;<br>            w[i].<span class="hljs-built_in">simplify</span>();<br>            <span class="hljs-built_in">write</span>(w[i].p);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27; &#x27;</span>);<br>            <span class="hljs-built_in">write</span>(w[i].q);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\n&#x27;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">998244353</span>;<br><br><span class="hljs-type">int</span> T, id;<br><span class="hljs-type">int</span> n, m, c, f;<br><span class="hljs-type">int</span> ans_c, ans_f;<br><span class="hljs-type">int</span> suf[<span class="hljs-number">1010</span>][<span class="hljs-number">1010</span>];<br><span class="hljs-type">int</span> sum_c[<span class="hljs-number">1010</span>][<span class="hljs-number">1010</span>];<br><span class="hljs-type">int</span> sum_f[<span class="hljs-number">1010</span>][<span class="hljs-number">1010</span>];<br><span class="hljs-type">int</span> down[<span class="hljs-number">1010</span>][<span class="hljs-number">1010</span>];<br><span class="hljs-type">bool</span> a[<span class="hljs-number">1010</span>][<span class="hljs-number">1010</span>];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">calc_c</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">calc_f</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; T &gt;&gt; id;<br>    <span class="hljs-keyword">while</span> (T--) &#123;<br><br>        <span class="hljs-comment">/* 多组数据切记进行初始化 */</span><br>        ans_c = <span class="hljs-number">0</span>, ans_f = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">memset</span>(suf, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(suf));<br>        <span class="hljs-built_in">memset</span>(sum_c, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(sum_c));<br>        <span class="hljs-built_in">memset</span>(sum_f, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(sum_f));<br>        <span class="hljs-built_in">memset</span>(down, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(down));<br><br>        cin &gt;&gt; n &gt;&gt; m &gt;&gt; c &gt;&gt; f;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>                <span class="hljs-type">char</span> ipt;<br>                cin &gt;&gt; ipt;<br>                a[i][j] = ipt - <span class="hljs-string">&#x27;0&#x27;</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">/* 下面是四次后缀和处理 */</span><br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= <span class="hljs-number">1</span>; j--) &#123;<br>                <span class="hljs-keyword">if</span> (a[i][j]) &#123;<br>                    suf[i][j] = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    suf[i][j] = suf[i][j + <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= <span class="hljs-number">1</span>; j--) &#123;<br>                <span class="hljs-keyword">if</span> (a[i][j]) &#123;<br>                    down[i][j] = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    down[i][j] = down[i + <span class="hljs-number">1</span>][j] + <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= <span class="hljs-number">1</span>; j--) &#123;<br>                <span class="hljs-keyword">if</span> (a[i][j]) &#123;<br>                    sum_c[i][j] = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    sum_c[i][j] = sum_c[i + <span class="hljs-number">1</span>][j] + suf[i][j] - <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= <span class="hljs-number">1</span>; j--) &#123;<br>                <span class="hljs-keyword">if</span> (a[i][j]) &#123;<br>                    sum_f[i][j] = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    sum_f[i][j] = sum_f[i + <span class="hljs-number">1</span>][j] + (suf[i][j] - <span class="hljs-number">1</span>) * (down[i][j] - <span class="hljs-number">1</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-built_in">calc_c</span>();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (f == <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-built_in">calc_f</span>();<br>        &#125;<br><br>        cout &lt;&lt; ans_c &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ans_f &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">calc_c</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x1 = <span class="hljs-number">1</span>; x1 &lt;= n; x1++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y0 = <span class="hljs-number">1</span>; y0 &lt; m; y0++) &#123;<br>            <span class="hljs-comment">/* 排除无效情况 */</span><br>            <span class="hljs-keyword">if</span> (a[x1][y0] == <span class="hljs-number">1</span>) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span> (a[x1 + <span class="hljs-number">1</span>][y0] == <span class="hljs-number">1</span>) <span class="hljs-keyword">continue</span>;<br><br>            <span class="hljs-comment">/* 注意这里的 y0 + 1 和 x1 + 2 */</span><br>            ans_c = (ans_c + (suf[x1][y0 + <span class="hljs-number">1</span>] * sum_c[x1 + <span class="hljs-number">2</span>][y0]) % mod) % mod;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">calc_f</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x1 = <span class="hljs-number">1</span>; x1 &lt;= n; x1++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y0 = <span class="hljs-number">1</span>; y0 &lt; m; y0++) &#123;<br>            <span class="hljs-keyword">if</span> (a[x1][y0] == <span class="hljs-number">1</span>) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span> (a[x1 + <span class="hljs-number">1</span>][y0] == <span class="hljs-number">1</span>) <span class="hljs-keyword">continue</span>;<br>            ans_f = (ans_f + (suf[x1][y0 + <span class="hljs-number">1</span>] * sum_f[x1 + <span class="hljs-number">2</span>][y0]) % mod) % mod;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -371,7 +399,7 @@
       
         <a href="/tags/NOIP/" class="print-no-link">#NOIP</a>
       
-        <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="print-no-link">#拓扑排序</a>
+        <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" class="print-no-link">#前缀和</a>
       
     </div>
   
@@ -383,8 +411,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[NOIP2020] 排水系统</div>
-      <div>http://hghgthifg.github.io/2023/09/27/NOIP2020-排水系统/</div>
+      <div>[NOIP2022] 种花</div>
+      <div>http://hghgthifg.github.io/2023/10/04/NOIP2022-种花/</div>
     </div>
     <div class="license-meta">
       
@@ -396,7 +424,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月27日</div>
+          <div>2023年10月4日</div>
         </div>
       
       
@@ -440,18 +468,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/" title="[NOIP2022] 种花">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[NOIP2022] 种花</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/" title="[NOIP2013] 货车运输">
-                        <span class="hidden-mobile">[NOIP2013] 货车运输</span>
+                      <a href="/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/" title="[NOIP2020] 排水系统">
+                        <span class="hidden-mobile">[NOIP2020] 排水系统</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -508,6 +530,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -725,6 +753,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 
