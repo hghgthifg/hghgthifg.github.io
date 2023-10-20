@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-10-04T02:48:01.212Z</updated>
+  <updated>2023-10-20T13:39:52.324Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSP2023</title>
+    <link href="http://hghgthifg.github.io/2023/10/20/CSP2023/"/>
+    <id>http://hghgthifg.github.io/2023/10/20/CSP2023/</id>
+    <published>2023-10-20T13:39:15.000Z</published>
+    <updated>2023-10-20T13:39:52.324Z</updated>
+    
+    
+    <summary type="html">CSP2023 游记</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>[NOIP2022] 种花</title>
@@ -460,27 +481,6 @@
     <category term="STL" scheme="http://hghgthifg.github.io/tags/STL/"/>
     
     <category term="string" scheme="http://hghgthifg.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSP2020 游记</title>
-    <link href="http://hghgthifg.github.io/2020/10/24/CSP2020/"/>
-    <id>http://hghgthifg.github.io/2020/10/24/CSP2020/</id>
-    <published>2020-10-24T13:55:46.000Z</published>
-    <updated>2023-08-29T13:20:24.291Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;蒟蒻第一次参加CSP-J写的游记</summary>
-    
-    
-    
-    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
-    <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
     
   </entry>
   
