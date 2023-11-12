@@ -16,26 +16,28 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NOIP2020 排水系统题解">
+    <meta name="description" content="NOIP2022 建造军营题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[NOIP2020] 排水系统">
-<meta property="og:url" content="http://hghgthifg.github.io/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="[NOIP2022] 建造军营">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/11/12/NOIP2022-%E5%BB%BA%E9%80%A0%E5%86%9B%E8%90%A5/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="NOIP2020 排水系统题解">
+<meta property="og:description" content="NOIP2022 建造军营题解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-27T14:28:21.000Z">
-<meta property="article:modified_time" content="2023-11-12T13:18:22.445Z">
+<meta property="article:published_time" content="2023-11-12T12:48:49.000Z">
+<meta property="article:modified_time" content="2023-11-12T14:15:40.585Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="OI">
-<meta property="article:tag" content="NOIP">
-<meta property="article:tag" content="拓扑排序">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="Tarjan">
+<meta property="article:tag" content="缩点">
+<meta property="article:tag" content="dp">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>[NOIP2020] 排水系统 - 小H的博客</title>
+  <title>[NOIP2022] 建造军营 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -243,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[NOIP2020] 排水系统"></span>
+            <span id="subtitle" data-typed-text="[NOIP2022] 建造军营"></span>
           
         </div>
 
@@ -259,8 +261,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-27 22:28" pubdate>
-          2023年9月27日 晚上
+        <time datetime="2023-11-12 20:48" pubdate>
+          2023年11月12日 晚上
         </time>
       </span>
     
@@ -272,7 +274,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.7k 字
+          3k 字
         
       </span>
     
@@ -311,19 +313,45 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">[NOIP2020] 排水系统</h1>
+            <h1 id="seo-header">[NOIP2022] 建造军营</h1>
             
             
               <div class="markdown-body">
                 
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7113">洛谷</a></p>
-<p><a target="_blank" rel="noopener" href="https://loj.ac/p/3386">LOJ</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8867">洛谷</a></p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/p/3898">LOJ</a></p>
 <h2 id="题目分析">题目分析</h2>
-<p>注意到，「污水接收口」实际上就是入度为 0 的点，「最终排水口」实际上就是出度为 0 的点。污水先从「污水接收口」流出，然后就与「污水接收口」无关了，而流入某个点的先后顺序与结果无关，并且数据保证为有向无环图，所以可以使用拓扑排序。</p>
-<p>本题的另一个要点是分数的处理，注意在分数相加的时候数字太大会超出 <code>long long</code> 甚至 <code>unsigned long long</code> 的范围，我们需要使用高精度或 <code>__int128</code>， 由于高精度较为复杂，下面的代码实现使用了 <code>__int128</code>。</p>
+<p>将城市看做无向图，我们可以发现在同一个双联通分量中，不管哪一条道路被袭击，都可以保证该双联通分量中的军营可以互相抵达，所以我们可以先对图进行缩点。</p>
+<p>完成缩点后，无向图被转化成了无根树，而接下来的操作类似 JSOI2018 的「潜入行动」,由于在树上求方案数，考虑 树上dp.</p>
+<p>定义 $ dp[x][0/1] $ 表示在缩点后的无根树上，以点 $ x $ 为根节点的子树上<strong>全都不建造军营</strong>或<strong>所有建造的军营都安全</strong>的方案数，当对 $ x $ 的一个子树 $ to $ 进行决策时，考虑以下情况：</p>
+<p>1、如果在 $ x $ 时选择都不建造，那么 $ to $ 也不能有军营，两点间的边随便看守不看守。</p>
+<p><span class="math display">\[
+dp[x][0] \leftarrow 2 \times dp[x][0] \times dp[to][0]
+\]</span></p>
+<p>2、如果在 $ x $ 时选择建造，那么分为 3 种情况：</p>
+<ul>
+<li>$ x $ 在此之前没建造，而 $ to $ 建造了，此时中间的边必须看守来保证 $ x $ 的安全。</li>
+<li>$ x $ 在此之前建造了，而 $ to $ 没建造，则中间的边必须看守来保证 $ to $ 的安全。</li>
+<li>$ x $ 在此之前建造了，且 $ to $ 也建造了，则中间的边看不看守皆可。</li>
+</ul>
+<p>分别对应如下转移方式： <span class="math display">\[
+\begin{split}
+dp[x][1] \leftarrow dp[x][0] \times dp[to][1] \\
+dp[x][1] \leftarrow dp[x][1] \times dp[to][0] \\
+dp[x][1] \leftarrow 2 \times dp[x][1] \times dp[to][1]
+\end{split}
+\]</span></p>
+<p>上面是对于单个 $ to $ 的状态转移方程，实际上 $ x $ 的每一个子树是同等地位的，转移没有先后，总结一下得到如下方程：</p>
+<p><span class="math display">\[
+\begin{split}
+dp[x][0] = dp[x][0] \times \prod_{to}^{to \in son_x}{dp[to][0]} \\
+dp[x][1] = dp[x][1] * \prod_{to}^{to \in son_x}{(dp[to][1] + 2 \times dp[to][0])} + dp[x][0] \times \prod_{to}^{to \in son_x}{dp[to][1]}
+\end{split}
+\]</span></p>
+<p>在实际使用中需要把这个式子拆开这样好取模，为了让各个操作同时进行且不互相影响，需要使用临时变量记录一下。</p>
 <h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> __int128 bint;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Number</span> &#123;<br>    bint p, q;<br><br>    <span class="hljs-comment">/* 约分 */</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">simplify</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (p == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>        bint g = __gcd(p, q);<br>        p /= g;<br>        q /= g;<br>    &#125;<br><br>    <span class="hljs-built_in">Number</span>()<br>    &#123;<br>        p = <span class="hljs-number">0</span>, q = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-type">int</span> n, m;<br><span class="hljs-type">int</span> cnt[MAXN];<br><span class="hljs-type">int</span> deg[MAXN];<br>Number w[MAXN];<br>vector&lt;<span class="hljs-type">int</span>&gt; G[MAXN];<br><br><span class="hljs-comment">/* 分数相加 */</span><br><span class="hljs-type">const</span> Number <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Number a, <span class="hljs-type">const</span> Number b)<br>&#123;<br>    Number tmp;<br>    bint g = __gcd(a.q, b.q);<br>    tmp.q = a.q / g * b.q;<br>    tmp.p = tmp.q / a.q * a.p + tmp.q / b.q * b.p;<br>    tmp.<span class="hljs-built_in">simplify</span>();<br>    <span class="hljs-keyword">return</span> tmp;<br>&#125;<br><br><span class="hljs-comment">/* 用于输出 __int128 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">write</span><span class="hljs-params">(bint x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) <span class="hljs-built_in">write</span>(x / <span class="hljs-number">10</span>);<br>    <span class="hljs-built_in">putchar</span>(x % <span class="hljs-number">10</span> + <span class="hljs-string">&#x27;0&#x27;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; cnt[i];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= cnt[i]; j++) &#123;<br>            <span class="hljs-type">int</span> to;<br>            cin &gt;&gt; to;<br>            G[i].<span class="hljs-built_in">push_back</span>(to);<br>            deg[to]++;<br>        &#125;<br>    &#125;<br><br>    queue&lt;<span class="hljs-type">int</span>&gt; q;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-comment">//对于每个污水接收口，初始化污水为 1 吨</span><br>        w[i].p = w[i].q = <span class="hljs-number">1</span>;<br>        q.<span class="hljs-built_in">push</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">front</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        <span class="hljs-comment">// 得到每根管道分得的污水量</span><br>        Number now = w[x];<br>        bint g = __gcd(<span class="hljs-built_in">bint</span>(cnt[x]), now.p);<br>        now.p /= g;<br>        now.q *= cnt[x] / g;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> to : G[x]) &#123;<br>            deg[to]--;<br>            <span class="hljs-keyword">if</span> (deg[to] == <span class="hljs-number">0</span>) &#123;<br>                q.<span class="hljs-built_in">push</span>(to);<br>            &#125;<br><br>            <span class="hljs-comment">// 排出污水，进行累加</span><br>            w[to] = now + w[to];<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (cnt[i] == <span class="hljs-number">0</span>) &#123;<br>            w[i].<span class="hljs-built_in">simplify</span>();<br>            <span class="hljs-built_in">write</span>(w[i].p);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27; &#x27;</span>);<br>            <span class="hljs-built_in">write</span>(w[i].q);<br>            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\n&#x27;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MOD = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">500010</span>;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br>    <span class="hljs-type">int</span> from;<br>    <span class="hljs-type">int</span> to;<br>    <span class="hljs-type">int</span> nxt;<br>&#125; edge[MAXN * <span class="hljs-number">4</span>];<br><span class="hljs-type">int</span> head[MAXN];<br><span class="hljs-type">int</span> dfn[MAXN], col[MAXN], low[MAXN], siz[MAXN], tsize[MAXN];<br><span class="hljs-type">int</span> p2[MAXN * <span class="hljs-number">2</span>];<br><span class="hljs-type">int</span> n, m, cnt, depth, scnt;<br><span class="hljs-type">bool</span> cut[MAXN * <span class="hljs-number">4</span>];<br>vector&lt;<span class="hljs-type">int</span>&gt; G[MAXN];<br>ll dp[MAXN][<span class="hljs-number">2</span>];<br>ll ans;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">link</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span></span><br><span class="hljs-function"></span>&#123;<br>    edge[++cnt].nxt = head[u];<br>    edge[cnt].to = v;<br>    edge[cnt].from = u;<br>    head[u] = cnt;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa)</span></span><br><span class="hljs-function"></span>&#123;<br>    dfn[x] = low[x] = ++depth;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = edge[i].nxt) &#123;<br>        <span class="hljs-type">int</span> to = edge[i].to;<br>        <span class="hljs-keyword">if</span> (!dfn[to]) &#123;<br>            <span class="hljs-built_in">tarjan</span>(to, x);<br>            low[x] = <span class="hljs-built_in">min</span>(low[x], low[to]);<br>            <span class="hljs-keyword">if</span> (dfn[x] &lt; low[to]) &#123;<br>                <span class="hljs-comment">// 双向边都要标记</span><br>                cut[i] = cut[((i + <span class="hljs-number">1</span>) ^ <span class="hljs-number">1</span>) - <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dfn[to] &lt; dfn[x] &amp;&amp; to != fa) &#123;<br>            low[x] = <span class="hljs-built_in">min</span>(low[x], dfn[to]);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">paint</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    col[x] = scnt, siz[scnt]++;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = edge[i].nxt) &#123;<br>        <span class="hljs-type">int</span> to = edge[i].to;<br>        <span class="hljs-keyword">if</span> (cut[i] <span class="hljs-keyword">or</span> col[to]) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">paint</span>(to);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa)</span></span><br><span class="hljs-function"></span>&#123;<br>    tsize[x] = <span class="hljs-number">1</span>;<br>    dp[x][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, dp[x][<span class="hljs-number">1</span>] = p2[siz[x]] - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> to : G[x]) &#123;<br>        <span class="hljs-keyword">if</span> (to == fa) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">dfs</span>(to, x);<br>        tsize[x] += tsize[to];<br>        ll tmp0 = <span class="hljs-number">0</span>, tmp1 = <span class="hljs-number">0</span>;<br>        tmp0 = (<span class="hljs-number">2ll</span> * dp[x][<span class="hljs-number">0</span>] % MOD * dp[to][<span class="hljs-number">0</span>] % MOD) % MOD;<br>        tmp1 = (<span class="hljs-number">2ll</span> * dp[x][<span class="hljs-number">1</span>] % MOD * dp[to][<span class="hljs-number">0</span>] % MOD) % MOD;<br>        tmp1 = (tmp1 + (dp[x][<span class="hljs-number">1</span>] % MOD * dp[to][<span class="hljs-number">1</span>] % MOD) % MOD) % MOD;<br>        tmp1 = (tmp1 + (dp[x][<span class="hljs-number">0</span>] % MOD * dp[to][<span class="hljs-number">1</span>] % MOD) % MOD) % MOD;<br>        dp[x][<span class="hljs-number">0</span>] = tmp0, dp[x][<span class="hljs-number">1</span>] = tmp1;<br>    &#125;<br>    <span class="hljs-type">int</span> base = tsize[x];<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-number">1</span>) base--;<br>    ans = (ans + dp[x][<span class="hljs-number">1</span>] * p2[m - base] % MOD) % MOD;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">/* 预处理 2 的幂 */</span><br>    p2[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; MAXN * <span class="hljs-number">2</span>; i++) p2[i] = (p2[i - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-number">1</span>) % MOD;<br><br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        cin &gt;&gt; a &gt;&gt; b;<br>        <span class="hljs-built_in">link</span>(a, b);<br>        <span class="hljs-built_in">link</span>(b, a);<br>    &#125;<br><br>    <span class="hljs-comment">/* 求割边并进行缩点 */</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!dfn[i]) <span class="hljs-built_in">tarjan</span>(i, <span class="hljs-number">0</span>);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!col[i]) &#123;<br>            scnt++;<br>            <span class="hljs-built_in">paint</span>(i);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m * <span class="hljs-number">2</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (cut[i]) &#123;<br>            G[col[edge[i].from]].<span class="hljs-built_in">push_back</span>(col[edge[i].to]);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>    cout &lt;&lt; ans &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -359,9 +387,13 @@
       
         <a href="/tags/OI/" class="print-no-link">#OI</a>
       
-        <a href="/tags/NOIP/" class="print-no-link">#NOIP</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
       
-        <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="print-no-link">#拓扑排序</a>
+        <a href="/tags/Tarjan/" class="print-no-link">#Tarjan</a>
+      
+        <a href="/tags/%E7%BC%A9%E7%82%B9/" class="print-no-link">#缩点</a>
+      
+        <a href="/tags/dp/" class="print-no-link">#dp</a>
       
     </div>
   
@@ -373,8 +405,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[NOIP2020] 排水系统</div>
-      <div>http://hghgthifg.github.io/2023/09/27/NOIP2020-排水系统/</div>
+      <div>[NOIP2022] 建造军营</div>
+      <div>http://hghgthifg.github.io/2023/11/12/NOIP2022-建造军营/</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +418,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月27日</div>
+          <div>2023年11月12日</div>
         </div>
       
       
@@ -430,18 +462,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/" title="[NOIP2022] 种花">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[NOIP2022] 种花</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/" title="[NOIP2013] 货车运输">
-                        <span class="hidden-mobile">[NOIP2013] 货车运输</span>
+                      <a href="/2023/10/20/CSP2023/" title="CSP2023 游记">
+                        <span class="hidden-mobile">CSP2023 游记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -498,6 +524,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -715,6 +747,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
