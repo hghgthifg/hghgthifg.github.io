@@ -334,27 +334,6 @@
   </entry>
   
   <entry>
-    <title>Python os.rename() 出错的可能原因</title>
-    <link href="http://hghgthifg.github.io/2023/07/18/python-os-rename-error/"/>
-    <id>http://hghgthifg.github.io/2023/07/18/python-os-rename-error/</id>
-    <published>2023-07-18T13:39:55.000Z</published>
-    <updated>2023-08-20T14:46:30.570Z</updated>
-    
-    
-    <summary type="html">os.rename 一直显示 &quot;No such file or directory&quot; 的可能原因</summary>
-    
-    
-    
-    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-    <category term="踩坑" scheme="http://hghgthifg.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
-    
-    <category term="Python" scheme="http://hghgthifg.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>汉印 MT810 没有 Linux 驱动的解决方案</title>
     <link href="http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/"/>
     <id>http://hghgthifg.github.io/2023/07/07/HPRT-driver-linux/</id>
@@ -491,6 +470,29 @@
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于c_str()</title>
+    <link href="http://hghgthifg.github.io/2021/07/20/about-c-str/"/>
+    <id>http://hghgthifg.github.io/2021/07/20/about-c-str/</id>
+    <published>2021-07-20T13:37:03.000Z</published>
+    <updated>2023-11-12T14:43:07.520Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于c_str()的用法</summary>
+    
+    
+    
+    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
+    
+    <category term="STL" scheme="http://hghgthifg.github.io/tags/STL/"/>
+    
+    <category term="string" scheme="http://hghgthifg.github.io/tags/string/"/>
     
   </entry>
   
