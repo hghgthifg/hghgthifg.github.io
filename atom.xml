@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-11-12T14:15:40.585Z</updated>
+  <updated>2023-11-17T14:32:21.501Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NOIP2023 游记</title>
+    <link href="http://hghgthifg.github.io/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://hghgthifg.github.io/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/</id>
+    <published>2023-11-17T14:20:09.000Z</published>
+    <updated>2023-11-17T14:32:21.501Z</updated>
+    
+    
+    <summary type="html">NOIP2023——是时候给 OI 生涯画个句号了</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://hghgthifg.github.io/tags/NOIP/"/>
+    
+  </entry>
   
   <entry>
     <title>[NOIP2022] 建造军营</title>
@@ -119,7 +140,7 @@
     <link href="http://hghgthifg.github.io/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/"/>
     <id>http://hghgthifg.github.io/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/</id>
     <published>2023-09-10T00:22:45.000Z</published>
-    <updated>2023-09-27T14:28:35.753Z</updated>
+    <updated>2023-11-17T12:58:44.822Z</updated>
     
     
     <summary type="html">NOIP2013提高组 货车运输题解</summary>
@@ -169,7 +190,7 @@
     <link href="http://hghgthifg.github.io/2023/08/29/TOMYSELF/"/>
     <id>http://hghgthifg.github.io/2023/08/29/TOMYSELF/</id>
     <published>2023-08-29T13:41:55.000Z</published>
-    <updated>2023-11-14T13:50:48.394Z</updated>
+    <updated>2023-11-17T12:59:05.090Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -457,10 +478,10 @@
     <link href="http://hghgthifg.github.io/2021/10/23/CSP2021/"/>
     <id>http://hghgthifg.github.io/2021/10/23/CSP2021/</id>
     <published>2021-10-23T06:09:28.000Z</published>
-    <updated>2023-08-29T13:22:06.639Z</updated>
+    <updated>2023-11-17T14:20:55.051Z</updated>
     
     
-    <summary type="html">&lt;p&gt;CSP第二年摸鱼记</summary>
+    <summary type="html">&lt;p&gt;CSP 第二年摸鱼记</summary>
     
     
     
@@ -470,29 +491,6 @@
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于c_str()</title>
-    <link href="http://hghgthifg.github.io/2021/07/20/about-c-str/"/>
-    <id>http://hghgthifg.github.io/2021/07/20/about-c-str/</id>
-    <published>2021-07-20T13:37:03.000Z</published>
-    <updated>2023-11-12T14:48:11.948Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;关于c_str()的用法</summary>
-    
-    
-    
-    <category term="踩坑" scheme="http://hghgthifg.github.io/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-    <category term="C++" scheme="http://hghgthifg.github.io/tags/C/"/>
-    
-    <category term="STL" scheme="http://hghgthifg.github.io/tags/STL/"/>
-    
-    <category term="string" scheme="http://hghgthifg.github.io/tags/string/"/>
     
   </entry>
   
