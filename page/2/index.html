@@ -82,11 +82,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -99,6 +101,7 @@
   
 
   
+
 
 
   
@@ -315,6 +318,8 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
               <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
             
               <a href="/tags/OI/">#OI</a>
@@ -326,8 +331,6 @@
               <a href="/tags/IDA/">#IDA*</a>
             
               <a href="/tags/%E4%BC%B0%E4%BB%B7%E5%87%BD%E6%95%B0/">#估价函数</a>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
             
           </div>
         
@@ -449,6 +452,8 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
               <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
             
               <a href="/tags/OI/">#OI</a>
@@ -456,8 +461,6 @@
               <a href="/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/">#模拟退火</a>
             
               <a href="/tags/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/">#高斯消元</a>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
             
           </div>
         
@@ -518,9 +521,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/OI/">#OI</a>
-            
               <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OI/">#OI</a>
             
               <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/">#哈夫曼编码</a>
             

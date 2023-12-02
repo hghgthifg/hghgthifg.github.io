@@ -97,11 +97,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -114,6 +116,7 @@
   
 
   
+
 
 
   
@@ -318,7 +321,7 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</p>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</p>
 <h2 id="前言">前言</h2>
 <p>本次是我两年 AFO 后首次也是最后一次参加 CSP。</p>
 <p>在当初，由于现实条件的束缚，我没有什么学习 OI 的途径，只能依靠自己零零碎碎去大佬的博客学一些东西，也很不成体系，实力也是陷入瓶颈。面对升学的压力，当时的我在权衡后选择放弃 OI，一心高考，也算有点收获。我也稍微学了点化学竞赛，只是为了混个综评，具体可见 <a href="../../../../2023/09/03/2023化学国初游记">2023化学国初游记</a>.</p>

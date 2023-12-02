@@ -99,11 +99,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -116,6 +118,7 @@
   
 
   
+
 
 
   
@@ -320,7 +323,7 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="问题背景">问题背景</h2>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="问题背景">问题背景</h2>
 <p>新买了一台汉印 MT810 打印机来打印题目，这台打印机可以用 USB 连接，但是需要装驱动。然而，MT810 没有 Linux 驱动，只有 Windows 和 MacOS 的。</p>
 <h2 id="处理思路">处理思路</h2>
 <p>官网有 MT800 的 Linux 驱动，猜测 800 系列的驱动应该差不多，尝试把 MT800 的 Linux 驱动和 MT810 的 MacOS 驱动“结合”一下。</p>

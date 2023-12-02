@@ -96,11 +96,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -113,6 +115,7 @@
   
 
   
+
 
 
   
@@ -317,7 +320,7 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="nodejs">1、nodejs</h2>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="nodejs">1、nodejs</h2>
 <p>系统自带的没啥用，卸掉就行。</p>
 <p>官网下载，然后放在适当的位置，进行软链接即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/node /usr/local/bin<br>sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/npm /usr/local/bin<br>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org<br>sudo <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/cnpm /usr/local/bin<br></code></pre></td></tr></table></figure>

@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-11-19T00:35:31.441Z</updated>
+  <updated>2023-12-02T13:43:39.956Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://hghgthifg.github.io/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/"/>
     <id>http://hghgthifg.github.io/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/</id>
     <published>2023-11-17T14:20:09.000Z</published>
-    <updated>2023-11-19T00:35:31.441Z</updated>
+    <updated>2023-12-02T13:43:39.956Z</updated>
     
     
     <summary type="html">NOIP2023，OI 生涯一个不完美的句号</summary>
@@ -52,9 +52,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="Tarjan" scheme="http://hghgthifg.github.io/tags/Tarjan/"/>
     
@@ -102,9 +102,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="NOIP" scheme="http://hghgthifg.github.io/tags/NOIP/"/>
     
@@ -150,9 +150,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="NOIP" scheme="http://hghgthifg.github.io/tags/NOIP/"/>
     
@@ -215,11 +215,11 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
     
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
-    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
     <category term="线段树" scheme="http://hghgthifg.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
@@ -240,11 +240,11 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
     
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
-    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
     <category term="倍增" scheme="http://hghgthifg.github.io/tags/%E5%80%8D%E5%A2%9E/"/>
     
@@ -265,6 +265,8 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
     
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
@@ -276,8 +278,6 @@
     <category term="IDA*" scheme="http://hghgthifg.github.io/tags/IDA/"/>
     
     <category term="估价函数" scheme="http://hghgthifg.github.io/tags/%E4%BC%B0%E4%BB%B7%E5%87%BD%E6%95%B0/"/>
-    
-    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -315,6 +315,8 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
     <category term="省选" scheme="http://hghgthifg.github.io/tags/%E7%9C%81%E9%80%89/"/>
     
     <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
@@ -322,8 +324,6 @@
     <category term="模拟退火" scheme="http://hghgthifg.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
     
     <category term="高斯消元" scheme="http://hghgthifg.github.io/tags/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/"/>
-    
-    <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -342,9 +342,9 @@
     <category term="题解" scheme="http://hghgthifg.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
     <category term="题解" scheme="http://hghgthifg.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
     
     <category term="哈夫曼编码" scheme="http://hghgthifg.github.io/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/"/>
     

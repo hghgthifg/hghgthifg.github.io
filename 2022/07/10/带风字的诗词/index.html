@@ -93,11 +93,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -110,6 +112,7 @@
   
 
   
+
 
 
   
@@ -314,7 +317,7 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>整理了一些带「风」字的诗词句</p>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>整理了一些带「风」字的诗词句</p>
 <span id="more"></span>
 <p>随风潜入夜，润物细无声 ——杜牧《春夜喜雨》</p>
 <p>不论平地与山尖，无限风光尽被占 ——罗隐《蜂》</p>

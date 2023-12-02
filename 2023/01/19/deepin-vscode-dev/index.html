@@ -101,11 +101,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-BKZ8GMV0K9", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
-          gtag('config', 'G-BKZ8GMV0K9');
+          gtag('config', '');
         });
       }
     </script>
@@ -118,6 +120,7 @@
   
 
   
+
 
 
   
@@ -322,7 +325,7 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>个人偏爱使用 clang + xmake，以下内容均针对这一配置</p>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>个人偏爱使用 clang + xmake，以下内容均针对这一配置</p>
 <p>首先配置 clang 环境，deepin 20 源里 clang 版本过低的解决方案见<a href="https://hghgthifg.github.io/2023/01/19/deepin-devenv/">这里</a></p>
 <p>接下来安装插件：</p>
 <ul>
