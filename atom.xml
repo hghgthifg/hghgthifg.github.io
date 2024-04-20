@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2023-12-02T13:48:14.043Z</updated>
+  <updated>2024-04-20T16:06:55.024Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>音乐元数据标签格式 ID3v1 介绍</title>
+    <link href="http://hghgthifg.github.io/2024/04/20/music-tag-id3v1/"/>
+    <id>http://hghgthifg.github.io/2024/04/20/music-tag-id3v1/</id>
+    <published>2024-04-20T15:54:23.000Z</published>
+    <updated>2024-04-20T16:06:55.024Z</updated>
+    
+    
+    <summary type="html">音乐元数据标签格式 ID3v1 介绍</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://hghgthifg.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="笔记" scheme="http://hghgthifg.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="音乐" scheme="http://hghgthifg.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="元数据" scheme="http://hghgthifg.github.io/tags/%E5%85%83%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="Id3v1" scheme="http://hghgthifg.github.io/tags/Id3v1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ncm-downloader 开发笔记（一）</title>
+    <link href="http://hghgthifg.github.io/2024/04/06/ncm-downloader-develop-log-1/"/>
+    <id>http://hghgthifg.github.io/2024/04/06/ncm-downloader-develop-log-1/</id>
+    <published>2024-04-05T16:06:00.000Z</published>
+    <updated>2024-04-20T16:07:09.168Z</updated>
+    
+    
+    <summary type="html">ncm-downloader 开发笔记（一）</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://hghgthifg.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="开发笔记" scheme="http://hghgthifg.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="ncm-downloader" scheme="http://hghgthifg.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/ncm-downloader/"/>
+    
+    
+    <category term="笔记" scheme="http://hghgthifg.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Flutter" scheme="http://hghgthifg.github.io/tags/Flutter/"/>
+    
+    <category term="Dart" scheme="http://hghgthifg.github.io/tags/Dart/"/>
+    
+    <category term="开发笔记" scheme="http://hghgthifg.github.io/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>NOIP2023 游记</title>
@@ -451,46 +505,6 @@
     
     
     <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>带花字的诗</title>
-    <link href="http://hghgthifg.github.io/2022/06/26/%E5%B8%A6%E8%8A%B1%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/"/>
-    <id>http://hghgthifg.github.io/2022/06/26/%E5%B8%A6%E8%8A%B1%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/</id>
-    <published>2022-06-26T11:08:16.000Z</published>
-    <updated>2023-11-12T13:18:40.153Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;整理了一些带「花」字的诗词句&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="整理" scheme="http://hghgthifg.github.io/categories/%E6%95%B4%E7%90%86/"/>
-    
-    
-    <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSP2021 游记</title>
-    <link href="http://hghgthifg.github.io/2021/10/23/CSP2021/"/>
-    <id>http://hghgthifg.github.io/2021/10/23/CSP2021/</id>
-    <published>2021-10-23T06:09:28.000Z</published>
-    <updated>2023-11-17T14:20:55.051Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;CSP 第二年摸鱼记</summary>
-    
-    
-    
-    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="OI" scheme="http://hghgthifg.github.io/tags/OI/"/>
-    
-    <category term="CSP" scheme="http://hghgthifg.github.io/tags/CSP/"/>
     
   </entry>
   
