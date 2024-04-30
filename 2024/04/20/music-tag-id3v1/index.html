@@ -24,7 +24,7 @@
 <meta property="og:description" content="音乐元数据标签格式 ID3v1 介绍">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-20T15:54:23.000Z">
-<meta property="article:modified_time" content="2024-04-20T16:06:55.024Z">
+<meta property="article:modified_time" content="2024-04-30T17:17:33.568Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="音乐">
@@ -329,6 +329,7 @@
 <tr class="header">
 <th>区域</th>
 <th>长度</th>
+<th>字节位置</th>
 <th>描述</th>
 </tr>
 </thead>
@@ -336,50 +337,60 @@
 <tr class="odd">
 <td>开头</td>
 <td>3</td>
+<td>0-2</td>
 <td>“TAG”，标签。</td>
 </tr>
 <tr class="even">
 <td>标题</td>
 <td>30</td>
+<td>3-32</td>
 <td>歌曲标题，最多30个英文字符。</td>
 </tr>
 <tr class="odd">
 <td>艺术家</td>
 <td>30</td>
+<td>33-62</td>
 <td>作曲或演唱者的名字，最多30个英文字符。</td>
 </tr>
 <tr class="even">
 <td>专辑</td>
 <td>30</td>
+<td>63-92</td>
 <td>专辑名称，最多30个英文字符。</td>
 </tr>
 <tr class="odd">
 <td>年分</td>
 <td>4</td>
+<td>93-96</td>
 <td>西元年分，四个数字。</td>
 </tr>
 <tr class="even">
 <td>评论</td>
 <td>28 或30</td>
+<td>97-124 或 97-126</td>
 <td>就是评论。</td>
 </tr>
 <tr class="odd">
 <td>零字节</td>
 <td>1</td>
+<td>125</td>
 <td>如果有存储曲目，那么这个字节会存储一个二进制的0。</td>
 </tr>
 <tr class="even">
 <td>曲目</td>
 <td>1</td>
+<td>126</td>
 <td>这首歌在该专辑中的曲目，或者为0。若前一个字节非零，则此栏内容无效。</td>
 </tr>
 <tr class="odd">
 <td>艺术类型</td>
 <td>1</td>
+<td>127</td>
 <td>一系列艺术类型清单中的编号数，默认为255。</td>
 </tr>
 </tbody>
 </table>
+<p>未特殊说明的位置，以 0 为默认值</p>
 <p>其中艺术类型（Genre）有固定的对应关系，如下所示：</p>
 <table>
 <thead>
