@@ -16,27 +16,28 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="音乐元数据标签格式 ID3v1 介绍">
+    <meta name="description" content="关于我莫名其妙过了校内预选，又迷迷糊糊去参加生物联赛这档事">
 <meta property="og:type" content="article">
-<meta property="og:title" content="音乐元数据标签格式 ID3v1 介绍">
-<meta property="og:url" content="http://hghgthifg.github.io/2024/04/20/music-tag-id3v1/index.html">
+<meta property="og:title" content="2024 生物联赛游记">
+<meta property="og:url" content="http://hghgthifg.github.io/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="音乐元数据标签格式 ID3v1 介绍">
+<meta property="og:description" content="关于我莫名其妙过了校内预选，又迷迷糊糊去参加生物联赛这档事">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-20T15:54:23.000Z">
-<meta property="article:modified_time" content="2024-04-30T17:17:33.568Z">
+<meta property="og:image" content="https://bu.dusays.com/2024/05/14/6642c83bd94c7.jpg">
+<meta property="og:image" content="https://bu.dusays.com/2024/05/14/6642c8a732adb.jpg">
+<meta property="og:image" content="https://bu.dusays.com/2024/05/14/6642cadd32448.jpg">
+<meta property="article:published_time" content="2024-05-12T14:26:02.000Z">
+<meta property="article:modified_time" content="2024-05-14T02:42:18.451Z">
 <meta property="article:author" content="小H">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="音乐">
-<meta property="article:tag" content="元数据">
-<meta property="article:tag" content="Id3v1">
+<meta property="article:tag" content="生物">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/05/14/6642c83bd94c7.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>音乐元数据标签格式 ID3v1 介绍 - 小H的博客</title>
+  <title>2024 生物联赛游记 - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.net/bootstrap/4.6.2/css/bootstrap.min.css" />
 
@@ -247,7 +248,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="音乐元数据标签格式 ID3v1 介绍"></span>
+            <span id="subtitle" data-typed-text="2024 生物联赛游记"></span>
           
         </div>
 
@@ -263,8 +264,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-20 23:54" pubdate>
-          2024年4月20日 晚上
+        <time datetime="2024-05-12 22:26" pubdate>
+          2024年5月12日 晚上
         </time>
       </span>
     
@@ -276,7 +277,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.9k 字
+          1k 字
         
       </span>
     
@@ -315,666 +316,53 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">音乐元数据标签格式 ID3v1 介绍</h1>
+            <h1 id="seo-header">2024 生物联赛游记</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="简介">简介</h2>
-<p>ID3v1 是一种音乐元数据标签格式，一般用于 mp3 文件，处于文件末尾，共 128 字节。</p>
-<p>它是一种较为古老的标签格式，能存储的数据比较少，不支持多语言，只支持 ASCII 编码，所以逐渐被淘汰了，现在一般使用的是 ID3v2等。</p>
-<p>数据格式如下：</p>
-<table>
-<thead>
-<tr class="header">
-<th>区域</th>
-<th>长度</th>
-<th>字节位置</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>开头</td>
-<td>3</td>
-<td>0-2</td>
-<td>“TAG”，标签。</td>
-</tr>
-<tr class="even">
-<td>标题</td>
-<td>30</td>
-<td>3-32</td>
-<td>歌曲标题，最多30个英文字符。</td>
-</tr>
-<tr class="odd">
-<td>艺术家</td>
-<td>30</td>
-<td>33-62</td>
-<td>作曲或演唱者的名字，最多30个英文字符。</td>
-</tr>
-<tr class="even">
-<td>专辑</td>
-<td>30</td>
-<td>63-92</td>
-<td>专辑名称，最多30个英文字符。</td>
-</tr>
-<tr class="odd">
-<td>年分</td>
-<td>4</td>
-<td>93-96</td>
-<td>西元年分，四个数字。</td>
-</tr>
-<tr class="even">
-<td>评论</td>
-<td>28 或30</td>
-<td>97-124 或 97-126</td>
-<td>就是评论。</td>
-</tr>
-<tr class="odd">
-<td>零字节</td>
-<td>1</td>
-<td>125</td>
-<td>如果有存储曲目，那么这个字节会存储一个二进制的0。</td>
-</tr>
-<tr class="even">
-<td>曲目</td>
-<td>1</td>
-<td>126</td>
-<td>这首歌在该专辑中的曲目，或者为0。若前一个字节非零，则此栏内容无效。</td>
-</tr>
-<tr class="odd">
-<td>艺术类型</td>
-<td>1</td>
-<td>127</td>
-<td>一系列艺术类型清单中的编号数，默认为255。</td>
-</tr>
-</tbody>
-</table>
-<p>未特殊说明的位置，以 0 为默认值</p>
-<p>其中艺术类型（Genre）有固定的对应关系，如下所示：</p>
-<table>
-<thead>
-<tr class="header">
-<th>Number</th>
-<th>Genre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>00</td>
-<td>Blues</td>
-</tr>
-<tr class="even">
-<td>01</td>
-<td>Classic rock</td>
-</tr>
-<tr class="odd">
-<td>02</td>
-<td>Country</td>
-</tr>
-<tr class="even">
-<td>03</td>
-<td>Dance</td>
-</tr>
-<tr class="odd">
-<td>04</td>
-<td>Disco</td>
-</tr>
-<tr class="even">
-<td>05</td>
-<td>Funk</td>
-</tr>
-<tr class="odd">
-<td>06</td>
-<td>Grunge</td>
-</tr>
-<tr class="even">
-<td>07</td>
-<td>Hip-hop</td>
-</tr>
-<tr class="odd">
-<td>08</td>
-<td>Jazz</td>
-</tr>
-<tr class="even">
-<td>09</td>
-<td>Metal</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>New age</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>Oldies</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>Other</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>Pop</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>Rhythm and blues</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>Rap</td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>Reggae</td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td>Rock</td>
-</tr>
-<tr class="odd">
-<td>18</td>
-<td>Techno</td>
-</tr>
-<tr class="even">
-<td>19</td>
-<td>Industrial</td>
-</tr>
-<tr class="odd">
-<td>20</td>
-<td>Alternative</td>
-</tr>
-<tr class="even">
-<td>21</td>
-<td>Ska</td>
-</tr>
-<tr class="odd">
-<td>22</td>
-<td>Death metal</td>
-</tr>
-<tr class="even">
-<td>23</td>
-<td>Pranks</td>
-</tr>
-<tr class="odd">
-<td>24</td>
-<td>Soundtrack</td>
-</tr>
-<tr class="even">
-<td>25</td>
-<td>Euro-techno</td>
-</tr>
-<tr class="odd">
-<td>26</td>
-<td>Ambient</td>
-</tr>
-<tr class="even">
-<td>27</td>
-<td>Trip-hop</td>
-</tr>
-<tr class="odd">
-<td>28</td>
-<td>Vocal</td>
-</tr>
-<tr class="even">
-<td>29</td>
-<td>Jazz &amp; funk</td>
-</tr>
-<tr class="odd">
-<td>30</td>
-<td>Fusion</td>
-</tr>
-<tr class="even">
-<td>31</td>
-<td>Trance</td>
-</tr>
-<tr class="odd">
-<td>32</td>
-<td>Classical</td>
-</tr>
-<tr class="even">
-<td>33</td>
-<td>Instrumental</td>
-</tr>
-<tr class="odd">
-<td>34</td>
-<td>Acid</td>
-</tr>
-<tr class="even">
-<td>35</td>
-<td>House</td>
-</tr>
-<tr class="odd">
-<td>36</td>
-<td>Game</td>
-</tr>
-<tr class="even">
-<td>37</td>
-<td>Sound clip</td>
-</tr>
-<tr class="odd">
-<td>38</td>
-<td>Gospel</td>
-</tr>
-<tr class="even">
-<td>39</td>
-<td>Noise</td>
-</tr>
-<tr class="odd">
-<td>40</td>
-<td>Alternative rock</td>
-</tr>
-<tr class="even">
-<td>41</td>
-<td>Bass</td>
-</tr>
-<tr class="odd">
-<td>42</td>
-<td>Soul</td>
-</tr>
-<tr class="even">
-<td>43</td>
-<td>Punk</td>
-</tr>
-<tr class="odd">
-<td>44</td>
-<td>Space</td>
-</tr>
-<tr class="even">
-<td>45</td>
-<td>Meditative</td>
-</tr>
-<tr class="odd">
-<td>46</td>
-<td>Instrumental pop</td>
-</tr>
-<tr class="even">
-<td>47</td>
-<td>Instrumental rock</td>
-</tr>
-<tr class="odd">
-<td>48</td>
-<td>Ethnic</td>
-</tr>
-<tr class="even">
-<td>49</td>
-<td>Gothic</td>
-</tr>
-<tr class="odd">
-<td>50</td>
-<td>Darkwave</td>
-</tr>
-<tr class="even">
-<td>51</td>
-<td>Techno-industrial</td>
-</tr>
-<tr class="odd">
-<td>52</td>
-<td>Electronic</td>
-</tr>
-<tr class="even">
-<td>53</td>
-<td>Pop-folk</td>
-</tr>
-<tr class="odd">
-<td>54</td>
-<td>Eurodance</td>
-</tr>
-<tr class="even">
-<td>55</td>
-<td>Dream</td>
-</tr>
-<tr class="odd">
-<td>56</td>
-<td>Southern rock</td>
-</tr>
-<tr class="even">
-<td>57</td>
-<td>Comedy</td>
-</tr>
-<tr class="odd">
-<td>58</td>
-<td>Cult</td>
-</tr>
-<tr class="even">
-<td>59</td>
-<td>Gangsta</td>
-</tr>
-<tr class="odd">
-<td>60</td>
-<td>Top 40</td>
-</tr>
-<tr class="even">
-<td>61</td>
-<td>Christian rap</td>
-</tr>
-<tr class="odd">
-<td>62</td>
-<td>Pop/funk</td>
-</tr>
-<tr class="even">
-<td>63</td>
-<td>Jungle music</td>
-</tr>
-<tr class="odd">
-<td>64</td>
-<td>Native US</td>
-</tr>
-<tr class="even">
-<td>65</td>
-<td>Cabaret</td>
-</tr>
-<tr class="odd">
-<td>66</td>
-<td>New wave</td>
-</tr>
-<tr class="even">
-<td>67</td>
-<td>Psychedelic</td>
-</tr>
-<tr class="odd">
-<td>68</td>
-<td>Rave</td>
-</tr>
-<tr class="even">
-<td>69</td>
-<td>Showtunes</td>
-</tr>
-<tr class="odd">
-<td>70</td>
-<td>Trailer</td>
-</tr>
-<tr class="even">
-<td>71</td>
-<td>Lo-fi</td>
-</tr>
-<tr class="odd">
-<td>72</td>
-<td>Tribal</td>
-</tr>
-<tr class="even">
-<td>73</td>
-<td>Acid punk</td>
-</tr>
-<tr class="odd">
-<td>74</td>
-<td>Acid jazz</td>
-</tr>
-<tr class="even">
-<td>75</td>
-<td>Polka</td>
-</tr>
-<tr class="odd">
-<td>76</td>
-<td>Retro</td>
-</tr>
-<tr class="even">
-<td>77</td>
-<td>Musical</td>
-</tr>
-<tr class="odd">
-<td>78</td>
-<td>Rock 'n' roll</td>
-</tr>
-<tr class="even">
-<td>79</td>
-<td>Hard rock</td>
-</tr>
-<tr class="odd">
-<td>80</td>
-<td>Folk</td>
-</tr>
-<tr class="even">
-<td>81</td>
-<td>Folk rock</td>
-</tr>
-<tr class="odd">
-<td>82</td>
-<td>National folk</td>
-</tr>
-<tr class="even">
-<td>83</td>
-<td>Swing</td>
-</tr>
-<tr class="odd">
-<td>84</td>
-<td>Fast fusion</td>
-</tr>
-<tr class="even">
-<td>85</td>
-<td>Bebop</td>
-</tr>
-<tr class="odd">
-<td>86</td>
-<td>Latin</td>
-</tr>
-<tr class="even">
-<td>87</td>
-<td>Revival</td>
-</tr>
-<tr class="odd">
-<td>88</td>
-<td>Celtic</td>
-</tr>
-<tr class="even">
-<td>89</td>
-<td>Bluegrass</td>
-</tr>
-<tr class="odd">
-<td>90</td>
-<td>Avantgarde</td>
-</tr>
-<tr class="even">
-<td>91</td>
-<td>Gothic rock</td>
-</tr>
-<tr class="odd">
-<td>92</td>
-<td>Progressive rock</td>
-</tr>
-<tr class="even">
-<td>93</td>
-<td>Psychedelic rock</td>
-</tr>
-<tr class="odd">
-<td>94</td>
-<td>Symphonic rock</td>
-</tr>
-<tr class="even">
-<td>95</td>
-<td>Slow rock</td>
-</tr>
-<tr class="odd">
-<td>96</td>
-<td>Big band</td>
-</tr>
-<tr class="even">
-<td>97</td>
-<td>Chorus</td>
-</tr>
-<tr class="odd">
-<td>98</td>
-<td>Easy listening</td>
-</tr>
-<tr class="even">
-<td>99</td>
-<td>Acoustic</td>
-</tr>
-<tr class="odd">
-<td>100</td>
-<td>Humour</td>
-</tr>
-<tr class="even">
-<td>101</td>
-<td>Speech</td>
-</tr>
-<tr class="odd">
-<td>102</td>
-<td>Chanson</td>
-</tr>
-<tr class="even">
-<td>103</td>
-<td>Opera</td>
-</tr>
-<tr class="odd">
-<td>104</td>
-<td>Chamber music</td>
-</tr>
-<tr class="even">
-<td>105</td>
-<td>Sonata</td>
-</tr>
-<tr class="odd">
-<td>106</td>
-<td>Symphony</td>
-</tr>
-<tr class="even">
-<td>107</td>
-<td>Booty bass</td>
-</tr>
-<tr class="odd">
-<td>108</td>
-<td>Primus</td>
-</tr>
-<tr class="even">
-<td>109</td>
-<td>Porn groove</td>
-</tr>
-<tr class="odd">
-<td>110</td>
-<td>Satire</td>
-</tr>
-<tr class="even">
-<td>111</td>
-<td>Slow jam</td>
-</tr>
-<tr class="odd">
-<td>112</td>
-<td>Club</td>
-</tr>
-<tr class="even">
-<td>113</td>
-<td>Tango</td>
-</tr>
-<tr class="odd">
-<td>114</td>
-<td>Samba</td>
-</tr>
-<tr class="even">
-<td>115</td>
-<td>Folklore</td>
-</tr>
-<tr class="odd">
-<td>116</td>
-<td>Ballad</td>
-</tr>
-<tr class="even">
-<td>117</td>
-<td>Power ballad</td>
-</tr>
-<tr class="odd">
-<td>118</td>
-<td>Rhythmic Soul</td>
-</tr>
-<tr class="even">
-<td>119</td>
-<td>Freestyle</td>
-</tr>
-<tr class="odd">
-<td>120</td>
-<td>Duet</td>
-</tr>
-<tr class="even">
-<td>121</td>
-<td>Punk rock</td>
-</tr>
-<tr class="odd">
-<td>122</td>
-<td>Drum solo</td>
-</tr>
-<tr class="even">
-<td>123</td>
-<td>A cappella</td>
-</tr>
-<tr class="odd">
-<td>124</td>
-<td>Euro-house</td>
-</tr>
-<tr class="even">
-<td>125</td>
-<td>Dance hall</td>
-</tr>
-<tr class="odd">
-<td>126</td>
-<td>Goa music</td>
-</tr>
-<tr class="even">
-<td>127</td>
-<td>Drum &amp; bass</td>
-</tr>
-<tr class="odd">
-<td>128</td>
-<td>Club-house</td>
-</tr>
-<tr class="even">
-<td>129</td>
-<td>Hardcore techno</td>
-</tr>
-<tr class="odd">
-<td>130</td>
-<td>Terror</td>
-</tr>
-<tr class="even">
-<td>131</td>
-<td>Indie</td>
-</tr>
-<tr class="odd">
-<td>132</td>
-<td>Britpop</td>
-</tr>
-<tr class="even">
-<td>133</td>
-<td>Negerpunk</td>
-</tr>
-<tr class="odd">
-<td>134</td>
-<td>Polsk punk</td>
-</tr>
-<tr class="even">
-<td>135</td>
-<td>Beat</td>
-</tr>
-<tr class="odd">
-<td>136</td>
-<td>Christian gangsta rap</td>
-</tr>
-<tr class="even">
-<td>137</td>
-<td>Heavy metal</td>
-</tr>
-<tr class="odd">
-<td>138</td>
-<td>Black metal</td>
-</tr>
-<tr class="even">
-<td>139</td>
-<td>Crossover</td>
-</tr>
-<tr class="odd">
-<td>140</td>
-<td>Contemporary Christian</td>
-</tr>
-<tr class="even">
-<td>141</td>
-<td>Christian rock</td>
-</tr>
-</tbody>
-</table>
-<p>一些播放器还会有扩展标签，在这里不进行列举。</p>
-<h2 id="参考资料">参考资料</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/ID3">ID3v1 Wikipedia 中文</a></li>
-</ul>
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>时间：2024 年 5 月 12 日</p>
+<p>地点：南师大仙林校区</p>
+<h2 id="前言">前言</h2>
+<p>在完全没有接触过生物竞赛的情况下，我莫名其妙过了校内预选（甚至还故意压了分，本来不想去的），然后临时抱佛脚突击了一个月（其实只正经学了一星期），就去参加生物联赛了。</p>
+<p>按照惯例，这次还是要写篇游记的，于是就有了这篇流水账。</p>
+<h2 id="出发">出发</h2>
+<p>细雨蒙蒙的午后，出发前往南师大</p>
+<p>忙碌的五月会结出什么果实呢？</p>
+<p>上次去南师大还是去年化学国初，再次踏上行程，只希望这次不会晕车。</p>
+<p>经过丹阳的一个服务区时下了特别大的雨，下车去上厕所，真是惊心动魄。</p>
+<h2 id="看考场">看考场</h2>
+<figure>
+<img src="https://bu.dusays.com/2024/05/14/6642c83bd94c7.jpg" srcset="/img/loading.gif" lazyload alt="到达南师大" /><figcaption>到达南师大</figcaption>
+</figure>
+<p>好气哦，上次去参加<a href="../../../../2023/09/03/2023化学国初游记/">化学国初</a>的时候，考场不给看，饭也不让在里面吃，刚考完就被赶走了，这次生物竟然让提前看考场了，看来生物比化学有排面。</p>
+<p>一组人，在里面像是一群呆子。先是逛来逛去，去食堂看看，不知道该吃什么，于是没吃；去看考场，不知道考场号在哪看，在楼底下愣了半天，最后才发现原来在外面；最后只好在车旁边站着等别人，等了好久，等待过程中还被树上落下来的雨淋了一身。</p>
+<h2 id="在宾馆">在宾馆</h2>
+<p>到宾馆后，在连 WIFI 时准备故技重施，切换成英文来躲过输手机号的步骤，可惜这次失败了。</p>
+<p>密码框要输名字，控件还真就用了密码框，中文不好输，只能复制了，但没搞懂要输什么，试了好多次，最后尝试次数太多不让我登了，就算换中文，输手机号，也不行了。好吧，算你厉害。</p>
+<p>考前心不在焉地抱佛脚，看了看代谢相关的内容。咳嗽得厉害，半夜咳醒了几次。</p>
+<p>早上六点半昏昏沉沉地起来，头脑里一团浆糊，疼。</p>
+<p>那边的早饭甚至还不如我们学校，吃完之后又回房间休息到八点多（？起来这么早干啥）</p>
+<h2 id="考试">考试</h2>
+<figure>
+<img src="https://bu.dusays.com/2024/05/14/6642c8a732adb.jpg" srcset="/img/loading.gif" lazyload alt="人山人海" /><figcaption>人山人海</figcaption>
+</figure>
+<p>考前临时记了一下氨基酸缩写啥的，想着如果考到了会是为数不多的能拿分的题目。</p>
+<p>进考场，这次内心毫无波澜，反正啥也不会，靠运气了。没睡好 + 感冒，头晕目眩，考试的时候很难受。</p>
+<p>试卷发下来愣了，怎么没有什么代谢的题目！氨基酸也没考！白抱佛脚了。</p>
+<p>越做越不对劲，怎么这么多多选，把会的和不会的杂糅在一起，导致会的也得不到分。行吧，纯靠运气了，直接乱蒙。</p>
+<p>遗传题倒是蛮好做，整张卷子也就遗传题能做。有道电位的题目貌似之前考过，就是改了下数据，要用能斯特方程，后悔没去弄明白，心想考不到了，结果还是不会做（化学白学了！）</p>
+<p>好吧，看来要当分母了。</p>
+<h2 id="南师大的一餐">南师大的一餐</h2>
+<figure>
+<img src="https://bu.dusays.com/2024/05/14/6642cadd32448.jpg" srcset="/img/loading.gif" lazyload alt="15 元的午餐" /><figcaption>15 元的午餐</figcaption>
+</figure>
+<p>中午吃得还蛮好，就是厕所找不到。</p>
+<p>众里寻他千百度，蓦然回首，厕所却在犄角旮旯处</p>
+<p>该回去了</p>
+<h2 id="后记">后记</h2>
+<p>在车上越咳越厉害，到学校刚好到了晚自习的时间，想了想还是没去，而是去了医院。</p>
+<p>噫，好，肺炎！</p>
 
                 
               </div>
@@ -993,7 +381,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
   
   
 
@@ -1008,13 +396,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
-      
-        <a href="/tags/%E9%9F%B3%E4%B9%90/" class="print-no-link">#音乐</a>
-      
-        <a href="/tags/%E5%85%83%E6%95%B0%E6%8D%AE/" class="print-no-link">#元数据</a>
-      
-        <a href="/tags/Id3v1/" class="print-no-link">#Id3v1</a>
+        <a href="/tags/%E7%94%9F%E7%89%A9/" class="print-no-link">#生物</a>
       
     </div>
   
@@ -1026,8 +408,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>音乐元数据标签格式 ID3v1 介绍</div>
-      <div>http://hghgthifg.github.io/2024/04/20/music-tag-id3v1/</div>
+      <div>2024 生物联赛游记</div>
+      <div>http://hghgthifg.github.io/2024/05/12/2024生物联赛游记/</div>
     </div>
     <div class="license-meta">
       
@@ -1039,7 +421,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月20日</div>
+          <div>2024年5月12日</div>
         </div>
       
       
@@ -1083,18 +465,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/" title="2024 生物联赛游记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2024 生物联赛游记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/06/ncm-downloader-develop-log-1/" title="ncm-downloader 开发笔记（一）">
-                        <span class="hidden-mobile">ncm-downloader 开发笔记（一）</span>
+                      <a href="/2024/04/20/music-tag-id3v1/" title="音乐元数据标签格式 ID3v1 介绍">
+                        <span class="hidden-mobile">音乐元数据标签格式 ID3v1 介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

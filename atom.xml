@@ -6,7 +6,7 @@
   <link href="http://hghgthifg.github.io/atom.xml" rel="self"/>
   
   <link href="http://hghgthifg.github.io/"/>
-  <updated>2024-04-30T17:17:33.568Z</updated>
+  <updated>2024-05-14T02:42:18.451Z</updated>
   <id>http://hghgthifg.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024 生物联赛游记</title>
+    <link href="http://hghgthifg.github.io/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://hghgthifg.github.io/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/</id>
+    <published>2024-05-12T14:26:02.000Z</published>
+    <updated>2024-05-14T02:42:18.451Z</updated>
+    
+    
+    <summary type="html">关于我莫名其妙过了校内预选，又迷迷糊糊去参加生物联赛这档事</summary>
+    
+    
+    
+    <category term="游记" scheme="http://hghgthifg.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="生物" scheme="http://hghgthifg.github.io/tags/%E7%94%9F%E7%89%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>音乐元数据标签格式 ID3v1 介绍</title>
@@ -123,10 +142,10 @@
     <link href="http://hghgthifg.github.io/2023/10/20/CSP2023/"/>
     <id>http://hghgthifg.github.io/2023/10/20/CSP2023/</id>
     <published>2023-10-20T13:39:15.000Z</published>
-    <updated>2023-11-12T14:33:40.070Z</updated>
+    <updated>2024-05-14T01:36:25.055Z</updated>
     
     
-    <summary type="html">CSP2023 游记</summary>
+    <summary type="html">本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</summary>
     
     
     
@@ -225,10 +244,10 @@
     <link href="http://hghgthifg.github.io/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/"/>
     <id>http://hghgthifg.github.io/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/</id>
     <published>2023-09-03T12:21:07.000Z</published>
-    <updated>2023-10-29T07:46:28.512Z</updated>
+    <updated>2024-05-14T01:34:52.831Z</updated>
     
     
-    <summary type="html">不愉快的经历</summary>
+    <summary type="html">2023 年化学国初游记</summary>
     
     
     
@@ -486,25 +505,6 @@
     <category term="vscode" scheme="http://hghgthifg.github.io/tags/vscode/"/>
     
     <category term="xmake" scheme="http://hghgthifg.github.io/tags/xmake/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>带风字的诗词</title>
-    <link href="http://hghgthifg.github.io/2022/07/10/%E5%B8%A6%E9%A3%8E%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/"/>
-    <id>http://hghgthifg.github.io/2022/07/10/%E5%B8%A6%E9%A3%8E%E5%AD%97%E7%9A%84%E8%AF%97%E8%AF%8D/</id>
-    <published>2022-07-10T03:47:29.000Z</published>
-    <updated>2023-11-12T13:17:17.789Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;整理了一些带「风」字的诗词句&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="整理" scheme="http://hghgthifg.github.io/categories/%E6%95%B4%E7%90%86/"/>
-    
-    
-    <category term="诗词" scheme="http://hghgthifg.github.io/tags/%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
