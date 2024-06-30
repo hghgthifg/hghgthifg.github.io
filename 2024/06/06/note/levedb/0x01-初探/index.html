@@ -24,7 +24,7 @@
 <meta property="og:description" content="LevelDB 源码阅读笔记第 1 期，从 db.h 出发，初探 LevelDB 的主要功能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-06T12:00:03.000Z">
-<meta property="article:modified_time" content="2024-06-06T12:27:56.950Z">
+<meta property="article:modified_time" content="2024-06-30T15:04:57.868Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="笔记">
@@ -277,7 +277,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.8k 字
+          3.2k 字
         
       </span>
     
@@ -344,7 +344,7 @@
 <p><code>Range</code>： 看不懂，跳过。</p>
 <p><code>DB</code>：这个类是 leveldb 库的核心，它定义了 DB 对象及一系列接口。这些会在下一节进行介绍。</p>
 <p>最后是两个独立的函数 <code>DestroyDB</code> 和 <code>RepairDB</code>，分别用于销毁 DB 对象和抢救打不开的 DB。</p>
-<p>这里 <code>DestroyDB</code> 没有设计成 DB 类的方法，我想，这是因为这个函数比较危险，在使用时需要小心，如果设计成 DB 类的方法，可能一不小心就删库了。而作为一个独立的函数，增加了调用时的复杂度，这也是对用户的提醒与保护。</p>
+<p>这里 <code>DestroyDB</code> 没有设计成 DB 类的方法，我想，这是因为这个函数比较危险，在使用时需要小心，如果设计成 DB 类的方法，可能一不小心就删库了。而作为一个独立的函数，增加了调用时的复杂度和明显度，这也是对用户的提醒与保护。</p>
 <p>注意因为兼容性的原因，就算是 <code>DestroyDB</code> 方法没有成功，也可能会返回 <code>Status::OK()</code>，所以需要额外检查下错误信息。</p>
 <h2 id="db-类的方法">DB 类的方法</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">static</span> Status <span class="hljs-title">Open</span><span class="hljs-params">(<span class="hljs-type">const</span> Options&amp; options, <span class="hljs-type">const</span> std::string&amp; name,</span></span><br><span class="hljs-params"><span class="hljs-function">                     DB** dbptr)</span></span>;<br></code></pre></td></tr></table></figure>
@@ -367,8 +367,16 @@
 <p>这个方法用于获取数据库的文件大小，可能不包含最近写入的内容。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">CompactRange</span><span class="hljs-params">(<span class="hljs-type">const</span> Slice* begin, <span class="hljs-type">const</span> Slice* end)</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
 <p>最后一个方法，用于压缩数据库，也留到具体实现的时候介绍。</p>
-<p>TODO：纯虚</p>
-<p>TODO：小结</p>
+<h2 id="关于纯虚函数">关于纯虚函数</h2>
+<p>在阅读代码的时候，可以发现，<code>db.h</code> 中大多数函数都是纯虚函数，DB 类实际上是一个接口，具体的实现都在 <code>DBImpl</code> 类当中。</p>
+<p>这是用到了多态性，在代码中使用的时候，使用 DB 的接口就可以，只需要</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">DB* db;<br>Status s = DB::<span class="hljs-built_in">Open</span>(options, name, &amp;db);<br></code></pre></td></tr></table></figure>
+<p>就可以得到一个 DB 对象，而不用关心 DB 对象的具体实现。</p>
+<p>这里 leveldb 用到了工厂模式，隐藏了创建 DB 对象的过程。</p>
+<p>这种方式有不少好处，一个是使用起来简单，不需要关注具体实现；还可以便于后期扩展，甚至说你哪怕底层根本不是 leveldb，代码里反正认的是这个接口，替换掉也不会影响已有代码。</p>
+<h2 id="小结">小结</h2>
+<p>本节中我们了解了 <code>db.h</code> 中的一些接口，对 leveldb 的功能有了一个大致的了解。</p>
+<p>接下来，我们将开始看 leveldb 的具体实现，了解它的具体实现。难度会比较大，估计要花上很长时间。</p>
 
                 
               </div>
