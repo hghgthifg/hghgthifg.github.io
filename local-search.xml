@@ -101,7 +101,7 @@
     <link href="/2024/03/10/note/levedb/0x00-%E5%BA%8F%E8%A8%80/"/>
     <url>/2024/03/10/note/levedb/0x00-%E5%BA%8F%E8%A8%80/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>早就听说 Google 的 LevelDB 代码质量很高，如今突发奇想，想要一探究竟，于是记录下自己阅读 LevelDB 源码的过程。</p><p>作为一个菜鸟，这是我第一次阅读一个正式的开源项目，过程中肯定会遭遇很多困难，但也会收获很多。</p><p>希望我能够坚持下来，让自己的水平得以提升。</p><h2 id="本地环境">本地环境</h2><ul><li>Deepin 20.9</li><li>clang 15.0.7</li><li>leveldb 1.20</li><li>Cmake 3.22.1</li><li>Visual Studio Code 1.85.2</li><li>Sourcetrail 2021.4.19</li></ul><h2 id="参考">参考</h2><ul><li><a href="https://www.codedump.info/post/20190215-leveldb/">Leveldb代码阅读笔记</a></li></ul><p>此外，我还借助了 AI 大模型的力量，这里主要使用了 <a href="https://codegeex.cn/">CodeGeeX</a> 和 <a href="https://www.kimi.ai/">Kimi</a></p><h2 id="目录">目录</h2><p>TODO</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>早就听说 Google 的 LevelDB 代码质量很高，如今突发奇想，想要一探究竟，于是记录下自己阅读 LevelDB 源码的过程。</p><p>作为一个菜鸟，这是我第一次阅读一个正式的开源项目，过程中肯定会遭遇很多困难，但也会收获很多。</p><p>由于基本上是无基础阅读，所以会记一些很基础很简单的东西，写得比较琐碎。</p><p>希望我能够坚持下来，让自己的水平得以提升。</p><h2 id="本地环境">本地环境</h2><ul><li>Deepin 20.9</li><li>clang 15.0.7</li><li>leveldb 1.20</li><li>Cmake 3.22.1</li><li>Visual Studio Code 1.85.2</li><li>Sourcetrail 2021.4.19</li></ul><h2 id="参考">参考</h2><ul><li><a href="https://www.codedump.info/post/20190215-leveldb/">Leveldb代码阅读笔记</a></li></ul><p>此外，我还借助了 AI 大模型的力量，这里主要使用了 <a href="https://codegeex.cn/">CodeGeeX</a> 和 <a href="https://www.kimi.ai/">Kimi</a></p><h2 id="目录">目录</h2><p>TODO</p>]]></content>
     
     
     <categories>
