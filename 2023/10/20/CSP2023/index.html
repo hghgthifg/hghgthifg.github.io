@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2023/01/19/63c902cb2f64b.png">
+  <link rel="icon" href="https://bu.dusays.com/2023/01/19/63c902cb2f64b.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#eee">
+  <meta name="author" content="小H">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSP2023 游记">
+<meta property="og:url" content="http://hghgthifg.github.io/2023/10/20/CSP2023/index.html">
+<meta property="og:site_name" content="小H的博客">
+<meta property="og:description" content="本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2023/10/29/653e475623a41.jpg">
+<meta property="article:published_time" content="2023-10-20T13:39:15.000Z">
+<meta property="article:modified_time" content="2024-09-01T15:33:25.669Z">
+<meta property="article:author" content="小H">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="CSP">
+<meta property="article:tag" content="游记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/10/29/653e475623a41.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CSP2023 游记 - 小H的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/bootstrap/4.6.2/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3168516_v0pb0wungya.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hghgthifg.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["-slim",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"measurement":"G-BKZ8GMV0K9","woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小H的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bu.dusays.com/2023/01/19/63c903a7ab9d7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CSP2023 游记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        小H
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-20 21:39" pubdate>
+          2023年10月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CSP2023 游记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本次是我两年 AFO 后首次也是最后一次参加 CSP。</p>
+<p>在当初，由于现实条件的束缚，我没有什么学习 OI 的途径，只能依靠自己零零碎碎去大佬的博客学一些东西，也很不成体系，实力也是陷入瓶颈。面对升学的压力，当时的我在权衡后选择放弃 OI，一心高考，也算有点收获。我也稍微学了点化学竞赛，只是为了混个综评，具体可见 <a href="../../../../2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0">2023化学国初游记</a>.</p>
+<p>后来一想，为什么不再去试试 OI 呢？最后再试一试，反正也没什么亏的。</p>
+<p>已经是高二的我回想起曾经屏幕前的日日夜夜，回想起半夜忍者困意打 CF 比赛，回想起自己曾经的信心，最后还是放不下，决定抱着试一试的心态，再尝试一次，也算是不留遗憾了。</p>
+<p>于是我就试了试。</p>
+<h2 id="初赛前"><a href="#初赛前" class="headerlink" title="初赛前"></a>初赛前</h2><p>在距离暑假还有最后 15 天我才终于下定决心，而我所做的第一件事是看 CCF 新发布的考纲，参照着考纲我制定了突击的计划。我决定先补知识点，然后在初赛前一周做下往年初赛卷。</p>
+<p>完成了第一阶段的计划，接下来遭遇了化学竞赛的考前培训，一直耽搁到 9 月 4 日化学竞赛结束。</p>
+<p>接下来我翻出了<del>尘封已久的</del>初二买的《一本通》初赛篇，上面的题目都是些很老的 NOIP 题目了，期望、博弈论这种现在提高组不考的内容都有。</p>
+<p>把近十年的提高组题目都给做掉了，由于真的很久没有碰过 OI，所以生疏了很多，分数在 60 多到 80 多之间起伏不定。</p>
+<h2 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h2><p>初赛的地点是震泽中学，当天翘掉了第五节生物课及之后的课。</p>
+<p>路上从晴空万里到滂沱大雨，也没睡觉，就在聊天。</p>
+<p>震泽中学里面像公园一样，亭台楼阁都有，羡慕QAQ。</p>
+<p><img src="https://bu.dusays.com/2023/10/29/653e475623a41.jpg" srcset="/img/loading.gif" lazyload alt="从拍的视频里截取的不太清楚"></p>
+<p>中午没睡觉，考前很困，神奇的是拿到试卷就不困了。</p>
+<hr>
+<p>接下来讲一讲初赛的心态历程（<del>流水账</del>）吧。</p>
+<p>先看了一遍试卷，够呛，好多没见过的题目。做到第 3 题就开始蒙了，第 4 题没看懂题，先跳过了这两题，不过接下来几道就没啥问题了。</p>
+<p>第 10 题有点小坑，好在之前遇到过。</p>
+<p>第 11 题真想吐槽正常人谁会这么写。</p>
+<p>第 14 题啥玩意儿根本看不懂。第 15 题更是坑人，真就 $ O(n) $「快速」幂呗</p>
+<p>前面的选择题只能说是开胃小菜，过不过初赛并不取决于选择题，还得是后面的「阅读理解」和「完形填空」。</p>
+<p>第一道阅读程序难度不大，就是费点时间模拟。</p>
+<p>第二道没读懂，太绕了，耗费了大量时间也没弄明白，导致后面的节奏乱了，很糟糕。</p>
+<p>由于时间不够了，第三道就没时间认真分析了，只能草草蒙完了事。</p>
+<p>后面的完成程序我做得都挺糟糕，第一道思路偏了，第二道完全不懂，一个都没蒙对。</p>
+<p>小图灵估分 69，实际 65，要不是今年江苏统一了，按照苏州的变态分数线根本过不了，可以说是很走运了。</p>
+<h2 id="复赛前"><a href="#复赛前" class="headerlink" title="复赛前"></a>复赛前</h2><p>这段时间我晚自习请了假回家继续 OI，但成效不是很显著。中途还经历了一次月考，<del>考得还不错</del>。</p>
+<p>我知道自己实力不够，考前得知上一年进 NOIP 要 160 分，着实是慌了。</p>
+<p>为了达成目标，考前我制定了一定的战略，比如先打完暴力再想正解，对题目用时也有一定的规划。</p>
+<p>考前一天晚上还打了个线段树裸题练手（<del>虽然并没有用上</del>）</p>
+<h2 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h2><p>又是一次请假（<del>还都是从生物课开始翘</del>）</p>
+<p>和以前参加 CSP 相比真的变化不少，在苏州都有了考点。</p>
+<p><del>这次吸取教训，睡了一路</del></p>
+<p>为了避免犯困，我像参加化学国初一样喝了点咖啡（<del>喝不惯，着实够呛</del>）</p>
+<p>考场条件还蛮好的，VS Code 配置好了插件，按下 F5 点两下就能用了。考前试机的时候我还写了个对拍（<del>忘了对拍咋写了，摸索了半天最后也没写对，不过最后甚至都没用上</del>）</p>
+<p>JS 考场仅提供 NOI Linux 环境，在苏州考点是放在 U 盘里面的，可能是由于 U 盘 IO 性能限制，在打开多个文件的时候会有显著卡顿。</p>
+<hr>
+<p>接下来讲讲做题的经过吧。</p>
+<p>先把 4 道题都扫了一遍，预估一下怎么拿分，发现 T3 是大模拟，有机会做掉,T4 图论，做也要花点时间还不一定能成。于是我打算重点攻破 T3</p>
+<p>T1 我没有想到竟然这么水，直接暴力枚举就行了。我看了几遍题目确保没有理解错题意，最后花了 15 分钟就解决了。</p>
+<p>T2 一眼看去以为是区间 dp，推了个错的式子，然后判了个特殊情况，就跳了，毕竟没啥思路。</p>
+<p>最后悔的一件事就是在 T3 上磕了 3 个小时，我一到考场就忘了之前制定的战略，怀着不该有的自信，想着干掉 T3 就稳了，结果却因此反而达不到预期。</p>
+<p>被监考老师坑到了，还剩一小时十五分钟，他在提醒时间的时候说只剩 15 分钟，慌乱中我对 T3 的代码进行了一些破坏性更改，给 debug 造成了很大的困扰。当然，主要原因还是我的心态问题。</p>
+<p>可惜的是 T4 我甚至一行代码都没写，而 T3 写了 5k+ 字节，改来改去越来越乱，虽然只剩一个操作没完成，但前面已经一团乱了，最后爆零了。</p>
+<p>（有个小插曲，有人考着考着手机响了！没错，他把手机带进来了！随后他就被请出去了）</p>
+<p>结束了，我整个人是筋疲力竭的，已经预料到凶多吉少了。</p>
+<p>（交代码之后有个小学生发现文件夹没建，大寄）</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>在漆黑的夜幕下，我瘫坐在车上。</p>
+<p>看来这次注定要有遗憾了，路上我思索了很多。</p>
+<p>透过车窗玻璃，我看着远处的城市夜景，和自己的影子。</p>
+<p>要问感受的话，当时并没有什么后悔，更多的只是茫然。</p>
+<p>浑浑噩噩回到家，等民间自测等到半夜。</p>
+<p>云斗统一测完，我都不敢看。果然，T2、T3 爆零，洛谷也是。T2 本来能弄到的部分分，也因为未知原因 RE.</p>
+<p>100pts，NOIP 看来是注定无望。</p>
+<p>云斗的排名让我心凉半截，600 多名，509 个名额，OI 生涯离我远去了。</p>
+<p>结束之后，心里更多是坦然，接下来我就要全力以赴 whk 了，明年 3 月就要和高三一起参加一模了，没了 OI 分散精力，或许在 whk 上我会更好吧。</p>
+<p>这次充分暴露了我的能力和心态问题，以及比赛策略的问题，可惜或许没有补救机会了。</p>
+<hr>
+<p>没想到的是，峰回路转，在已经回归正常学习几天后的 29 日，收到了老师转发的 NOIP 名单，我竟然在里面。<br>这或许是因为我是高二的「大龄选手」，再加上名额里去掉了小学生和初中生吧。<br>不过最主要的原因还是我又一次走运，在官方数据中，我的 T2 通过瞎搞弄到了第一个点的 5pts.</p>
+<p>好吧，那就让我最后再来一次，NOIP RP++！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/OI/" class="print-no-link">#OI</a>
+      
+        <a href="/tags/CSP/" class="print-no-link">#CSP</a>
+      
+        <a href="/tags/%E6%B8%B8%E8%AE%B0/" class="print-no-link">#游记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CSP2023 游记</div>
+      <div>http://hghgthifg.github.io/2023/10/20/CSP2023/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小H</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/12/NOIP2022-%E5%86%9B%E8%90%A5/" title="[NOIP2022] 建造军营">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[NOIP2022] 建造军营</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/" title="[NOIP2022] 种花">
+                        <span class="hidden-mobile">[NOIP2022] 种花</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.staticfile.net/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.net/bootstrap/4.6.2/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/tocbot/4.22.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
