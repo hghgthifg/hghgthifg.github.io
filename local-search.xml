@@ -161,39 +161,6 @@
   
   
   <entry>
-    <title>[NOIP2022] 建造军营</title>
-    <link href="/2023/11/12/NOIP2022-%E5%86%9B%E8%90%A5/"/>
-    <url>/2023/11/12/NOIP2022-%E5%86%9B%E8%90%A5/</url>
-    
-    <content type="html"><![CDATA[<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://www.luogu.com.cn/problem/P8867">洛谷</a></p><p><a href="https://loj.ac/p/3898">LOJ</a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>将城市看做无向图，我们可以发现在同一个双联通分量中，不管哪一条道路被袭击，都可以保证该双联通分量中的军营可以互相抵达，所以我们可以先对图进行缩点。</p><p>完成缩点后，无向图被转化成了无根树，而接下来的操作类似 JSOI2018 的「潜入行动」,由于在树上求方案数，考虑 树上dp.</p><p>定义 $ dp[x][0&#x2F;1] $ 表示在缩点后的无根树上，以点 $ x $ 为根节点的子树上<strong>全都不建造军营</strong>或<strong>所有建造的军营都安全</strong>的方案数，当对 $ x $ 的一个子树 $ to $ 进行决策时，考虑以下情况：</p><p>1、如果在 $ x $ 时选择都不建造，那么 $ to $ 也不能有军营，两点间的边随便看守不看守。</p><p>$$<br>dp[x][0] \leftarrow 2 \times dp[x][0] \times dp[to][0]<br>$$</p><p>2、如果在 $ x $ 时选择建造，那么分为 3 种情况：</p><ul><li>$ x $ 在此之前没建造，而 $ to $ 建造了，此时中间的边必须看守来保证 $ x $ 的安全。</li><li>$ x $ 在此之前建造了，而 $ to $ 没建造，则中间的边必须看守来保证 $ to $ 的安全。</li><li>$ x $ 在此之前建造了，且 $ to $ 也建造了，则中间的边看不看守皆可。</li></ul><p>分别对应如下转移方式：<br>$$<br>\begin{split}<br>dp[x][1] \leftarrow dp[x][0] \times dp[to][1] \<br>dp[x][1] \leftarrow dp[x][1] \times dp[to][0] \<br>dp[x][1] \leftarrow 2 \times dp[x][1] \times dp[to][1]<br>\end{split}<br>$$</p><p>上面是对于单个 $ to $ 的状态转移方程，实际上 $ x $ 的每一个子树是同等地位的，转移没有先后，总结一下得到如下方程：</p><p>$$<br>\begin{split}<br>dp[x][0] &#x3D; dp[x][0] \times \prod_{to}^{to \in son_x}{dp[to][0]} \<br>dp[x][1] &#x3D; dp[x][1] * \prod_{to}^{to \in son_x}{(dp[to][1] + 2 \times dp[to][0])} + dp[x][0] \times \prod_{to}^{to \in son_x}{dp[to][1]}<br>\end{split}<br>$$</p><p>在实际使用中需要把这个式子拆开这样好取模，为了让各个操作同时进行且不互相影响，需要使用临时变量记录一下。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MOD = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">500010</span>;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br>    <span class="hljs-type">int</span> from;<br>    <span class="hljs-type">int</span> to;<br>    <span class="hljs-type">int</span> nxt;<br>&#125; edge[MAXN * <span class="hljs-number">4</span>];<br><span class="hljs-type">int</span> head[MAXN];<br><span class="hljs-type">int</span> dfn[MAXN], col[MAXN], low[MAXN], siz[MAXN], tsize[MAXN];<br><span class="hljs-type">int</span> p2[MAXN * <span class="hljs-number">2</span>];<br><span class="hljs-type">int</span> n, m, cnt, depth, scnt;<br><span class="hljs-type">bool</span> cut[MAXN * <span class="hljs-number">4</span>];<br>vector&lt;<span class="hljs-type">int</span>&gt; G[MAXN];<br>ll dp[MAXN][<span class="hljs-number">2</span>];<br>ll ans;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">link</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span></span><br><span class="hljs-function"></span>&#123;<br>    edge[++cnt].nxt = head[u];<br>    edge[cnt].to = v;<br>    edge[cnt].from = u;<br>    head[u] = cnt;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa)</span></span><br><span class="hljs-function"></span>&#123;<br>    dfn[x] = low[x] = ++depth;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = edge[i].nxt) &#123;<br>        <span class="hljs-type">int</span> to = edge[i].to;<br>        <span class="hljs-keyword">if</span> (!dfn[to]) &#123;<br>            <span class="hljs-built_in">tarjan</span>(to, x);<br>            low[x] = <span class="hljs-built_in">min</span>(low[x], low[to]);<br>            <span class="hljs-keyword">if</span> (dfn[x] &lt; low[to]) &#123;<br>                <span class="hljs-comment">// 双向边都要标记</span><br>                cut[i] = cut[((i + <span class="hljs-number">1</span>) ^ <span class="hljs-number">1</span>) - <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dfn[to] &lt; dfn[x] &amp;&amp; to != fa) &#123;<br>            low[x] = <span class="hljs-built_in">min</span>(low[x], dfn[to]);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">paint</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    col[x] = scnt, siz[scnt]++;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = edge[i].nxt) &#123;<br>        <span class="hljs-type">int</span> to = edge[i].to;<br>        <span class="hljs-keyword">if</span> (cut[i] <span class="hljs-keyword">or</span> col[to]) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">paint</span>(to);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa)</span></span><br><span class="hljs-function"></span>&#123;<br>    tsize[x] = <span class="hljs-number">1</span>;<br>    dp[x][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, dp[x][<span class="hljs-number">1</span>] = p2[siz[x]] - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> to : G[x]) &#123;<br>        <span class="hljs-keyword">if</span> (to == fa) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">dfs</span>(to, x);<br>        tsize[x] += tsize[to];<br>        ll tmp0 = <span class="hljs-number">0</span>, tmp1 = <span class="hljs-number">0</span>;<br>        tmp0 = (<span class="hljs-number">2ll</span> * dp[x][<span class="hljs-number">0</span>] % MOD * dp[to][<span class="hljs-number">0</span>] % MOD) % MOD;<br>        tmp1 = (<span class="hljs-number">2ll</span> * dp[x][<span class="hljs-number">1</span>] % MOD * dp[to][<span class="hljs-number">0</span>] % MOD) % MOD;<br>        tmp1 = (tmp1 + (dp[x][<span class="hljs-number">1</span>] % MOD * dp[to][<span class="hljs-number">1</span>] % MOD) % MOD) % MOD;<br>        tmp1 = (tmp1 + (dp[x][<span class="hljs-number">0</span>] % MOD * dp[to][<span class="hljs-number">1</span>] % MOD) % MOD) % MOD;<br>        dp[x][<span class="hljs-number">0</span>] = tmp0, dp[x][<span class="hljs-number">1</span>] = tmp1;<br>    &#125;<br>    <span class="hljs-type">int</span> base = tsize[x];<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-number">1</span>) base--;<br>    ans = (ans + dp[x][<span class="hljs-number">1</span>] * p2[m - base] % MOD) % MOD;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">/* 预处理 2 的幂 */</span><br>    p2[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; MAXN * <span class="hljs-number">2</span>; i++) p2[i] = (p2[i - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-number">1</span>) % MOD;<br><br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        cin &gt;&gt; a &gt;&gt; b;<br>        <span class="hljs-built_in">link</span>(a, b);<br>        <span class="hljs-built_in">link</span>(b, a);<br>    &#125;<br><br>    <span class="hljs-comment">/* 求割边并进行缩点 */</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!dfn[i]) <span class="hljs-built_in">tarjan</span>(i, <span class="hljs-number">0</span>);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!col[i]) &#123;<br>            scnt++;<br>            <span class="hljs-built_in">paint</span>(i);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m * <span class="hljs-number">2</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (cut[i]) &#123;<br>            G[col[edge[i].from]].<span class="hljs-built_in">push_back</span>(col[edge[i].to]);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>    cout &lt;&lt; ans &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>题解</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>题解</tag>
-      
-      <tag>OI</tag>
-      
-      <tag>Tarjan</tag>
-      
-      <tag>缩点</tag>
-      
-      <tag>dp</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>CSP2023 游记</title>
     <link href="/2023/10/20/CSP2023/"/>
     <url>/2023/10/20/CSP2023/</url>
@@ -564,11 +531,11 @@
       
       <tag>deepin</tag>
       
-      <tag>nodejs</tag>
+      <tag>clang</tag>
       
       <tag>llvm</tag>
       
-      <tag>clang</tag>
+      <tag>nodejs</tag>
       
     </tags>
     
@@ -593,17 +560,17 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>linux</tag>
       
       <tag>deepin</tag>
       
-      <tag>llvm</tag>
+      <tag>C++</tag>
+      
+      <tag>vscode</tag>
       
       <tag>clang</tag>
       
-      <tag>vscode</tag>
+      <tag>llvm</tag>
       
       <tag>xmake</tag>
       
