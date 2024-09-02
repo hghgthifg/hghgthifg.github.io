@@ -206,9 +206,9 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
+      
+      <tag>OI</tag>
       
       <tag>NOIP</tag>
       
@@ -266,9 +266,9 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
+      
+      <tag>OI</tag>
       
       <tag>NOIP</tag>
       
@@ -341,11 +341,11 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
       
       <tag>省选</tag>
+      
+      <tag>OI</tag>
       
       <tag>线段树</tag>
       
@@ -372,11 +372,11 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
       
       <tag>省选</tag>
+      
+      <tag>OI</tag>
       
       <tag>倍增</tag>
       
@@ -403,11 +403,11 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
       
       <tag>省选</tag>
+      
+      <tag>OI</tag>
       
       <tag>搜索</tag>
       
@@ -465,9 +465,9 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>题解</tag>
+      
+      <tag>OI</tag>
       
       <tag>哈夫曼编码</tag>
       
@@ -531,11 +531,11 @@
       
       <tag>deepin</tag>
       
-      <tag>clang</tag>
+      <tag>nodejs</tag>
       
       <tag>llvm</tag>
       
-      <tag>nodejs</tag>
+      <tag>clang</tag>
       
     </tags>
     
@@ -566,11 +566,11 @@
       
       <tag>C++</tag>
       
-      <tag>vscode</tag>
+      <tag>llvm</tag>
       
       <tag>clang</tag>
       
-      <tag>llvm</tag>
+      <tag>vscode</tag>
       
       <tag>xmake</tag>
       
