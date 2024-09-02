@@ -531,11 +531,11 @@
       
       <tag>deepin</tag>
       
-      <tag>clang</tag>
+      <tag>nodejs</tag>
       
       <tag>llvm</tag>
       
-      <tag>nodejs</tag>
+      <tag>clang</tag>
       
     </tags>
     
@@ -566,11 +566,11 @@
       
       <tag>C++</tag>
       
-      <tag>vscode</tag>
+      <tag>llvm</tag>
       
       <tag>clang</tag>
       
-      <tag>llvm</tag>
+      <tag>vscode</tag>
       
       <tag>xmake</tag>
       
