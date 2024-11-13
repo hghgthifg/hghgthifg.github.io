@@ -1,0 +1,936 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2023/01/19/63c902cb2f64b.png">
+  <link rel="icon" href="https://bu.dusays.com/2023/01/19/63c902cb2f64b.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#eee">
+  <meta name="author" content="小H">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Clang 标准 C++ 模块文档翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[翻译] 标准 C++ 模块">
+<meta property="og:url" content="http://xiao-h.com/2024/10/25/StandardCPlusPlusModules/index.html">
+<meta property="og:site_name" content="小H的博客">
+<meta property="og:description" content="Clang 标准 C++ 模块文档翻译">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-25T14:27:51.000Z">
+<meta property="article:modified_time" content="2024-11-13T09:12:13.794Z">
+<meta property="article:author" content="小H">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Clang">
+<meta property="article:tag" content="Modern C++">
+<meta property="article:tag" content="C++ Modules">
+<meta property="article:tag" content="文档">
+<meta property="article:tag" content="翻译">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>[翻译] 标准 C++ 模块 - 小H的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/bootstrap/4.6.2/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4671086_qjithfieqcp.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiao-h.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["-slim",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-SDL7LDX8H2"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-SDL7LDX8H2", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-SDL7LDX8H2');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小H的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.travellings.cn/go.html" target="_self">
+                <i class="iconfont icon-train"></i>
+                <span>开往</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bu.dusays.com/2023/01/19/63c903a7ab9d7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[翻译] 标准 C++ 模块"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        小H
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-25 22:27" pubdate>
+          2024年10月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.5k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">[翻译] 标准 C++ 模块</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote><p>翻译时间：2024-10-25<br>文档链接：<a target="_blank" rel="noopener" href="https://clang.llvm.org/docs/StandardCPlusPlusModules.html">https://clang.llvm.org/docs/StandardCPlusPlusModules.html</a><br>文档存档：<a target="_blank" rel="noopener" href="https://web.archive.org/web/20240929102921/https://clang.llvm.org/docs/StandardCPlusPlusModules.html">https://web.archive.org/web/20240929102921/https://clang.llvm.org/docs/StandardCPlusPlusModules.html</a></p>
+</blockquote>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>术语 <strong>「模块 (<em>module</em>) 」</strong> 在 Clang 中有多种含义，它的含义是模糊的。对于 Clang 的用户来说，模块或许指代 <strong>「Objective-C 模块 (<em>Objective-C Module</em>) 」</strong>、<strong>「Clang 模块 (<em>Clang Module</em>) 」</strong>（又叫 <strong>「Clang 标头模块 (<em>Clang Header Module</em>) 」</strong> ），或是 <strong>「C++20 模块 (<em>C++20 Module</em>) 」</strong> （又叫 <strong>「标准 C++ 模块 (<em>Standard C++ Module</em>) 」</strong> ）。 这些 「模块」 在 Clang 中的实现共用了很多代码，但是从用户的角度来说，它们的语义和命令行用法有很大区别。本文档介绍了 Clang 中 C++20 模块的使用。在本文档的其余部分中，术语「模块」将指代「标准 C++ 模块」，术语 「Clang 模块」将指代 Clang 对模块的扩展实现。</p>
+<p>根据 C++ 标准，模块由两部分组成：<strong>「命名模块 (<em>Named Modules</em>) 」</strong> 和 <strong>「标头单元 (<em>Header Units</em>) 」</strong> 。本文档涵盖了两者。</p>
+<h2 id="标准-C-命名模块"><a href="#标准-C-命名模块" class="headerlink" title="标准 C++ 命名模块"></a>标准 C++ 命名模块</h2><p>为了更好地理解编译器的行为，对于一些不熟悉 C++ 特性的读者，需要先理解一些术语和定义。本文档不是 C++ 教程；它仅介绍必要的概念，以更好地理解项目中模块的使用。</p>
+<h3 id="背景和术语"><a href="#背景和术语" class="headerlink" title="背景和术语"></a>背景和术语</h3><h4 id="模块-Module-和模块单元-Module-Unit"><a href="#模块-Module-和模块单元-Module-Unit" class="headerlink" title="模块 (Module) 和模块单元 (Module Unit)"></a>模块 (<em>Module</em>) 和模块单元 (<em>Module Unit</em>)</h4><p>一个模块包含一个或多个模块单元。模块单元是一种特殊的翻译单元。模块单元几乎总是以模块声明开始。模块声明的语法是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[<span class="hljs-keyword">export</span>] <span class="hljs-keyword">module</span> module_name[:partition_name]<br></code></pre></td></tr></table></figure>
+
+<p><code>[]</code> 内的关键字是可选的，<code>module_name</code> 和 <code>partition_name</code> 遵循 C++ 标识符的规则，只是它们可以包含一个或多个字符 <code>.</code>。请注意，名称中的 <code>.</code> 没有任何语义含义，也不表示任何层级结构。</p>
+<p>在本文档中，模块单元被分为以下几类：</p>
+<ul>
+<li><strong>主模块接口单元 (<em>Primary Module Interface Unit</em>)</strong></li>
+<li><strong>模块实现单元 (<em>Module Implementation Unit</em>)</strong></li>
+<li><strong>模块分区接口单元 (<em>Module Partition Interface Unit</em>)</strong></li>
+<li><strong>内部模块分区单元 (<em>Internal Module Partition Unit</em>)</strong></li>
+</ul>
+<p>主模块接口单元的模块声明为 <code>export module module_name</code>，其中 <code>module_name</code> 表示模块的名称。一个模块 <strong>有且仅有</strong> 一个主模块接口单元。</p>
+<p>模块实现单元的模块声明为 <code>module module_name</code>，可以在同一个模块中声明多个模块实现单元。</p>
+<p>模块分区接口单元的模块声明为 <code>export module module_name:partition_name</code>，在任何给定模块中，<code>partition</code> 应当是唯一的。</p>
+<p>内部模块分区单元的模块声明是 <code>module module_name:partition_name</code>，在任何给定模块中，<code>partition_name</code> 同样应当是唯一的。</p>
+<p>在本文档中，我们有以下约定：</p>
+<ul>
+<li><strong>模块接口单元</strong>指<strong>主模块接口单元</strong>或<strong>模块分区接口单元</strong>。</li>
+<li><strong>可导入模块单元</strong>指<strong>模块接口单元</strong>或<strong>内部模块分区单元</strong>。</li>
+<li><strong>模块分区单元</strong>指<strong>模块分区接口单元</strong>或<strong>内部模块分区单元</strong>。</li>
+</ul>
+<h4 id="预构建模块单元"><a href="#预构建模块单元" class="headerlink" title="预构建模块单元"></a>预构建模块单元</h4><p><strong>「预构建模块单元 (<em>Built Module Interface</em>) 」</strong>，简称 <strong>「BMI」</strong>，是可导入模块单元的预编译结果。</p>
+<h4 id="全局模块片段"><a href="#全局模块片段" class="headerlink" title="全局模块片段"></a>全局模块片段</h4><p><strong>「全局模块片段 (<em>Global Module Fragment</em>) 」</strong>，简称 <strong>「GMF」</strong>，是 <code>module;</code> 之间的代码，以及模块单元内的模块声明。</p>
+<h3 id="如何用模块构建项目"><a href="#如何用模块构建项目" class="headerlink" title="如何用模块构建项目"></a>如何用模块构建项目</h3><h4 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h4><p>让我们看一个使用了模块的 「Hello World」 示例。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// Hello.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> Hello;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>  std::cout &lt;&lt; <span class="hljs-string">&quot;Hello World!\n&quot;</span>;<br>&#125;<br><br><span class="hljs-comment">// use.cpp</span><br><span class="hljs-keyword">import</span> Hello;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">hello</span>();<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后，在命令行调用 Clang，如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 Hello.cppm --precompile -o Hello.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 use.cpp -fmodule-file=Hello=Hello.pcm Hello.pcm -o Hello.out</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">./Hello.out</span><br>Hello World!<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们创建了一个简单的模块 <code>Hello</code>，它只包含一个名为 <code>Hello.cppm</code> 的主模块接口单元。</p>
+<p>下面是一个更加复杂的，使用了四种模块单元的 「Hello World」 示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :interface_part;<br><span class="hljs-keyword">import</span> :impl_part;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">void</span> <span class="hljs-title">Hello</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">// interface_part.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:interface_part;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">void</span> <span class="hljs-title">World</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">// impl_part.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">module</span> M:impl_part;<br><span class="hljs-keyword">import</span> :interface_part;<br><br>std::string W = <span class="hljs-string">&quot;World.&quot;</span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">World</span><span class="hljs-params">()</span> </span>&#123;<br>  std::cout &lt;&lt; W &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-comment">// Impl.cpp</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">module</span> M;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Hello</span><span class="hljs-params">()</span> </span>&#123;<br>  std::cout &lt;&lt; <span class="hljs-string">&quot;Hello &quot;</span>;<br>&#125;<br><br><span class="hljs-comment">// User.cpp</span><br><span class="hljs-keyword">import</span> M;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">Hello</span>();<br>  <span class="hljs-built_in">World</span>();<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后，回到命令行调用 Clang：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Precompiling the module</span><br>clang++ -std=c++20 interface_part.cppm --precompile -o M-interface_part.pcm<br>clang++ -std=c++20 impl_part.cppm --precompile -fprebuilt-module-path=. -o M-impl_part.pcm<br>clang++ -std=c++20 M.cppm --precompile -fprebuilt-module-path=. -o M.pcm<br>clang++ -std=c++20 Impl.cpp -fprebuilt-module-path=. -c -o Impl.o<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Compiling the user</span><br>clang++ -std=c++20 User.cpp -fprebuilt-module-path=. -c -o User.o<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Compiling the module and linking it together</span><br>clang++ -std=c++20 M-interface_part.pcm -fprebuilt-module-path=. -c -o M-interface_part.o<br>clang++ -std=c++20 M-impl_part.pcm -fprebuilt-module-path=. -c -o M-impl_part.o<br>clang++ -std=c++20 M.pcm -fprebuilt-module-path=. -c -o M.o<br>clang++ User.o M-interface_part.o  M-impl_part.o M.o Impl.o -o a.out<br></code></pre></td></tr></table></figure>
+
+<p>我们将在下文解释这些选项。</p>
+<h4 id="如何启用标准-C-模块"><a href="#如何启用标准-C-模块" class="headerlink" title="如何启用标准 C++ 模块"></a>如何启用标准 C++ 模块</h4><p>当语言标准为 <code>-std=c++20</code> 或更高时，标准 C++ 模块会自动启用。</p>
+<h4 id="如何生成-BMI"><a href="#如何生成-BMI" class="headerlink" title="如何生成 BMI"></a>如何生成 BMI</h4><p>要为可导入模块单元生成 BMI，需要使用 <code>--precompile</code> 或者 <code>-fmodule-output</code> 的命令行选项。</p>
+<p><code>-fmodule-output</code> 选项生成 BMI 作为编译的副产物。如果指定了 <code>-fmodule-output=</code>，则 BMI 将被生成到指定的位置。如果指定了 <code>-fmodule-output</code> 和 <code>-c</code>，那么 BMI 将以输入文件的名称和 <code>.pcm</code> 扩展名生成在输出文件的目录中。否则，BMI 将被生成在工作目录，其名称为输入文件的名称，扩展名为 <code>.pcm</code>。</p>
+<p>使用 <code>--precompile</code> 生成 BMI 称为两阶段编译，因为将源文件 (<em>Source File</em>) 编译成目标文件 (<em>Object File</em>) 需要两个步骤。使用 <code>-fmodule-output</code> 称为单阶段编译。单阶段编译对于构建系统来说更容易实现，而两阶段编译由于更高的并行性而可能编译得更快。举例来说，如果有两个模块单元 <code>A</code> 和 <code>B</code>，其中 <code>B</code> 依赖于 <code>A</code>，则单阶段编译需要串行编译它们，而两阶段编译只需要 <code>A.pcm</code> 编译好，<code>B</code> 就可以在 <code>A.pcm</code> 到 <code>A.o</code> 的步骤同时编译。</p>
+<h4 id="文件名的要求"><a href="#文件名的要求" class="headerlink" title="文件名的要求"></a>文件名的要求</h4><p>按照约定，可导入模块单元的文件应当使用 <code>.cppm</code> （或者 <code>.ccm</code>、<code>.cxxm</code>、<code>.c++m</code>）作为文件扩展名。文件实现单元应当使用 <code>.cpp</code> （或者 <code>.cc</code>、<code>.cxx</code>、<code>.c++</code>）作为文件扩展名。</p>
+<p>BMI 文件应当使用 <code>.pcm</code> 作为文件扩展名。主模块接口单元的 BMI 文件名应当为 <code>module_name.pcm</code>，模块分区单元的 BMI 文件名应当为 <code>module_name-partition_name.pcm</code>。</p>
+<p>如果使用不同的扩展名，Clang 可能无法构建模块。例如，如果可导入模块单元的文件名以 <code>.cpp</code> 而不是 <code>.cppm</code> 结尾，则 Clang 无法使用 <code>--precompile</code> 选项为可导入模块单元生成 BMI，因为 <code>--precompile</code> 选项只会运行预处理器（<code>-E</code>）。如果对可导入模块单元使用与约定的扩展名不同的扩展名，则可以在文件前指定 <code>-x C++-module</code>。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// Hello.cpp</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> Hello;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>  std::cout &lt;&lt; <span class="hljs-string">&quot;Hello World!\n&quot;</span>;<br>&#125;<br><br><span class="hljs-comment">// use.cpp</span><br><span class="hljs-keyword">import</span> Hello;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">hello</span>();<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，模块接口的扩展名是 <code>.cpp</code> 而不是 <code>.cppm</code>，所以它不能像之前的例子一样编译，但是可以用以下命令编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 -x c++-module Hello.cpp --precompile -o Hello.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 use.cpp -fprebuilt-module-path=. Hello.pcm -o Hello.out</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">./Hello.out</span><br>Hello World!<br></code></pre></td></tr></table></figure>
+
+<h4 id="模块名的要求"><a href="#模块名的要求" class="headerlink" title="模块名的要求"></a>模块名的要求</h4><blockquote><p>所有以 <code>std</code> 或 <code>std</code> 后面跟着若干个数字或者包含保留标识符的模块名都是保留的，不应被用于模块声明。不提供诊断信息。如果保留模块名称中的任何标识符是保留标识符，则该模块名称将被保留供 C++ 实现使用；否则，它将被保留以用于未来的标准化。</p>
+<footer><strong>[module.unit]p1</strong></footer></blockquote>
+
+<p>因此，默认情况下以下模块名均无效：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">std<br>std1<br>std.foo<br>__test<br>// and so on ...<br></code></pre></td></tr></table></figure>
+
+<p>强烈建议不要使用保留的模块名称，但使用 <code>-Wno-reserved-module-identifier</code> 可以抑制警告。</p>
+<h4 id="指定依赖的-BMI"><a href="#指定依赖的-BMI" class="headerlink" title="指定依赖的 BMI"></a>指定依赖的 BMI</h4><p>有三种方式可以用来指定依赖的 BMI：</p>
+<ul>
+<li><code>-fprebuilt-module-path=&lt;path/to/directory&gt;</code></li>
+<li><code>-fmodule-file=&lt;path/to/BMI&gt;</code> <strong>（已弃用）</strong></li>
+<li><code>-fmodule-file=&lt;module-name&gt;=&lt;path/to/BMI&gt;</code></li>
+</ul>
+<p><code>-fprebuilt-module-path</code> 选项指定搜索依赖的 BMI 的路径。可以指定多个路径，类似于使用 <code>-I</code> 指定头文件的搜索路径。导入模块 <code>M</code> 时，编译器会在 <code>-fprebuilt-module-path</code> 指定的目录中寻找 <code>M.pcm</code>。同样，导入分区模块单元 <code>M:P</code> 时，编译器会在 <code>-fprebuilt-module-path</code> 指定的目录中寻找 <code>M-P.pcm</code>。</p>
+<p><code>-fmodule-file=&lt;path/to/BMI&gt;</code> 选项使编译器直接加载指定的 BMI。<code>-fmodule-file=&lt;module-name&gt;=&lt;path/to/BMI&gt;</code> 选项使编译器在必要时为 <code>&lt;module-name&gt;</code> 加载指定的 BMI。主要区别在于 <code>-fmodule-file=&lt;path/to/BMI&gt;</code> 将立即加载 BMI，而 <code>-fmodule-file=&lt;module-name&gt;=&lt;path/to/BMI&gt;</code> 仅会延迟加载 BMI，<code>-fprebuilt-module-path</code> 同样如此。命名模块的 <code>-fmodule-file=&lt;path/to/BMI&gt;</code> 选项已经弃用，将会在 Clang 未来的版本中被移除。</p>
+<p>当在编译器的同一调用中指定这些选项时，<code>fmodule-file=&lt;path/to/BMI&gt;</code> 选项优先于 <code>-fmodule-file=&lt;module-name&gt;=&lt;path/to/BMI&gt;</code>，后者优先于 <code>-fprebuilt-module-path=&lt;path/to/directory&gt;</code></p>
+<p>注意：所有依赖的 BMI 都必须明确指定，无论是直接还是间接依赖。有关详细信息，请参阅 <a target="_blank" rel="noopener" href="https://github.com/llvm/llvm-project/issues/62707">https://github.com/llvm/llvm-project/issues/62707</a>。</p>
+<p>在编译模块实现单元时，必须指定对应的主模块接口单元的 BMI，因为模块实现单元隐式导入了主模块接口单元。</p>
+<blockquote><p>一个既不包含 <code>export</code> 关键字，也不包含模块分区的模块声明将会隐式导入模块的主模块接口单元，就像通过模块导入声明一样。</p>
+<footer><strong>[module.unit]p8</strong></footer></blockquote>
+
+<p><code>-fprebuilt-module-path=&lt;path/to/directory&gt;</code>、<code>-fmodule-file=&lt;path/to/BMI&gt;</code> 和 <code>-fmodule-file=&lt;module-name&gt;=&lt;path/to/BMI&gt;</code> 选项可以被指定多次。例如，上面例子中编译 <code>M.cppm</code> 的命令行可以重写成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">clang++ -std=c++20 M.cppm --precompile -fmodule-file=M:interface_part=M-interface_part.pcm -fmodule-file=M:impl_part=M-impl_part.pcm -o M.pcm<br></code></pre></td></tr></table></figure>
+
+<p>当同一个 <code>&lt;module-name&gt;</code> 有多个 <code>-fmodule-file=&lt;module-name&gt;=</code> 时，最后一个 <code>-fmodule-file=&lt;module-name&gt;=</code> 选项将会覆盖之前的选项。</p>
+<h4 id="记住模块单元仍然有一个与-BMI-对应的对象"><a href="#记住模块单元仍然有一个与-BMI-对应的对象" class="headerlink" title="记住模块单元仍然有一个与 BMI 对应的对象"></a>记住模块单元仍然有一个与 BMI 对应的对象</h4><p>虽然模块接口和传统的头文件类似，但它们仍然需要编译。模块单元是翻译单元，需要编译为目标文件，然后需要将它们链接在一起，如以下示例所示。</p>
+<p>例如，传统的头文件编译过程是这样的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">src1.cpp -+&gt; clang++ src1.cpp --&gt; src1.o ---,<br>hdr1.h  --&#x27;                                 +-&gt; clang++ src1.o src2.o -&gt;  executable<br>hdr2.h  --,                                 |<br>src2.cpp -+&gt; clang++ src2.cpp --&gt; src2.o ---&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>而模块单元的编译过程是这样的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">              src1.cpp ----------------------------------------+&gt; clang++ src1.cpp -------&gt; src1.o -,<br>(header unit) hdr1.h    -&gt; clang++ hdr1.h ...    -&gt; hdr1.pcm --&#x27;                                    +-&gt; clang++ src1.o mod1.o src2.o -&gt;  executable<br>              mod1.cppm -&gt; clang++ mod1.cppm ... -&gt; mod1.pcm --,--&gt; clang++ mod1.pcm ... -&gt; mod1.o -+<br>              src2.cpp ----------------------------------------+&gt; clang++ src2.cpp -------&gt; src2.o -&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>如图所示，我们需要将 BMI 从模块单元编译为目标文件，然后链接目标文件。（但是不能对标头单元执行此操作。有关更多详细信息，请参阅有关标头单元的部分）</p>
+<p>BMI 文件不能直接用来创建模块库，而是要将 BMI 文件（<code>.pcm</code>）编译成目标文件（<code>.o</code>），然后将目标文件打包成库。</p>
+<h4 id="clang-cl"><a href="#clang-cl" class="headerlink" title="clang-cl"></a>clang-cl</h4><p><code>clang-cl</code> 支持与 <code>clang++</code> 相同的模块选项（如上所述）；无需再这些选项前添加 <code>/clang:</code> 前缀。请注意，<code>clang-cl</code> 不能支持 <code>cl.exe</code> 用于生成&#x2F;使用 IFC 文件（<a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/cppblog/using-cpp-modules-in-msvc-from-the-command-line-part-1/">https://devblogs.microsoft.com/cppblog/using-cpp-modules-in-msvc-from-the-command-line-part-1/</a>）的选项，生成的预编译模块也不兼容 <code>cl.exe</code>。</p>
+<p>我们建议构建系统的作者使用上述 <code>clang++</code> 选项来用 <code>clang-cl</code> 构建模块。</p>
+<h4 id="一致性要求"><a href="#一致性要求" class="headerlink" title="一致性要求"></a>一致性要求</h4><p>模块可以被视为一种加速编译的缓存。因此，与其他缓存技术一样，维护缓存一致性非常重要，这就是为什么 Clang 非常严格地检查一致性。</p>
+<h5 id="选项一致性"><a href="#选项一致性" class="headerlink" title="选项一致性"></a>选项一致性</h5><p>与模块单元及其非模块单元使用的语言标准相关的编译器选项需要保持一致，考虑以下示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><br><span class="hljs-comment">// Use.cpp</span><br><span class="hljs-keyword">import</span> M;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">clang++ -std=c++20 M.cppm --precompile -o M.pcm<br>clang++ -std=c++23 Use.cpp -fprebuilt-module-path=.<br></code></pre></td></tr></table></figure>
+
+<p>由于语言标准不一致，Clang 将会拒绝编译。并非所有编译器选项都是语言标准选项，比如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">clang++ -std=c++20 M.cppm --precompile -o M.pcm<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Inconsistent optimization level.</span><br>clang++ -std=c++20 -O3 Use.cpp -fprebuilt-module-path=.<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Inconsistent debugging level.</span><br>clang++ -std=c++20 -g Use.cpp -fprebuilt-module-path=.<br></code></pre></td></tr></table></figure>
+
+<p>尽管优化和调试级别不一致，但这些编译仍将被接受，因为编译器选项不会影响语言标准。</p>
+<p>注意，<strong>当前</strong>编译器不会拒绝不一致的宏定义（<strong>将来可能会改变</strong>）。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">clang++ -std=c++20 M.cppm --precompile -o M.pcm<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Inconsistent optimization level.</span><br>clang++ -std=c++20 -O3 -DNDEBUG Use.cpp -fprebuilt-module-path=.<br></code></pre></td></tr></table></figure>
+
+<p>目前，Clang 接受上述示例，但如果开启了调试选项的代码依赖于在其他翻译单元中一致使用 <code>NDEBUG</code>，则可能会产生意料之外的结果。</p>
+<h5 id="源文件一致性"><a href="#源文件一致性" class="headerlink" title="源文件一致性"></a>源文件一致性</h5><p>Clang 可能会在编译期间读取 BMI 的输入文件<sup>1</sup>，这意味着当 Clang 使用 BMI 时，所有输入文件都需要存在于原始路径中并具有原始内容。</p>
+<p>为了满足这一要求及简化分布式构建和沙盒构建等情况的处理，用户可以使用 <code>-fmodules-embed-all-files</code> 将所有输入文件嵌入到 BMI 中，这样可以使 Clang 不需要再磁盘上打开相应的文件。</p>
+<p>当启用 <code>-fmodules-embed-all-files</code> 选项时，Clang 会显式地将源代码嵌入 BMI 文件中，BMI 文件的内容包含足够详细的信息，可以重现原始代码。</p>
+<p><sup>1</sup> 输入文件：参与 BMI 编译的源文件。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;foo.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><br><span class="hljs-comment">// foo.h</span><br><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;bar.h&quot;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>这里的 <code>M.cppm</code>,<code>foo.h</code> 和 <code>bar.h</code> 就是 <code>M.cppm</code> 的 BMI 的输入文件。</p>
+<h5 id="目标定义一致性"><a href="#目标定义一致性" class="headerlink" title="目标定义一致性"></a>目标定义一致性</h5><p>C++ 要求不同翻译单元中同一实体的声明具有相同的定义，这称为「单一定义规则 (<em>One Definition Rule</em>) 」，简称 「ODR」。如果没有模块，编译器就无法执行强 ODR 违规检查，因为编译器一次只能看到一个翻译单元。通过使用模块，编译器可以跨翻译单元执行 ODR 违规检查。</p>
+<p>然而，目前的 ODR 检查机制并不完善，存在大量误报的 ODR 违规诊断，编译器会错误地将两个相同的声明诊断为具有不同的定义。此外，真正地 ODR 违规并不都能被报出。</p>
+<p>为了提供更好的用户体验，提高编译性能，并与 MSVC 保持一致，默认情况下在全局模块片段中的声明不会进行 ODR 检查。可以通过在编译时指定 <code>-Xclang -fno-skip-odr-check-in-gmf</code> 来启用检查。如果启用了检查，但遇到了不正确或者是缺失的诊断，请通过<a target="_blank" rel="noopener" href="https://github.com/llvm/llvm-project/issues/">社区问题跟踪器</a>报告。</p>
+<h3 id="隐私问题"><a href="#隐私问题" class="headerlink" title="隐私问题"></a>隐私问题</h3><p>BMI 不是也不应该被视为信息隐藏机制。应始终假定它们以可恢复的形式包含用于创建它们的所有信息。</p>
+<h3 id="ABI-影响"><a href="#ABI-影响" class="headerlink" title="ABI 影响"></a>ABI 影响</h3><p>本节介绍模块带来的新的 ABI 变化。仅涵盖对 Itanium C++ ABI 变化的介绍。</p>
+<h4 id="名称解析"><a href="#名称解析" class="headerlink" title="名称解析"></a>名称解析</h4><p>模块单元不在全局模块片段中的声明具有新的链接名称。</p>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-keyword">namespace</span> NS &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>NS:foo()</code> 的链接名称是 <code>_ZN2NSW1M3fooEv</code>。旧版的 debugger 或 demangler 无法对其进行 demangle。对于 LLVM 15.x，<code>llvm-cxxfilt</code> 可以用来解决此问题：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">llvm-cxxfilt _ZN2NSW1M3fooEv</span><br>NS::foo@M()<br></code></pre></td></tr></table></figure>
+
+<p>结果应读作「模块 <code>M</code> 中的 <code>NS::foo</code>」。</p>
+<p>ABI 意味着某些内容不能在模块单元中声明并在非模块单元中定义（反之亦然），因为这会导致链接错误。</p>
+<p>即便如此，仍然可以通过使用「语言链接说明符 (<em>language linkage specifier</em>) 」在模块单元中实现具有兼容 ABI 的声明，因为语言链接说明符中的声明会附加到全局模块片段。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-keyword">namespace</span> NS &#123;<br>  <span class="hljs-keyword">export</span> <span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C++&quot;</span> <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>现在 <code>NS::foo()</code> 的链接名是 <code>_ZN2NS3fooEv</code>。</p>
+<h4 id="模块初始化器"><a href="#模块初始化器" class="headerlink" title="模块初始化器"></a>模块初始化器</h4><p>所有可导入模块单元都需要用初始化函数来处理模块单元中非内联变量的动态初始化。即使没有动态初始化，可导入模块单元也会调用初始化器。否则，导入器可能会调用不存在的函数。初始化函数首先调用导入的模块，然后调用当前模块单元中的所有动态初始化器。</p>
+<p>显式或隐式导入命名模块的翻译单元必须在翻译单元的动态初始化程序序列中调用导入的命名模块的初始化器函数。命名空间范围内实体的初始化是按照出现顺序进行的，并递归地扩展到导入声明处导入的模块。</p>
+<p>如果已知导入的模块是空的，则可以省略对其初始化程序的调用。此外，如果已知导入的模块已被导入，可以省略对其初始化程序的调用。</p>
+<h3 id="简化的-BMI"><a href="#简化的-BMI" class="headerlink" title="简化的 BMI"></a>简化的 BMI</h3><p>为了支持两阶段编译模型，Clang 将生成对象所需的所有内容都放入 BMI 中。然而，BMI 的其他用户通常不需要这些信息。这使得 BMI 更大，并且可能会给 BMI 带来不必要的依赖性。为了缓解这个问题，Clang 有一个编译器选项来减少 BMI 中包含的信息，这两种格式分别称为 <strong>「完整 BMI (<em>Full BMI</em>) 」</strong> 和 <strong>「简化 BMI (<em>Reduced BMI</em>) 」</strong>。</p>
+<p>用户可以使用 <code>-fexperimental-modules-reduced-bmi</code> 选项来生成简化 BMI。</p>
+<p>对于单阶段编译 （CMake 实现了该模式），使用 <code>-fexperimental-modules-reduced-bmi</code>，将会自动生成简化 BMI。（BMI 的输出路径由 <code>-fmodule-output=</code> 指定，与单阶段编译一样）</p>
+<p>还可以使用两阶段编译模型生成简化 BMI。当指定 <code>-fexperimental-modules-reduced-bmi</code>、<code>-precompile</code> 和 <code>-fmodule-output=</code> 时，由 <code>-o</code> 指定的 BMI 将会是完整 BMI，由 <code>-fmodule-output=</code> 指定的 BMI 将会是简化 BMI。这种情况下的依赖图如下所示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">module-unit.cppm --&gt; module-unit.full.pcm -&gt; module-unit.o<br>                  |<br>                  -&gt; module-unit.reduced.pcm -&gt; consumer1.cpp<br>                                             -&gt; consumer2.cpp<br>                                             -&gt; ...<br>                                             -&gt; consumer_n.cpp<br></code></pre></td></tr></table></figure>
+
+<p>当 <code>-fexperimental-modules-reduced-bmi</code> 与非模块单元一起使用时，Clang 不会发出诊断信息。这一设计允许单阶段编译模式的用户尝试使用简化 BMI 而无需修改构建系统。两阶段编译的模块需要构建系统的支持。</p>
+<p>在简化的 BMI 中，Clang 不会从全局模块片段中生成不可达实体，也不会生成非内联函数和非内联变量的定义。这可能并不容易察觉。</p>
+<p>考虑下面的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// foo.h</span><br><span class="hljs-keyword">namespace</span> N &#123;<br>  <span class="hljs-keyword">struct</span> <span class="hljs-title class_">X</span> &#123;&#125;;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">d</span><span class="hljs-params">()</span></span>;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">e</span><span class="hljs-params">()</span></span>;<br>  <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">f</span><span class="hljs-params">(X, <span class="hljs-type">int</span> = d())</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">e</span>(); &#125;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">g</span><span class="hljs-params">(X)</span></span>;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">h</span><span class="hljs-params">(X)</span></span>;<br>&#125;<br><br><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;foo.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-type">int</span> <span class="hljs-title">use_f</span><span class="hljs-params">()</span> </span>&#123;<br>  N::X x;                       <span class="hljs-comment">// N::X, N, and :: are decl-reachable from use_f</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">f</span>(x, <span class="hljs-number">123</span>);             <span class="hljs-comment">// N::f is decl-reachable from use_f,</span><br>                                <span class="hljs-comment">// N::e is indirectly decl-reachable from use_f</span><br>                                <span class="hljs-comment">//   because it is decl-reachable from N::f, and</span><br>                                <span class="hljs-comment">// N::d is decl-reachable from use_f</span><br>                                <span class="hljs-comment">//   because it is decl-reachable from N::f</span><br>                                <span class="hljs-comment">//   even though it is not used in this call</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-type">int</span> <span class="hljs-title">use_g</span><span class="hljs-params">()</span> </span>&#123;<br>  N::X x;                       <span class="hljs-comment">// N::X, N, and :: are decl-reachable from use_g</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">g</span>((<span class="hljs-built_in">T</span>(), x));           <span class="hljs-comment">// N::g is not decl-reachable from use_g</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-type">int</span> <span class="hljs-title">use_h</span><span class="hljs-params">()</span> </span>&#123;<br>  N::X x;                       <span class="hljs-comment">// N::X, N, and :: are decl-reachable from use_h</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">h</span>((<span class="hljs-built_in">T</span>(), x));           <span class="hljs-comment">// N::h is not decl-reachable from use_h, but</span><br>                                <span class="hljs-comment">// N::h is decl-reachable from use_h&lt;int&gt;</span><br>&#125;<br><span class="hljs-type">int</span> k = <span class="hljs-built_in">use_h</span>&lt;<span class="hljs-type">int</span>&gt;();<br>  <span class="hljs-comment">// use_h&lt;int&gt; is decl-reachable from k, so</span><br>  <span class="hljs-comment">// N::h is decl-reachable from k</span><br><br><span class="hljs-comment">// M-impl.cpp</span><br><span class="hljs-keyword">module</span> M;<br><span class="hljs-type">int</span> a = <span class="hljs-built_in">use_f</span>&lt;<span class="hljs-type">int</span>&gt;();           <span class="hljs-comment">// OK</span><br><span class="hljs-type">int</span> b = <span class="hljs-built_in">use_g</span>&lt;<span class="hljs-type">int</span>&gt;();           <span class="hljs-comment">// error: no viable function for call to g;</span><br>                                <span class="hljs-comment">// g is not decl-reachable from purview of</span><br>                                <span class="hljs-comment">// module M&#x27;s interface, so is discarded</span><br><span class="hljs-type">int</span> c = <span class="hljs-built_in">use_h</span>&lt;<span class="hljs-type">int</span>&gt;();           <span class="hljs-comment">// OK</span><br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>M.cppm</code> 的简化 BMI 忽略了 <code>N::g</code> 的函数定义。所以，在 <code>M-impl.cpp</code> 中使用 <code>use_g&lt;int&gt;</code> 时就无法实例化。对于此类问题，用户可以在 <code>M.cppm</code> 的模块权限中添加对 <code>N::g</code> 的引用，以确保它是可访问的，例如使用 <code>N::g;</code>。</p>
+<p>对简化 BMI 的支持仍然是实验性的，但将来可能会成为默认设置。自 Clang 19.x 起，简化 BMI 的预期路线图是：</p>
+<ol>
+<li><code>-fexperimental-modules-reduced-bmi</code> 作为可选项持续一两个版本。发布时间取决于用户反馈，可能会延长。</li>
+<li>宣布减少 BMI 不再是实验性的，并引入 <code>-fmodules-reduced-bmi</code> 作为新选项，并建议使用新选项。此转换预计还需要一到两个额外版本。</li>
+<li>最后，<code>-fmodules-reduced-bmi</code> 将成为默认值。到那时，术语 BMI 将指简化 BMI，而完整 BMI 仅对构建选择支持两阶段编译的系统有意义。</li>
+</ol>
+<h3 id="实验性的非级联变化"><a href="#实验性的非级联变化" class="headerlink" title="实验性的非级联变化"></a>实验性的非级联变化</h3><p>本节主要面向构建系统供应商。对于最终编译器用户来说，如果您不想要阅读全部内容，这里的就足够减少重新编译了。我们鼓励构建系统供应商和最终用户尝试这个并提供反馈。</p>
+<p>在 Clang 19 之前，任何（传递）依赖项的 BMI 变化都会导致 BMI 的输出发生变化。从 Clang 19 开始，对非直接依赖项的更改不应直接影响输出 BMI，除非它们影响编译结果。我们预期这种优化的机会比我们目前意识到的多得多。我们非常感谢有关遗漏优化机会的反馈，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// m-partA.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> m:partA;<br><br><span class="hljs-comment">// m-partB.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> m:partB;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">getB</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-number">44</span>; &#125;<br><br><span class="hljs-comment">// m.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> m;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partA;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partB;<br><br><span class="hljs-comment">// useBOnly.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> useBOnly;<br><span class="hljs-keyword">import</span> m;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">B</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">getB</span>();<br>&#125;<br><br><span class="hljs-comment">// Use.cc</span><br><span class="hljs-keyword">import</span> useBOnly;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">B</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>编译项目（为了简洁起见省略了一些命令）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m-partA.cppm --precompile -o m-partA.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m-partB.cppm --precompile -o m-partB.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m.cppm --precompile -o m.pcm -fprebuilt-module-path=.</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 useBOnly.cppm --precompile -o useBOnly.pcm -fprebuilt-module-path=.</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">md5sum</span> useBOnly.pcm</span><br>07656bf4a6908626795729295f9608da  useBOnly.pcm<br></code></pre></td></tr></table></figure>
+
+<p>如果 <code>m-partA.cppm</code> 的接口被更改为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// m-partA.v1.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> m:partA;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">getA</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-number">43</span>; &#125;<br></code></pre></td></tr></table></figure>
+
+<p>并且 <code>useBOnly</code> 的 BMI 被重新编译，如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m-partA.cppm --precompile -o m-partA.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m-partB.cppm --precompile -o m-partB.pcm</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 m.cppm --precompile -o m.pcm -fprebuilt-module-path=.</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 useBOnly.cppm --precompile -o useBOnly.pcm -fprebuilt-module-path=.</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">md5sum</span> useBOnly.pcm</span><br>07656bf4a6908626795729295f9608da  useBOnly.pcm<br></code></pre></td></tr></table></figure>
+
+<p>那么 <code>useBOnly.pcm</code> 的内容保持不变。因此，如果构建系统仅根据直接导入的模块进行重新编译决策，则可以跳过 <code>Use.cc</code> 的重新编译。这应该没有问题，因为改变的接口不会以任何方式影响 <code>Use.cc</code>；这些变化不会级联。</p>
+<p>当 Clang 生成 BMI 时，它会记录正在生成的 BMI 的所有可能有贡献的 BMI 的哈希值。这确保构建系统在决定是否重新编译时不需要考虑传递导入的模块。</p>
+<p>什么是潜在的有贡献的 BMI，目前还没有明确。不过，如果一个 BMI 在发生影响其用户的可观测变化后保持不变，这显然将是一个严重的错误。</p>
+<p>构建系统可以利用这种优化，对编译器输出的 BMI 中被使用的 BMI 采用 「如果改变就更新」 的策略。</p>
+<p>我们鼓励构建系统添加一种实验模式，在直接依赖关系未发生变化时重用缓存的 BMI，即使传递依赖关系发生了变化。</p>
+<p>鉴于存在潜在的编译器错误，我们建议构建系统支持此功能作为可配置选项，以便用户可以随时安全地返回传递更改模式。</p>
+<h4 id="与简化-BMI-交互"><a href="#与简化-BMI-交互" class="headerlink" title="与简化 BMI 交互"></a>与简化 BMI 交互</h4><p>配合简化 BMI，非级联变化的威力将会更大。比如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// A.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> A;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">a</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-number">44</span>; &#125;<br><br><span class="hljs-comment">// B.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> B;<br><span class="hljs-keyword">import</span> A;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">b</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">a</span>(); &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 A.cppm -c -fmodule-output=A.pcm  -fexperimental-modules-reduced-bmi -o A.o</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 B.cppm -c -fmodule-output=B.pcm  -fexperimental-modules-reduced-bmi -o B.o -fmodule-file=A=A.pcm</span><br>md5sum B.pcm<br>6c2bd452ca32ab418bf35cd141b060b9  B.pcm<br></code></pre></td></tr></table></figure>
+
+<p>现在让我们将 <code>A.cppm</code> 的实现改为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> A;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">a_impl</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-number">99</span>; &#125;<br><span class="hljs-function"><span class="hljs-keyword">export</span> <span class="hljs-type">int</span> <span class="hljs-title">a</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">a_impl</span>(); &#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后重新编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 A.cppm -c -fmodule-output=A.pcm  -fexperimental-modules-reduced-bmi -o A.o</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">clang++ -std=c++20 B.cppm -c -fmodule-output=B.pcm  -fexperimental-modules-reduced-bmi -o B.o -fmodule-file=A=A.pcm</span><br>md5sum B.pcm<br>6c2bd452ca32ab418bf35cd141b060b9  B.pcm<br></code></pre></td></tr></table></figure>
+
+<p>我们发现 <code>B.pcm</code> 的内容保持不变。在这种情况下，构建系统可以跳过仅直接依赖于模块 B 的翻译单元的重新编译。</p>
+<p>这只有简化 BMI 才能做到。使用简化 BMI，我们不会在 B 的 BMI 中记录 <code>int b()</code> 的函数体，这样模块 A 就不会对 B 的 BMI 产生影响，并且依赖性降低。</p>
+<h3 id="性能技巧"><a href="#性能技巧" class="headerlink" title="性能技巧"></a>性能技巧</h3><h4 id="减少重复"><a href="#减少重复" class="headerlink" title="减少重复"></a>减少重复</h4><p>虽然不同模块单元的全局模块片段中存在重复声明是有效的，但 Clang 不能随意处理这些重复声明。如果翻译单元与其导入的模块之间存在大量的重复声明，那么翻译单元的编译速度会更慢，比如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// M-partA.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;big.header.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partA;<br>...<br><br><span class="hljs-comment">// M-partB.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;big.header.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partB;<br>...<br><br><span class="hljs-comment">// other partitions</span><br>...<br><br><span class="hljs-comment">// M-partZ.cppm</span><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;big.header.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partZ;<br>...<br><br><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partA;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partB;<br>...<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partZ;<br><br><span class="hljs-comment">// use.cpp</span><br><span class="hljs-keyword">import</span> M;<br>... <span class="hljs-comment">// use declarations from module M.</span><br></code></pre></td></tr></table></figure>
+
+<p>当 <code>big.header.h</code> 足够大并且分区很多时，<code>use.cpp</code> 的编译可能会明显比以下方法慢：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;big.header.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> m:big.header.wrapper;<br><span class="hljs-keyword">export</span> ... <span class="hljs-comment">// export the needed declarations</span><br><br><span class="hljs-comment">// M-partA.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partA;<br><span class="hljs-keyword">import</span> :big.header.wrapper;<br>...<br><br><span class="hljs-comment">// M-partB.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partB;<br><span class="hljs-keyword">import</span> :big.header.wrapper;<br>...<br><br><span class="hljs-comment">// other partitions</span><br>...<br><br><span class="hljs-comment">// M-partZ.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M:partZ;<br><span class="hljs-keyword">import</span> :big.header.wrapper;<br>...<br><br><span class="hljs-comment">// M.cppm</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> M;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partA;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partB;<br>...<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">import</span> :partZ;<br><br><span class="hljs-comment">// use.cpp</span><br><span class="hljs-keyword">import</span> M;<br>... <span class="hljs-comment">// use declarations from module M.</span><br></code></pre></td></tr></table></figure>
+
+<p>减少重复的包含有助于提高编译性能。</p>
+<p>为了帮助用户识别此类问题，我们添加了警告 <code>-Wdecls-in-multiple-modules</code>。默认情况下禁用此警告，需要显式启用或通过 <code>-Weverything</code>启用。</p>
+<h3 id="过渡到模块"><a href="#过渡到模块" class="headerlink" title="过渡到模块"></a>过渡到模块</h3><p>如果可能的话，新代码和库最好从一开始就使用模块。然而，对于现有代码或库来说，切换到模块可能是一个重大变化。因此，许多现有的库需要暂时提供标头和模块接口，以免影响现有用户。</p>
+<p>本节就如何简化现有库的过渡过程提出了一些建议。请注意，此信息仅作为指导，而不是作为在 Clang 中使用模块的要求。它假定该项目在启动时没有基于模块的依赖项。</p>
+<h4 id="不影响-ABI-的过渡方式"><a href="#不影响-ABI-的过渡方式" class="headerlink" title="不影响 ABI 的过渡方式"></a>不影响 ABI 的过渡方式</h4><h5 id="export-using-style"><a href="#export-using-style" class="headerlink" title="export-using style"></a>export-using style</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><br><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_1.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_2.h&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_n.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> your_library;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">namespace</span> your_namespace &#123;<br>  <span class="hljs-keyword">using</span> decl_1;<br>  <span class="hljs-keyword">using</span> decl_2;<br>  ...<br>  <span class="hljs-keyword">using</span> decl_n;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个例子展示了如何包含所有需要导出的声明的头文件，并在导出块中使用声明来生成模块接口。</p>
+<h5 id="export-extern-C-style"><a href="#export-extern-C-style" class="headerlink" title="export extern-C++ style"></a>export extern-C++ style</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/A/headers.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/B/headers.h&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/Z/headers.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> your_library;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> IN_MODULE_INTERFACE</span><br><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C++&quot;</span> &#123;<br>  <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_1.h&quot;</span></span><br>  <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_2.h&quot;</span></span><br>  ...<br>  <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_n.h&quot;</span></span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>header_1.h</code> 到 <code>header_n.h</code> 这些头文件需要定义以下宏：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> IN_MODULE_INTERFACE</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> EXPORT export</span><br><span class="hljs-meta">#<span class="hljs-keyword">else</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> EXPORT</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+
+<p>在你想导出的声明中添加 <code>EXPORT</code>。</p>
+<p>此外，建议重构头文件来根据条件包含第三方头文件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> IN_MODULE_INTERFACE</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/A/headers.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_x.h&quot;</span></span><br><br>...<br></code></pre></td></tr></table></figure>
+
+<p>这可能很有帮助，因为如果修改代码时模块接口单元未正确更新，它会提供更好的诊断消息。</p>
+<p>这种方法之所以有效，是因为具有语言链接的声明附加到全局模块。因此，库的模块化形式的 ABI 不会改变。</p>
+<p>虽然此样式比导出使用样式更复杂，但它使将库进一步重构为其他样式变得更容易。</p>
+<h4 id="影响-ABI-的过渡方式"><a href="#影响-ABI-的过渡方式" class="headerlink" title="影响 ABI 的过渡方式"></a>影响 ABI 的过渡方式</h4><p><code>ABI breaking</code> 听起来可能是个糟糕的方法。然而，这种方法强制库的用户用一致的方式来使用它。比如，要么始终使用头文件，要么始终导入模块，这种方式使用者混用包含和导入。</p>
+<p><code>ABI breaking</code> 的样式类似于 <code>export extern-C++ style</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">module</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/A/headers.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/B/headers.h&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/Z/headers.h&quot;</span></span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">module</span> your_library;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> IN_MODULE_INTERFACE</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_1.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_2.h&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header_n.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">if</span> the number of .cpp files in your project are small</span><br><span class="hljs-keyword">module</span> :<span class="hljs-keyword">private</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_1.cpp&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_2.cpp&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_n.cpp&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">else</span> <span class="hljs-comment">// the number of .cpp files in your project are a lot</span></span><br><span class="hljs-comment">// Using all the declarations from third-party libraries which are</span><br><span class="hljs-comment">// used in the .cpp files.</span><br><span class="hljs-keyword">namespace</span> third_party_namespace &#123;<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_1;<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_2;<br>  ...<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_n;<br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+
+<p>（并按照 <code>export extern-C++ style</code> 部分中的建议将 <code>EXPORT</code> 和条件包含添加到头文件中）</p>
+<p>带有模块的 ABI 会变化，所以我们需要将源文件编译成新的 ABI。这是通过接口单元的附加部分完成的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">if</span> the number of .cpp files in your project are small</span><br><span class="hljs-keyword">module</span> :<span class="hljs-keyword">private</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_1.cpp&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_2.cpp&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;source_n.cpp&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">else</span> <span class="hljs-comment">// the number of .cpp files in your project are a lot</span></span><br><span class="hljs-comment">// Using all the declarations from third-party libraries which are</span><br><span class="hljs-comment">// used in the .cpp files.</span><br><span class="hljs-keyword">namespace</span> third_party_namespace &#123;<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_1;<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_2;<br>  ...<br>  <span class="hljs-keyword">using</span> third_party_decl_used_in_cpp_n;<br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+
+<p>如果源文件数量较少，则可以将所有内容直接放入私有模块片段中（建议也将条件包含添加到源文件中）。但是，如果需要编译大量源文件，编译时性能将会很差。</p>
+<p>注意，私有模块单元只能在主模块接口单元中，并且包含私有模块片段的主模块单元应当是相应模块的唯一模块单元。</p>
+<p>在这种情况下，源文件（<code>.cpp</code> 文件）必须转换为模块实现单元。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> IN_MODULE_INTERFACE</span><br><span class="hljs-comment">// List all the includes here.</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;third_party/A/headers.h&quot;</span></span><br>...<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;header.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-keyword">module</span> your_library;<br><br><span class="hljs-comment">// Following off should be unchanged.</span><br>...<br></code></pre></td></tr></table></figure>
+
+<p>模块实现单元将隐式导入主模块。不要在模块实现单元中包含任何头文件，因为这可以避免翻译单元之间的重复声明。这就是为什么应在主模块接口单元中从第三方库添加非导出的 using 声明。</p>
+<p>如果库作为 <code>libyour_library.so</code> 提供，则可能还需要提供模块化库（例如 <code>libyour_library_modules.so</code>）以实现 ABI 兼容性。</p>
+<h5 id="如果只有源文件包含头文件怎么办"><a href="#如果只有源文件包含头文件怎么办" class="headerlink" title="如果只有源文件包含头文件怎么办"></a>如果只有源文件包含头文件怎么办</h5><p>上述做法可能在只有源文件包含着头文件时出现问题。当使用私有模块片段时，这个问题可以通过在私有模块片段中包含这些头文件来解决。在使用模块实现单元时，通过将实现头文件包含在模块范围内来解决这个问题是可行的，但这可能不是最佳做法，因为主模块接口单元现在包含了不属于接口的实体。</p>
+<p>通过引入模块分区实现单元，这一情况可能会有所改善。内部模块分区单元是模块本身内部的可导入模块单元。</p>
+<h4 id="提供头文件用于跳过冗余的头文件解析"><a href="#提供头文件用于跳过冗余的头文件解析" class="headerlink" title="提供头文件用于跳过冗余的头文件解析"></a>提供头文件用于跳过冗余的头文件解析</h4><p>翻译单元之间共享的许多重新声明会导致 Clang 的编译时性能变慢。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Clang/" class="print-no-link">#Clang</a>
+      
+        <a href="/tags/Modern-C/" class="print-no-link">#Modern C++</a>
+      
+        <a href="/tags/C-Modules/" class="print-no-link">#C++ Modules</a>
+      
+        <a href="/tags/%E6%96%87%E6%A1%A3/" class="print-no-link">#文档</a>
+      
+        <a href="/tags/%E7%BF%BB%E8%AF%91/" class="print-no-link">#翻译</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[翻译] 标准 C++ 模块</div>
+      <div>http://xiao-h.com/2024/10/25/StandardCPlusPlusModules/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小H</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.staticfile.net/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.net/bootstrap/4.6.2/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/tocbot/4.22.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
