@@ -27,7 +27,7 @@
 <meta property="og:description" content="rCore 学习笔记第一章：前言、环境配置、练习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-12T14:14:04.000Z">
-<meta property="article:modified_time" content="2025-01-12T14:36:05.628Z">
+<meta property="article:modified_time" content="2025-01-16T15:41:47.115Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Rust">
@@ -299,7 +299,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          297 字
+          545 字
         
       </span>
     
@@ -349,7 +349,13 @@
 <p>文档已经有一段时间没更新了，有些内容发生了些许变化，比如随着 rust 版本的更新，一些实验特性变成了稳定特性。我使用的 rust 版本是 1.83.0.</p>
 <p>同时我使用了 Qemu 7.0.0 和最新版（Prereleased 2024-03-24）的 rustsbi-qemu.</p>
 <p>在 OpenSUSE Tumbleweed中，我发现 gdb 似乎本来就有了切换架构到 risc-v 的功能，就没有折腾 riscv64-unknown-elf-gdb 了（这东西在 OpenSUSE Tumbleweed 下需要手动编译，非常麻烦）。</p>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2>
+<h2 id="在内核加载前"><a href="#在内核加载前" class="headerlink" title="在内核加载前"></a>在内核加载前</h2><p>在控制权递交给内核前，经历了两个步骤，一个是从载入到跳转到 0x80000000，另一个是经过 RustSBI 的初始化，从 0x80000000 到 0x80200000 的内核处。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs asm">0x1000: auipc   t0,0x0<br>0x1004: addi    a2,t0,40<br>0x1008: csrr    a0,mhartid<br>0x100c: ld      a1,32(t0)<br>0x1010: ld      t0,24(t0)<br>0x1014: jr      t0<br>0x1018: unimp<br>0x101a: .insn   2,0x8000<br>0x101c: unimp<br>0x101e: unimp<br></code></pre></td></tr></table></figure>
+
+<p>可能是因为 Qemu 版本不一样，我自己用 gdb 调试的时候和文档不太一样，不过区别不大。</p>
+<p>第一行 <code>auipc   t0,0x0</code> 实际上将 <code>pc</code> 的值，即 <code>0x1000</code> 赋值给了 <code>t0</code>，接下来三行似乎是对三个寄存器进行了赋值，暂时看不出来有什么用。关键的一行是 <code>0x1010</code> 这里，<code>t0 + 24</code> 得到的是 <code>0x1018</code>，这里有两个字节的 0，<code>ld</code> 将会加载一个 64 位的数据，也就是 8 个字节，由于采用小端序，所以 <code>0x1019</code> 是 <code>0x00</code>，<code>0x1020</code> 是 <code>0x80</code>，最后 <code>t0</code> 的值是 <code>0x0000_0000_8000_0000</code>，所以会跳转到 <code>0x80000000</code>。</p>
+<p>到达 <code>0x8000000</code> 后就到了 RustSBI 的部分，进行了串口设备初始化等步骤后，再跳转到 <code>0x80200000</code>。</p>
+
                 
               </div>
             
