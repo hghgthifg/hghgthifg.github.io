@@ -19,27 +19,26 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+    <meta name="description" content="Abseil 源码阅读第 2 期，容器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rCore 学习笔记 - 第二章">
-<meta property="og:url" content="http://xiao-h.com/2025/01/12/rCore-0x02/index.html">
+<meta property="og:title" content="Abseil 源码阅读笔记·容器 [0x02]">
+<meta property="og:url" content="http://xiao-h.com/2025/01/22/Abseil-0x02-%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+<meta property="og:description" content="Abseil 源码阅读第 2 期，容器">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-12T14:14:04.000Z">
-<meta property="article:modified_time" content="2025-01-26T13:20:34.831Z">
+<meta property="article:published_time" content="2025-01-22T11:49:09.000Z">
+<meta property="article:modified_time" content="2025-01-24T03:40:50.101Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="Rust">
-<meta property="article:tag" content="rCore">
-<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="源码阅读">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>rCore 学习笔记 - 第二章 - 小H的博客</title>
+  <title>Abseil 源码阅读笔记·容器 [0x02] - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" />
 
@@ -270,7 +269,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="rCore 学习笔记 - 第二章"></span>
+            <span id="subtitle" data-typed-text="Abseil 源码阅读笔记·容器 [0x02]"></span>
           
         </div>
 
@@ -286,8 +285,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-12 22:14" pubdate>
-          2025年1月12日 晚上
+        <time datetime="2025-01-22 19:49" pubdate>
+          2025年1月22日 晚上
         </time>
       </span>
     
@@ -299,7 +298,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          441 字
+          563 字
         
       </span>
     
@@ -338,20 +337,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">rCore 学习笔记 - 第二章</h1>
+            <h1 id="seo-header">Abseil 源码阅读笔记·容器 [0x02]</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>rCore 的系统调用格式与 Linux 相同。第二章里首先实现了两个系统调用，<code>sys_write</code> 和 <code>sys_exit</code>，分别用于将数据写入文件和退出应用程序。通过 <code>syscall</code> 函数，按照规定的格式向特定寄存器存值，通过 <code>ecall</code> 触发 Trap，然后在内核中处理。</p>
-<p>在用户程序中，可以发现 <code>console.rs</code> 有了些许不同，先前在内核中是借助了 RustSBI 来实现输出字符，而在这里是借助了系统调用，实际上系统调用在内核中被处理，最终还是借助了 RustSBI。</p>
-<h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>当前的系统是构建完用户代码，然后再将生成的 bin 文件以嵌入的方式，和内核一起构建的。这一步是借助构建脚本 build.rs 完成的，在文档中没有提及实现，这里我简单地看一下是如何完成的。</p>
-<p>构建脚本将会监控两个目录是否发生变化：<code>../user/src/</code> 和 <code>../user/build/bin/</code>，如果发生变化就会生成相应代码，这是在 <code>insert_app_data</code> 函数中完成的。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">apps</span>: <span class="hljs-type">Vec</span>&lt;_&gt; = <span class="hljs-title function_ invoke__">read_dir</span>(<span class="hljs-string">&quot;../user/build/bin/&quot;</span>)<br>    .<span class="hljs-title function_ invoke__">unwrap</span>()<br>    .<span class="hljs-title function_ invoke__">into_iter</span>()<br>    .<span class="hljs-title function_ invoke__">map</span>(|dir_entry| &#123;<br>        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">name_with_ext</span> = dir_entry.<span class="hljs-title function_ invoke__">unwrap</span>().<span class="hljs-title function_ invoke__">file_name</span>().<span class="hljs-title function_ invoke__">into_string</span>().<span class="hljs-title function_ invoke__">unwrap</span>();<br>        name_with_ext.<span class="hljs-title function_ invoke__">drain</span>(name_with_ext.<span class="hljs-title function_ invoke__">find</span>(<span class="hljs-string">&#x27;.&#x27;</span>).<span class="hljs-title function_ invoke__">unwrap</span>()..name_with_ext.<span class="hljs-title function_ invoke__">len</span>());<br>        name_with_ext<br>    &#125;)<br>    .<span class="hljs-title function_ invoke__">collect</span>();<br></code></pre></td></tr></table></figure>
+                <h2 id="FixedArray"><a href="#FixedArray" class="headerlink" title="FixedArray"></a>FixedArray</h2><p>先从简单的开始，看一下 <a target="_blank" rel="noopener" href="https://github.com/abseil/abseil-cpp/blob/lts_2024_07_22/absl/container/fixed_array.h">FixedArray</a>，学一点工程技巧。</p>
+<p>注释里的介绍：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// A `FixedArray&lt;T&gt;` represents a non-resizable array of `T` where the length of</span><br><span class="hljs-comment">// the array can be determined at run-time. It is a good replacement for</span><br><span class="hljs-comment">// non-standard and deprecated uses of `alloca()` and variable length arrays</span><br><span class="hljs-comment">// within the GCC extension. (See</span><br><span class="hljs-comment">// https://gcc.gnu.org/onlinedocs/gcc/Variable-Length.html).</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">// `FixedArray` allocates small arrays inline, keeping performance fast by</span><br><span class="hljs-comment">// avoiding heap operations. It also helps reduce the chances of</span><br><span class="hljs-comment">// accidentally overflowing your stack if large input is passed to</span><br><span class="hljs-comment">// your function.</span><br></code></pre></td></tr></table></figure>
 
-<p>关键在于这一步，先是读取了目录，然后进行 <code>unwrap</code>，如果失败会 panic，接着转为迭代器，再进行处理，最后收集到 <code>Vec</code> 中。处理的步骤先是获取文件名，转换成字符串，然后移除扩展名，返回结果。</p>
-<p>所有用户程序按名称排序后开始生成 <code>link_app.S</code>，第一行 <code>.align 3</code> 指明按八字节对齐，这是由于后面 <code>.quad</code> 存储八字节数据的需要。</p>
-<h2 id="特权级切换"><a href="#特权级切换" class="headerlink" title="特权级切换"></a>特权级切换</h2>
+<p>来看一下代码，起手一个命名空间 <code>absl</code>，紧跟一个宏 <code>ABSL_NAMESPACE_BEGIN</code>，展开后是 <code>inline namespace ABSL_OPTION_INLINE_NAMESPACE_NAME &#123;</code>，一个内联的命名空间，这是用来控制版本的，在外部使用时不需要指定内联命名空间的名字，但是在编译后是有相关的符号的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-type">size_t</span> N = kFixedArrayUseDefault,<br>          <span class="hljs-keyword">typename</span> A = std::allocator&lt;T&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>FixedArray</code> 是一个模板类，有三个模板参数，<code>T</code> 代表类型，<code>N</code> 代表要内联的元素个数，<code>A</code> 是个 allocator。当 <code>N</code> 不指定时，会使用 <code>kFixedArrayUseDefault</code> 作为默认参数，而在上面已经定义了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">static</span> <span class="hljs-keyword">auto</span> kFixedArrayUseDefault = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">size_t</span>&gt;(<span class="hljs-number">-1</span>);<br></code></pre></td></tr></table></figure>
+
+<p>这实际上是 <code>size_t</code> 的最大值，正常使用时不会想着要内联这么多的东西，由此可以判断使用者有没有指定一个 <code>N</code>，如果没有指定那就使用默认值（默认最多内联 256 bytes 的内容），如果指定了再用指定的元素个数 <code>N</code>。注释里也提到了，大多数情况不需要指定 <code>N</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> size_type inline_elements =<br>    (N == kFixedArrayUseDefault ? kInlineBytesDefault / <span class="hljs-built_in">sizeof</span>(value_type)<br>                                : <span class="hljs-built_in">static_cast</span>&lt;size_type&gt;(N));<br></code></pre></td></tr></table></figure>
+
+<p>类的开头是一个断言，确保 <code>T</code> 不是 C 风格数组，或者大小已知。这是为了防止类似 <code>int []</code> 的东西被传进来，它的大小不确定，不能用于创建固定大小的 <code>FixedArray</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">size_t</span> kInlineBytesDefault = <span class="hljs-number">256</span>;<br><br><span class="hljs-keyword">using</span> AllocatorTraits = std::allocator_traits&lt;A&gt;;<br><span class="hljs-comment">// std::iterator_traits isn&#x27;t guaranteed to be SFINAE-friendly until C++17,</span><br><span class="hljs-comment">// but this seems to be mostly pedantic.</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Iterator&gt;<br><span class="hljs-keyword">using</span> EnableIfForwardIterator = absl::<span class="hljs-type">enable_if_t</span>&lt;std::is_convertible&lt;<br>    <span class="hljs-keyword">typename</span> std::iterator_traits&lt;Iterator&gt;::iterator_category,<br>    std::forward_iterator_tag&gt;::value&gt;;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">NoexceptCopyable</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> std::is_nothrow_copy_constructible&lt;StorageElement&gt;::value &amp;&amp;<br>        absl::allocator_is_nothrow&lt;allocator_type&gt;::value;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">NoexceptMovable</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> std::is_nothrow_move_constructible&lt;StorageElement&gt;::value &amp;&amp;<br>        absl::allocator_is_nothrow&lt;allocator_type&gt;::value;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">DefaultConstructorIsNonTrivial</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> !absl::is_trivially_default_constructible&lt;StorageElement&gt;::value;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接下来定义了几个东西，一个是 <code>kInlineBytesDefault</code> 内联的默认最大大小，还有一个 <code>EnableIfForwardIterator</code>，似乎是出于工程上的妥协，就不去管它了，还有三个判断函数，功能也很显然。</p>
+<p>后面又有一些 <code>using</code>，具体见代码，就不再赘述了。</p>
+<p>这类有一大堆构造函数之类的，也不详细讲了。</p>
+
                 
               </div>
             
@@ -365,11 +375,9 @@
       
         <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
       
-        <a href="/tags/Rust/" class="print-no-link">#Rust</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/rCore/" class="print-no-link">#rCore</a>
-      
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
+        <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="print-no-link">#源码阅读</a>
       
     </div>
   
@@ -381,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>rCore 学习笔记 - 第二章</div>
-      <div>http://xiao-h.com/2025/01/12/rCore-0x02/</div>
+      <div>Abseil 源码阅读笔记·容器 [0x02]</div>
+      <div>http://xiao-h.com/2025/01/22/Abseil-0x02-容器/</div>
     </div>
     <div class="license-meta">
       
@@ -394,7 +402,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月12日</div>
+          <div>2025年1月22日</div>
         </div>
       
       
@@ -438,18 +446,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/13/Hackergame2024-WriteUp/" title="Hackergame 2024 个人题解">
-                        <span class="hidden-mobile">Hackergame 2024 个人题解</span>
+                      <a href="/2025/01/22/Abseil-0x01-%E6%80%BB%E8%A7%88/" title="Abseil 源码阅读笔记·总览 [0x01]">
+                        <span class="hidden-mobile">Abseil 源码阅读笔记·总览 [0x01]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -19,27 +19,26 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+    <meta name="description" content="Abseil 源码阅读第 0 期，序言部分以及参考链接、目录等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rCore 学习笔记 - 第二章">
-<meta property="og:url" content="http://xiao-h.com/2025/01/12/rCore-0x02/index.html">
+<meta property="og:title" content="Abseil 源码阅读笔记·序言 [0x00]">
+<meta property="og:url" content="http://xiao-h.com/2025/01/22/Abseil-0x00-%E5%BA%8F%E8%A8%80/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+<meta property="og:description" content="Abseil 源码阅读第 0 期，序言部分以及参考链接、目录等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-12T14:14:04.000Z">
-<meta property="article:modified_time" content="2025-01-26T13:20:34.831Z">
+<meta property="article:published_time" content="2025-01-22T02:38:28.000Z">
+<meta property="article:modified_time" content="2025-01-22T08:58:00.665Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="Rust">
-<meta property="article:tag" content="rCore">
-<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="源码阅读">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>rCore 学习笔记 - 第二章 - 小H的博客</title>
+  <title>Abseil 源码阅读笔记·序言 [0x00] - 小H的博客</title>
 
   <link  rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" />
 
@@ -270,7 +269,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="rCore 学习笔记 - 第二章"></span>
+            <span id="subtitle" data-typed-text="Abseil 源码阅读笔记·序言 [0x00]"></span>
           
         </div>
 
@@ -286,8 +285,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-12 22:14" pubdate>
-          2025年1月12日 晚上
+        <time datetime="2025-01-22 10:38" pubdate>
+          2025年1月22日 上午
         </time>
       </span>
     
@@ -299,7 +298,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          441 字
+          92 字
         
       </span>
     
@@ -338,20 +337,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">rCore 学习笔记 - 第二章</h1>
+            <h1 id="seo-header">Abseil 源码阅读笔记·序言 [0x00]</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>rCore 的系统调用格式与 Linux 相同。第二章里首先实现了两个系统调用，<code>sys_write</code> 和 <code>sys_exit</code>，分别用于将数据写入文件和退出应用程序。通过 <code>syscall</code> 函数，按照规定的格式向特定寄存器存值，通过 <code>ecall</code> 触发 Trap，然后在内核中处理。</p>
-<p>在用户程序中，可以发现 <code>console.rs</code> 有了些许不同，先前在内核中是借助了 RustSBI 来实现输出字符，而在这里是借助了系统调用，实际上系统调用在内核中被处理，最终还是借助了 RustSBI。</p>
-<h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>当前的系统是构建完用户代码，然后再将生成的 bin 文件以嵌入的方式，和内核一起构建的。这一步是借助构建脚本 build.rs 完成的，在文档中没有提及实现，这里我简单地看一下是如何完成的。</p>
-<p>构建脚本将会监控两个目录是否发生变化：<code>../user/src/</code> 和 <code>../user/build/bin/</code>，如果发生变化就会生成相应代码，这是在 <code>insert_app_data</code> 函数中完成的。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">apps</span>: <span class="hljs-type">Vec</span>&lt;_&gt; = <span class="hljs-title function_ invoke__">read_dir</span>(<span class="hljs-string">&quot;../user/build/bin/&quot;</span>)<br>    .<span class="hljs-title function_ invoke__">unwrap</span>()<br>    .<span class="hljs-title function_ invoke__">into_iter</span>()<br>    .<span class="hljs-title function_ invoke__">map</span>(|dir_entry| &#123;<br>        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">name_with_ext</span> = dir_entry.<span class="hljs-title function_ invoke__">unwrap</span>().<span class="hljs-title function_ invoke__">file_name</span>().<span class="hljs-title function_ invoke__">into_string</span>().<span class="hljs-title function_ invoke__">unwrap</span>();<br>        name_with_ext.<span class="hljs-title function_ invoke__">drain</span>(name_with_ext.<span class="hljs-title function_ invoke__">find</span>(<span class="hljs-string">&#x27;.&#x27;</span>).<span class="hljs-title function_ invoke__">unwrap</span>()..name_with_ext.<span class="hljs-title function_ invoke__">len</span>());<br>        name_with_ext<br>    &#125;)<br>    .<span class="hljs-title function_ invoke__">collect</span>();<br></code></pre></td></tr></table></figure>
-
-<p>关键在于这一步，先是读取了目录，然后进行 <code>unwrap</code>，如果失败会 panic，接着转为迭代器，再进行处理，最后收集到 <code>Vec</code> 中。处理的步骤先是获取文件名，转换成字符串，然后移除扩展名，返回结果。</p>
-<p>所有用户程序按名称排序后开始生成 <code>link_app.S</code>，第一行 <code>.align 3</code> 指明按八字节对齐，这是由于后面 <code>.quad</code> 存储八字节数据的需要。</p>
-<h2 id="特权级切换"><a href="#特权级切换" class="headerlink" title="特权级切换"></a>特权级切换</h2>
+                <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>之前读 Leveldb 代码的计划咕咕咕了，一个原因是没时间完整读下去了，另一个是它需要的前置知识比较多。这次我准备从一个较为零散的库开始，比较好控制节奏，抽空来完成。</p>
+<p>本系列文章基于 Abseil LTS 20240722.0 版本。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://abseil.io/">官网(https://abseil.io)</a></li>
+</ul>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2>
                 
               </div>
             
@@ -365,11 +361,9 @@
       
         <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
       
-        <a href="/tags/Rust/" class="print-no-link">#Rust</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/rCore/" class="print-no-link">#rCore</a>
-      
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
+        <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="print-no-link">#源码阅读</a>
       
     </div>
   
@@ -381,8 +375,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>rCore 学习笔记 - 第二章</div>
-      <div>http://xiao-h.com/2025/01/12/rCore-0x02/</div>
+      <div>Abseil 源码阅读笔记·序言 [0x00]</div>
+      <div>http://xiao-h.com/2025/01/22/Abseil-0x00-序言/</div>
     </div>
     <div class="license-meta">
       
@@ -394,7 +388,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月12日</div>
+          <div>2025年1月22日</div>
         </div>
       
       
@@ -438,9 +432,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
+                      <a href="/2025/01/22/Abseil-0x01-%E6%80%BB%E8%A7%88/" title="Abseil 源码阅读笔记·总览 [0x01]">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
+                        <span class="hidden-mobile">Abseil 源码阅读笔记·总览 [0x01]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -448,8 +442,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/13/Hackergame2024-WriteUp/" title="Hackergame 2024 个人题解">
-                        <span class="hidden-mobile">Hackergame 2024 个人题解</span>
+                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
+                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
