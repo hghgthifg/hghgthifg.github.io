@@ -299,7 +299,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          517 字
+          516 字
         
       </span>
     
@@ -343,42 +343,44 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、nodejs"><a href="#1、nodejs" class="headerlink" title="1、nodejs"></a>1、nodejs</h2><p>系统自带的没啥用，卸掉就行。</p>
+                <h2 id="1、nodejs">1、nodejs</h2>
+<p>系统自带的没啥用，卸掉就行。</p>
 <p>官网下载，然后放在适当的位置，进行软链接即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/node /usr/local/bin<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/npm /usr/local/bin<br><span class="hljs-built_in">sudo</span> npm install -g cnpm --registry=https://registry.npm.taobao.org<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">ln</span> -s &lt;path-to-nodejs&gt;/bin/cnpm /usr/local/bin<br></code></pre></td></tr></table></figure>
-
-<h2 id="2、llvm"><a href="#2、llvm" class="headerlink" title="2、llvm"></a>2、llvm</h2><p>有时候我们需要用到较高版本的 clang（比如 vscode 的 clangd 插件要求 &gt;&#x3D;14），那么我们就需要自己去装。</p>
+<h2 id="2、llvm">2、llvm</h2>
+<p>有时候我们需要用到较高版本的 clang（比如 vscode 的 clangd 插件要求 &gt;=14），那么我们就需要自己去装。</p>
 <p>由于 deepin 20 基于 Debian 10，所以我们添加 llvm 给 Debian 10 的源比较合适。</p>
 <p>打开 <code>/etc/apt/sources.list</code>，末尾加入以下内容。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">deb http://apt.llvm.org/buster/ llvm-toolchain-buster main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster main<br><span class="hljs-comment"># 14 </span><br>deb http://apt.llvm.org/buster/ llvm-toolchain-buster-14 main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-14 main<br><span class="hljs-comment"># 15 </span><br>deb http://apt.llvm.org/buster/ llvm-toolchain-buster-15 main<br>deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-15 main<br></code></pre></td></tr></table></figure>
-
 <p>然后添加公钥</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|<span class="hljs-built_in">sudo</span> apt-key add -<br><span class="hljs-built_in">sudo</span> apt update<br></code></pre></td></tr></table></figure>
-
 <p>接着就可以装 llvm15 了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install llvm-15 clang-15 clang-tools-15 clangd-15 clang-tidy-15 clang-format-15 lldb-15 lld-15<br></code></pre></td></tr></table></figure>
-
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>!!! caution<br>    注意不要动系统自带的 Python，不然可能会导致桌面环境崩溃</p>
+<h2 id="Python">Python</h2>
+<p>!!! caution<br>
+注意不要动系统自带的 Python，不然可能会导致桌面环境崩溃</p>
 <p>deepin 20 自带 Python 版本为 3.7.3，我安装的是 Python 3.10.12</p>
 <p>先下载<a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz">源码</a></p>
 <p>结合上一步，我使用了 clang-15 来编译 Python。</p>
 <p>在解压后的目录执行以下内容</p>
-<p>!!! note<br>    &lt;path-to-openssl&gt; 需自行填写</p>
+<p>!!! note<br>
+&lt;path-to-openssl&gt; 需自行填写</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/opt/Python-3.10.12 --enable-optimizations --with-openssl=&lt;path-to-openssl&gt; CC=/usr/bin/clang-15 CXX=/usr/bin/clang++-15 LLVM_PROFDATA=/usr/bin/llvm-profdata-15 CFLAGS=<span class="hljs-string">&quot;-Wno-unused-value -Wno-empty-body -Qunused-arguments -I/usr/local/include&quot;</span> LDFLAGS=<span class="hljs-string">&quot;-L/usr/local/lib&quot;</span> --enable-loadable-sqlite-extensions<br></code></pre></td></tr></table></figure>
-
 <p>参数根据自己需要来调</p>
 <p>然后就是熟悉的步骤了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> make<br><span class="hljs-built_in">sudo</span> make install<br></code></pre></td></tr></table></figure>
-
-<h2 id="Manim"><a href="#Manim" class="headerlink" title="Manim"></a>Manim</h2><p>先进入虚拟环境，然后 <code>pip install manim</code> 即可</p>
-<p>!!! note<br>    如果是用上面的方法编译安装的 Python，可能会报缺少 _bz2，原因是 bzip2 是 Python 编译的可选依赖，编译时没有带上</p>
+<h2 id="Manim">Manim</h2>
+<p>先进入虚拟环境，然后 <code>pip install manim</code> 即可</p>
+<p>!!! note<br>
+如果是用上面的方法编译安装的 Python，可能会报缺少 _bz2，原因是 bzip2 是 Python 编译的可选依赖，编译时没有带上</p>
 <p>如果缺少 <code>_bz2</code>，执行 <code>sudo apt install libbz2-dev</code> 然后重新编译安装 Python</p>
-<h2 id="lua-5-4"><a href="#lua-5-4" class="headerlink" title="lua 5.4"></a>lua 5.4</h2><p>deepin 20 源里面没有 lua 5.4，想要使用需要手动编译</p>
+<h2 id="lua-5-4">lua 5.4</h2>
+<p>deepin 20 源里面没有 lua 5.4，想要使用需要手动编译</p>
 <p>首先下载 lua 5.4 <a target="_blank" rel="noopener" href="http://www.lua.org/download.html">源代码</a>，解压之后 cd 到解压目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">make all <span class="hljs-built_in">test</span><br><span class="hljs-built_in">sudo</span> make install<br></code></pre></td></tr></table></figure>
-
-<h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><p>同样借用 Debian 10 的。</p>
-<p>点击 <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Debian&target_version=10&target_type=runfile_local">这个链接</a></p>
+<h2 id="CUDA">CUDA</h2>
+<p>同样借用 Debian 10 的。</p>
+<p>点击 <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Debian&amp;target_version=10&amp;target_type=runfile_local">这个链接</a></p>
 <p>按照下方指示即可</p>
 
                 

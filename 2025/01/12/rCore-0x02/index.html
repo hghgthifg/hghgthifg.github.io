@@ -19,15 +19,15 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+    <meta name="description" content="rCore 学习笔记第二章：系统调用、执行流程、作业实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rCore 学习笔记 - 第二章">
 <meta property="og:url" content="http://xiao-h.com/2025/01/12/rCore-0x02/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="rCore 学习笔记第二章：系统调用、特权级切换">
+<meta property="og:description" content="rCore 学习笔记第二章：系统调用、执行流程、作业实现">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-12T14:14:04.000Z">
-<meta property="article:modified_time" content="2025-01-26T13:20:34.831Z">
+<meta property="article:modified_time" content="2025-01-29T07:07:13.352Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Rust">
@@ -299,7 +299,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          441 字
+          444 字
         
       </span>
     
@@ -343,21 +343,52 @@
             
               <div class="markdown-body">
                 
-                <h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>rCore 的系统调用格式与 Linux 相同。第二章里首先实现了两个系统调用，<code>sys_write</code> 和 <code>sys_exit</code>，分别用于将数据写入文件和退出应用程序。通过 <code>syscall</code> 函数，按照规定的格式向特定寄存器存值，通过 <code>ecall</code> 触发 Trap，然后在内核中处理。</p>
+                <h2 id="系统调用">系统调用</h2>
+<p>rCore 的系统调用格式与 Linux 相同。第二章里首先实现了两个系统调用，<code>sys_write</code> 和 <code>sys_exit</code>，分别用于将数据写入文件和退出应用程序。通过 <code>syscall</code> 函数，按照规定的格式向特定寄存器存值，通过 <code>ecall</code> 触发 Trap，然后在内核中处理。</p>
 <p>在用户程序中，可以发现 <code>console.rs</code> 有了些许不同，先前在内核中是借助了 RustSBI 来实现输出字符，而在这里是借助了系统调用，实际上系统调用在内核中被处理，最终还是借助了 RustSBI。</p>
-<h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>当前的系统是构建完用户代码，然后再将生成的 bin 文件以嵌入的方式，和内核一起构建的。这一步是借助构建脚本 build.rs 完成的，在文档中没有提及实现，这里我简单地看一下是如何完成的。</p>
+<h2 id="构建脚本">构建脚本</h2>
+<p>当前的系统是构建完用户代码，然后再将生成的 bin 文件以嵌入的方式，和内核一起构建的。这一步是借助构建脚本 <a target="_blank" rel="noopener" href="http://build.rs">build.rs</a> 完成的，在文档中没有提及实现，这里我简单地看一下是如何完成的。</p>
 <p>构建脚本将会监控两个目录是否发生变化：<code>../user/src/</code> 和 <code>../user/build/bin/</code>，如果发生变化就会生成相应代码，这是在 <code>insert_app_data</code> 函数中完成的。</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">apps</span>: <span class="hljs-type">Vec</span>&lt;_&gt; = <span class="hljs-title function_ invoke__">read_dir</span>(<span class="hljs-string">&quot;../user/build/bin/&quot;</span>)<br>    .<span class="hljs-title function_ invoke__">unwrap</span>()<br>    .<span class="hljs-title function_ invoke__">into_iter</span>()<br>    .<span class="hljs-title function_ invoke__">map</span>(|dir_entry| &#123;<br>        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">name_with_ext</span> = dir_entry.<span class="hljs-title function_ invoke__">unwrap</span>().<span class="hljs-title function_ invoke__">file_name</span>().<span class="hljs-title function_ invoke__">into_string</span>().<span class="hljs-title function_ invoke__">unwrap</span>();<br>        name_with_ext.<span class="hljs-title function_ invoke__">drain</span>(name_with_ext.<span class="hljs-title function_ invoke__">find</span>(<span class="hljs-string">&#x27;.&#x27;</span>).<span class="hljs-title function_ invoke__">unwrap</span>()..name_with_ext.<span class="hljs-title function_ invoke__">len</span>());<br>        name_with_ext<br>    &#125;)<br>    .<span class="hljs-title function_ invoke__">collect</span>();<br></code></pre></td></tr></table></figure>
-
 <p>关键在于这一步，先是读取了目录，然后进行 <code>unwrap</code>，如果失败会 panic，接着转为迭代器，再进行处理，最后收集到 <code>Vec</code> 中。处理的步骤先是获取文件名，转换成字符串，然后移除扩展名，返回结果。</p>
 <p>所有用户程序按名称排序后开始生成 <code>link_app.S</code>，第一行 <code>.align 3</code> 指明按八字节对齐，这是由于后面 <code>.quad</code> 存储八字节数据的需要。</p>
-<h2 id="特权级切换"><a href="#特权级切换" class="headerlink" title="特权级切换"></a>特权级切换</h2>
+<h2 id="执行流程">执行流程</h2>
+<h2 id="作业实现">作业实现</h2>
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/rCore/" class="category-chain-item">rCore</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -438,9 +469,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
+                      <a href="/2025/01/22/Abseil-0x00-%E5%BA%8F%E8%A8%80/" title="Abseil 源码阅读笔记·序言 [0x00]">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
+                        <span class="hidden-mobile">Abseil 源码阅读笔记·序言 [0x00]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -448,8 +479,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/13/Hackergame2024-WriteUp/" title="Hackergame 2024 个人题解">
-                        <span class="hidden-mobile">Hackergame 2024 个人题解</span>
+                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
+                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

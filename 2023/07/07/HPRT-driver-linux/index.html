@@ -348,15 +348,23 @@
                 
                 <p><em><strong>本文可能已经过时</strong></em></p>
 <hr>
-<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>新买了一台汉印 MT810 打印机来打印题目，这台打印机可以用 USB 连接，但是需要装驱动。然而，MT810 没有 Linux 驱动，只有 Windows 和 MacOS 的。</p>
-<h2 id="处理思路"><a href="#处理思路" class="headerlink" title="处理思路"></a>处理思路</h2><p>官网有 MT800 的 Linux 驱动，猜测 800 系列的驱动应该差不多，尝试把 MT800 的 Linux 驱动和 MT810 的 MacOS 驱动“结合”一下。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><p>下载 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1076">MT800 的 Linux 驱动</a> 和 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1277">MT810 的 MacOS 驱动</a></p>
-<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><p>直接安装 MT800 驱动<br><img src="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png" srcset="/img/loading.gif" lazyload alt="我这里已经装过了"></p>
-<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h3><p>解压缩 MT810 MacOS 驱动，得到 <code>hprt-mt810-printer-mac-driver-v1.0.0.pkg</code>，解包得到 <code>usr</code> 和 <code>Library</code> 目录（我用的 easy7zip，用 wine 运行），在 <code>Library</code> 目录下找到 <code>MT810.ppd.gz</code>，解压缩，得到 <code>MT810.ppd</code>，这就是我们要的了。</p>
-<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h3><p>执行如下命令（<code>&lt;&gt;</code> 里的自行替换）。</p>
+<h2 id="问题背景">问题背景</h2>
+<p>新买了一台汉印 MT810 打印机来打印题目，这台打印机可以用 USB 连接，但是需要装驱动。然而，MT810 没有 Linux 驱动，只有 Windows 和 MacOS 的。</p>
+<h2 id="处理思路">处理思路</h2>
+<p>官网有 MT800 的 Linux 驱动，猜测 800 系列的驱动应该差不多，尝试把 MT800 的 Linux 驱动和 MT810 的 MacOS 驱动“结合”一下。</p>
+<h2 id="解决方法">解决方法</h2>
+<h3 id="Step-1">Step 1</h3>
+<p>下载 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1076">MT800 的 Linux 驱动</a> 和 <a target="_blank" rel="noopener" href="https://cn.hprt.com/prt/files/download_first/id/1277">MT810 的 MacOS 驱动</a></p>
+<h3 id="Step-2">Step 2</h3>
+<p>直接安装 MT800 驱动<br>
+<img src="https://bu.dusays.com/2023/07/07/64a7bc38cdf39.png" srcset="/img/loading.gif" lazyload alt="我这里已经装过了"></p>
+<h3 id="Step-3">Step 3</h3>
+<p>解压缩 MT810 MacOS 驱动，得到 <code>hprt-mt810-printer-mac-driver-v1.0.0.pkg</code>，解包得到 <code>usr</code> 和 <code>Library</code> 目录（我用的 easy7zip，用 wine 运行），在 <code>Library</code> 目录下找到 <code>MT810.ppd.gz</code>，解压缩，得到 <code>MT810.ppd</code>，这就是我们要的了。</p>
+<h3 id="Step-4">Step 4</h3>
+<p>执行如下命令（<code>&lt;&gt;</code> 里的自行替换）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> &lt;/path/to/MT810.ppd&gt; /usr/share/cups/model/label<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> /usr/lib/cups/filter/raster-esc /usr/lib/cups/filter/raster-MT810<br></code></pre></td></tr></table></figure>
-
-<h3 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h3><p>添加打印机即可。</p>
+<h3 id="Step-5">Step 5</h3>
+<p>添加打印机即可。</p>
 <p><img src="https://bu.dusays.com/2023/07/07/64a7bf99853da.png" srcset="/img/loading.gif" lazyload alt="结果图"></p>
 
                 

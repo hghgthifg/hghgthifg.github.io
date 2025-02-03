@@ -30,9 +30,9 @@
 <meta property="article:modified_time" content="2024-06-30T15:04:58.000Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="LevelDB">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="源码阅读">
+<meta property="article:tag" content="LevelDB">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -344,21 +344,20 @@
             
               <div class="markdown-body">
                 
-                <h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>首先 clone 代码：</p>
+                <h2 id="构建">构建</h2>
+<p>首先 clone 代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> --recurse-submodules https://github.com/google/leveldb.git<br></code></pre></td></tr></table></figure>
-
 <p>由于 leveldb 使用了 googletest 和 benchmark，所以 clone 的时候要加上 <code>--recurse-submodules</code></p>
 <p>接下来我直接用 vscode 打开了 leveldb 目录，然后选定工具链， CMake 插件自动地完成了配置。</p>
 <p>不得不说现在的 vscode 用起来非常顺手，构建、测试一步到位。</p>
 <p>代码阅读方面我使用了 Sourcetrail，这是个很好的工具，可惜停更了，目前 Github 仓库已经归档了。</p>
 <p>在读代码的时候还是需要对照着文档（<code>leveldb/doc/index.md</code>），这样便于理解函数的作用。</p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>首先来看一下核心的 <code>leveldb/include/leveldb/db.h</code></p>
+<h2 id="开始">开始</h2>
+<p>首先来看一下核心的 <code>leveldb/include/leveldb/db.h</code></p>
 <p>开头 inlucde 了一些头文件</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;leveldb/export.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;leveldb/iterator.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;leveldb/options.h&quot;</span></span><br></code></pre></td></tr></table></figure>
-
 <p>这里 <code>export.h</code> 包含一些宏定义，这些都是常规操作，但作为初学者，我还是将这些记录下来</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">if</span> !defined(LEVELDB_EXPORT)</span><br><br><span class="hljs-comment">// 中间部分省略</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LEVELDB_EXPORT</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br></code></pre></td></tr></table></figure>
-
 <p>这样做防止了 <code>LEVELDB_EXPORT</code> 宏重复定义，确保函数和类成员只导出一次。</p>
 <p><code>iterator.h</code> 定义了迭代器，用于访问 Table 和 DB 对象。大概作用应该和 STL 里的迭代器有相似性。Iterator 中的 const 方法是线程安全的。</p>
 <p>我们先不去管这个具体是怎么实现的，先放一放。</p>
@@ -370,43 +369,36 @@
 <p>最后是两个独立的函数 <code>DestroyDB</code> 和 <code>RepairDB</code>，分别用于销毁 DB 对象和抢救打不开的 DB。</p>
 <p>这里 <code>DestroyDB</code> 没有设计成 DB 类的方法，我想，这是因为这个函数比较危险，在使用时需要小心，如果设计成 DB 类的方法，可能一不小心就删库了。而作为一个独立的函数，增加了调用时的复杂度和明显度，这也是对用户的提醒与保护。</p>
 <p>注意因为兼容性的原因，就算是 <code>DestroyDB</code> 方法没有成功，也可能会返回 <code>Status::OK()</code>，所以需要额外检查下错误信息。</p>
-<h2 id="DB-类的方法"><a href="#DB-类的方法" class="headerlink" title="DB 类的方法"></a>DB 类的方法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">static</span> Status <span class="hljs-title">Open</span><span class="hljs-params">(<span class="hljs-type">const</span> Options&amp; options, <span class="hljs-type">const</span> std::string&amp; name,</span></span><br><span class="hljs-params"><span class="hljs-function">                     DB** dbptr)</span></span>;<br></code></pre></td></tr></table></figure>
-
+<h2 id="DB-类的方法">DB 类的方法</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">static</span> Status <span class="hljs-title">Open</span><span class="hljs-params">(<span class="hljs-type">const</span> Options&amp; options, <span class="hljs-type">const</span> std::string&amp; name,</span></span><br><span class="hljs-params"><span class="hljs-function">                     DB** dbptr)</span></span>;<br></code></pre></td></tr></table></figure>
 <p>首先是 <code>Open</code> 方法，用于打开数据库对象。值得注意的是，这里用到了双重指针，会在 <code>dbptr</code> 指针指向的地方创建一个指针，指向实际的数据库对象。我暂时还不知道这种设计有什么作用，先放一放，等之后了解全貌，这么设计的理由大概就会浮出水面。</p>
 <p>接下来是 DB 类的构造函数和析构函数</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">DB</span>() = <span class="hljs-keyword">default</span>;<br><br><span class="hljs-built_in">DB</span>(<span class="hljs-type">const</span> DB&amp;) = <span class="hljs-keyword">delete</span>;<br>DB&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> DB&amp;) = <span class="hljs-keyword">delete</span>;<br><br><span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">DB</span>();<br></code></pre></td></tr></table></figure>
-
 <p><code>DB() = default</code> 是设置了一个默认的构造函数，这样符合 C++11 的规范。</p>
 <p>DB 类在使用的时候，应当是独占访问的，不应该随意复制，所以将拷贝构造函数、拷贝赋值构造函数和都删除了。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> Status <span class="hljs-title">Put</span><span class="hljs-params">(<span class="hljs-type">const</span> WriteOptions&amp; options,</span></span><br><span class="hljs-params"><span class="hljs-function">                      <span class="hljs-type">const</span> Slice&amp; key, <span class="hljs-type">const</span> Slice&amp; value)</span> </span>= <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">virtual</span> Status <span class="hljs-title">Delete</span><span class="hljs-params">(<span class="hljs-type">const</span> WriteOptions&amp; options,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">const</span> Slice&amp; key)</span> </span>= <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">virtual</span> Status <span class="hljs-title">Write</span><span class="hljs-params">(<span class="hljs-type">const</span> WriteOptions&amp; options, WriteBatch* updates)</span> </span>= <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">virtual</span> Status <span class="hljs-title">Get</span><span class="hljs-params">(<span class="hljs-type">const</span> ReadOptions&amp; options,</span></span><br><span class="hljs-params"><span class="hljs-function">                      <span class="hljs-type">const</span> Slice&amp; key, std::string* value)</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>然后是经典的增删改查，我准备留到具体实现的时候来介绍。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> Iterator* <span class="hljs-title">NewIterator</span><span class="hljs-params">(<span class="hljs-type">const</span> ReadOptions&amp; options)</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>这个方法用于生成迭代器以访问 DB 对象，用起来和 STL 类似之处。这里贴出文档里的示例以供理解。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">leveldb::Iterator* it = db-&gt;<span class="hljs-built_in">NewIterator</span>(leveldb::<span class="hljs-built_in">ReadOptions</span>());<br><span class="hljs-keyword">for</span> (it-&gt;<span class="hljs-built_in">SeekToFirst</span>(); it-&gt;<span class="hljs-built_in">Valid</span>(); it-&gt;<span class="hljs-built_in">Next</span>()) &#123;<br>  cout &lt;&lt; it-&gt;<span class="hljs-built_in">key</span>().<span class="hljs-built_in">ToString</span>() &lt;&lt; <span class="hljs-string">&quot;: &quot;</span>  &lt;&lt; it-&gt;<span class="hljs-built_in">value</span>().<span class="hljs-built_in">ToString</span>() &lt;&lt; endl;<br>&#125;<br><span class="hljs-built_in">assert</span>(it-&gt;<span class="hljs-built_in">status</span>().<span class="hljs-built_in">ok</span>());  <span class="hljs-comment">// Check for any errors found during the scan</span><br><span class="hljs-keyword">delete</span> it;<br></code></pre></td></tr></table></figure>
-
 <p>迭代器要及时 <code>delete</code>，按照注释里的说法，迭代器要在 db 对象 <code>delete</code> 之前进行 <code>delete</code>。像这段示例，在迭代器用完之后就 <code>delete</code> 了。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">const</span> Snapshot* <span class="hljs-title">GetSnapshot</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">ReleaseSnapshot</span><span class="hljs-params">(<span class="hljs-type">const</span> Snapshot* snapshot)</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>两个跟 Snapshot 有关的函数，先放一放。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> Status <span class="hljs-title">GetProperty</span><span class="hljs-params">(<span class="hljs-type">const</span> Slice&amp; property, std::string* value)</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>这个方法用于获取数据库的属性，比如版本号，文件大小等。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">GetApproximateSizes</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-type">const</span> Range* range, <span class="hljs-type">int</span> n, <span class="hljs-type">uint64_t</span>* sizes)</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>这个方法用于获取数据库的文件大小，可能不包含最近写入的内容。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">CompactRange</span><span class="hljs-params">(<span class="hljs-type">const</span> Slice* begin, <span class="hljs-type">const</span> Slice* end)</span> </span>= <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
 <p>最后一个方法，用于压缩数据库，也留到具体实现的时候介绍。</p>
-<h2 id="关于纯虚函数"><a href="#关于纯虚函数" class="headerlink" title="关于纯虚函数"></a>关于纯虚函数</h2><p>在阅读代码的时候，可以发现，<code>db.h</code> 中大多数函数都是纯虚函数，DB 类实际上是一个接口，具体的实现都在 <code>DBImpl</code> 类当中。</p>
+<h2 id="关于纯虚函数">关于纯虚函数</h2>
+<p>在阅读代码的时候，可以发现，<code>db.h</code> 中大多数函数都是纯虚函数，DB 类实际上是一个接口，具体的实现都在 <code>DBImpl</code> 类当中。</p>
 <p>这是用到了多态性，在代码中使用的时候，使用 DB 的接口就可以，只需要</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">DB* db;<br>Status s = DB::<span class="hljs-built_in">Open</span>(options, name, &amp;db);<br></code></pre></td></tr></table></figure>
-
 <p>就可以得到一个 DB 对象，而不用关心 DB 对象的具体实现。</p>
 <p>这里 leveldb 用到了工厂模式，隐藏了创建 DB 对象的过程。</p>
 <p>这种方式有不少好处，一个是使用起来简单，不需要关注具体实现；还可以便于后期扩展，甚至说你哪怕底层根本不是 leveldb，代码里反正认的是这个接口，替换掉也不会影响已有代码。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本节中我们了解了 <code>db.h</code> 中的一些接口，对 leveldb 的功能有了一个大致的了解。</p>
+<h2 id="小结">小结</h2>
+<p>本节中我们了解了 <code>db.h</code> 中的一些接口，对 leveldb 的功能有了一个大致的了解。</p>
 <p>接下来，我们将开始看 leveldb 的具体实现，了解它的具体实现。难度会比较大，估计要花上很长时间。</p>
 
                 
@@ -457,11 +449,11 @@
       
         <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
       
-        <a href="/tags/LevelDB/" class="print-no-link">#LevelDB</a>
-      
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
         <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="print-no-link">#源码阅读</a>
+      
+        <a href="/tags/LevelDB/" class="print-no-link">#LevelDB</a>
       
         <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#数据库</a>
       

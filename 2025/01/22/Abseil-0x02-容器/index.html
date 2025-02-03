@@ -27,7 +27,7 @@
 <meta property="og:description" content="Abseil 源码阅读第 2 期，容器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-22T11:49:09.000Z">
-<meta property="article:modified_time" content="2025-01-24T03:40:50.101Z">
+<meta property="article:modified_time" content="2025-01-29T07:06:19.225Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C++">
@@ -342,22 +342,18 @@
             
               <div class="markdown-body">
                 
-                <h2 id="FixedArray"><a href="#FixedArray" class="headerlink" title="FixedArray"></a>FixedArray</h2><p>先从简单的开始，看一下 <a target="_blank" rel="noopener" href="https://github.com/abseil/abseil-cpp/blob/lts_2024_07_22/absl/container/fixed_array.h">FixedArray</a>，学一点工程技巧。</p>
+                <h2 id="FixedArray">FixedArray</h2>
+<p>先从简单的开始，看一下 <a target="_blank" rel="noopener" href="https://github.com/abseil/abseil-cpp/blob/lts_2024_07_22/absl/container/fixed_array.h">FixedArray</a>，学一点工程技巧。</p>
 <p>注释里的介绍：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// A `FixedArray&lt;T&gt;` represents a non-resizable array of `T` where the length of</span><br><span class="hljs-comment">// the array can be determined at run-time. It is a good replacement for</span><br><span class="hljs-comment">// non-standard and deprecated uses of `alloca()` and variable length arrays</span><br><span class="hljs-comment">// within the GCC extension. (See</span><br><span class="hljs-comment">// https://gcc.gnu.org/onlinedocs/gcc/Variable-Length.html).</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">// `FixedArray` allocates small arrays inline, keeping performance fast by</span><br><span class="hljs-comment">// avoiding heap operations. It also helps reduce the chances of</span><br><span class="hljs-comment">// accidentally overflowing your stack if large input is passed to</span><br><span class="hljs-comment">// your function.</span><br></code></pre></td></tr></table></figure>
-
 <p>来看一下代码，起手一个命名空间 <code>absl</code>，紧跟一个宏 <code>ABSL_NAMESPACE_BEGIN</code>，展开后是 <code>inline namespace ABSL_OPTION_INLINE_NAMESPACE_NAME &#123;</code>，一个内联的命名空间，这是用来控制版本的，在外部使用时不需要指定内联命名空间的名字，但是在编译后是有相关的符号的。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-type">size_t</span> N = kFixedArrayUseDefault,<br>          <span class="hljs-keyword">typename</span> A = std::allocator&lt;T&gt;&gt;<br></code></pre></td></tr></table></figure>
-
 <p><code>FixedArray</code> 是一个模板类，有三个模板参数，<code>T</code> 代表类型，<code>N</code> 代表要内联的元素个数，<code>A</code> 是个 allocator。当 <code>N</code> 不指定时，会使用 <code>kFixedArrayUseDefault</code> 作为默认参数，而在上面已经定义了：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">static</span> <span class="hljs-keyword">auto</span> kFixedArrayUseDefault = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">size_t</span>&gt;(<span class="hljs-number">-1</span>);<br></code></pre></td></tr></table></figure>
-
 <p>这实际上是 <code>size_t</code> 的最大值，正常使用时不会想着要内联这么多的东西，由此可以判断使用者有没有指定一个 <code>N</code>，如果没有指定那就使用默认值（默认最多内联 256 bytes 的内容），如果指定了再用指定的元素个数 <code>N</code>。注释里也提到了，大多数情况不需要指定 <code>N</code>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> size_type inline_elements =<br>    (N == kFixedArrayUseDefault ? kInlineBytesDefault / <span class="hljs-built_in">sizeof</span>(value_type)<br>                                : <span class="hljs-built_in">static_cast</span>&lt;size_type&gt;(N));<br></code></pre></td></tr></table></figure>
-
 <p>类的开头是一个断言，确保 <code>T</code> 不是 C 风格数组，或者大小已知。这是为了防止类似 <code>int []</code> 的东西被传进来，它的大小不确定，不能用于创建固定大小的 <code>FixedArray</code>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">size_t</span> kInlineBytesDefault = <span class="hljs-number">256</span>;<br><br><span class="hljs-keyword">using</span> AllocatorTraits = std::allocator_traits&lt;A&gt;;<br><span class="hljs-comment">// std::iterator_traits isn&#x27;t guaranteed to be SFINAE-friendly until C++17,</span><br><span class="hljs-comment">// but this seems to be mostly pedantic.</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Iterator&gt;<br><span class="hljs-keyword">using</span> EnableIfForwardIterator = absl::<span class="hljs-type">enable_if_t</span>&lt;std::is_convertible&lt;<br>    <span class="hljs-keyword">typename</span> std::iterator_traits&lt;Iterator&gt;::iterator_category,<br>    std::forward_iterator_tag&gt;::value&gt;;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">NoexceptCopyable</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> std::is_nothrow_copy_constructible&lt;StorageElement&gt;::value &amp;&amp;<br>        absl::allocator_is_nothrow&lt;allocator_type&gt;::value;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">NoexceptMovable</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> std::is_nothrow_move_constructible&lt;StorageElement&gt;::value &amp;&amp;<br>        absl::allocator_is_nothrow&lt;allocator_type&gt;::value;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> <span class="hljs-title">DefaultConstructorIsNonTrivial</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> !absl::is_trivially_default_constructible&lt;StorageElement&gt;::value;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>接下来定义了几个东西，一个是 <code>kInlineBytesDefault</code> 内联的默认最大大小，还有一个 <code>EnableIfForwardIterator</code>，似乎是出于工程上的妥协，就不去管它了，还有三个判断函数，功能也很显然。</p>
 <p>后面又有一些 <code>using</code>，具体见代码，就不再赘述了。</p>
 <p>这类有一大堆构造函数之类的，也不详细讲了。</p>
@@ -368,6 +364,41 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="category-chain-item">源码阅读</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/Abseil/" class="category-chain-item">Abseil</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -445,6 +476,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2025/01/29/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0-%E6%B3%8A%E6%9D%BE%E5%9B%BE%E5%83%8F%E7%BC%96%E8%BE%91/" title="[论文复现] Poisson Image Editing">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[论文复现] Poisson Image Editing</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

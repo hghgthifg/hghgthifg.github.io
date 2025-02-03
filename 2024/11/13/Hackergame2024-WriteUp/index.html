@@ -19,15 +19,15 @@
   <meta name="author" content="小H">
   <meta name="keywords" content="">
   
-    <meta name="description" content="大一苕皮第一次参加 Hackergame，写篇 WP 纪念一下。">
+    <meta name="description" content="大一第一次参加 Hackergame，写篇 WP 纪念一下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hackergame 2024 个人题解">
 <meta property="og:url" content="http://xiao-h.com/2024/11/13/Hackergame2024-WriteUp/index.html">
 <meta property="og:site_name" content="小H的博客">
-<meta property="og:description" content="大一苕皮第一次参加 Hackergame，写篇 WP 纪念一下。">
+<meta property="og:description" content="大一第一次参加 Hackergame，写篇 WP 纪念一下。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-13T09:13:04.000Z">
-<meta property="article:modified_time" content="2024-11-13T11:07:12.768Z">
+<meta property="article:modified_time" content="2025-01-29T07:18:29.250Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="Hackergame">
@@ -49,6 +49,8 @@
   <link  rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
 
 
 
@@ -343,51 +345,58 @@
               <div class="markdown-body">
                 
                 <p>最终排名：校内第 10 名，总榜第 66 名。</p>
-<h2 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h2><p>下载各种输入法，多练习一下，应该就能输完了。<del>不会真有人这么做吧</del></p>
+<h2 id="签到">签到</h2>
+<p>下载各种输入法，多练习一下，应该就能输完了。<s>不会真有人这么做吧</s></p>
 <p>不会打字，我还不能复制粘贴吗？抱歉，还真不行，在网页源代码中我们可以看到粘贴被禁用了：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-box&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;zh&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;中文：启动&quot;</span> <span class="hljs-attr">onpaste</span>=<span class="hljs-string">&quot;return false&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>要想解决这一问题，可以用浏览器的调试工具把 <code>paste</code> 相关的内容全删了，这样就可以粘贴了。</p>
-<h2 id="喜欢做签到的-CTFer-你们好呀"><a href="#喜欢做签到的-CTFer-你们好呀" class="headerlink" title="喜欢做签到的 CTFer 你们好呀"></a>喜欢做签到的 CTFer 你们好呀</h2><p>首先要找到招新网站，其实玩意儿就在主页底下的承办单位里<del>不知道为啥这么多人找不到</del></p>
+<h2 id="喜欢做签到的-CTFer-你们好呀">喜欢做签到的 CTFer 你们好呀</h2>
+<p>首先要找到招新网站，其实玩意儿就在主页底下的承办单位里<s>不知道为啥这么多人找不到</s></p>
 <p>打开招新主页发现是个终端一样的东西，提示我们可以输 <code>help</code> 看可用的命令。多试几个命令，发现输入 <code>env</code> 可以获取第一个 flag.</p>
 <p>输入 <code>cat</code>，得到提示：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">file not found, maybe you can consider about Members / Awards / hidden files<br></code></pre></td></tr></table></figure>
-
 <p>说明还有隐藏文件。尝试 <code>cd</code>，发现要 root，这个时候加上 <code>sudo</code>，恭喜获得奶龙（</p>
 <p>输入 <code>ls -a</code> 可以显示隐藏文件，于是我们就能看到隐藏的 <code>.flag</code> 了，<code>cat .flag</code> 即可。</p>
-<h2 id="猫咪问答"><a href="#猫咪问答" class="headerlink" title="猫咪问答"></a>猫咪问答</h2><p>第 1、3、5 题可以简单地通过搜索得到答案；</p>
-<p>第 2 题可以去往年题解的界面数题目个数，再到 LUG 官网找人数。<del>虽然这里说约 25 道题目，但好像都不止</del></p>
-<p>第 4 题，找到 USENIX Security 2024 的网站，搜索中科大的英文名，可以找到这篇论文，然后可以在论文中找到组合的数量。（注意，不是 $16 \times 20$）</p>
+<h2 id="猫咪问答">猫咪问答</h2>
+<p>第 1、3、5 题可以简单地通过搜索得到答案；</p>
+<p>第 2 题可以去往年题解的界面数题目个数，再到 LUG 官网找人数。<s>虽然这里说约 25 道题目，但好像都不止</s></p>
+<p>第 4 题，找到 USENIX Security 2024 的网站，搜索中科大的英文名，可以找到这篇论文，然后可以在论文中找到组合的数量。（注意，不是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mo>×</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">16 \times 20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span></span></span></span>）</p>
 <p>第 6 题，你可以自己去下 Llama 3 70B 的完整模型，但是需要通过申请。在比赛的时候申请没过，这条路没走通。于是考虑直接搜索 tokenizer，找到了在线工具，把这一页 html 弄下来，用工具处理即可。</p>
-<h2 id="打不开的盒"><a href="#打不开的盒" class="headerlink" title="打不开的盒"></a>打不开的盒</h2><p>下载文件，用 Blender 导入，移动视角到盒子里就能看见了。</p>
-<h2 id="每日论文太多了"><a href="#每日论文太多了" class="headerlink" title="每日论文太多了"></a>每日论文太多了</h2><p>首先下载论文，这道题肯定不会让全看一遍的<del>不会真有人读了吧</del>，直接搜索 flag，可以看到 <code>flag here</code> 这几个和背景颜色一样的字。<del>我交了好多遍 flag{here}</del></p>
+<h2 id="打不开的盒">打不开的盒</h2>
+<p>下载文件，用 Blender 导入，移动视角到盒子里就能看见了。</p>
+<h2 id="每日论文太多了">每日论文太多了</h2>
+<p>首先下载论文，这道题肯定不会让全看一遍的<s>不会真有人读了吧</s>，直接搜索 flag，可以看到 <code>flag here</code> 这几个和背景颜色一样的字。<s>我交了好多遍 flag{here}</s></p>
 <p>仔细观察可以发现这边的有个框一样的东西，flag 应该是盖在底下了，用一些 PDF 编辑工具（比如福昕），可以把盖在上面的图片揭掉，这样就拿到 flag 了。</p>
-<h2 id="比大小王"><a href="#比大小王" class="headerlink" title="比大小王"></a>比大小王</h2><p><del>快来成为口算大师</del></p>
+<h2 id="比大小王">比大小王</h2>
+<p><s>快来成为口算大师</s></p>
 <p>可以看到我们的对手非常强大，做题飞快，我们肯定不能莽，要智取。</p>
 <p>考虑修改 js 源码。刚开始我想的是直接 submit，但是服务器会校验答案是否正确，这一招不行；接下来考虑让对手赢不了，把时间限制改成 114514，但是服务器还是会校验，再次失败；因为服务器会校验，所以只能考虑在规定时间内做出正确答案，看到数据 fetch 之后存在本地，我打算在刷新的时候在代码里计算下一个结果，然后添加进 <code>inputs</code> 里，可惜这样做速度不够（从中我们可以推知，就算你手速再快也是赢不了的）。</p>
 <p>其实在加载的时候所有数据都已经存进 <code>data</code> 里了，不需要等待刷新，直接读取 <code>data.values</code> 就行了。我怕太快又被服务器 ban 掉，所以只是添加了个作弊键：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (e.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;ArrowLeft&#x27;</span> || e.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;a&#x27;</span>) &#123;<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;less-than&#x27;</span>).<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;less-than&#x27;</span>).<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>), <span class="hljs-number">200</span>);<br>    <span class="hljs-title function_">chooseAnswer</span>(<span class="hljs-string">&#x27;&lt;&#x27;</span>);<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (e.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;ArrowRight&#x27;</span> || e.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;d&#x27;</span>) &#123;<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;greater-than&#x27;</span>).<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;greater-than&#x27;</span>).<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>), <span class="hljs-number">200</span>);<br>    <span class="hljs-title function_">chooseAnswer</span>(<span class="hljs-string">&#x27;&gt;&#x27;</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">if</span> (state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">0</span>] &lt; state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">1</span>]) &#123;<br>        <span class="hljs-title function_">chooseAnswer</span>(<span class="hljs-string">&#x27;&lt;&#x27;</span>);<br>        state.<span class="hljs-property">value1</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">0</span>];<br>        state.<span class="hljs-property">value2</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">1</span>];<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;value1&#x27;</span>).<span class="hljs-property">textContent</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">0</span>];<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;value2&#x27;</span>).<span class="hljs-property">textContent</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">1</span>];<br>        <span class="hljs-title function_">updateCountdown</span>();<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-title function_">chooseAnswer</span>(<span class="hljs-string">&#x27;&gt;&#x27;</span>);<br>        state.<span class="hljs-property">value1</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">0</span>];<br>        state.<span class="hljs-property">value2</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">1</span>];<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;value1&#x27;</span>).<span class="hljs-property">textContent</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">0</span>];<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;value2&#x27;</span>).<span class="hljs-property">textContent</span> = state.<span class="hljs-property">values</span>[state.<span class="hljs-property">score1</span>][<span class="hljs-number">1</span>];<br>        <span class="hljs-title function_">updateCountdown</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>然后按任意键，等差不多了再自己做，这样就能获得 flag 了。</p>
-<h2 id="旅行照片-4-0"><a href="#旅行照片-4-0" class="headerlink" title="旅行照片 4.0"></a>旅行照片 4.0</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><p>科大人从东区到中区应该都能看到那栋大厦，问题 1 送分。</p>
+<h2 id="旅行照片-4-0">旅行照片 4.0</h2>
+<h3 id="第一题">第一题</h3>
+<p>科大人从东区到中区应该都能看到那栋大厦，问题 1 送分。</p>
 <p>问题二我尝试搜索 B 站看有没有标时间，但是只发现了录播。你可以从录播上传日期往前试，不用几次就能拿到 flag 了。当然，也可以直接去 Leo 官群翻群公告（</p>
-<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><p>问题 4 直接 Google 搜图可以得到结果，注意是景点名不是景观名。</p>
+<h3 id="第二题">第二题</h3>
+<p>问题 4 直接 Google 搜图可以得到结果，注意是景点名不是景观名。</p>
 <p>问题 3 相对麻烦很多，因为可用信息太少了。我们可以从中发现两个比较突出的特征：彩虹跑道、垃圾桶。</p>
 <p>仔细看垃圾桶上的字，可以分辨出 『六安』 两个字，这帮我们缩小了范围，大概率是在六安，当然也不能排除安徽省内。</p>
 <p>以 『六安 彩虹跑道』等关键字搜索，翻遍各种平台，在百度的资讯选项卡中找到了一篇文章，包含了类似的图片，虽然它标的公园名字是错的，但我们可以通过这些图片继续搜图，最终找到了公园名称。</p>
-<h3 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h3><p>第三题对于火车迷来说应该是很容易的，但我完全不会，怎么办呢？</p>
+<h3 id="第三题">第三题</h3>
+<p>第三题对于火车迷来说应该是很容易的，但我完全不会，怎么办呢？</p>
 <p>以提示的『四编组动车』为关键词进行搜索，可以得到 『CRH6F-A』和『CRH6A-A』这两个比较标志性的型号，此外可以看到列车涂装是红色的，通过对比图片可以看到列车的名称是『怀密号』，B 站找视频，看乘车全程，可以找到类似的地方，在地图上找一下就能找到最近的医院了。</p>
-<h2 id="不宽的宽字符"><a href="#不宽的宽字符" class="headerlink" title="不宽的宽字符"></a>不宽的宽字符</h2><p><del>小 A 是怎么做到测试无误的</del></p>
+<h2 id="不宽的宽字符">不宽的宽字符</h2>
+<p><s>小 A 是怎么做到测试无误的</s></p>
 <p>写个辅助函数帮助我们看文件名：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> *byte_pointer;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_bytes</span><span class="hljs-params">(byte_pointer start, <span class="hljs-type">int</span> len)</span> </span>&#123;<br>  <span class="hljs-type">int</span> i;<br>  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; len; i++)<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; %.2x&quot;</span>, start[i]); <span class="hljs-comment">// line:data:show_bytes_printf</span><br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>然后添加 <code>show_bytes((byte_pointer)filename.c_str(), 24);</code>，可以发现如果是直接输进去 <code>Z:\\theflag</code>（注意，题目里给 <code>Z:\theflag</code>，并不代表真的是这么输就行了，因为 <code>\</code> 会转义，需要两个 <code>\</code> 才能正常得到 <code>\</code> 字符），会输出：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">5a 00 3a 00 5c 00 74 00 68 00 65 00 66 00 6c 00 61 00 67 00 0d 00 00 00<br></code></pre></td></tr></table></figure>
-
 <p>其实我们可以发现，后面加不加东西，根本就不影响我们能不能弄到 flag，因为代码本来就有问题！</p>
 <p>欸，为什么中间会有这么多 0 呢。这是因为输入的数据以 utf-8 储存，每个字符占 8 比特，也就是上面的两个 16 进制数字，经过了神奇的变化，就变成了现在这样。</p>
 <p>要想让中间的 0 消失，我们直接输入 utf-16 的内容，就可以避免被转成这样了。可以用 Visual Studio Code 改编码方式，把 <code>Z:\\theflag</code> 存为 utf-16 编码。由于 utf-16 一个字符占两个字节，转成 utf-16 之后的内容没法正常显示，因为少了一个字节，用 16 进制编辑器在最后加上两个 0 就好了。</p>
-<h2 id="PowerfulShell"><a href="#PowerfulShell" class="headerlink" title="PowerfulShell"></a>PowerfulShell</h2><p>我们首先看一下还剩什么符号：: &#96; 0 1 2 3 4 5 6 7 8 9 + - _ | $ [] {} ~ &#x3D;</p>
+<h2 id="PowerfulShell">PowerfulShell</h2>
+<p>我们首先看一下还剩什么符号：: ` 0 1 2 3 4 5 6 7 8 9 + - _ | $ [] {} ~ =</p>
 <p>用这些符号是不足以实现命令 <code>cat /flag</code> 的，我们至少需要字母。</p>
 <p>最开始我考虑获取 \ 来对八进制数字进行转义获取字母，但发现 \ 很难获取。</p>
 <p>我们可以通过 <code>$&#123;var:a:b&#125;</code> 来截取变量中的字符，而首先我们需要一个可获取的字符串并存入变量。</p>
@@ -396,50 +405,56 @@
 <p>来到根目录，捕获 <code>ls</code> 的输出，这样字母就足够了。</p>
 <p>变量参考：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">_1=~<br>_2=$&#123;_1:1:1&#125;<br>_3=$&#123;_1:7:1&#125;<br>_4=`$_2$_3`<br>_5=$&#123;_4:56:1&#125;<br>_6=$&#123;_4:58:1&#125;<br>_7=$&#123;_1:$[1-1]:1&#125;<br>_8=$[1-1] // 替代 0<br>_9=$&#123;_4:1$&#123;_8&#125;1:1&#125;<br>_11=`$_9$_3 $_7`<br>_12=$&#123;_11:19:1&#125;<br>_13=$&#123;_11:7:1&#125;<br>_14=$&#123;_11:17:4&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Node-js-is-Web-Scale"><a href="#Node-js-is-Web-Scale" class="headerlink" title="Node.js is Web Scale"></a>Node.js is Web Scale</h2><p>我先把 set 操作时可能会影响我的 <code>JSON.stringify</code> 干掉，改成直接传没转义过的字符串。</p>
+<h2 id="Node-js-is-Web-Scale">Node.js is Web Scale</h2>
+<p>我先把 set 操作时可能会影响我的 <code>JSON.stringify</code> 干掉，改成直接传没转义过的字符串。</p>
 <p>分析源代码我们发现，唯一可能让我们执行 <code>cat /flag</code> 的地方在这里：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/execute&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> key = req.<span class="hljs-property">query</span>.<span class="hljs-property">cmd</span>;<br>  <span class="hljs-keyword">const</span> cmd = cmds[key];<br>  res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;content-type&quot;</span>, <span class="hljs-string">&quot;text/plain&quot;</span>);<br>  res.<span class="hljs-title function_">send</span>(<span class="hljs-title function_">execSync</span>(cmd).<span class="hljs-title function_">toString</span>());<br>&#125;);<br></code></pre></td></tr></table></figure>
-
 <p>但是我们发现 <code>cmds</code> 似乎已经写死了。拷打 LLM 之后，LLM 告诉我这里有原型链污染的问题，<code>&#123;&#125;</code> 实际上是一个对象（如果你往键里塞 <code>...</code>，按 <code>.</code> 分割之后再获取，就会输出 <code>&#123;&#125;</code> 的类型 <code>Object</code> 了），而它有额外的属性 <code>__proto__</code>，这个属性继承自 <code>Object</code>，在分割输入的键值时如果没有滤掉这个属性，在设置的时候其实设置的是 <code>Object</code> 对象的 <code>__proto__</code> 属性，这会导致所有继承于 <code>Object</code> 的对象 <code>__proto__</code> 都变掉，这样就可以修改 <code>cmds</code> 了。</p>
-<h2 id="PaoluGPT"><a href="#PaoluGPT" class="headerlink" title="PaoluGPT"></a>PaoluGPT</h2><p>从小题名字上我们就可以猜出大概的做法了。</p>
+<h2 id="PaoluGPT">PaoluGPT</h2>
+<p>从小题名字上我们就可以猜出大概的做法了。</p>
 <p>第一题毕竟是 『千里挑一』 嘛，flag 肯定就藏在这些网页里了。只要你有耐心可以一个个去找，当然，更好的方法是爬虫。</p>
 <p>第二题，『未知』的东西一定不在这个列表里，我最开始尝试随机生成 UUID 然后访问，但算了算发现地球爆炸都跑不完，所以放弃了这种做法。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/view&quot;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">view</span>():<br>    conversation_id = request.args.get(<span class="hljs-string">&quot;conversation_id&quot;</span>)<br>    results = execute_query(<span class="hljs-string">f&quot;select title, contents from messages where id = &#x27;<span class="hljs-subst">&#123;conversation_id&#125;</span>&#x27;&quot;</span>)<br>    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&quot;view.html&quot;</span>, message=Message(<span class="hljs-literal">None</span>, results[<span class="hljs-number">0</span>], results[<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure>
-
 <p>分析代码我们可以发现，这里的 <code>conversation_id</code> 是直接替换进去的，没有经过转义，所以会存在 SQL 注入的风险。上面有查找 <code>shown = true</code> 的，要想“窥探未知”，自然就是找 <code>shown = false</code> 的了。</p>
-<p>在地址栏中把 <code>conversation_id=</code> 后面改成 <code>&#39; or shown = false--</code> 即可。</p>
-<h2 id="强大的正则表达式"><a href="#强大的正则表达式" class="headerlink" title="强大的正则表达式"></a>强大的正则表达式</h2><p>第一问通过搜索发现，只要最后四位是 16 的倍数，整个数字就是 16 的倍数了。直接用 1000 以内的数字去匹配后四位即可。</p>
+<p>在地址栏中把 <code>conversation_id=</code> 后面改成 <code>' or shown = false--</code> 即可。</p>
+<h2 id="强大的正则表达式">强大的正则表达式</h2>
+<p>第一问通过搜索发现，只要最后四位是 16 的倍数，整个数字就是 16 的倍数了。直接用 1000 以内的数字去匹配后四位即可。</p>
 <p>第二问仍然搜索，可以找到<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/5993c1d917bc97d05d000068">一道题</a>，想办法搞到题解就可以了。或者也可以在 Github 上搜这道题的名字，也有人分享了做法。这里有好多做法没法通过，可能要多试几个。</p>
 <p>可惜我 Not Powerful Enough，做不出来第三题。</p>
-<h2 id="惜字如金-3-0"><a href="#惜字如金-3-0" class="headerlink" title="惜字如金 3.0"></a>惜字如金 3.0</h2><p>第一题直接人肉补全就行了。剩下的我不会。</p>
-<h2 id="优雅的不等式"><a href="#优雅的不等式" class="headerlink" title="优雅的不等式"></a>优雅的不等式</h2><p>知乎搜索『量化调酒师』，他有篇文章刚好能解决这题。</p>
+<h2 id="惜字如金-3-0">惜字如金 3.0</h2>
+<p>第一题直接人肉补全就行了。剩下的我不会。</p>
+<h2 id="优雅的不等式">优雅的不等式</h2>
+<p>知乎搜索『量化调酒师』，他有篇文章刚好能解决这题。</p>
 <p>我们需要写脚本来自动生成式子，这可以用 ai 来辅助。</p>
 <p>注意如果直接用网页复制粘贴，连接会超时被切断，需要使用一些方法（比如 <code>pwntools</code>）来上传。</p>
-<p>以及 $n$ 的迭代，虽然不知道为什么，但是 $n &#x3D; 3$ 跑得奇慢，建议直接用 $2^k$ 来作为 $n$。特别地，当到了 $37$ 个测试点以后，$n$ 为 128，生成的字符串会太长，可以适当降低 $n$。</p>
-<p><del>非常烂的</del>参考代码：</p>
+<p>以及 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 的迭代，虽然不知道为什么，但是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n = 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> 跑得奇慢，建议直接用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span> 来作为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>。特别地，当到了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>37</mn></mrow><annotation encoding="application/x-tex">37</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">37</span></span></span></span> 个测试点以后，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 为 128，生成的字符串会太长，可以适当降低 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>。</p>
+<p><s>非常烂的</s>参考代码：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> symbols<br><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> expand, simplify, collect, solve, solveset<br><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> integrals<br><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> log, pi<br><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> factor_terms<br><span class="hljs-keyword">from</span> sympy <span class="hljs-keyword">import</span> Eq, Interval<br><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> remote<br><span class="hljs-keyword">import</span> time, re<br><br>conn = remote(<span class="hljs-string">&#x27;202.38.93.141&#x27;</span>, <span class="hljs-number">14514</span>)<br>token = <span class="hljs-string">b&#x27;input_your_token&#x27;</span><br>conn.send(token)<br>conn.send(<span class="hljs-string">b&#x27;\n&#x27;</span>)<br>conn.recvline()<br>conn.recvline()<br>conn.sendline(<span class="hljs-string">b&#x27;4*((1-x**2)**(1/2)-(1-x))&#x27;</span>)<br>conn.recvline()<br>conn.recvline()<br>conn.sendline(<span class="hljs-string">b&#x27;x**2*(x - 1)**2*(15*x**2 - 2*x + 15)/(x**2 + 1)&#x27;</span>)<br>conn.recvline()<br>conn.recvline()<br>conn.recvline()<br><br>x = symbols(<span class="hljs-string">&#x27;x&#x27;</span>)<br>a, b, c = symbols(<span class="hljs-string">&#x27;a b c&#x27;</span>)<br>n = symbols(<span class="hljs-string">&#x27;n&#x27;</span>)<br><br>formula = (x**n * (<span class="hljs-number">1</span>-x)**n * (a + b*x + c*x*x))/(<span class="hljs-number">1</span>+x**<span class="hljs-number">2</span>)<br><br>cnt: <span class="hljs-built_in">int</span> = <span class="hljs-number">3</span><br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;testcase&quot;</span>, cnt)<br>    cnt += <span class="hljs-number">1</span><br>    line = conn.recvline()<br>    response = line.decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(response.strip(<span class="hljs-string">&#x27;\n&#x27;</span>))<br><br>    pattern = <span class="hljs-string">r&#x27;\d+/\d+&#x27;</span><br>    matches = re.findall(pattern, response)<br>    numbers = matches[<span class="hljs-number">0</span>].split(<span class="hljs-string">&#x27;/&#x27;</span>)<br><br>    p: <span class="hljs-built_in">int</span> = <span class="hljs-built_in">int</span>(numbers[<span class="hljs-number">0</span>])<br>    q: <span class="hljs-built_in">int</span> = <span class="hljs-built_in">int</span>(numbers[<span class="hljs-number">1</span>])<br><br>    domain = Interval(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br>    cur_n: <span class="hljs-built_in">int</span> = <span class="hljs-number">32</span><br><br>    <span class="hljs-keyword">if</span> (cnt &gt; <span class="hljs-number">18</span> <span class="hljs-keyword">and</span> cnt &lt;= <span class="hljs-number">30</span>):<br>        cur_n = <span class="hljs-number">64</span><br>    <span class="hljs-keyword">elif</span> (cnt &gt; <span class="hljs-number">30</span> <span class="hljs-keyword">and</span> cnt &lt; <span class="hljs-number">37</span>):<br>        cur_n = <span class="hljs-number">128</span><br>    <span class="hljs-keyword">elif</span> (cnt &gt;= <span class="hljs-number">37</span>):<br>        cur_n = <span class="hljs-number">112</span><br><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-built_in">print</span>(cur_n, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>        cur_formula = formula.subs(&#123;n: cur_n&#125;)<br>        integraled_formula = integrals.integrate(cur_formula, (x, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>))<br>        integraled_formula = simplify(integraled_formula)<br><br>        pi_formula = integraled_formula.coeff(pi)<br>        log2_formula = integraled_formula.coeff(log(<span class="hljs-number">2</span>))<br>        other_formula = integraled_formula.subs(&#123;pi: <span class="hljs-number">0</span>, log(<span class="hljs-number">2</span>): <span class="hljs-number">0</span>&#125;)<br><br>        solutions = solve(<br>            (<br>                Eq(pi_formula, q),<br>                Eq(log2_formula, <span class="hljs-number">0</span>),<br>                Eq(other_formula, -p)<br>            ), (a, b, c)<br>        ) <br><br>        solution = cur_formula.subs(solutions)<br>        result = cur_formula.subs(solutions)/q<br>        result = simplify(result)<br><br>        f = (a + b*x + c*x*x).subs(solutions)<br>        formula_str = <span class="hljs-built_in">str</span>(result).replace(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)<br>        <span class="hljs-keyword">if</span> (solveset(f &gt;= <span class="hljs-number">0</span>, x, domain) != domain):<br>            cur_n *= <span class="hljs-number">2</span><br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(formula_str) &gt; <span class="hljs-number">400</span> <span class="hljs-keyword">and</span> cnt &gt;= <span class="hljs-number">37</span>):<br>            <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(formula_str), end=<span class="hljs-string">&#x27;! &#x27;</span>)<br>            expanded_str = <span class="hljs-built_in">str</span>(expand(formula_str))<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(expanded_str) &lt;= <span class="hljs-number">400</span>):<br>                formula_str = expanded_str<br>            <span class="hljs-keyword">else</span>:<br>                cur_n += <span class="hljs-number">4</span><br>                <span class="hljs-keyword">continue</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;\n&#x27;</span>)<br>        <span class="hljs-built_in">print</span>(formula_str)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(formula_str))<br>        conn.sendline(formula_str)<br>        conn.recvline()<br>        <span class="hljs-keyword">break</span><br><br></code></pre></td></tr></table></figure>
-
-<h2 id="无法获得的秘密"><a href="#无法获得的秘密" class="headerlink" title="无法获得的秘密"></a>无法获得的秘密</h2><p>只能通过屏幕获取信息，考虑 OCR。</p>
+<h2 id="无法获得的秘密">无法获得的秘密</h2>
+<p>只能通过屏幕获取信息，考虑 OCR。</p>
 <p>使用 <code>hexdump /secret | more</code> 可以逐页获取 <code>/secret</code> 内数据的十六进制字符串表示，然后只需要截图就可以了。</p>
-<p>为了方便下面的 OCR 步骤，我们可以控制每一张图片的格式一致，并且尽量调大字体。我把屏幕分辨率调至某个值，同时终端最大化，字体设置为 <code>Monospace Bold</code>，字号 $20$，直接按固定的屏幕坐标截图就可以了，这样可以保证每次截图获取的数据都一样。</p>
-<p>截图需要避免一些坑点，因为页数比较多，我写了个脚本自动帮我往下翻，但是如果翻得太快会导致视频来不及刷新<del>建议在网络环境比较好的条件下进行，比如插网线</del>；而太慢会导致超过 $15$ 分钟<del>等半天也烦人</del></p>
+<p>为了方便下面的 OCR 步骤，我们可以控制每一张图片的格式一致，并且尽量调大字体。我把屏幕分辨率调至某个值，同时终端最大化，字体设置为 <code>Monospace Bold</code>，字号 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn></mrow><annotation encoding="application/x-tex">20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span></span></span></span>，直接按固定的屏幕坐标截图就可以了，这样可以保证每次截图获取的数据都一样。</p>
+<p>截图需要避免一些坑点，因为页数比较多，我写了个脚本自动帮我往下翻，但是如果翻得太快会导致视频来不及刷新<s>建议在网络环境比较好的条件下进行，比如插网线</s>；而太慢会导致超过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn></mrow><annotation encoding="application/x-tex">15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">15</span></span></span></span> 分钟<s>等半天也烦人</s></p>
 <p>同样是为了便于 OCR，我先将图片二值化。</p>
-<p>我尝试使用现有的解决方案，发现虽然准确率较高，但是不太能保证百分之百的准确率，即使是微调的模型我也没法确保必定正确<del>也有可能是我太菜</del>，所以尝试之后我就另寻他法了。</p>
+<p>我尝试使用现有的解决方案，发现虽然准确率较高，但是不太能保证百分之百的准确率，即使是微调的模型我也没法确保必定正确<s>也有可能是我太菜</s>，所以尝试之后我就另寻他法了。</p>
 <p>注意到截下来的图片都是固定格式的，字符都等宽的，我想到可以选一些字符作为标准，对于图片中的字符逐个匹配，计算相似度，选取最高的作为结果，如果相似度差太多就标成问号，在得到的结果中搜索问号手动排除。</p>
 <p>在上一步的基础上，我得到了一系列文件，经过去重（因为截图步骤可能有差错）之后转为 <code>bytes</code> 写入文件即可。</p>
-<p>整个步骤思路挺简单，但实现起来耗了很久时间<del>菜</del>。</p>
+<p>整个步骤思路挺简单，但实现起来耗了很久时间<s>菜</s>。</p>
 <p>（我怎么就没想到用容错率更高的手段，比如 QRCode 呢呜呜呜）</p>
-<h2 id="链上转账助手"><a href="#链上转账助手" class="headerlink" title="链上转账助手"></a>链上转账助手</h2><p>直接 Copilot 启动，问 o1-preview，就可以获得前两问的 flag 了（第三问它告诉我要写底层代码，可能是我 PUA 技术还不够，它没法写出来）</p>
-<h2 id="不太分布式的软总线"><a href="#不太分布式的软总线" class="headerlink" title="不太分布式的软总线"></a>不太分布式的软总线</h2><p>仍然是用 o1 大法，顺利获得 3 个 flag（我都不知道我怎么就获得了，莫名其妙就过了）</p>
-<p><del>或许这才是 AI 题吧</del></p>
-<h2 id="关灯"><a href="#关灯" class="headerlink" title="关灯"></a>关灯</h2><p>前三小题其实就是 OI 题，经典的关灯问题，转化成求解异或线性方程组，然后进行高斯消元。参考代码（灯的状态手动填一下）：</p>
+<h2 id="链上转账助手">链上转账助手</h2>
+<p>直接 Copilot 启动，问 o1-preview，就可以获得前两问的 flag 了（第三问它告诉我要写底层代码，可能是我 PUA 技术还不够，它没法写出来）</p>
+<h2 id="不太分布式的软总线">不太分布式的软总线</h2>
+<p>仍然是用 o1 大法，顺利获得 3 个 flag（我都不知道我怎么就获得了，莫名其妙就过了）</p>
+<p><s>或许这才是 AI 题吧</s></p>
+<h2 id="关灯">关灯</h2>
+<p>前三小题其实就是 OI 题，经典的关灯问题，转化成求解异或线性方程组，然后进行高斯消元。参考代码（灯的状态手动填一下）：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> n = <span class="hljs-number">11</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> tot = n * n * n;<br><span class="hljs-type">bool</span> result[n + <span class="hljs-number">1</span>][n + <span class="hljs-number">1</span>][n + <span class="hljs-number">1</span>];<br><span class="hljs-type">bool</span> M[tot + <span class="hljs-number">1</span>][tot + <span class="hljs-number">2</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">conv</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> z)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (x - <span class="hljs-number">1</span>) * n * n + (y - <span class="hljs-number">1</span>) * n + z;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">generateMatrix</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; k++) &#123;<br>                <span class="hljs-type">int</span> index = <span class="hljs-built_in">conv</span>(i, j, k);<br>                M[index][index] = <span class="hljs-literal">true</span>;<br>                <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">1</span>) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i - <span class="hljs-number">1</span>, j, k)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (i &lt; n) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i + <span class="hljs-number">1</span>, j, k)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (j &gt; <span class="hljs-number">1</span>) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i, j - <span class="hljs-number">1</span>, k)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (j &lt; n) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i, j + <span class="hljs-number">1</span>, k)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (k &gt; <span class="hljs-number">1</span>) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i, j, k - <span class="hljs-number">1</span>)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (k &lt; n) &#123;<br>                    M[index][<span class="hljs-built_in">conv</span>(i, j, k + <span class="hljs-number">1</span>)] = <span class="hljs-literal">true</span>;<br>                &#125;<br>                M[index][n*n*n<span class="hljs-number">+1</span>] = result[i][j][k];<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">gauss</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> tot = n*n*n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; i++) &#123;<br>        <span class="hljs-type">int</span> k = i;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i<span class="hljs-number">+1</span>; j &lt;= tot; j++) <span class="hljs-keyword">if</span> (M[j][i] == <span class="hljs-number">1</span>) k = j;<br>        <span class="hljs-type">int</span> now = M[k][i];<br>        <span class="hljs-keyword">if</span> (k != i) <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= tot + <span class="hljs-number">1</span>; j++) <span class="hljs-built_in">swap</span>(M[i][j],M[k][j]);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= tot; k++) <span class="hljs-keyword">if</span> (k != i &amp;&amp; M[k][i]) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= tot + <span class="hljs-number">1</span>;j++) M[k][j] = M[k][j] ^ M[i][j];<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::string input = <span class="hljs-string">&quot;input_light_status&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; k++) &#123;<br>                result[i][j][k] = input[(i - <span class="hljs-number">1</span>) * n * n + (j - <span class="hljs-number">1</span>) * n + k - <span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;1&#x27;</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">generateMatrix</span>();<br>    <span class="hljs-built_in">gauss</span>();<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; i++) &#123;<br>        cout &lt;&lt; M[i][tot + <span class="hljs-number">1</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="零知识数独"><a href="#零知识数独" class="headerlink" title="零知识数独"></a>零知识数独</h2><p>不会数独，也不会什么零知识证明，不过第一题还是可以做的，直接搜在线的解数独工具即可。</p>
-<h2 id="先不说关于我从零开始独自在异世界转生成某大厂家的-LLM-龙猫女仆这件事可不可能这么离谱，发现-Hackergame-内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」"><a href="#先不说关于我从零开始独自在异世界转生成某大厂家的-LLM-龙猫女仆这件事可不可能这么离谱，发现-Hackergame-内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」" class="headerlink" title="先不说关于我从零开始独自在异世界转生成某大厂家的 LLM 龙猫女仆这件事可不可能这么离谱，发现 Hackergame 内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」"></a>先不说关于我从零开始独自在异世界转生成某大厂家的 LLM 龙猫女仆这件事可不可能这么离谱，发现 Hackergame 内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」</h2><p><del>这题什么鬼名字啊</del></p>
+<h2 id="零知识数独">零知识数独</h2>
+<p>不会数独，也不会什么零知识证明，不过第一题还是可以做的，直接搜在线的解数独工具即可。</p>
+<h2 id="先不说关于我从零开始独自在异世界转生成某大厂家的-LLM-龙猫女仆这件事可不可能这么离谱，发现-Hackergame-内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」">先不说关于我从零开始独自在异世界转生成某大厂家的 LLM 龙猫女仆这件事可不可能这么离谱，发现 Hackergame 内容审查委员会忘记审查题目标题了ごめんね，以及「这么长都快赶上轻小说了真的不会影响用户体验吗🤣」</h2>
+<p><s>这题什么鬼名字啊</s></p>
 <p>第一题配合大模型，手动还原即可。有个坑点就是 <code>Txx xxxx wxs on</code> 这里的 <code>xxxx</code> 容易被猜成 <code>race</code>，实际上是 <code>game</code>，这玩意儿卡了我好多天。</p>
-<p><del>所以你们穿 lab coat 吗</del></p>
+<p><s>所以你们穿 lab coat 吗</s></p>
 
                 
               </div>
@@ -447,6 +462,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -525,9 +561,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/12/rCore-0x02/" title="rCore 学习笔记 - 第二章">
+                      <a href="/2025/01/12/rCore-0x01/" title="rCore 学习笔记 - 第一章">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">rCore 学习笔记 - 第二章</span>
+                        <span class="hidden-mobile">rCore 学习笔记 - 第一章</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -597,7 +633,6 @@
 
   
   
-
 
 
 
@@ -817,49 +852,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

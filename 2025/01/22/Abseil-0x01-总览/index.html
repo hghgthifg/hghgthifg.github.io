@@ -27,7 +27,7 @@
 <meta property="og:description" content="Abseil 源码阅读第 1 期，简介、兼容指南、总览">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-22T02:48:12.000Z">
-<meta property="article:modified_time" content="2025-01-22T11:49:41.072Z">
+<meta property="article:modified_time" content="2025-01-29T07:06:17.672Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C++">
@@ -342,7 +342,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>按照官网的介绍，Abseil 实际上是一组开源代码的集合，使用的是 C++14 标准，是 C++ 标准库的补充，这个库在 Google 的开源项目中应用广泛，经过了生产环境的检验。</p>
+                <h2 id="简介">简介</h2>
+<p>按照官网的介绍，Abseil 实际上是一组开源代码的集合，使用的是 C++14 标准，是 C++ 标准库的补充，这个库在 Google 的开源项目中应用广泛，经过了生产环境的检验。</p>
 <p>Abseil 主要有以下优点：</p>
 <ol>
 <li>兼容较新的 C++ 标准。这个库虽然是用的 C++14，但是实现了一些高版本的特性，并且确保了有相同的 API，比如 <code>string_view</code>，直接使用 <code>absl::string_view</code>，在高版本会使用 <code>std::string_view</code>，而在低版本会用 Abseil 库。这可以为旧代码引入新的特性。</li>
@@ -351,7 +352,8 @@
 <li>经过生产环境的测试。</li>
 <li>更加适用特定领域。C++ 标准库为了泛用，设计上会有一些考虑得“过于周到”的地方，而对于大多情况来说这些我们并不需要。</li>
 </ol>
-<h2 id="兼容指南"><a href="#兼容指南" class="headerlink" title="兼容指南"></a>兼容指南</h2><ol>
+<h2 id="兼容指南">兼容指南</h2>
+<ol>
 <li>不要依赖内部细节。这点很好理解，封装就是为了隐藏内部细节，应当依赖公共 API.</li>
 <li>使用什么就 include 什么。意思是不要指望 Abseil 内部的间接 include 来帮你引入想用的东西，因为里面会变。</li>
 <li>不要依赖动态卸载。Abseil 库的设计不适用于动态加载和卸载。</li>
@@ -361,7 +363,8 @@
 <li>不要依赖 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/adl">ADL</a>（参数依赖查找）。</li>
 <li>不要在全局命名空间中不加限定地调用函数。这说的还是重复的问题。</li>
 </ol>
-<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>Abseil 库很贴心地给出了 Codemap，包含了这些东西：</p>
+<h2 id="总览">总览</h2>
+<p>Abseil 库很贴心地给出了 Codemap，包含了这些东西：</p>
 <ul>
 <li>base：包含了一些初始化的代码和一些其他模块依赖的代码</li>
 <li>algorithm：对 STL algorithm 的补充</li>
@@ -385,6 +388,41 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="category-chain-item">源码阅读</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/Abseil/" class="category-chain-item">Abseil</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
