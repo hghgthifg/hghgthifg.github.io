@@ -27,7 +27,7 @@
 <meta property="og:description" content="Hexo 博客中嵌入 pdf.js，用于展示 PDF 文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-19T05:53:54.000Z">
-<meta property="article:modified_time" content="2025-02-19T07:03:54.241Z">
+<meta property="article:modified_time" content="2025-02-19T07:04:58.865Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="PDF">
 <meta property="article:tag" content="JavaScript">
@@ -299,7 +299,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          284 字
+          293 字
         
       </span>
     
@@ -346,7 +346,7 @@
                 <p>效果见<a href="2025/02/19/Hexo%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5pdf-js/">这篇文章</a></p>
 <p>之前尝试过 <a target="_blank" rel="noopener" href="https://github.com/superalsrk/hexo-pdf">hexo-pdf</a>，最近发现 npm 提示依赖有冲突，找到这个仓库一看都九年没更新了，于是考虑直接用 pdf.js 实现 pdf 显示的功能。</p>
 <p>首先来<a target="_blank" rel="noopener" href="https://mozilla.github.io/pdf.js/getting_started/#download">这里</a>下载 pdf.js，解压后把里面的所有内容放到放到博客根目录的 <code>source/js/pdfjs</code> 里面。</p>
-<p>在 <code>_config.yml</code> （注意<strong>不是</strong>主题的配置文件）里面添加这些东西（这里根据实际情况指定名称）<a href="%5B%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%B5%8C%E5%85%A5PDF%5D(%22https://yuzhang.net/2023/11/07/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%B5%8C%E5%85%A5PDF/%22)">^1</a>：</p>
+<p>在 <code>_config.yml</code> （注意<strong>不是</strong>主题的配置文件）里面添加这些东西（这里根据实际情况指定名称）<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">pdfjs:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">src:</span> <span class="hljs-string">/js/pdfjs/build/pdf.mjs</span><br>  <span class="hljs-attr">workerSrc:</span> <span class="hljs-string">/js/pdfjs/build/pdf.worker.mjs</span><br></code></pre></td></tr></table></figure>
 <p>在 <code>skip_render</code> 这一项里加上 <code>js</code> 目录：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">skip_render:</span> [<span class="hljs-string">js/**</span>]<br></code></pre></td></tr></table></figure>
@@ -355,6 +355,13 @@
 <p><code>file</code> 后面是文件的地址，比如说我在 <code>source/assets</code> 目录下有 <code>GAMES101.pdf</code> 这个文件，执行 <code>hexo g</code> 后会被复制到网站的根目录，所以这里用 <code>/assets/GAMES101.pdf</code> 来指定这个文件。</p>
 <p><code>/js/pdfjs/web</code> 下面有个似乎是用来测试的论文，想删也可以删了。</p>
 <!-- ## 参考 -->
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://yuzhang.net/2023/11/07/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%B5%8C%E5%85%A5PDF/">如何在hexo博客中嵌入PDF</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
                 
               </div>
