@@ -27,7 +27,7 @@
 <meta property="og:description" content="Eigen 惰性求值带来的悬垂引用问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-19T05:07:51.000Z">
-<meta property="article:modified_time" content="2025-02-20T14:49:40.277Z">
+<meta property="article:modified_time" content="2025-02-27T11:26:26.165Z">
 <meta property="article:author" content="小H">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Eigen">
@@ -297,7 +297,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          455 字
+          463 字
         
       </span>
     
@@ -350,6 +350,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Rhs&gt;</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">const</span> Solve&lt;Derived, Rhs&gt;</span><br><span class="hljs-function"><span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">const</span> MatrixBase&lt;Rhs&gt;&amp; b)</span> <span class="hljs-type">const</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">eigen_assert</span>(m_isInitialized &amp;&amp; <span class="hljs-string">&quot;Solver is not initialized.&quot;</span>);<br>    <span class="hljs-built_in">eigen_assert</span>(<span class="hljs-built_in">derived</span>().<span class="hljs-built_in">rows</span>()==b.<span class="hljs-built_in">rows</span>() &amp;&amp; <span class="hljs-string">&quot;solve(): invalid number of rows of the right hand side matrix b&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Solve</span>&lt;Derived, Rhs&gt;(<span class="hljs-built_in">derived</span>(), b.<span class="hljs-built_in">derived</span>());<br>&#125;<br><br><span class="hljs-keyword">inline</span> <span class="hljs-keyword">auto</span> flatten = [&amp;](<span class="hljs-type">const</span> Eigen::MatrixXd&amp; A) &#123;<br>    Eigen::MatrixXd A_flatten = A.<span class="hljs-built_in">transpose</span>();<br>    A_flatten.<span class="hljs-built_in">resize</span>(A.<span class="hljs-built_in">rows</span>() * A.<span class="hljs-built_in">cols</span>(), <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> A_flatten;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>似乎是没什么问题，<code>flatten(grad_g)</code> 的值被 <code>const MatrixBase&lt;Rhs&gt;&amp;</code> 常值引用，在 <code>solve</code> 函数内是不会失效的。于是继续深入。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">Solve</span>(<span class="hljs-type">const</span> Decomposition &amp;dec, <span class="hljs-type">const</span> RhsType &amp;rhs)<br>    : <span class="hljs-built_in">m_dec</span>(dec), <span class="hljs-built_in">m_rhs</span>(rhs)<br>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>其中 <code>m_dec</code> 和 <code>m_rhs</code> 都是引用。</p>
 <p>到这里，<code>flatten(grad_g)</code> 的值还是没有失效的，但我们可以看到，<code>solve</code> 函数实际上并没有进行求解，只是构造了一个 <code>Solve</code> 对象。这是 Eigen 的懒惰求值特性，由于用了 <code>auto</code> 变量接受返回值，所以得到的还是 <code>Solve</code> 对象，这点在 IDE 的提示中也可以看到。</p>
 <p>当后面使用 <code>delta_X_flatten</code> 的时候，由于它是一个引用了 <code>flatten(grad_g)</code> 临时对象的 <code>Solve</code> 对象，而 <code>flatten(grad_g)</code> 已经被析构了，便会造成悬垂引用，产生错误。</p>
 <h2 id="解决">解决</h2>
