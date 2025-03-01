@@ -404,50 +404,6 @@
   </entry>
   
   <entry>
-    <title>NOIP2023 游记</title>
-    <link href="http://xiao-h.com/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://xiao-h.com/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/</id>
-    <published>2023-11-17T14:20:09.000Z</published>
-    <updated>2023-12-02T13:48:14.000Z</updated>
-    
-    
-    <summary type="html">NOIP2023，OI 生涯一个不完美的句号</summary>
-    
-    
-    
-    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
-    
-    <category term="NOIP" scheme="http://xiao-h.com/tags/NOIP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSP2023 游记</title>
-    <link href="http://xiao-h.com/2023/10/20/CSP2023/"/>
-    <id>http://xiao-h.com/2023/10/20/CSP2023/</id>
-    <published>2023-10-20T13:39:15.000Z</published>
-    <updated>2024-09-01T15:33:26.000Z</updated>
-    
-    
-    <summary type="html">本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</summary>
-    
-    
-    
-    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
-    
-    <category term="CSP" scheme="http://xiao-h.com/tags/CSP/"/>
-    
-    <category term="游记" scheme="http://xiao-h.com/tags/%E6%B8%B8%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[NOIP2022] 种花</title>
     <link href="http://xiao-h.com/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/"/>
     <id>http://xiao-h.com/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/</id>
@@ -523,6 +479,50 @@
     <category term="最小生成树" scheme="http://xiao-h.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
     <category term="最近公共祖先" scheme="http://xiao-h.com/tags/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023 化学国初游记</title>
+    <link href="http://xiao-h.com/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://xiao-h.com/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/</id>
+    <published>2023-09-03T12:21:07.000Z</published>
+    <updated>2024-05-14T01:34:52.000Z</updated>
+    
+    
+    <summary type="html">2023 年化学国初游记</summary>
+    
+    
+    
+    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="化学" scheme="http://xiao-h.com/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[SCOI2010] 序列操作</title>
+    <link href="http://xiao-h.com/2023/08/27/SCOI2010-%E5%BA%8F%E5%88%97%E6%93%8D%E4%BD%9C/"/>
+    <id>http://xiao-h.com/2023/08/27/SCOI2010-%E5%BA%8F%E5%88%97%E6%93%8D%E4%BD%9C/</id>
+    <published>2023-08-27T11:22:16.000Z</published>
+    <updated>2025-02-19T08:05:07.502Z</updated>
+    
+    
+    <summary type="html">SCOI2010 序列操作题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="省选" scheme="http://xiao-h.com/tags/%E7%9C%81%E9%80%89/"/>
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="线段树" scheme="http://xiao-h.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
