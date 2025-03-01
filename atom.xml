@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小H的博客</title>
+  <icon>http://xiao-h.com/icon.png</icon>
+  
+  <link href="http://xiao-h.com/atom.xml" rel="self"/>
+  
+  <link href="http://xiao-h.com/"/>
+  <updated>2025-02-19T07:04:58.865Z</updated>
+  <id>http://xiao-h.com/</id>
+  
+  <author>
+    <name>小H</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 博客嵌入 pdf.js</title>
+    <link href="http://xiao-h.com/2025/02/19/Hexo%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5pdf-js/"/>
+    <id>http://xiao-h.com/2025/02/19/Hexo%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5pdf-js/</id>
+    <published>2025-02-19T05:53:54.000Z</published>
+    <updated>2025-02-19T07:04:58.865Z</updated>
+    
+    
+    <summary type="html">Hexo 博客中嵌入 pdf.js，用于展示 PDF 文件</summary>
+    
+    
+    
+    <category term="教程" scheme="http://xiao-h.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="PDF" scheme="http://xiao-h.com/tags/PDF/"/>
+    
+    <category term="JavaScript" scheme="http://xiao-h.com/tags/JavaScript/"/>
+    
+    <category term="博客" scheme="http://xiao-h.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="http://xiao-h.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[踩坑] Eigen 惰性求值与生命周期</title>
+    <link href="http://xiao-h.com/2025/02/19/%E8%B8%A9%E5%9D%91-Eigen%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>http://xiao-h.com/2025/02/19/%E8%B8%A9%E5%9D%91-Eigen%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
+    <published>2025-02-19T05:07:51.000Z</published>
+    <updated>2025-02-27T11:26:26.165Z</updated>
+    
+    
+    <summary type="html">Eigen 惰性求值带来的悬垂引用问题</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="踩坑" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="Eigen" scheme="http://xiao-h.com/tags/Eigen/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[论文复现] Poisson Image Editing</title>
+    <link href="http://xiao-h.com/2025/01/29/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0-%E6%B3%8A%E6%9D%BE%E5%9B%BE%E5%83%8F%E7%BC%96%E8%BE%91/"/>
+    <id>http://xiao-h.com/2025/01/29/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0-%E6%B3%8A%E6%9D%BE%E5%9B%BE%E5%83%8F%E7%BC%96%E8%BE%91/</id>
+    <published>2025-01-29T06:59:13.000Z</published>
+    <updated>2025-02-03T06:05:57.304Z</updated>
+    
+    
+    <summary type="html">SIGGRAPH 2003 Poisson image editing - 泊松图像编辑</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="论文复现" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="计算机图形学" scheme="http://xiao-h.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="论文复现" scheme="http://xiao-h.com/tags/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0/"/>
+    
+    <category term="图像处理" scheme="http://xiao-h.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="计算机视觉" scheme="http://xiao-h.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Abseil 源码阅读笔记·容器 [0x02]</title>
+    <link href="http://xiao-h.com/2025/01/22/Abseil-0x02-%E5%AE%B9%E5%99%A8/"/>
+    <id>http://xiao-h.com/2025/01/22/Abseil-0x02-%E5%AE%B9%E5%99%A8/</id>
+    <published>2025-01-22T11:49:09.000Z</published>
+    <updated>2025-01-29T07:06:19.225Z</updated>
+    
+    
+    <summary type="html">Abseil 源码阅读第 2 期，容器</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Abseil" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/Abseil/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Abseil 源码阅读笔记·总览 [0x01]</title>
+    <link href="http://xiao-h.com/2025/01/22/Abseil-0x01-%E6%80%BB%E8%A7%88/"/>
+    <id>http://xiao-h.com/2025/01/22/Abseil-0x01-%E6%80%BB%E8%A7%88/</id>
+    <published>2025-01-22T02:48:12.000Z</published>
+    <updated>2025-01-29T07:06:17.672Z</updated>
+    
+    
+    <summary type="html">Abseil 源码阅读第 1 期，简介、兼容指南、总览</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Abseil" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/Abseil/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Abseil 源码阅读笔记·序言 [0x00]</title>
+    <link href="http://xiao-h.com/2025/01/22/Abseil-0x00-%E5%BA%8F%E8%A8%80/"/>
+    <id>http://xiao-h.com/2025/01/22/Abseil-0x00-%E5%BA%8F%E8%A8%80/</id>
+    <published>2025-01-22T02:38:28.000Z</published>
+    <updated>2025-01-29T07:06:15.639Z</updated>
+    
+    
+    <summary type="html">Abseil 源码阅读第 0 期，序言部分以及参考链接、目录等。</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Abseil" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/Abseil/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rCore 学习笔记 - 第二章</title>
+    <link href="http://xiao-h.com/2025/01/12/rCore-0x02/"/>
+    <id>http://xiao-h.com/2025/01/12/rCore-0x02/</id>
+    <published>2025-01-12T14:14:04.000Z</published>
+    <updated>2025-02-09T09:45:09.568Z</updated>
+    
+    
+    <summary type="html">rCore 学习笔记第二章：系统调用、执行流程、作业实现</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="rCore" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/rCore/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Rust" scheme="http://xiao-h.com/tags/Rust/"/>
+    
+    <category term="rCore" scheme="http://xiao-h.com/tags/rCore/"/>
+    
+    <category term="操作系统" scheme="http://xiao-h.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rCore 学习笔记 - 第一章</title>
+    <link href="http://xiao-h.com/2025/01/12/rCore-0x01/"/>
+    <id>http://xiao-h.com/2025/01/12/rCore-0x01/</id>
+    <published>2025-01-12T14:14:04.000Z</published>
+    <updated>2025-01-29T07:07:28.266Z</updated>
+    
+    
+    <summary type="html">rCore 学习笔记第一章：前言、环境配置、练习</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="rCore" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/rCore/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Rust" scheme="http://xiao-h.com/tags/Rust/"/>
+    
+    <category term="rCore" scheme="http://xiao-h.com/tags/rCore/"/>
+    
+    <category term="操作系统" scheme="http://xiao-h.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hackergame 2024 个人题解</title>
+    <link href="http://xiao-h.com/2024/11/13/Hackergame2024-WriteUp/"/>
+    <id>http://xiao-h.com/2024/11/13/Hackergame2024-WriteUp/</id>
+    <published>2024-11-13T09:13:04.000Z</published>
+    <updated>2025-01-29T07:18:29.250Z</updated>
+    
+    
+    <summary type="html">大一第一次参加 Hackergame，写篇 WP 纪念一下。</summary>
+    
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="Hackergame" scheme="http://xiao-h.com/tags/Hackergame/"/>
+    
+    <category term="CTF" scheme="http://xiao-h.com/tags/CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAMES101 学习总结</title>
+    <link href="http://xiao-h.com/2024/09/06/GAMES101-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    <id>http://xiao-h.com/2024/09/06/GAMES101-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</id>
+    <published>2024-09-06T02:43:24.000Z</published>
+    <updated>2025-02-19T05:52:48.198Z</updated>
+    
+    
+    <summary type="html">总算是学完了 GAMES101，写篇总结纪念一下。</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机图形学" scheme="http://xiao-h.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="GAMES101" scheme="http://xiao-h.com/tags/GAMES101/"/>
+    
+    <category term="学习总结" scheme="http://xiao-h.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LevelDB 源码阅读笔记·初探 [0x01]</title>
+    <link href="http://xiao-h.com/2024/06/06/Leveldb-0x01-%E5%88%9D%E6%8E%A2/"/>
+    <id>http://xiao-h.com/2024/06/06/Leveldb-0x01-%E5%88%9D%E6%8E%A2/</id>
+    <published>2024-06-06T12:00:03.000Z</published>
+    <updated>2024-06-30T15:04:58.000Z</updated>
+    
+    
+    <summary type="html">LevelDB 源码阅读笔记第 1 期，从 db.h 出发，初探 LevelDB 的主要功能。</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="leveldb" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/leveldb/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="LevelDB" scheme="http://xiao-h.com/tags/LevelDB/"/>
+    
+    <category term="数据库" scheme="http://xiao-h.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2024 生物联赛游记</title>
+    <link href="http://xiao-h.com/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://xiao-h.com/2024/05/12/2024%E7%94%9F%E7%89%A9%E8%81%94%E8%B5%9B%E6%B8%B8%E8%AE%B0/</id>
+    <published>2024-05-12T14:26:02.000Z</published>
+    <updated>2024-06-06T11:52:14.000Z</updated>
+    
+    
+    <summary type="html">关于我莫名其妙过了校内预选，又迷迷糊糊去参加生物联赛这档事</summary>
+    
+    
+    
+    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="生物" scheme="http://xiao-h.com/tags/%E7%94%9F%E7%89%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>音乐元数据标签格式 ID3v1 介绍</title>
+    <link href="http://xiao-h.com/2024/04/20/music-tag-id3v1/"/>
+    <id>http://xiao-h.com/2024/04/20/music-tag-id3v1/</id>
+    <published>2024-04-20T15:54:23.000Z</published>
+    <updated>2024-04-30T17:17:34.000Z</updated>
+    
+    
+    <summary type="html">音乐元数据标签格式 ID3v1 介绍</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="音乐" scheme="http://xiao-h.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="元数据" scheme="http://xiao-h.com/tags/%E5%85%83%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="Id3v1" scheme="http://xiao-h.com/tags/Id3v1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LevelDB 源码阅读笔记·序言 [0x00]</title>
+    <link href="http://xiao-h.com/2024/03/10/Leveldb-0x00-%E5%BA%8F%E8%A8%80/"/>
+    <id>http://xiao-h.com/2024/03/10/Leveldb-0x00-%E5%BA%8F%E8%A8%80/</id>
+    <published>2024-03-10T11:52:39.000Z</published>
+    <updated>2025-01-22T02:45:57.184Z</updated>
+    
+    
+    <summary type="html">LevelDB 源码阅读笔记第 0 期，序言部分以及参考链接、目录等。</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="leveldb" scheme="http://xiao-h.com/categories/%E7%AC%94%E8%AE%B0/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/leveldb/"/>
+    
+    
+    <category term="笔记" scheme="http://xiao-h.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://xiao-h.com/tags/C/"/>
+    
+    <category term="源码阅读" scheme="http://xiao-h.com/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="LevelDB" scheme="http://xiao-h.com/tags/LevelDB/"/>
+    
+    <category term="数据库" scheme="http://xiao-h.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NOIP2023 游记</title>
+    <link href="http://xiao-h.com/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://xiao-h.com/2023/11/17/NOIP2023%E6%B8%B8%E8%AE%B0/</id>
+    <published>2023-11-17T14:20:09.000Z</published>
+    <updated>2023-12-02T13:48:14.000Z</updated>
+    
+    
+    <summary type="html">NOIP2023，OI 生涯一个不完美的句号</summary>
+    
+    
+    
+    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://xiao-h.com/tags/NOIP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSP2023 游记</title>
+    <link href="http://xiao-h.com/2023/10/20/CSP2023/"/>
+    <id>http://xiao-h.com/2023/10/20/CSP2023/</id>
+    <published>2023-10-20T13:39:15.000Z</published>
+    <updated>2024-09-01T15:33:26.000Z</updated>
+    
+    
+    <summary type="html">本来以为就这么退役了，想写退役记的，没想到竟然进了 NOIP，那就改回游记吧……</summary>
+    
+    
+    
+    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="CSP" scheme="http://xiao-h.com/tags/CSP/"/>
+    
+    <category term="游记" scheme="http://xiao-h.com/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NOIP2022] 种花</title>
+    <link href="http://xiao-h.com/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/"/>
+    <id>http://xiao-h.com/2023/10/04/NOIP2022-%E7%A7%8D%E8%8A%B1/</id>
+    <published>2023-10-04T01:54:28.000Z</published>
+    <updated>2025-02-19T08:02:44.942Z</updated>
+    
+    
+    <summary type="html">NOIP2022 种花题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://xiao-h.com/tags/NOIP/"/>
+    
+    <category term="前缀和" scheme="http://xiao-h.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NOIP2020] 排水系统</title>
+    <link href="http://xiao-h.com/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://xiao-h.com/2023/09/27/NOIP2020-%E6%8E%92%E6%B0%B4%E7%B3%BB%E7%BB%9F/</id>
+    <published>2023-09-27T14:28:21.000Z</published>
+    <updated>2023-11-12T13:18:22.000Z</updated>
+    
+    
+    <summary type="html">NOIP2020 排水系统题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://xiao-h.com/tags/NOIP/"/>
+    
+    <category term="拓扑排序" scheme="http://xiao-h.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NOIP2013] 货车运输</title>
+    <link href="http://xiao-h.com/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/"/>
+    <id>http://xiao-h.com/2023/09/10/NOIP2013-%E8%B4%A7%E8%BD%A6%E8%BF%90%E8%BE%93/</id>
+    <published>2023-09-10T00:22:45.000Z</published>
+    <updated>2024-09-01T15:33:28.000Z</updated>
+    
+    
+    <summary type="html">NOIP2013提高组 货车运输题解</summary>
+    
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="http://xiao-h.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="OI" scheme="http://xiao-h.com/tags/OI/"/>
+    
+    <category term="NOIP" scheme="http://xiao-h.com/tags/NOIP/"/>
+    
+    <category term="LCA" scheme="http://xiao-h.com/tags/LCA/"/>
+    
+    <category term="Prim" scheme="http://xiao-h.com/tags/Prim/"/>
+    
+    <category term="最小生成树" scheme="http://xiao-h.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+    <category term="最近公共祖先" scheme="http://xiao-h.com/tags/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023 化学国初游记</title>
+    <link href="http://xiao-h.com/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://xiao-h.com/2023/09/03/2023%E5%8C%96%E5%AD%A6%E5%9B%BD%E5%88%9D%E6%B8%B8%E8%AE%B0/</id>
+    <published>2023-09-03T12:21:07.000Z</published>
+    <updated>2024-05-14T01:34:52.000Z</updated>
+    
+    
+    <summary type="html">2023 年化学国初游记</summary>
+    
+    
+    
+    <category term="游记" scheme="http://xiao-h.com/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="化学" scheme="http://xiao-h.com/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>
