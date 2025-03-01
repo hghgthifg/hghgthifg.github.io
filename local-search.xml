@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>rCore 学习笔记 - 第三章</title>
+    <link href="/2025/03/01/rCore-0x03/"/>
+    <url>/2025/03/01/rCore-0x03/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+      <category>rCore</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+      <tag>Rust</tag>
+      
+      <tag>rCore</tag>
+      
+      <tag>操作系统</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo 博客嵌入 pdf.js</title>
     <link href="/2025/02/19/Hexo%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5pdf-js/"/>
     <url>/2025/02/19/Hexo%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5pdf-js/</url>
